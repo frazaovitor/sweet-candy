@@ -1,0 +1,505 @@
+{% macro image(photo, settings) %}
+
+    {% set figureStyle %}
+        border: 1px solid rgb(228, 228, 228);
+        margin: {{ settings.area.distance }}px !important;
+        background-color: white;
+        padding : 20px;
+        {% if settings.use_shadow == 1 %}
+            box-shadow: {{ settings.thumbnail.shadow.x }}px {{ settings.thumbnail.shadow.y }}px {{ settings.thumbnail.shadow.blur }}px {{ settings.thumbnail.shadow.color }};
+        {% endif %}
+        display: block;
+        {% if settings.area.grid == '2' %}
+            width: 45%;
+        {% else %}
+            width: auto;
+        {% endif %}
+    {% endset %}
+
+    {% set aHref %}
+        {{ photo.url }}
+    {% endset %}
+
+    {% set categories = '' %}
+    {% set cats %}
+    {% for category in photo.categories %}
+        {% set categories = categories ~ category.name|trim %}
+        {% if loop.last == false %}
+            {% set categories = categories ~ '|' %}
+        {% endif %}
+    {% endfor %}
+    {% endset %}
+
+    <div class="post" style="width: auto">
+
+        <figure class="grid-gallery-caption{% if settings.mouse_shadow == '1' and settings.use_shadow == '1' %} shadow-show{% endif %}{% if settings.mouse_shadow == '2' and settings.use_shadow == '1' %} shadow-hide{% endif %}" data-tags="{{ categories|trim|replace(' ', '_') }}"
+                data-grid-gallery-type="fixed-post"
+                style="display:none;{{ figureStyle|trim }}">
+            <div class="crop{% if settings.thumbnail.shadow.overlay == '1' and settings.use_shadow == '1' %} image-overlay{% endif %}" style="{% if settings.area.grid == '0' %}width:{{ settings.area.photo_width ~ settings.area.photo_width_unit|replace(['px', '%']) }};height:{{ settings.area.photo_height ~ settings.area.photo_height_unit|replace(['px', '%']) }};{% endif %}">
+
+                {% set width, height, crop = 0, 0, 0 %}
+
+                {% if settings.area.photo_width_unit == 0 %}
+                    {% set width = settings.area.photo_width ~ settings.area.photo_width_unit|replace(['px', '%']) %}
+                {% endif %}
+
+                {% if settings.area.photo_height_unit == 0 %}
+                        {% if settings.area.grid == '1' %}
+                            {% set height = settings.area.photo_width %}
+                        {% endif %}
+                {% endif %}
+
+                {% if settings.area.grid == 0 or settings.area.grid == 2 %}
+                    {% set crop = 1 %}
+                {% else %}
+                    {% set height = null %}
+                {% endif %}
+
+                <img src="{{ get_attachment(photo.photoId, width, height, crop) }}" />
+            </div>
+
+            {% set postCropStyle %}
+                width: {{ width - 20 }}px;
+            {% endset %}
+
+            <div class="post-feed-crop" style="{{ postCropStyle|trim }}">
+                <a class="post-feed-title" href="{{ aHref }}"> {{ photo.title }}</a>
+                {% if settings.posts.author == '1' %}
+                    <a class="post-feed-author" href="{{ photo.authorUrl|trim }}"> {{ photo.author }} </a>
+                {% endif %}
+                {% if settings.posts.date == '1' %}
+                    <span class="separator" style="color: #A2A2A2; font-size: 10px">|</span>
+                    <a class="post-feed-date" href="{{ photo.dateUrl|trim }}"> {{ photo.date }} </a>
+                {% endif %}
+                {% if settings.posts.categories == '1' %}
+                    <div class="post-categories">
+                        {% for category in photo.categories %}
+                            <a class="post-category" href="{{ category.url }}">{{ category.name }}</a>
+                            {% if loop.last == false %}
+                                <span class="separator" style="color: #A2A2A2; font-size: 10px">|</span>
+                            {% endif %}
+                        {% endfor %}
+                </div>
+                {% endif %}
+                {% if settings.posts.contents == '1' %}
+                    <div class="post-feed-content"
+                         style="{{ postContentStyle|trim }}"> {{ photo.content|slice(0,25)~"..." }} </div>
+                {% endif %}
+                <a class="read-more" href="{{ aHref }}" > >Read more</a>
+            </div>
+        </figure>
+    </div>
+{% endmacro %}
+
+{% macro imageCaption(photo, settings) %}
+
+    {% set figureStyle %}
+        border: 1px none rgb(228, 228, 228);
+        border-radius: {{ settings.thumbnail.border.radius ~ settings.thumbnail.border.radius_unit|replace(['px', '%']) }};
+        margin: {{ settings.area.distance }}px !important;
+        background-color: white;
+        {% if settings.use_shadow == 1 %}
+            box-shadow: {{ settings.thumbnail.shadow.x }}px {{ settings.thumbnail.shadow.y }}px {{ settings.thumbnail.shadow.blur }}px {{ settings.thumbnail.shadow.color }};
+        {% endif %}
+        display: block;
+    {% if settings.area.grid == '2' %}
+        width: 45%;
+    {% endif %}
+    {% endset %}
+
+    {% set aHref %}
+        {{ photo.url }}
+    {% endset %}
+
+    {% set categories = '' %}
+    {% set cats %}
+    {% for category in photo.categories %}
+        {% set categories = categories ~ category.name|trim %}
+        {% if loop.last == false %}
+            {% set categories = categories ~ '|' %}
+        {% endif %}
+    {% endfor %}
+    {% endset %}
+
+    <div class="post">
+
+        <figure class="grid-gallery-caption{% if settings.mouse_shadow == '1' and settings.use_shadow == '1' %} shadow-show{% endif %}{% if settings.mouse_shadow == '2' and settings.use_shadow == '1' %} shadow-hide{% endif %}" data-tags="{{ categories|trim|replace(' ', '_') }}"
+                data-grid-gallery-type="post-bottom"
+                style="display:none;{{ figureStyle|trim }}">
+            <div class="crop{% if settings.thumbnail.shadow.overlay == '1' and settings.use_shadow == '1' %} image-overlay{% endif %}"
+                 style="{% if settings.area.grid == '0' %}width:{{ settings.area.photo_width ~ settings.area.photo_width_unit|replace(['px', '%']) }};height:{{ settings.area.photo_height ~ settings.area.photo_height_unit|replace(['px', '%']) }};overflow:hidden;{% endif %}">
+
+                {% set width, height, crop = 0, 0, 0 %}
+
+                {% if settings.area.photo_width_unit == 0 %}
+                    {% set width = settings.area.photo_width %}
+                {% endif %}
+
+                {% if settings.area.photo_height_unit == 0 %}
+                    {% set height = settings.area.photo_height %}
+                    {% if settings.area.grid == '1' %}
+                        {% set height = settings.area.photo_width %}
+                    {% endif %}
+                {% endif %}
+
+                {% if settings.area.grid == 0 or settings.area.grid == '2' %}
+                    {% set crop = 1 %}
+                {% else %}
+                    {% set height = null %}
+                {% endif %}
+
+                <img style="height: {{ height }}px;width: {{ width }}px;"
+                     src="{{ get_attachment(photo.photoId, width, height, crop) }}" />
+            </div>
+            {% set postCropStyle %}
+				width: {{ width - 20 }}px;
+                text-align: center;
+                text-transform: uppercase;
+            {% endset %}
+
+            {% set figcaptionStyle %}
+                border-radius: {{ settings.thumbnail.border.radius ~ settings.thumbnail.border.radius_unit|replace(['px', '%']) }};
+                background: rgba(0, 0, 0, 0.9);
+                font-size: {{ (height + width)/40.0 }}px;
+            {% endset %}
+
+            {% set fontSize %}
+                font-size: inherit;
+            {% endset %}
+
+            {% set contentWidth = (height+width)/4.0 %}
+
+            <figcaption style="{{ figcaptionStyle|trim }}">
+                <div class="grid-gallery-figcaption-wrap">
+                    <div class="post-feed-crop" style="{{ postCropStyle|trim }}">
+                        <a class="post-feed-title" href="{{ aHref }}" style="{{ fontSize }}"> {{ photo.title }}</a>
+                        {% if settings.posts.author == '1' %}
+                            <a class="post-feed-author" href="{{ photo.authorUrl|trim }}" style="{{ fontSize }}"> {{ photo.author }} </a>
+                        {% endif %}
+                        {% if settings.posts.date == '1' %}
+                            <span class="separator" style="color: #A2A2A2; font-size: 14px">|</span>
+                            <a class="post-feed-date" href="{{ photo.dateUrl|trim }}" style="{{ fontSize }}"> {{ photo.date }} </a>
+                        {% endif %}
+                        {% if settings.posts.contents == '1' %}
+                            <div class="post-feed-content" style="{{ fontSize }}"> {{ photo.content|slice(0, contentWidth)~"..." }} </div>
+                        {% endif %}
+                        {% if settings.posts.categories == '1' %}
+                            <div class="post-categories" style="position:absolute; bottom: 0; left: 0;">
+                                {% for category in photo.categories %}
+                                    <a class="post-category" href="{{ category.url }}" style="{{ fontSize }}">{{ category.name }}</a>
+                                    {% if loop.last == false %}
+                                        <span class="separator" style="color: #A2A2A2; font-size: 13px">|</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </figcaption>
+        </figure>
+    </div>
+{% endmacro %}
+
+{% macro imageSlide(photo, settings) %}
+
+    {% set figureStyle %}
+        border: 1px none rgb(228, 228, 228);
+        border-radius: {{ settings.thumbnail.border.radius ~ settings.thumbnail.border.radius_unit|replace(['px', '%']) }};
+        margin: {{ settings.area.distance }}px !important;
+        background-color: white;
+        {% if settings.use_shadow == 1 %}
+            box-shadow: {{ settings.thumbnail.shadow.x }}px {{ settings.thumbnail.shadow.y }}px {{ settings.thumbnail.shadow.blur }}px {{ settings.thumbnail.shadow.color }};
+        {% endif %}
+        display: block;
+        {% if settings.area.grid == '2' %}
+            width: 45%;
+        {% endif %}
+    {% endset %}
+
+    {% set aHref %}
+        {{ photo.url }}
+    {% endset %}
+
+    {% set cat = '' %}
+    {% set cats %}
+        {% for category in photo.categories %}
+            {% set cat = cat ~ category.name|trim %}
+            {% if loop.last == false %}
+                {% set cat = cat ~ '|' %}
+            {% endif %}
+        {% endfor %}
+    {% endset %}
+
+    <div class="post">
+
+        <figure class="grid-gallery-caption{% if settings.mouse_shadow == '1' and settings.use_shadow == '1' %} shadow-show{% endif %}{% if settings.mouse_shadow == '2' and settings.use_shadow == '1' %} shadow-hide{% endif %}" data-tags="{{ cat|trim|replace(' ', '|') }}"
+                data-grid-gallery-type="post-fade" style="display:none;{{ figureStyle|trim }};">
+            <div class="crop{% if settings.thumbnail.shadow.overlay == '1' and settings.use_shadow == '1' %} image-overlay{% endif %}"
+                 style="{% if settings.area.grid == '0' %}width:{{ settings.area.photo_width ~ settings.area.photo_width_unit|replace(['px', '%']) }};height:{{ settings.area.photo_height ~ settings.area.photo_height_unit|replace(['px', '%']) }};overflow:hidden;{% endif %}">
+
+                {% set width, height, crop = 0, 0, 0 %}
+
+                {% if settings.area.photo_width_unit == 0 %}
+                    {% set width = settings.area.photo_width %}
+                {% endif %}
+
+                {% set height = settings.area.photo_height %}
+
+                {% if settings.area.photo_height_unit == 0 %}
+                    {% set height = settings.area.photo_height %}
+                    {% if settings.area.grid == '1' %}
+                        {% set height = settings.area.photo_width %}
+                    {% endif %}
+                {% endif %}
+
+                {% if settings.area.grid == 0 or settings.area.grid == '2'%}
+                    {% set crop = 1 %}
+                {% else %}
+                    {% set height = null %}
+                {% endif %}
+
+                <img style="height: {{ height }}px;width: {{ width }}px;"
+                     src="{{ get_attachment(photo.photoId, width, height, crop) }}" />
+            </div>
+
+            {% set postCropStyle %}
+                text-align: center;
+                text-transform: uppercase;
+				width: {{ width - 20 }}px;
+            {% endset %}
+
+            {% set figcaptionStyle %}
+                border-radius: {{ settings.thumbnail.border.radius ~ settings.thumbnail.border.radius_unit|replace(['px', '%']) }};
+                background: rgba(0,142,133,0.85);
+                font-size: {{ (height + width)/40.0 }}px;
+            {% endset %}
+
+            {% set fontSize %}
+                font-size: inherit;
+            {% endset %}
+
+            {% set contentWidth = (height+width)/4.0 %}
+
+            <figcaption style="{{ figcaptionStyle|trim }}">
+                <div class="grid-gallery-figcaption-wrap">
+                    <div class="post-feed-crop" style="{{ postCropStyle|trim }}">
+                        <a class="post-feed-title" href="{{ aHref }}" style="{{ fontSize }}"> {{ photo.title }}</a>
+                        {% if settings.posts.author == '1' %}
+                            <a class="post-feed-author" href="{{ photo.authorUrl|trim }}" style="{{ fontSize }}"> {{ photo.author }} </a>
+                        {% endif %}
+                        {% if settings.posts.date == '1' %}
+                            <span class="separator" style="color: #A2A2A2; font-size: 13px">|</span>
+                            <a class="post-feed-date" href="{{ photo.dateUrl|trim }}" style="{{ fontSize }}"> {{ photo.date }} </a>
+                        {% endif %}
+                        {% if settings.posts.contents == '1' %}
+                            <div class="post-feed-content" style="{{ fontSize }}"> {{ photo.content|slice(0,contentWidth)~"..." }} </div>
+                        {% endif %}
+                        {% if settings.posts.categories == '1' %}
+                            <div class="post-categories">
+                                {% for category in photo.categories %}
+                                    <a class="post-category" href="{{ category.url }}" style="{{ fontSize }}">{{ category.name }}</a>
+                                    {% if loop.last == false %}
+                                        <span class="separator" style="color: #A2A2A2; font-size: 13px">|</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </figcaption>
+        </figure>
+    </div>
+{% endmacro %}
+
+{% macro captionRight(photo, settings) %}
+
+    {% set figureStyle %}
+        margin: {{ settings.area.distance }}px !important;
+        background-color: rgba(0, 0, 0, 0.04);
+        display: block;
+        width: {{ settings.area.photo_width ~ settings.area.photo_width_unit|replace(['px', '%']) }};
+        height: {{ settings.area.photo_height ~ settings.area.photo_width_unit|replace(['px', '%']) }};
+        {% if settings.use_shadow == 1 %}
+            box-shadow: {{ settings.thumbnail.shadow.x }}px {{ settings.thumbnail.shadow.y }}px {{ settings.thumbnail.shadow.blur }}px {{ settings.thumbnail.shadow.color }};
+        {% endif %}
+        {% if settings.area.grid == '2' %}
+            width: 45%;
+        {% endif %}
+    {% endset %}
+
+    {% set imageContainerStyle %}
+        float: left;
+        border-radius: 50%;
+        margin: 30px 20px;
+        {% if settings.area.grid == '0' %}
+            overflow: hidden;
+        {% endif %}
+    {% endset %}
+
+    {% set width, height, crop = settings.area.photo_height / 2, settings.area.photo_height / 2, 0 %}
+
+    <div class="post">
+
+        <figure class="grid-gallery-caption
+                        {% if settings.mouse_shadow == '1' and settings.use_shadow == '1' %} shadow-show{% endif %}
+                        {% if settings.mouse_shadow == '2' and settings.use_shadow == '1' %} shadow-hide{% endif %}"
+                data-tags="{{ cat|trim|replace(' ', '|') }}"
+                style="{{ figureStyle|trim }};">
+            <div class="image-container{% if settings.thumbnail.shadow.overlay == '1' and settings.use_shadow == '1' %} image-overlay{% endif %}"
+                 style="{{ imageContainerStyle }}">
+
+                {% if settings.area.grid == 0 or settings.area.grid == '2'%}
+                    {% set crop = 1 %}
+                {% else %}
+                    {% set height = null %}
+                {% endif %}
+
+                <img style="height: {{ height }}px;width: {{ width }}px;" src="{{ get_attachment(photo.photoId, width, height, crop) }}" />
+            </div>
+
+            {% set figcaptionStyle %}
+                width: {{ (settings.area.photo_width - width - 40) ~ settings.area.photo_width_unit|replace(['px', '%']) }};
+                height: {{ (settings.area.photo_height - height / 2) ~ settings.area.photo_height_unit|replace(['px', '%']) }};
+                margin-top: {{ height / 4 }}px;
+                float: left;
+                background: transparent;
+                color: black;
+                border-left: 4px solid rgba(0, 0, 0, 0.24);
+                font-size: {{ (settings.area.photo_height + settings.area.photo_width)/40.0 }}px;
+                position: relative;
+            {% endset %}
+
+            <figcaption style="{{ figcaptionStyle|trim }}">
+                <div class="grid-gallery-figcaption-wrap">
+                    {% if settings.posts.contents == '1' %}
+                        <div class="post-feed-content" style="font-weight: 300;"> {{ photo.content|slice(0, (settings.area.photo_height + settings.area.photo_width - width - height / 2) / 4 ) ~ "..." }} </div>
+                    {% endif %}
+                </div>
+                <div style="margin-top: 20px; font-size: 13px;">
+                    <a href="{{ photo.url }}" style="color: #ffffff; background: #000000; padding: 8px;">
+                        {{ photo.title }}
+                    </a>
+                </div>
+            </figcaption>
+        </figure>
+    </div>
+{% endmacro %}
+
+{% macro sodiumStyles(photo, settings, themeValue) %}
+
+    {% if themeValue == '4' %}
+        {% set theme = 'expression-scale-text' %}
+    {% endif %}
+    {% if themeValue == '5' %}
+        {% set theme = 'sodium-top-slide' %}
+    {% endif %}
+
+    {% set figureStyle %}
+    border: 1px none rgb(228, 228, 228);
+    border-radius: {{ settings.thumbnail.border.radius ~ settings.thumbnail.border.radius_unit|replace(['px', '%']) }};
+    margin: {{ settings.area.distance }}px !important;
+    background-color: white;
+    {% if settings.use_shadow == 1 %}
+        box-shadow: {{ settings.thumbnail.shadow.x }}px {{ settings.thumbnail.shadow.y }}px {{ settings.thumbnail.shadow.blur }}px {{ settings.thumbnail.shadow.color }};
+    {% endif %}
+    display: block;
+    {% if settings.area.grid == '2' %}
+        width: 45%;
+    {% endif %}
+    {% endset %}
+
+    {% set aHref %}
+    {{ photo.url }}
+    {% endset %}
+
+    {% set cats %}
+    {% set cat = '' %}
+    {% for category in photo.categories %}
+        {% set cat = cat ~ category.name|trim %}
+        {% if loop.last == false %}
+            {% set cat = cat ~ '|' %}
+        {% endif %}
+    {% endfor %}
+    {% endset %}
+
+    <div class="post">
+
+        <figure class="grid-gallery-caption{% if settings.mouse_shadow == '1' and settings.use_shadow == '1' %} shadow-show{% endif %}{% if settings.mouse_shadow == '2' and settings.use_shadow == '1' %} shadow-hide{% endif %}" data-tags="{{ cat|trim|replace(' ', '|') }}"
+                data-grid-gallery-type="{{ theme }}" style="display:none;{{ figureStyle|trim }};">
+            <div class="crop{% if settings.thumbnail.shadow.overlay == '1' and settings.use_shadow == '1' %} image-overlay{% endif %}"
+                 style="{% if settings.area.grid == '0' %}width:{{ settings.area.photo_width ~ settings.area.photo_width_unit|replace(['px', '%']) }};height:{{ settings.area.photo_height ~ settings.area.photo_height_unit|replace(['px', '%']) }};overflow:hidden;{% endif %}">
+
+                {% set width, height, crop = 0, 0, 0 %}
+
+                {% if settings.area.photo_width_unit == 0 %}
+                    {% set width = settings.area.photo_width %}
+                {% endif %}
+
+                {% set height = settings.area.photo_height %}
+
+                {% if settings.area.photo_height_unit == 0 %}
+                    {% set height = settings.area.photo_height %}
+                    {% if settings.area.grid == '1' %}
+                        {% set height = settings.area.photo_width %}
+                    {% endif %}
+                {% endif %}
+
+                {% if settings.area.grid == 0 or settings.area.grid == '2'%}
+                    {% set crop = 1 %}
+                {% else %}
+                    {% set height = null %}
+                {% endif %}
+
+                <img style="height: {{ height }}px;width: {{ width }}px;"
+                     src="{{ get_attachment(photo.photoId, width, height, crop) }}" />
+            </div>
+
+            {% set postCropStyle %}
+                width: {{ width - 20 }}px;
+            {% endset %}
+
+            {% set figcaptionStyle %}
+                border-radius: {{ settings.thumbnail.border.radius ~ settings.thumbnail.border.radius_unit|replace(['px', '%']) }};
+                font-size: {{ (height + width)/40.0 }}px;
+            {% endset %}
+
+            {% set titleStyle %}
+                font-size: 18px;
+                font-weight: bold;
+                color: white;
+            {% endset %}
+
+            {% set contentWidth = (height+width)/5.0 %}
+
+            <figcaption style="{{ figcaptionStyle|trim }}">
+                <div class="grid-gallery-figcaption-wrap">
+                    <div class="post-feed-crop" style="{{ postCropStyle|trim }}">
+                        <a class="post-feed-title" href="{{ aHref }}" style="{{ titleStyle }}"> {{ photo.title }}</a>
+                        <div class="post-feed-data">
+                            {% if settings.posts.author == '1' %}
+                                <a class="post-feed-author" href="{{ photo.authorUrl|trim }}" style="color: #ffffff;"> {{ photo.author }} </a>
+                            {% endif %}
+                            {% if settings.posts.date == '1' %}
+                                <span class="separator" style="color: #A2A2A2; font-size: 13px">|</span>
+                                <a class="post-feed-date" href="{{ photo.dateUrl|trim }}" style="color: #ffffff;"> {{ photo.date }} </a>
+                            {% endif %}
+                        </div>
+                        {% if settings.posts.contents == '1' %}
+                            <div class="post-feed-content" style="{{ fontSize }}"> {{ photo.content|slice(0,contentWidth)~"..." }} </div>
+                        {% endif %}
+                        {% if settings.posts.categories == '1' %}
+                            <div class="post-categories">
+                                {% for category in photo.categories %}
+                                    <a class="post-category" href="{{ category.url }}">{{ category.name }}</a>
+                                    {% if loop.last == false %}
+                                        <span class="separator" style="color: #A2A2A2; font-size: 13px">|</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </figcaption>
+        </figure>
+    </div>
+{% endmacro %}

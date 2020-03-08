@@ -1,0 +1,2 @@
+{% macro prop(prop, value) %}{{ prop }}:{{ value }};{% endmacro %}
+{% macro object(values) %}{% for prop, value in values %}{{ prop }}:{{ value }};{% endfor %}{% endmacro %}

@@ -1,0 +1,46 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <h1>Grid Gallery Development Mode</h1>
+    <ul class="subsubsub">
+        <a href="{{ environment.generateUrl('developer', 'index') }}" class="button">Info</a>
+        <a href="{{ environment.generateUrl('developer', 'log') }}" class="button">Logs</a>
+    </ul>
+    <div class="clear"></div>
+
+    <section id="grid-gallery-php">
+        <h2>PHP Parameters</h2>
+        <table>
+            {% for key, value in php %}
+                <tr>
+                    <td width="200"><strong>{{ key|title }}</strong></td>
+                    <td>{{ value }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+    <section id="grid-gallery-wordpress">
+        <h2>WordPress Parameters</h2>
+        <table>
+            {% for key, value in wordpress %}
+                <tr>
+                    <td width="200"><strong>{{ key|title }}</strong></td>
+                    <td>{{ value }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+    <section id="grid-gallery-plugin">
+        <h2>Plugin Parameters</h2>
+        <table>
+            {% for key, value in plugin %}
+                <tr>
+                    <td width="200"><strong>{{ key|replace('_', ' ')|title }}</strong></td>
+                    <td>{{ value }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+{% endblock %}

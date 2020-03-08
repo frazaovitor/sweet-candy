@@ -1,0 +1,4 @@
+{% import '@photos/macros/photos.twig' as list %}
+{% if folder is defined %}
+    {{ list.put_folder(folder) }}
+{% endif %}

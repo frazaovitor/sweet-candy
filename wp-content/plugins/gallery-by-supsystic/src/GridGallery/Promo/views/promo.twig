@@ -1,0 +1,90 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <section>
+        <div class="supsystic-item supsystic-panel supsystic-plugin supsystic-plugin-promo">
+            <div id="containerWrapper">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>
+                            {{ environment.translate('Welcome to the') }} {{ plugin_name }} v {{ plugin_version }}
+                        </h2>
+                        <p class="col-sm-6">
+                            {{ environment.translate('Photo Gallery plugin is created for people who would like to show their photos in a marvelous way. Perform your best ideas, making delightful presentations or galleries from videos and photos.') }}
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h3>{{ environment.translate('Step-by-step tutorial') }}</h3>
+                                <p>
+                                    {{ environment.translate('There’re really many options of photo gallery plugin customization. So as soon as you close that page, I’ll show you step-by-step tutorial of how to use plugin. Hope it will be usefull for you :)') }}
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h3>{{ environment.translate('Support') }}</h3>
+                                <p>
+                                    {{ environment.translate('We love our plugin and do the best to improve all features you want and fix all issues. But sometimes some issues happened or you can’t find feature you want :) Don’t worry, just <a href="//supsystic.com/plugins/photo-gallery?utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact" target="_blank"> contact us </a> . We’ll answer in an hour and fix all issues.')|raw }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>{{ environment.translate('Video Tutorial') }}</h3>
+                                <iframe type="text/html"
+                                        width="90%"
+                                        height="330px"
+                                        src="https://www.youtube.com/embed/5bkjrlV14CE"
+                                        frameborder="0">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>
+                            {{ environment.translate('Frequently Asked Questions') }}
+                        </h3>
+
+                        <h4>
+                            {{ environment.translate('Gallery doesn’t load on the front end. If the loading gallery icon just keeps playing but never loads the gallery.') }}
+                        </h4>
+                        <p>
+							Most likely there are conflicts with your theme or other plugins. Please contact us through our <a href="//supsystic.com/contact-us/" target="_blank">internal support</a>. We will check what is wrong and will help you to solve the problem.
+                        </p>
+
+                        <h4>
+                            {{ environment.translate('How to change the position of photos in gallery?') }}
+                        </h4>
+                        <p>
+							To change the position of photos just drag them manually on the Images List and click save. Also there you can sort the images by add date, create date, size, name and tags.
+                        </p>
+						
+                        <h4>
+                            {{ environment.translate('How to insert gallery into widget?') }}
+                        </h4>
+                         <p>
+							If you want to use gallery in widgets - 
+                            <ol>
+                                <li>{{ environment.translate('Go to Appearance -> Widgets.') }}</li>
+                                <li>{{ environment.translate('You’ll see Gallery by Supsystic Widget on the left. Drag it to the area, where you want it to appear.') }}</li>
+                                <li>{{ environment.translate('Then choose what gallery you want to display. And press save.') }}</li>
+                            </ol>
+                        </p>
+
+                        <h4>
+                            <a href="//supsystic.com/plugins/photo-gallery/?utm_source=plugin&utm_medium=welcomepagefaq&utm_campaign=photogallery#faq" target="_blank">{{ environment.translate('Check all other FAQs') }}</a>
+                        </h4>
+
+                        <div style="clear: both;"></div>
+                        <a href="{{ start_url }}" style="font-size: 20px" class="button button-primary button-hero">
+                            {{ environment.translate("Let's Start!") }}
+                        </a>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

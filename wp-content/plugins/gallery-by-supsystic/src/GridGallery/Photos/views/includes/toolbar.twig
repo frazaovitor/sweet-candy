@@ -1,0 +1,81 @@
+{# Toolbar #}
+<section id="photo-toolbar" class="supsystic-bar" data-intro="{{ manual.intro }}" data-step="1">
+    <ul class="supsystic-bar-controls">
+        <li title="{{ translate('Upload new images') }}">
+            <button class="button button-primary" id="gg-btn-upload" data-folder-id="0" data-upload>
+                <i class="fa fa-fw fa-camera"></i>
+                {{ translate('Import images') }}
+            </button>
+        </li>
+        <li title="{{ translate('Create new folder') }}">
+            <button class="button" id="button-folder" data-enabled="none|one|many|all" data-toolbar-button>
+                <i class="fa fa-fw fa-folder-open"></i>
+            </button>
+        </li>
+
+        <li class="separator">
+            |
+        </li>
+
+        <li title="{{ translate('Edit selected item') }}">
+            <button class="button" id="button-edit" disabled data-enabled="one" data-toolbar-button>
+                <i class="fa fa-fw fa-pencil"></i>
+            </button>
+        </li>
+        <li title="{{ translate('Delete selected items') }}">
+            <button class="button" id="button-delete" disabled data-enabled="one|many|all" data-toolbar-button>
+                <i class="fa fa-fw fa-trash-o"></i>
+            </button>
+        </li>
+
+        <li title="{{ translate('Select/unselect all photos') }}">
+            <button id="button-select" class="button" data-enabled="none|one|many|all" data-toolbar-button>
+                <i class="fa fa-check-square-o fa-fw"></i>
+            </button>
+        </li>
+
+        <li class="separator">|</li>
+
+        <li title="{{ translate('Create new gallery from the selected items') }}">
+            <button class="button" id="button-create" disabled data-enabled="one|many|all" data-toolbar-button>
+                {{ translate('New gallery from selected') }}
+            </button>
+        </li>
+
+        <li title="{{ translate('Add the selected items to the existing gallery') }}">
+            <button class="button" id="button-attach" disabled data-enabled="one|many|all" data-toolbar-button>
+                {{ translate('Add selected to the gallery') }}
+            </button>
+        </li>
+
+        {% if view_type == 'block' %}
+
+            {% if folder is defined %}
+                {% set url = environment.generateUrl('photos', 'view', { 'folder_id': folder.id, 'view': 'list' }) %}
+            {% else %}
+                {% set url = environment.generateUrl('photos', 'index', { 'view': 'list' }) %}
+            {% endif %}
+
+            <li title="{{ translate('Switch to the list view') }}" style="float:right;">
+                <a class="button" href="{{ url }}">
+                    <i class="fa fa-list fa-fw"></i>
+                </a>
+            </li>
+        {% else %}
+
+            {% if folder is defined %}
+                {% set url = environment.generateUrl('photos', 'view', { 'folder_id': folder.id, 'view': 'block' }) %}
+            {% else %}
+                {% set url = environment.generateUrl('photos', 'index', { 'view': 'block' }) %}
+            {% endif %}
+
+            {#<li title="{{ environment.translate('Switch to the block view') }}" style="float:right;">
+                <a class="button" href="{{ url }}">
+                    <i class="fa fa-th fa-fw"></i>
+                </a>
+            </li>#}
+        {% endif %}
+
+    </ul>
+</section>
+{# End of toolbar #}

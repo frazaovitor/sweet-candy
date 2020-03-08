@@ -1,0 +1,120 @@
+{% extends 'grid-gallery.twig' %}
+
+{% macro putPreset(data) %}
+    <div class="preset supsystic-tooltip {% if environment.isPro() == false and data.pro %}disabled{% endif %}"
+		title="{{ data.tooltip | raw }}"
+        data-preset="{{ data.value }}">
+        {% if data.pro and environment.isPro() == false %}
+            <img onclick="document.location='{{ data.link }}'" src="{{ environment.getModule('galleries').getLocationUrl() }}/assets/img/{{ data.image }}" alt=""/>
+            <a class="button button-primary" href="{{ data.link }}" style="position: absolute; top: 50%; left: 30%; background-color: #ffffff;">
+                Available in PRO
+            </a>
+        {% else %}
+            <img src="{{ environment.getModule('galleries').getLocationUrl() }}/assets/img/{{ data.image }}" alt=""/>
+            <div style="position: absolute; top: 50%; left: 50%; transform:translate(-50%, -50%); display:table;">
+                <a class="button button-primary button-select" style="background-color: #ffffff;">
+                    Select
+                </a>
+                <span class="selected-preset">{{ translate('Selected') }}</span>
+            </div>
+        {% endif %}
+        <div class="preset-overlay">
+            <h3>{{ data.title|title }}</h3>
+        </div>
+    </div>
+{% endmacro %}
+
+{% block header %}
+    <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs">
+        {#<a href="{{ environment.generateUrl('galleries') }}">{{ translate('Gallery by Supsystic') }}</a>#}
+        {#<i class="fa fa-angle-right"></i>#}
+        <a href="{{ environment.generateUrl('galleries', 'showPresets') }}">{{ translate('Create new gallery') }}</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+	{% import '@core/helpers.twig' as hlp %}
+
+    <h3 style="margin-left: 10px;padding-bottom: 10px !important;border-bottom: 1px solid;">{{ translate('Choose Gallery Template. You can change template and settings on the next step.') }}</h3>
+    <div id="gg-create-gallery-text">
+        <h3 style="float: left; margin: 10px !important;">{{ translate('Gallery Name:') }}
+			{{ hlp.showTooltip(
+				translate('Type your new gallery name here. It is for internal use only and will not be visible on your site.')
+				~ ' <a target=\'_blank\' href=\'https://supsystic.com/documentation/gallery-getting-started/\'>https://supsystic.com/documentation/gallery-getting-started/</a>'
+			, 'top', true) }}
+		</h3>
+        <form id="gallery-create-form">
+        <input id="gallery-create-title" name="title" type="text" style="float: left; width: 60%; height: 36px;"/>
+        <button id="gallery-create" class="button button-primary" type="button" style="height:37px;">
+            <i class="fa fa-check"></i>
+            {{ translate('Save') }}
+        </button>
+        {#<button id="gallery-cancel" class="button button-primary" type="button">
+            {{ environment.translate('Cancel') }}
+        </button>#}
+        </form">
+
+        <div class="clear"></div>
+        <input id="presetValue" name="preset" type="hidden" value="1"/>
+    </div>
+    {#<h1 style="margin-left: 10px;padding-bottom: 10px !important;border-bottom: 1px solid;">{{ environment.translate('Choose Gallery Template.') }}</h1>#}
+    <div id="gg-create-gallery-text">
+        <div class="presetSelect">
+            {% import _self as preset %}
+
+            {% set presets = [
+				{
+					'title':'Standard Gallery', 'image':'template1.jpg', 'pro': false, 'value': 1,
+					'tooltip': translate('Gallery with fixed grid. If the original image is larger, the picture will be proportionally reduced and cropped to the specified thumbnail size.') ~ ' <a target=\'_blank\' href=\'https://supsystic.com/documentation/fixed-type/\'>https://supsystic.com/documentation/fixed-type/</a>'
+				},
+				{
+					'title':'Vertical Gallery', 'image':'template2.jpg', 'pro': false, 'value': 2,
+					'tooltip': translate('In this gallery images are arranged into vertical columns. In vertical gallery type you may set image width only, image height will change automatically, accordingly to original size proportions.') ~ ' <a target=\'_blank\' href=\'https://supsystic.com/documentation/vertical-type/\'>https://supsystic.com/documentation/vertical-type/</a>'
+				},
+				{
+					'title':'Rounded Gallery', 'image':'template3.jpg', 'pro': false, 'value': 3,
+					'tooltip': translate('Gallery with rounded thumbnails and fixed grid. Images will be proportionally reduced and cropped to the specified thumbnail size and shape.')
+				},
+				{
+					'title':'Horizontal Gallery', 'image':'template4.jpg', 'pro': false, 'value': 4,
+					'tooltip': translate('In this gallery images are arranged into horizontal rows. In horizontal gallery type you may set image height only, image width will change automatically, accordingly to original size proportions.') ~ ' <a target=\'_blank\' href=\'https://supsystic.com/documentation/horizontal-type/\'>https://supsystic.com/documentation/horizontal-type/</a>'
+				},
+				{
+					'title':'Categories and Icons', 'image':'template5.jpg', 'pro': true, 'value': 5, 'link': 'https://supsystic.com/categories-gallery-example/',
+					'tooltip': translate('If choosing this gallery template you may easily arrange your images by categories and add icons. Get step by step instructions from our knowledge base.') ~ ' <a target=\'_blank\' href=\'https://supsystic.com/documentation/categories/\'>https://supsystic.com/documentation/categories/</a>'
+				},
+				{
+					'title':'Post feed and Pagination', 'image':'template6.jpg', 'pro': true, 'value': 6, 'link': 'https://supsystic.com/pagination-gallery-example/',
+					'tooltip': translate('This gallery template with active presets of post feed and pagination options will help you organize handy post feed navigation. Note: you don\'t need to add images to your gallery if using it as a post feed. You should add them directly at the post body.') ~ ' <a target=\'_blank\' href=\'https://supsystic.com/example/pagination-gallery-example/\'>https://supsystic.com/example/pagination-gallery-example/</a>'
+				},
+				{
+					'title':'Post feed Slide Up', 'image':'template7.jpg', 'pro': true, 'value': 7, 'link': 'https://supsystic.com/post-feed-slide-up/',
+					'tooltip': translate('This gallery template with active presets of post feed slide up helps you create a stylish post feed with sliding highlight effect. Note: you don\'t need to add images to your gallery if using it as a post feed. You should add them directly at the post body.') ~ ' <a target=\'_blank\' href=\'https://supsystic.com/example/post-feed-slide-up/\'>https://supsystic.com/example/post-feed-slide-up/</a>'
+				},
+				{
+					'title':'Post feed Description', 'image':'template8.jpg', 'pro': true, 'value': 8, 'link': 'https://supsystic.com/post-feed-description/',
+					'tooltip': translate('Gallery template with small images and fixed place for description. Suits perfectly for Feedback page or \'Our Team\' presentation page. Note: you don\'t need to add images to your gallery if using it as a post feed. You should add them directly at the post body.') ~ ' <a target=\'_blank\' href=\'https://supsystic.com/example/post-feed-description/\'>https://supsystic.com/example/post-feed-description/</a>'
+				},
+				{
+					'title':'Mosaic Gallery', 'image':'template9.png', 'pro': true, 'value': 9, 'link': 'https://supsystic.com/mosaic-gallery-example/',
+					'tooltip': translate('Cute mosaic gallery layout with enabled captions.') ~ ' <a target=\'_blank\' href=\'https://supsystic.com/documentation/gallery-mosaic-type/\'>https://supsystic.com/documentation/gallery-mosaic-type/</a>'
+				},
+            ] %}
+
+            {#Pro presets#}
+            {#{'title':'Categories', 'image':'4-categories.jpg', 'pro': true, 'value': 4},
+            {'title':'Icons', 'image':'5-icons.jpg', 'pro': true, 'value': 5},
+            {'title':'Pagination', 'image':'6-pagination_circle-gallery.jpg', 'pro': true, 'value': 6}#}
+
+            {% for data in presets %}
+                {{ preset.putPreset(data) }}
+            {% endfor %}
+        </div>
+    </div>
+    <div id="gg-create-gallery-loader" style="display: none;">
+        <p class="gg-centered">
+
+        <div class="gg-inline-loader gg-centered"></div>
+        </p>
+    </div>
+{% endblock %}

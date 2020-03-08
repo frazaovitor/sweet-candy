@@ -1,0 +1,152 @@
+{% macro show(areaWidth, galleryId) %}
+	{% import '@core/form.twig' as form1 %}
+    <div class="media-wrapr {% if galleryId is empty %}no-gallery-id{% endif %}" style="width: {{ areaWidth }}px;margin: 0 auto !important;display: block;">
+		{% if environment.isPro() == true %}
+			<br/>
+			<label>
+				{{ form1.checkbox('importUseExifData', 0, {'checked':'checked', 'class': 'ggUseExifData'}) }}
+				{{ translate('Import EXIF data') }}
+			</label>
+		{% else %}
+			<div>
+				{{ form1.rowpro(
+					translate(''),
+					'utm_source=plugin&utm_medium=use-exif-data&utm_campaign=gallery',
+					'backgroundColorForShowOnHoverFree',
+					form1.checkbox('importExifData', 0, {'disabled':'disabled', 'class': 'ggUseExifData'})
+				) }}
+				{{ translate('Import EXIF data') }}
+			</div>
+		{% endif %}
+        <h1>{{ translate('Choose source') }}</h1>
+        <button class="button button-primary button-hero gallery" id="gg-btn-upload" data-folder-id="0"
+                style="width: 400px; margin-bottom: 20px;"
+                data-gallery-id="{{ galleryId }}" data-upload>
+            <i class="fa fa-wordpress fa-2x"></i>
+            {{ translate('Import from WordPress Media Library') }}
+        </button>
+		{% if environment.isPro() == true %}
+			<button class="button button-primary button-hero gallery" id="sggUploadVideoFromUrlBtn" data-folder-id="0"
+					style="width: 400px;"
+			>
+				<i class="fa fa-youtube-play fa-2x" aria-hidden="true"></i>
+				{{ translate('Add video') }}
+			</button>
+		{% endif %}
+        <h3>{{ translate('Import from social networks') }}</h3>
+        <a class="button button-primary button-hero" href="{{ environment.generateUrl('insta', 'index', {'id': galleryId}) }}" style="width: 400px;margin-bottom: 20px;">
+            <i class="fa fa-instagram fa-2x"></i>
+            {{ translate('Import from your Instagram account') }}
+        </a>
+        {% if environment.isPro() == true %}
+            <a class="button button-primary button-hero" href="{{ environment.generateUrl('flickr', 'index', {'id': galleryId}) }}" style="width: 400px;margin-bottom: 20px;">
+                <i class="fa fa-flickr fa-2x"></i>
+                {{ translate('Import from your Flickr account') }}
+            </a>
+            <a class="button button-primary button-hero" href="{{ environment.generateUrl('tumblr', 'index', {'id': galleryId}) }}" style="width: 400px;margin-bottom: 20px;">
+                <i class="fa fa-tumblr fa-2x"></i>
+                {{ translate('Import from your Tumblr account') }}
+            </a>
+            <a class="button button-primary button-hero" href="{{ environment.generateUrl('facebook', 'index', {'id': galleryId}) }}" style="width: 400px;margin-bottom: 20px;">
+                <i class="fa fa-facebook fa-2x"></i>
+                {{ translate('Import from your Facebook account') }}
+            </a>
+
+            <h3 style="margin-top: 0px">{{ translate('Import from cloud services') }}</h3>
+            <a class="button button-primary button-hero" href="{{ environment.generateUrl('ftp', 'index', {'id': galleryId}) }}" style="width: 400px;margin-bottom: 20px;">
+                <i class="fa fa-file-image-o fa-2x"></i>
+                {{ translate('Import from your FTP server') }}
+            </a>
+            <a class="button button-primary button-hero" href="{{ environment.generateUrl('googledrive', 'index', {'id': galleryId}) }}" style="width: 400px;margin-bottom: 20px;">
+                <i class="fa fa-google fa-2x"></i>
+                {{ translate('Import from your Google Drive account') }}
+            </a>
+        {% else %}
+            <h3>{{ translate('Get Pro to enable import') }}</h3>
+            <a class="button button-primary button-hero" href="http://supsystic.com/plugins/photo-gallery/" target="_blank" style="width: 400px;margin-bottom: 20px;">
+                <i class="fa fa-unlock fa-2x"></i>
+                {{ translate('Get PRO') }}
+            </a>
+            <a class="button button-primary button-hero disabled" href="http://supsystic.com/plugins/photo-gallery/" target="_blank" style="width: 400px;margin-bottom: 20px;">
+                <i class="fa fa-youtube-play fa-2x"></i>
+                {{ translate('Add video') }}
+            </a>
+            <a class="button button-primary button-hero disabled" href="https://supsystic.com/documentation/flickr/" target="_blank" style="width: 400px;margin-bottom: 20px;">
+                <i class="fa fa-flickr fa-2x"></i>
+                {{ translate('Import from your Flickr account') }}
+            </a>
+            <a class="button button-primary button-hero disabled" href="https://supsystic.com/documentation/tumblr/" target="_blank" style="width: 400px;margin-bottom: 20px;">
+                <i class="fa fa-tumblr fa-2x"></i>
+                {{ translate('Import from your Tumblr account') }}
+            </a>
+            <a class="button button-primary button-hero disabled" href="https://supsystic.com/documentation/facebook/" target="_blank" style="width: 400px;margin-bottom: 20px;">
+                <i class="fa fa-facebook fa-2x"></i>
+                {{ translate('Import from your Facebook account') }}
+            </a>
+            <a class="button button-primary button-hero disabled" href="https://supsystic.com/documentation/ftp-import/" target="_blank" style="width: 400px;margin-bottom: 20px;">
+                <i class="fa fa-file-image-o fa-2x"></i>
+                {{ translate('Import from your FTP server') }}
+            </a>
+            <a class="button button-primary button-hero disabled" href="https://supsystic.com/documentation/google-drive-import/" target="_blank" style="width: 400px;margin-bottom: 20px;">
+                <i class="fa fa-google fa-2x"></i>
+                {{ translate('Import from your Google Drive account') }}
+            </a>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro view_dialogs(gallery_id) %}
+    {% import '@core/form.twig' as form %}
+    {% import _self as importTypes %}
+    <div id="importDialog" title="{{ translate('Select source to import from') }}" style="display: none;">
+        {{ importTypes.show(400, gallery_id) }}
+    </div>
+
+    <div id="videoUrlAddDialog" title="{{ 'Add video url' }}" style="display:none;" data-gallery-id="{{ gallery_id }}">
+        <div class="sggVideoUrlAddWr">
+            <div class="sggTableRow">
+                <div class="sggTableColumn6">
+                    <div class="sggDlgVideoTypeH3">{{ translate('Video type:') }}</div>
+                </div>
+                <div class="sggTableColumn6">
+                    {{(
+                        form.radio(
+                            'sggDlgVideoType',
+                            'youtube',
+                            {'id':'sggDlgYoutubeVideoType', 'class':'sggDlgVideoTypeRadio', 'checked':'checked'}
+                        ) ~
+                        form.label(
+                            translate('Youtube url'),
+                            'sggDlgYoutubeVideoType'
+                        ) ~ '<br/>' ~
+                        form.radio(
+                            'sggDlgVideoType',
+                            'vimeo',
+                            {'id':'sggDlgVimeoVideoType', 'class':'sggDlgVideoTypeRadio',}
+                        ) ~
+                        form.label(
+                            translate('Vimeo url'),
+                            'sggDlgVimeoVideoType'
+                        )
+                    ) |raw }}
+                </div>
+            </div>
+            <div class="sggTableRow">
+                <div class="sggTableColumn6">
+                    <div class="sggDlgVideoTypeH3">{{ translate('Video url:') }}</div>
+                </div>
+                <div class="sggTableColumn6">
+                    {{
+                        form.input(
+                            'text',
+                            'sggDlgUrlVideoValue',
+                            '',
+                            {'id': 'sggDlgUrlVideoInp', 'class': '', }
+                        )
+                    }}
+                </div>
+            </div>
+            <div class="sggTableRow sggAduHiden" id="sggAduErrorText"></div>
+        </div>
+    </div>
+{% endmacro %}

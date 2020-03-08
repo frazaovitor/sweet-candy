@@ -1,0 +1,33 @@
+{# Toolbar #}
+<section id="photo-toolbar" class="supsystic-bar" data-intro="{{ manual.intro }}" data-step="1">
+    <ul class="supsystic-bar-controls">
+        <li title="{{ translate('Return to the gallery') }}">
+            <a class="button button-primary" href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': id }) }}">
+                <i class="fa fa-angle-left"></i>
+                {{ translate('Return to the gallery') }}
+            </a>
+        </li>
+        <li title="{{ translate('Upload new images') }}">
+            <button id="add_images" class="button button-primary">
+                <i class="fa fa-download"></i>
+                {{ translate('Import images') }}
+            </button>
+        </li>
+        <li title="{{ translate('Logout') }}">
+            <a class="button button-primary" href="{{ environment.generateUrl('insta', 'logout', { 'id': id, '_wpnonce': _wpnonce }) }}">
+                <i class="fa fa-sign-out"></i>
+                {{ translate('Logout') }}
+            </a>
+        </li>
+        <li class="separator">
+            |
+        </li>
+
+        <li title="{{ translate('Select/unselect all photos') }}">
+            <button id="button-select" class="button" data-value="select" data-toolbar-button>
+                <i class="fa fa-check-square-o fa-fw"></i>
+            </button>
+        </li>
+    </ul>
+</section>
+{# End of toolbar #}

@@ -1,0 +1,337 @@
+{% extends 'grid-gallery.twig' %}
+
+{% block header %}
+
+    <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs">
+        <a href="{{ environment.generateUrl('galleries') }}">{{ translate('Galleries') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('photos', 'index') }}">{{ translate('Images') }}</a>
+    </nav>
+
+    {% include '@photos/includes/toolbar.twig' %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% import '@photos/macros/photos.twig' as list %}
+    {% import '@ui/type.twig' as view %}
+
+    {% block photos %}
+        <section id="sg-photos" data-intro="{{ manual.workspace }}" data-step="7">
+
+            {% if entities.images is empty and entities.folders is empty %}
+
+                <h2 id="gg-alrt" style="text-align: center; color: #bfbfbf; margin: 50px 0 25px 0;">
+                    <span style="margin-bottom: 20px; display: block;">
+                        {{ translate('Upload your images from the WordPress Media Library') }}
+                    </span>
+                    <a class="button button-primary button-hero" href="#" onclick="jQuery('#gg-btn-upload').click();">
+                        {{ translate('Upload new images') }}
+                    </a>
+                </h2>
+
+            {% endif %}
+
+            {% set containerWrapperDisplay %}
+            {% if entities.images is empty and entities.folders is empty %}
+                none
+            {% else %}
+                block
+            {% endif %}
+            {% endset %}
+
+            <div id="containerWrapper" style="display:{{ containerWrapperDisplay|trim }}">
+                {% if view_type == 'block' %}
+                    {{ view.block_view(entities) }}
+                {% else %}
+                    {{ view.list_view(entities) }}
+                {% endif %}
+            </div>
+
+            <div class="clear"></div>
+        </section>
+
+        {% include '@ui/dialogs/imageEditDialog.twig' %}
+    {% endblock %}
+
+    <script>
+    /*global jQuery*/
+    (function ($) {
+        $(document).ready(function () {
+            var observer = SupsysticGallery.Common.CheckboxObserver();
+            var toolbar = SupsysticGallery.Ui.Toolbar('#photo-toolbar');
+
+            observer.onClick(function (event) {
+                event.stopImmediatePropagation();
+
+                toolbar.disableAll();
+
+                if (observer.isNone()) {
+                    toolbar.enable('none');
+                    return;
+                }
+
+                if (observer.isOne()) {
+                    toolbar.enable('one');
+                    return;
+                }
+
+                if (!observer.isOne() && observer.isMany()) {
+                    toolbar.enable('many');
+                    return;
+                }
+
+                if (observer.isAll()) {
+                    toolbar.enable('all');
+                }
+            });
+
+            toolbar.onClick('button-edit', function (event) {
+                event.preventDefault();
+
+                var $entity = SupsysticGallery.Common.getParentEntity(observer.getChecked());
+
+                if ($entity.data('entity-type') === 'photo') {
+                    $('#editDialog').on('dialogopen', function () {
+                        var $form = $('#editDialogForm'),
+                                entityInfo = $entity.data('entity-info');
+
+                        // Caption
+                        $form.find('#imageCaption')
+                                .val(entityInfo.attachment.caption);
+
+                        // Description
+                        $form.find('#imageDescription')
+                                .val(entityInfo.attachment.description);
+
+                        // Alt
+                        $form.find('#imageAlt')
+                                .val(entityInfo.attachment.alt);
+
+                        // Image link
+                        $form.find('#imageLink')
+                                .val(function () {
+                                    if (typeof entityInfo.attachment.external_link === 'undefined') {
+                                        return '';
+                                    }
+
+                                    return entityInfo.attachment.external_link;
+                                });
+
+                        $form.find('#inNewWindow')
+                                .val(function () {
+                                    if (typeof entityInfo.attachment.target === 'undefined') {
+                                        return '_self';
+                                    }
+
+                                    return entityInfo.attachment.target;
+                                });
+
+                        $form.find('#imageVideo')
+                                .val(function () {
+                                    if (typeof entityInfo.attachment.video === 'undefined') {
+                                        return '';
+                                    }
+
+                                    return entityInfo.attachment.video;
+                                });
+
+                        $form.find('#imageAttachmentId')
+                                .val(entityInfo.attachment.id);
+                    });
+
+                    $('#editDialog').dialog('open');
+                    return;
+                }
+
+                var $dialogContainer = $('#renameFolderDialog');
+
+                $dialogContainer.find('input#folderName').val(function () {
+                    var $entity = SupsysticGallery.Common.getParentEntity(observer.getChecked());
+
+                    return $entity.find('span.folder-title').text();
+                });
+
+                $dialogContainer.dialog('open');
+            });
+
+            var selectBoxes = function (event) {
+                event.preventDefault();
+
+                var $checkboxes = $(observer.getAll());
+
+                if (observer.isAll()) {
+                    $checkboxes.each(function (index, checkbox) {
+                        var $checkbox = $(checkbox);
+
+                        $checkbox.trigger('click');
+                        $checkbox.removeAttr('checked');
+
+                        /* Block view only */
+                        if ($checkbox.parent().is('.gg-check')) {
+                            $checkbox.parent().removeClass('hover');
+                        }
+                    });
+                } else {
+                    $checkboxes.each(function (index, checkbox) {
+                        var $checkbox = $(checkbox);
+
+                        $checkbox.trigger('click');
+                        $checkbox.attr('checked', 'checked');
+
+                        if ($checkbox.parent().is('.gg-check')) {
+                            $checkbox.parent().addClass('hover');
+                        }
+                    });
+                }
+            }
+
+            toolbar.onClick('button-select', selectBoxes);
+            $('#check-all #button-select').on('change', selectBoxes);
+
+            toolbar.onClick('button-folder', function (event) {
+                event.preventDefault();
+                $('#newFolderDialog').dialog('open');
+            });
+
+            toolbar.onClick('button-delete', function (event) {
+                event.preventDefault();
+
+                var items = {
+                            photo: [],
+                            folder: []
+                        },
+                        popup = false,
+                        used = [];
+
+                var deletePhotos = function (items) {
+                    var post = SupsysticGallery.Ajax.Post({
+                        module: 'photos',
+                        action: 'delete'
+                    });
+
+                    post.add('data', items);
+                    SupsysticGallery.Loader.show('Deleting...');
+                    post.send(function (response, request) {
+                        if (!response.error) {
+                            $.each(request.data, function (type, ids) {
+                                $.each(ids, function (index, id) {
+                                    var $entity = $('[data-entity-id="' + id + '"][data-entity-type="' + type + '"]');
+
+                                    $entity.fadeOut(function () {
+                                        $entity.remove();
+                                    });
+                                });
+                            });
+                        } else {
+                            $.jGrowl('Failed to delete selected items.')
+                        }
+
+                        SupsysticGallery.Loader.hide();
+                    });
+                };
+
+                $.each(observer.getChecked(), function (i, checked) {
+                    var type, id,
+                            $checked = $(checked),
+                            $entity = SupsysticGallery
+                                    .Common
+                                    .getParentEntity($checked);
+
+                    type = $entity.data('entity-type');
+                    id = $entity.data('entity-id');
+
+                    if ($entity.data('entity-info').is_used) {
+                        popup = true;
+                        used.push({
+                            id: id,
+                            name: $entity.data('entity-info').attachment.title,
+                            count: $entity.data('entity-info').used_times
+                        });
+                    }
+
+                    items[type].push(id);
+                });
+
+                if (popup) {
+                    var msg = 'There are some images used in galleries:\n',
+                            plural;
+
+                    $.each(used, function (i, img) {
+                        plural = ((img.count > 1) ? ' galleries' : ' gallery');
+                        msg = msg + 'Image '
+                        + img.name
+                        + ' used in '
+                        + img.count
+                        + plural
+                        + '.\n';
+                    });
+
+                    msg = msg + 'Are you sure?';
+
+                    if (confirm(msg)) {
+                        deletePhotos(items);
+                    }
+                }
+
+                deletePhotos(items);
+            });
+
+            // toolbar.onClick('button-delete', function (event) {
+            //     event.preventDefault();
+            //
+            //     SupsysticGallery.Loader.show('Deleting...');
+            //
+            //
+            //     var items = { photo: [], folder: [] };
+            //
+            //     $.each(observer.getChecked(), function (index, checked) {
+            //         var $entity = SupsysticGallery.Common.getParentEntity($(checked));
+            //
+            //         items[$entity.data('entity-type')].push($entity.data('entity-id'));
+            //     });
+            //
+            //     var post = SupsysticGallery.Ajax.Post({
+            //         module: 'photos',
+            //         action: 'delete'
+            //     });
+            //
+            //     post.add('data', items);
+            //     post.send(function (response, request) {
+            //         if (!response.error) {
+            //             $.each(request.data, function (type, ids) {
+            //                 $.each(ids, function (index, id) {
+            //                     var $entity = $('[data-entity-id="'+id+'"][data-entity-type="'+type+'"]');
+            //
+            //                     $entity.fadeOut(function () {
+            //                         $entity.remove();
+            //                     });
+            //                 });
+            //             });
+            //         } else {
+            //             $.jGrowl('Failed to delete selected items.')
+            //         }
+            //
+            //         SupsysticGallery.Loader.hide();
+            //     });
+            // });
+
+            toolbar.onClick('button-attach', function (event) {
+                event.preventDefault();
+
+                $('#selectGalleryDialog').dialog('open');
+            });
+
+            toolbar.onClick('button-create', function (event) {
+                event.preventDefault();
+
+                $('#newGalleryDialog').dialog('open');
+            });
+        });
+    })(jQuery);
+    </script>
+
+    {% include '@photos/includes/settings.twig' %}
+    {% include '@photos/includes/dialogs.twig' %}
+{% endblock %}

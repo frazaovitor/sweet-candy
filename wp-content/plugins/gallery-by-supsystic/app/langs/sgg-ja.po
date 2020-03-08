@@ -1,0 +1,1850 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+msgid "An error has occurred"
+msgstr "エラーが発生しました"
+
+# It's literlly "概要," but I translated it as "Home."
+msgid "Overview"
+msgstr "ホーム"
+
+msgid "New Gallery"
+msgstr "新規ギャラリー"
+
+# I want to translate this as "My Galleries" (at this point, it's "Galleries."
+msgid "Galleries"
+msgstr "ギャラリー"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "License"
+msgstr "ライセンス"
+
+msgid "Images"
+msgstr "画像"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Tumblr"
+msgstr "Tumblr"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Get PRO"
+msgstr "PRO を入手"
+
+# I assume this is displayed when an image is being loaded.
+msgid "Loading"
+msgstr "ロード中"
+
+msgid "Authorization code is not specified."
+msgstr "承認コードが指定されていません。"
+
+msgid "Gallery by Supsystic"
+msgstr "Gallery by Supsystic"
+
+msgid "Import images"
+msgstr "画像をインポート"
+
+msgid "Facebook authorization"
+msgstr "Facebook 承認"
+
+msgid "Upload your images from the Facebook Media Library"
+msgstr "Facebook メディアライブラリーから画像をアップロード"
+
+msgid "Login with Facebook"
+msgstr "Facebook アカウントでログイン"
+
+msgid "Return to the gallery"
+msgstr "ギャラリーに戻る"
+
+msgid "Upload new images"
+msgstr "新しい画像をアップロード"
+
+msgid "Logout"
+msgstr "ログアウト"
+
+msgid "Select/unselect all photos"
+msgstr "すべての写真を選択/選択解除"
+
+msgid ""
+"Here you can specify your business pages and images will load from those pages. "
+"You can set several pages, just separate ID of pages by \",\". To get the ID of "
+"your page you need to switch to the wanted page, then click on \"About\" link "
+"right below page cover, and at the bottom of \"About\" page you will find "
+"Facebook Page ID."
+msgstr ""
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Empty user data."
+msgstr "ユーザーデータが空です。"
+
+msgid "Flickr authorization"
+msgstr "Flickr 承認"
+
+msgid "Upload your images from the Flickr Media Library"
+msgstr "Flickr メディアライブラリーから画像をアップロード"
+
+msgid "Upload from Flickr"
+msgstr "Flickr からアップロード"
+
+msgid "Images not in albums"
+msgstr "画像がアルバムにありません"
+
+msgid "Albums"
+msgstr "アルバム"
+
+msgid "Fullscreen"
+msgstr "全画面"
+
+msgid "Load More Button"
+msgstr "\"さらにロード\" ボタン"
+
+msgid "Enable"
+msgstr "有効にする"
+
+msgid "Disable"
+msgstr "無効にする"
+
+# I need to know the context. I translated literally.
+msgid "Load with scroll"
+msgstr "スクロール付きでロード"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "Load more button text"
+msgstr "\"さらにロード\" ボタンのテキスト"
+
+# I need to know the context. I assume "amount" means something like the number of bytes.
+msgid "Images amount"
+msgstr "画像の容量"
+
+# I need to know the context.
+msgid "Load more amount"
+msgstr "さらに容量をロード"
+
+msgid "Custom Buttons"
+msgstr "カスタムボタン"
+
+msgid "Gallery Loader"
+msgstr ""
+
+msgid "Background color"
+msgstr "背景の色"
+
+msgid "Choose Icon"
+msgstr ""
+
+msgid "Disable right click"
+msgstr ""
+
+msgid "Video size"
+msgstr ""
+
+msgid "Autoplay video"
+msgstr ""
+
+msgid "When video ends"
+msgstr ""
+
+msgid "Do nothing"
+msgstr ""
+
+msgid "Open next slide"
+msgstr ""
+
+msgid "Close popup"
+msgstr ""
+
+# I need to know the context.
+msgid "Posts layout"
+msgstr "投稿レイアウト"
+
+# I need to know the context.
+msgid "Posts layout style"
+msgstr "投稿レイアウトのスタイル"
+
+msgid "Posts"
+msgstr "投稿"
+
+msgid "Pages"
+msgstr "ページ"
+
+msgid "Show author"
+msgstr "作成者を表示"
+
+msgid "Show date"
+msgstr "日付を表示"
+
+msgid "Show contents"
+msgstr "コンテンツを表示"
+
+msgid "Show categories"
+msgstr "カテゴリーを表示"
+
+msgid "Hide \"All\" category"
+msgstr "\"すべて\" カテゴリーを非表示"
+
+# I don't know exactly what this is. "shuffling animation" may need to be "animation shuffle" in Japanese.
+msgid "Enable shuffling animation"
+msgstr "シャッフルアニメーションを有効にする"
+
+# In Japanese, "duration" should be translated as "period" or "time" and it's usually accompanied by "seconds" or "minutes." In this case, I translated it as "the length of animation."
+msgid "Animation duration"
+msgstr "アニメーションの長さ"
+
+msgid "Position"
+msgstr "位置"
+
+msgid "Over the gallery"
+msgstr "ギャラリーの上"
+
+msgid "Under the gallery"
+msgstr "ギャラリーの下"
+
+msgid "Align"
+msgstr "位置合わせ"
+
+msgid "Left"
+msgstr "左"
+
+msgid "Center"
+msgstr "中央"
+
+msgid "Right"
+msgstr "右"
+
+msgid "Presets"
+msgstr "プリセット"
+
+msgid "Choose preset"
+msgstr "プリセットを選択"
+
+msgid "Preset Editor"
+msgstr "プリセットエディター"
+
+msgid "Categories order"
+msgstr "カテゴリーの順序"
+
+msgid "All"
+msgstr "すべて"
+
+msgid "Enable pagination"
+msgstr "ページ付けを有効にする"
+
+msgid "Pagination"
+msgstr "ページ付け"
+
+msgid "Images per page"
+msgstr "ページ当たりの画像数"
+
+msgid "Buttons position"
+msgstr "ボタンの位置"
+
+# It may need to be translated as "the highest (一番上)"
+msgid "Top"
+msgstr "上"
+
+# It may need to be translated as "the lowest (一番下)."
+msgid "Bottom"
+msgstr "下"
+
+msgid "Container background"
+msgstr "コンテナーの背景"
+
+msgid "Hide container background."
+msgstr "コンテナーの背景を非表示にします。"
+
+msgid "Text background"
+msgstr "テキストの背景"
+
+msgid "Hide text background."
+msgstr "テキストの背景を非表示にします。"
+
+msgid "Text color"
+msgstr "テキストの色"
+
+msgid "Use color, based on my theme."
+msgstr "使用しているテーマに基づいて色を使用します。"
+
+msgid "Vertical padding"
+msgstr "上下の余白"
+
+msgid "Horizontal padding"
+msgstr "左右の余白"
+
+msgid "Font weight"
+msgstr "フォントの太さ"
+
+msgid "Font size"
+msgstr "フォントのサイズ"
+
+msgid "Border width"
+msgstr "枠線の幅"
+
+msgid "Border type"
+msgstr "枠線のタイプ"
+
+msgid "Border color"
+msgstr "枠線の色"
+
+msgid "Border radius"
+msgstr "枠線の角丸"
+
+msgid "Buttons preset editor for Paginations, Categories and Load More buttons"
+msgstr ""
+"\"ページ付け\"、\"カテゴリー\"、および \"さらにロード\" ボタン用のボタンプリセット"
+"エディター"
+
+msgid "Custom class"
+msgstr "カスタムクラス"
+
+msgid "Font family"
+msgstr "フォントファミリー"
+
+msgid "Border style"
+msgstr "枠線のスタイル"
+
+msgid "Choose icon"
+msgstr ""
+
+msgid "Page "
+msgstr "ページ"
+
+msgid "Activate License"
+msgstr "ライセンスをアクティブ化"
+
+msgid "Renew License"
+msgstr "ライセンスを更新"
+
+msgid "Slider by Supsystic"
+msgstr "Slider by Supsystic"
+
+# "Congratulations!" is omitted.
+msgid ""
+"Congratulations! You have successfully installed and activated PRO version of ' ~ "
+"environment.getMenu().getMenuTitle() ~ ' plugin."
+msgstr ""
+"' ~ environment.getMenu().getMenuTitle() ~ ' プラグインの PRO バージョンは正常にイ"
+"ンストールされ、アクティブ化されました。"
+
+# I assume ' ~ days ~ ' will be replaced by the number of days.
+msgid "Your premium support is expired in ' ~ days ~ ' days"
+msgstr "ご利用のプレミアムサポートの有効期限が ' ~ days ~ ' 日後に切れます"
+
+msgid "You will not be able to update your pro version with expired license"
+msgstr "ライセンスが失効すると、PRO バージョンを更新できなくなります。"
+
+msgid "Activate"
+msgstr "アクティブ化"
+
+# I translated literally.
+msgid "Authorization oauth_verifier is not specified."
+msgstr "承認 oauth_verifier が指定されていません。"
+
+msgid "Tumblr authorization"
+msgstr "Tumblr 承認"
+
+msgid "Upload your images from the Tumblr Media Library"
+msgstr "Tumblr メディアライブラリーから画像をアップロード"
+
+msgid "Upload from Tumblr"
+msgstr "Tumblr からアップロード"
+
+msgid "FTP"
+msgstr ""
+
+msgid "Upload your images from the FTP Server"
+msgstr ""
+
+msgid "Enter images folder name, e.g. my-images"
+msgstr ""
+
+msgid "Parse"
+msgstr ""
+
+msgid "Note: images folder must be in wp-content/uploads/directory"
+msgstr ""
+
+msgid "Host"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Port"
+msgstr ""
+
+msgid "Enter the full path to images folder"
+msgstr ""
+
+msgid "Note: you need to specify the full path to images folder"
+msgstr ""
+
+msgid "Please fill all fields"
+msgstr ""
+
+msgid "Loading text"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Open by link in popup"
+msgstr ""
+
+msgid "Gallery link"
+msgstr ""
+
+msgid "Auto posts"
+msgstr ""
+
+msgid "Number of posts"
+msgstr ""
+
+msgid "Auto Posts Categories"
+msgstr ""
+
+msgid "Select categories"
+msgstr ""
+
+msgid "Google Drive authorization"
+msgstr ""
+
+msgid "Upload your images from Google Drive CDN"
+msgstr ""
+
+msgid "Upload from Google Drive"
+msgstr ""
+
+msgid "Google Drive"
+msgstr ""
+
+msgid "New gallery successfully created"
+msgstr "新規ギャラリーは正常に作成されました"
+
+msgid "Title successfully updated"
+msgstr "タイトルは正常に更新されました"
+
+msgid "Not enough data."
+msgstr "データが十分ではありません。"
+
+msgid "Preset successfully saved."
+msgstr "プリセットは正常に保存されました。"
+
+msgid "The preset ID is not specified."
+msgstr "プリセット ID が指定されていません。"
+
+msgid "Preset successfully removed."
+msgstr "プリセットは正常に削除されました。"
+
+msgid "Failed to find the preset."
+msgstr "プリセットを見つけることができませんでした。"
+
+msgid "Preset successfully applied to the gallery."
+msgstr "プリセットは正常にギャラリーに適用されました。"
+
+# I translated this as an error message, not as a noun. If this is a noun, it's "名称未設定ギャラリー."
+msgid "Unnamed gallery"
+msgstr "ギャラリーの名前が設定されていません"
+
+# I need to know what exactly "identifier" is.
+msgid "The identifier of the gallery is invalid"
+msgstr "ギャラリーの識別子が無効です"
+
+msgid "Title is empty"
+msgstr "タイトルが空です"
+
+msgid "Failed to rename the gallery"
+msgstr "ギャラリーの名前の変更に失敗しました。"
+
+msgid "Invalid gallery identifier specified"
+msgstr "無効なギャラリーの識別子が指定されました"
+
+msgid "Failed to delete the gallery"
+msgstr "ギャラリーの削除に失敗しました"
+
+# I translated as "Resources do not exist."
+msgid "Resources are does not exists"
+msgstr "リソースは存在しません"
+
+msgid "The identifier of the Gallery is not specified"
+msgstr "ギャラリーの識別子が指定されていません"
+
+msgid "New gallery"
+msgstr "新規ギャラリー"
+
+msgid "Add Images"
+msgstr "画像を追加"
+
+msgid "Add selected items"
+msgstr "選択されている項目を追加"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid ""
+"You need to import images to your gallery before you can start using galleries"
+msgstr ""
+"ギャラリーの使用を開始する前に、ギャラリーに画像をインポートする必要があります。"
+
+# I translated as "current selection."
+msgid "Selected"
+msgstr "現在の選択"
+
+msgid "Create new gallery"
+msgstr "新規ギャラリーを作成"
+
+msgid ""
+"Choose Gallery Template.You can change template and settings on the next step."
+msgstr ""
+"ギャラリーテンプレートを選択します。テンプレートと設定は次のステップで変更できま"
+"す。"
+
+msgid "Gallery Name:"
+msgstr "ギャラリー名:"
+
+msgid "Choose Gallery Template."
+msgstr "ギャラリーテンプレートを選択します。"
+
+# I translated as "Remove selected items."
+msgid "Remove selected"
+msgstr "選択されている項目を削除"
+
+msgid "Select/unselect all posts"
+msgstr "すべての投稿を選択/選択解除"
+
+msgid "Images list"
+msgstr "画像リスト"
+
+msgid "Preview"
+msgstr "プレビュー"
+
+msgid "Total Images: "
+msgstr "合計画像数:"
+
+msgid "There are %s photos in the gallery %s"
+msgstr "ギャラリー %s には %s 枚の写真があります。"
+
+msgid "Are you sure you want to delete this gallery?"
+msgstr "このギャラリーを削除してもよろしいですか?"
+
+msgid "Delete gallery"
+msgstr "ギャラリーを削除"
+
+msgid "Shortcode:"
+msgstr "ショートコード:"
+
+msgid "PHPCode:"
+msgstr "PHP コード:"
+
+msgid "You have no galleries"
+msgstr ""
+
+msgid "You don't have any galleries yet."
+msgstr "ギャラリーはまだありません。"
+
+msgid "Want to create one right now?"
+msgstr "いますぐ作成しますか?"
+
+msgid "What is a gallery"
+msgstr "ギャラリーとは"
+
+msgid ""
+"<strong>Gallery</strong> &mdash; the highest type of entity in the Gallery by "
+"Supsystic."
+msgstr ""
+"<strong>ギャラリー</strong> &mdash; Gallery by Supsystic の最上位のエンティティタ"
+"イプです。"
+
+msgid ""
+"You can have an unlimited number of galleries, to which you can attach the "
+"preloaded pictures."
+msgstr ""
+"作成できるギャラリーの数に制限はなく、ギャラリーにはロード済みの画像を貼ることがで"
+"きます。"
+
+msgid ""
+"Each gallery has a number of display settings and behaviors that you can save to "
+"presets and apply to other galleries."
+msgstr ""
+"ギャラリーにはさまざまな表示設定と動作を個別に設定でき、また、プリセットに保存した"
+"り他のギャラリーに適用したりできます。"
+
+msgid "Gallery title can't be empty!"
+msgstr "ギャラリーのタイトルを空にすることはできません!"
+
+msgid "Gallery title:"
+msgstr "ギャラリータイトル:"
+
+msgid "Select source to import from"
+msgstr "インポート元のソースを選択"
+
+msgid "Back to the gallery"
+msgstr "ギャラリーに戻る"
+
+msgid "Main"
+msgstr "メイン"
+
+msgid "Captions"
+msgstr "キャプション"
+
+msgid "Categories"
+msgstr "カテゴリー"
+
+msgid "Add images"
+msgstr "画像を追加"
+
+msgid "Import settings"
+msgstr "設定をインポート"
+
+msgid "Your changes not saved. You really want to leave without saving?"
+msgstr "変更が保存されていません。保存せずに移動してもよろしいですか?"
+
+msgid "Gallery Type"
+msgstr "ギャラリーのタイプ"
+
+msgid "Number of Columns"
+msgstr "列数"
+
+msgid "Responsive columns"
+msgstr "レスポンシブ列"
+
+msgid "Gallery Position"
+msgstr ""
+
+# I translated as "distance between images."
+msgid "Images distance"
+msgstr "画像間の距離"
+
+msgid "Gallery width"
+msgstr "ギャラリーの幅"
+
+msgid "Full screen width"
+msgstr ""
+
+msgid "Gallery padding"
+msgstr "ギャラリーの余白"
+
+msgid "Gallery height"
+msgstr "ギャラリーの高さ"
+
+msgid "Image width"
+msgstr "画像の幅"
+
+msgid "Image height"
+msgstr "画像の高さ"
+
+msgid "Image radius"
+msgstr "画像の角丸"
+
+msgid "Image crop quality"
+msgstr ""
+
+msgid "Display only first image"
+msgstr ""
+
+msgid "Social Sharing"
+msgstr ""
+
+msgid "Social Buttons Project"
+msgstr ""
+
+msgid "Gallery Sharing"
+msgstr ""
+
+msgid "Image Sharing"
+msgstr ""
+
+msgid "Buttons align"
+msgstr ""
+
+msgid "Popup Image Sharing"
+msgstr ""
+
+msgid "You have no Social Sharing projects for now."
+msgstr ""
+
+msgid "Create your first project"
+msgstr ""
+
+msgid ""
+"then just reload page with your Gallery settings, and you will see list with "
+"available Social Projects for your Gallery."
+msgstr ""
+
+msgid "You need to install Social Share Buttons by Supsystic to use this feature."
+msgstr ""
+
+msgid "Install plugin"
+msgstr ""
+
+msgid "here."
+msgstr ""
+
+msgid "Horizontal Scroll"
+msgstr ""
+
+msgid "Scroll Bar Color"
+msgstr ""
+
+msgid "Scroll Bar Transparency"
+msgstr ""
+
+msgid "Border"
+msgstr "枠線"
+
+# I need to know the context. It's translated as "can be used."
+msgid "Available"
+msgstr "使用可能"
+
+msgid "Border Type"
+msgstr "枠線のタイプ"
+
+msgid "Shadow"
+msgstr "シャドウ"
+
+msgid "Shadow preset"
+msgstr "シャドウプリセット"
+
+msgid "When mouse is over"
+msgstr "ポイント時"
+
+msgid "Off"
+msgstr "オフ"
+
+# The word order of Japanese is almost upside down, so I needed to translate as "Show mouse on the following (the following on mouse show)."
+msgid "Show mouse on"
+msgstr "次ではマウスを表示"
+
+# The word order of Japanese is almost upside down, so I needed to translate as "Hide mouse on the following (the following on mouse hide)."
+msgid "Hide mouse on"
+msgstr "次ではマウスを非表示"
+
+msgid "Overlay image with shadow"
+msgstr "画像をシャドウでオーバーレイ"
+
+msgid "Shadow color"
+msgstr "シャドウの色"
+
+msgid "Shadow blur"
+msgstr "シャドウのぼかし"
+
+msgid "Shadow X"
+msgstr "シャドウ X 軸"
+
+msgid "Shadow Y"
+msgstr "シャドウ Y 軸"
+
+msgid "Pop-up Image"
+msgstr "ポップアップ画像"
+
+msgid "Popup box theme"
+msgstr "ポップアップボックスのテーマ"
+
+msgid "Choose theme"
+msgstr "テーマを選択"
+
+msgid "Disable on mobile"
+msgstr "モバイルでは無効にする"
+
+msgid "Popup Image Text"
+msgstr ""
+
+msgid "Caption"
+msgstr "キャプション"
+
+msgid "Title"
+msgstr ""
+
+msgid "Alt text"
+msgstr ""
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Hide Popup Captions"
+msgstr "ポップアップキャプションを非表示"
+
+msgid "Transparency"
+msgstr "透明度"
+
+msgid "Slideshow"
+msgstr "スライドショー"
+
+msgid "Slideshow speed"
+msgstr "スライドショーの速度"
+
+msgid "Slideshow pause on hover"
+msgstr ""
+
+msgid "Slideshow autostart"
+msgstr "スライドショーの自動スタート"
+
+msgid "Popup Image size"
+msgstr ""
+
+msgid "Effect"
+msgstr "効果"
+
+msgid "Choose effect"
+msgstr "効果を選択"
+
+# I don't know exactly what this is.
+msgid "Personal captions"
+msgstr "パーソナルキャプション"
+
+msgid "Polaroid Style"
+msgstr "ポラロイドスタイル"
+
+msgid "Polaroid Image Animation"
+msgstr "ポラロイド画像 - アニメーション"
+
+# I was not able to find an appropriate word for "Scattering," but at least it makes sense and users know what it is.
+msgid "Polaroid Image Scattering "
+msgstr "ポラロイド画像 - 散乱"
+
+msgid "Polaroid Frame Width"
+msgstr ""
+
+msgid "Text size"
+msgstr "テキストのサイズ"
+
+msgid "Text horizontal align"
+msgstr "テキストの横方向の位置合わせ"
+
+msgid "Text vertical align"
+msgstr "テキストの縦方向の位置合わせ"
+
+msgid "Hide image title tooltip"
+msgstr "画像タイトルのツールチップを非表示"
+
+msgid "Mobile - show always caption"
+msgstr ""
+
+msgid "Show icons"
+msgstr "アイコンを表示"
+
+msgid "Select effect"
+msgstr "効果を選択"
+
+msgid "Animation"
+msgstr "アニメーション"
+
+msgid "Icons color"
+msgstr "アイコンの色"
+
+msgid "Icons hover color"
+msgstr "アイコンのポイント時の色"
+
+msgid "Background hover color"
+msgstr "背景のポイント時の色"
+
+msgid "Icons size"
+msgstr "アイコンのサイズ"
+
+msgid "Distance between icons"
+msgstr "アイコン間の距離"
+
+msgid "Show overlay"
+msgstr "オーバーレイを表示"
+
+msgid "Overlay color"
+msgstr "オーバーレイの色"
+
+msgid "Overlay transparency"
+msgstr "オーバーレイの透明度"
+
+msgid "Categorize images in the gallery"
+msgstr "ギャラリーの画像をカテゴリーに分類"
+
+msgid "Let user switch gallery pages"
+msgstr "ユーザーによるギャラリーページの切り替えを許可"
+
+msgid "Save settings as preset"
+msgstr "設定をプリセットとして保存"
+
+msgid "Preset title:"
+msgstr "プリセットタイトル:"
+
+msgid "Delete preset"
+msgstr "プリセットを削除"
+
+msgid "Are you really want to delete preset \"%s\"?"
+msgstr "プリセット \"%s\" を削除してもよろしいですか?"
+
+msgid "Load settings from presets"
+msgstr "プリセットから設定をロード"
+
+msgid "Select preset:"
+msgstr "プリセットを選択:"
+
+msgid "Failed to load the presets."
+msgstr "プリセットのロードに失敗しました。"
+
+msgid "Currently you have no presets."
+msgstr "プリセットは現在ありません。"
+
+msgid "Select \"Big image\" theme"
+msgstr "\"Big image\" テーマを選択"
+
+msgid "Select a theme"
+msgstr "テーマを選択"
+
+msgid "Select"
+msgstr "選択"
+
+msgid "Select overlay effect"
+msgstr "オーバーレイの効果を選択"
+
+msgid "This effect requires icons be enabled. Enable Icons?"
+msgstr ""
+"この効果を使用するには、アイコンを有効にする必要があります。アイコンを有効にします"
+"か?"
+
+msgid "Select shadow preset"
+msgstr "シャドウプリセットを選択"
+
+msgid "Select shadow"
+msgstr "シャドウを選択"
+
+msgid "Import settings from gallery"
+msgstr "ギャラリーから設定をインポート"
+
+msgid ""
+"Here you can import settings from other galleries, but right now, you have only "
+"one gallery, create more - and see how it works"
+msgstr ""
+"ここでは他のギャラリーの設定をインポートできますが、ギャラリーは現在 1 つしかあり"
+"ません。さらにギャラリーを作成して、どのようにインポートできるか試してみてくださ"
+"い。"
+
+msgid "Improve free version"
+msgstr ""
+
+msgid "Select icons effects"
+msgstr "アイコンの効果を選択"
+
+msgid "Click on the icon to select effect"
+msgstr "アイコンをクリックして効果を選択"
+
+msgid "close"
+msgstr ""
+
+msgid "next"
+msgstr ""
+
+msgid "previous"
+msgstr ""
+
+msgid "start slideshow"
+msgstr ""
+
+msgid "stop slideshow"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "of"
+msgstr ""
+
+# I translated as "Choose source gallery."
+msgid "Choose source"
+msgstr "ソースを選択"
+
+msgid "Import from WordPress Media Library"
+msgstr "WordPress メディアライブラリーからインポート"
+
+msgid "Import from social networks"
+msgstr "ソーシャルネットワークからインポート"
+
+msgid "Import from your Instagram account"
+msgstr "Instagram アカウントからインポート"
+
+msgid "Import from your Flickr account"
+msgstr "Flickr アカウントからインポート"
+
+msgid "Import from your Tumblr account"
+msgstr "Tumblr アカウントからインポート"
+
+msgid "Import from your Facebook account"
+msgstr "Facebook アカウントからインポート"
+
+msgid "Import from cloud services"
+msgstr ""
+
+msgid "Import from your FTP server"
+msgstr ""
+
+msgid "Import from your Google Drive account"
+msgstr ""
+
+msgid "Get Pro to enable import"
+msgstr "PRO を入手してインポートを可能にする"
+
+msgid "Properties"
+msgstr "プロパティー"
+
+msgid "Delete Image"
+msgstr "画像を削除"
+
+msgid "Sort To: "
+msgstr ""
+
+msgid "Sort By: "
+msgstr ""
+
+msgid "Switch to the list view"
+msgstr "リスト表示に切り替え"
+
+msgid "Switch to the block view"
+msgstr "ブロック表示に切り替え"
+
+msgid "Apply"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "The gallery is does not exists"
+msgstr "このギャラリーは存在しません"
+
+msgid "Currently this gallery has no images"
+msgstr "このギャラリーには現在画像がありません"
+
+msgid "Linked Images"
+msgstr ""
+
+msgid "Instagram authorization"
+msgstr "Instagram 承認"
+
+msgid "Upload your images from the Instagram Media Library"
+msgstr "Instagram メディアライブラリーから画像をアップロード"
+
+msgid "Upload from Instagram"
+msgstr "Instagram からアップロード"
+
+msgid "Your message successfully send. We contact you soon."
+msgstr "メッセージは正常に送信されました。折り返しご連絡いたします。"
+
+msgid "Step-by-step Tutorial"
+msgstr "操作手順チュートリアル"
+
+msgid "Begin Step-by-step Tutorial"
+msgstr "操作手順チュートリアルを開始"
+
+msgid "Name"
+msgstr "氏名"
+
+# I translated as "Email address."
+msgid "Email"
+msgstr "メールアドレス"
+
+msgid "Website"
+msgstr "ウェブサイト"
+
+msgid "Subject"
+msgstr "件名"
+
+msgid "Topic"
+msgstr "トピック"
+
+msgid "Plugin options"
+msgstr "プラグインのオプション"
+
+msgid "Report a bug"
+msgstr "バグの報告"
+
+msgid "Require a new functionallity"
+msgstr "新しい機能の要望"
+
+msgid "Other"
+msgstr "その他"
+
+msgid "Message"
+msgstr "メッセージ"
+
+msgid "Hello Supsystic Team!"
+msgstr "こんにちは、Supsystic のｄ皆さん!"
+
+msgid ""
+"Some errors occurred while sending mail please send your message trough this "
+"contact form:"
+msgstr ""
+"メールの送信中にエラーが発生しましたので、このお問い合わせフォームを使用してメッ"
+"セージをお送りください:"
+
+msgid "Unable to save chosen photo %s: %s"
+msgstr "選択されている写真 %s を保存できません: %s"
+
+msgid "New Folder"
+msgstr "新規フォルダー"
+
+msgid "The title can't be empty"
+msgstr "タイトルを空にすることはできません"
+
+msgid "Failed to update position."
+msgstr "位置の更新に失敗しました。"
+
+msgid "Position updated successfully!"
+msgstr "位置は正常に更新されました!"
+
+msgid "Rename folder"
+msgstr "フォルダーの名前を変更"
+
+msgid "Folder name:"
+msgstr "フォルダー名:"
+
+msgid "Add images to the gallery"
+msgstr "ギャラリーに画像を追加"
+
+msgid "Please wait while the plugin to get the list of galleries..."
+msgstr "プラグインがギャラリーのリストを取得するまでしばらくお待ちください。"
+
+msgid "Select the gallery:"
+msgstr "ギャラリーを選択:"
+
+msgid "New folder"
+msgstr "新規フォルダー"
+
+msgid "Add images to the new gallery"
+msgstr "新規ギャラリーに画像を追加"
+
+msgid "Create new folder"
+msgstr "新規フォルダーを作成"
+
+msgid "Edit selected item"
+msgstr "選択されている項目を編集"
+
+msgid "Delete selected items"
+msgstr "選択されている項目を削除"
+
+msgid "Create new gallery from the selected items"
+msgstr "選択されている項目から新規ギャラリーを作成"
+
+# I need to know the context. Also, I translated as "New gallery from selected items."
+msgid "New gallery from selected"
+msgstr "選択されている項目から新規ギャラリー"
+
+msgid "Add the selected items to the existing gallery"
+msgstr "選択されている項目を既存のギャラリーに追加"
+
+# I translated as "Add selected items to the gallery."
+msgid "Add selected to the gallery"
+msgstr "選択されている項目をギャラリーに追加"
+
+msgid "Upload your images from the WordPress Media Library"
+msgstr "WordPress メディアライブラリーから画像をアップロード"
+
+msgid "All photos"
+msgstr "すべての写真"
+
+msgid "Drop photos here to move them from the folder"
+msgstr "写真をフォルダーから移動するには、ここにドロップします。"
+
+msgid "Next"
+msgstr "次へ"
+
+msgid "Close Tutorial"
+msgstr "チュートリアルを閉じる"
+
+msgid "Welcome to Photo Gallery plugin by Supsystic!"
+msgstr ""
+
+msgid ""
+"Thank you for choosing our Gallery plugin. Just click here to start using it - "
+"and we will show you it's possibilities and powerfull features."
+msgstr ""
+
+msgid "Hello! This is the Gallery by Supsystic Overview."
+msgstr ""
+
+msgid ""
+"Here you can get help: watch the video tutorial or read FAQ and Documentation, "
+"make use of contact form. Also here requirements for server - Server Settings."
+msgstr ""
+"ここでは、動画チュートリアル、FAQ、ニュース記事からプラグインに関する情報を入手で"
+"き、また、お問い合わせフォームを使用して Supsystic にご質問やご要望を送ることもで"
+"きます。\"サーバー設定\" にはサーバー要件が掲載されています。"
+
+msgid "Create your first Gallery"
+msgstr ""
+
+msgid ""
+"To Create New Gallery select gallery template. You can change template and "
+"settings later. Now here are four different templates. With PRO version you’ll "
+"get more features like Categories, Load More button, Post Feed (Content) gallery, "
+"Polaroid gallery and more. Enter name of the gallery and click “Save”."
+msgstr ""
+
+msgid "Add images to your Gallery"
+msgstr ""
+
+msgid ""
+"Now you are in the edit menu of your gallery. And the first thing you need to do "
+"are add media to the gallery. Click \"Add Images\" button."
+msgstr ""
+"ギャラリーの編集メニューが表示されます。ここでは、まずギャラリーにメディアを追加し"
+"ます。\"画像を追加\" ボタンをクリックしてください。"
+
+msgid "Images Import Options"
+msgstr ""
+
+msgid ""
+"<p>Import images in several ways:</p><p>Import from Wordpress Media Library/"
+"Upload files from your computer</p><p>Import from social networks</p><p>Instagram "
+"(in the Free version)</p><p>With PRO-version also will be available import from "
+"Flickr, Tumblr and Facebook.</p><p>Besides with Gallery PRO version you can "
+"import images from such cloud services - FTP server, Google Drive.</p>"
+msgstr ""
+
+msgid "Image List"
+msgstr ""
+
+msgid ""
+"<p>Now you can see your image list. Here you can:</p><p>Change the order of "
+"images – simply by dragging them manually.</p><p>Delete images.</p><p>Add new "
+"images from different sources to the grid gallery – click “Add Images” button and "
+"select the source to import from.</p><p><b>Caption tab</b> – add caption to image "
+"– it will be displayed on the caption effect of the gallery. Also here included "
+"the support of html-elements inside caption effect</p><p><b>SEO tab</b> – manage "
+"image title and description</p><p><b>Link tab</b> – attach links to image – it "
+"will go to the link when you click the image.</p><p><b>Video tab</b> – attach "
+"video url – it will be displayed in a pop-up image when you click on the image.</"
+"p><p><b>Categories tab</b> – add tags for image categories.</p><p><b>Linked "
+"images tab</b> – add linked images to the chosen image.</p><p><b>Crop tab</b> – "
+"choose image crop position.</p><p><b>Replace image tab</b> – replace image "
+"without losing image settings.</p><p>Now follow to the gallery settings – сlick "
+"“Properties” button.</p>"
+msgstr ""
+
+msgid "Preview of Gallery settings"
+msgstr ""
+
+msgid ""
+"At the left side of the monitor you see a preview image in which will be seen "
+"changes made to the settings. This window for the settings of your gallery."
+msgstr ""
+
+msgid "Main Settings"
+msgstr ""
+
+msgid ""
+"<p>Here you can set main settings of gallery - choose Gallery Type, for more "
+"information check this <a href=\"//supsystic.com/gallery-order-types/\" target="
+"\"_blank\">article</a>.</p><p>Social Sharing: add social share buttons to your "
+"gallery. Or showcase images in a Horizontal Scroll view.</p><p>Load More: adds "
+"\"load more\" button to your gallery. And with Custom Buttons: you can make your "
+"button better.</p><p>Add to images border and shadow with Border Type and Shadow "
+"settings.</p><p>In the Pop-up Image section customize lightbox of your gallery.</"
+"p>"
+msgstr ""
+
+msgid "Captions and Icons"
+msgstr ""
+
+msgid ""
+"<p>On Captions tab you can manage the Captions and Icons, and make them your "
+"style.</p>"
+msgstr ""
+
+msgid "Categories and Pagination"
+msgstr ""
+
+msgid ""
+"<p>Categories tab: here you can enable Categories and Pagination options.</"
+"p><p>To this tab become available you need to buy PRO version."
+msgstr ""
+
+msgid ""
+"<p>Posts tab: here you can add posts and pages to your gallery and also manage "
+"them. Posts of gallery included in the PRO version of Gallery by Supsystic.</p>"
+msgstr ""
+
+msgid "Well done!"
+msgstr ""
+
+msgid ""
+"<p><b>Upgrading</b></p><p>Once you have purchased Premium version of plugin - "
+"you’ll have to enter license key (you can find it in your personal account on our "
+"site). Go to the License tab and enter your email and license key. Once you have "
+"activated your PRO license - you can use all its advanced options.</p><p>That’s "
+"all. From this moment you can use your Gallery without any doubt. But if you "
+"still have some question - do not hesitate to contact us through our <a href="
+"\"https://supsystic.com/contact-us/\">internal support</a> or on our <a href="
+"\"http://supsystic.com/forum/photo-gallery-plugin/\">Supsystic Forum.</a> Besides "
+"you can always describe your questions on <a href=\"https://wordpress.org/support/"
+"plugin/gallery-by-supsystic\">WordPress Ultimate Forum.</a></p><p><b>Enjoy this "
+"plugin?</b></p><p>It will be nice if you`ll help us and boost plugin with <a href="
+"\"https://wordpress.org/support/view/plugin-reviews/gallery-by-supsystic?"
+"rate=5#postform/\">Five Stars rating on WordPress.org.</a></p><p>We hope that you "
+"like this plugin and wish you all the best! Good luck!</p>"
+msgstr ""
+
+# The word order of Japanese is almost upside down, so it needs to be something like "Welcome to the %s" = "%s へようこそ."
+msgid "Welcome to the"
+msgstr "ようこそ"
+
+# The translation/phoneticisation of "presentation" usually means PowerPoint/OHP presentation, so I omitted it to avoid confusion.
+msgid ""
+"Photo Gallery plugin is created for people who would like to show their photos in "
+"a marvelous way. Perform your best ideas, making delightful presentations or "
+"galleries from videos and photos."
+msgstr ""
+"Photo Gallery プラグインは、写真や動画をスタイリッシュに演出したい人々のために開発"
+"されました。アイデアを最大限に発揮して、閲覧者の心に残るギャラリーを制作してくださ"
+"い。"
+
+msgid "Step-by-step tutorial"
+msgstr "操作手順チュートリアル"
+
+msgid ""
+"There’re really many options of photo gallery plugin customization. So as soon as "
+"you close that page, I’ll show you step-by-step tutorial of how to use plugin. "
+"Hope it will be usefull for you :)"
+msgstr ""
+"Photo Gallery プラグインにはさまざまなオプションがあります。このページを閉じると、"
+"プラグインの使い方を示す操作手順チュートリアルが表示されますので、ご活用ください。"
+
+msgid "Support"
+msgstr "サポート"
+
+msgid ""
+"We love our plugin and do the best to improve all features you want and fix all "
+"issues. But sometimes some issues happened or you can’t find feature you want :) "
+"Don’t worry, just <a href=\"//supsystic.com/plugins/photo-gallery?"
+"utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact\" "
+"target=\"_blank\"> contact us </a> . We’ll answer in an hour and fix all issues."
+msgstr ""
+"Supsystic は、ユーザーが要望する機能強化と問題の解決に最善を尽くしていますが、問題"
+"が発生することは避けられず、また使いたい機能が見つからないこともあります。このよう"
+"な場合は、お気軽に<a href=\"//supsystic.com/plugins/photo-gallery?"
+"utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact\" "
+"target=\"_blank\">お問い合わせ</a>ください。1 時間以内に回答し、問題を解決するよう"
+"に努めます。"
+
+msgid "Video Tutorial"
+msgstr "動画チュートリアル"
+
+msgid "Frequently Asked Questions"
+msgstr "よくある質問"
+
+msgid ""
+"Gallery doesn’t load on the front end. If the loading gallery icon just keeps "
+"playing but never loads the gallery."
+msgstr ""
+
+msgid "How to change the position of photos in gallery?"
+msgstr ""
+
+msgid "How to insert gallery into widget?"
+msgstr ""
+
+msgid "Go to Appearance -> Widgets."
+msgstr ""
+
+msgid ""
+"You’ll see Gallery by Supsystic Widget on the left. Drag it to the area, where "
+"you want it to appear."
+msgstr ""
+
+msgid "Then choose what gallery you want to display. And press save."
+msgstr ""
+
+msgid "Check all other FAQs"
+msgstr ""
+
+msgid "Roles"
+msgstr ""
+
+msgid "PRO option"
+msgstr ""
+
+msgid "Edit image"
+msgstr "画像を編集"
+
+msgid "SEO"
+msgstr "SEO"
+
+msgid "Alternative text"
+msgstr "代替テキスト"
+
+msgid "External link"
+msgstr "外部リンク"
+
+msgid "Available in PRO version."
+msgstr "PRO バージョンでは利用できます。"
+
+msgid "Link"
+msgstr "リンク"
+
+msgid "Open in new window"
+msgstr "別のウィンドウで開く"
+
+# I translated literally ("Embedded").
+msgid "Embeded video"
+msgstr "埋め込まれている動画"
+
+msgid "Video URL"
+msgstr "動画の URL"
+
+msgid "Supports Youtube and Vimeo. URL will be converted to embed automatically."
+msgstr ""
+"YouTube と Vimeo をサポートしています。URL は自動的に変換されて埋め込まれます。"
+
+msgid "Image"
+msgstr "画像"
+
+msgid "Date"
+msgstr "日付"
+
+msgid "Select %s"
+msgstr "%s を選択"
+
+# If this is used after a number (e.g. 1 photo), it needs to be "枚."
+msgid "photo"
+msgstr "写真"
+
+# If this is used after a number (e.g. 26 photos), it needs to be "枚."
+msgid "photos"
+msgstr "写真"
+
+msgid "Caption effect"
+msgstr "キャプション効果"
+
+msgid "Video"
+msgstr "動画"
+
+msgid "Linked images"
+msgstr ""
+
+msgid "Crop"
+msgstr ""
+
+msgid "Replace image"
+msgstr ""
+
+msgid "http://example.com/"
+msgstr "http://example.com/"
+
+msgid "Add nofollow attribute"
+msgstr ""
+
+msgid "Choose images"
+msgstr ""
+
+#~ msgid "Select categories preset"
+#~ msgstr "カテゴリープリセットを選択"
+
+#~ msgid "Categories preset editor"
+#~ msgstr "カテゴリープリセットエディター"
+
+#~ msgid "Preset name"
+#~ msgstr "プリセット名"
+
+#~ msgid "Normal"
+#~ msgstr "標準"
+
+#~ msgid "Bold"
+#~ msgstr "太字"
+
+#~ msgid "Select pagination preset"
+#~ msgstr "ページ付けプリセットを選択"
+
+#~ msgid "Pages preset editor"
+#~ msgstr "ページプリセットエディター"
+
+#~ msgid "You have not any galleries"
+#~ msgstr "ギャラリーはありません"
+
+#~ msgid "Show caption"
+#~ msgstr "キャプションを表示"
+
+# I translated "These are" as "Welcome to."
+#~ msgid "Hello! These are the Gallery by Supsystic. "
+#~ msgstr "こんにちは! Gallery by Supsystic へようこそ。"
+
+#~ msgid "First Step"
+#~ msgstr "ステップ 1"
+
+# In Japanese translation, square brakcets are used to enclose UI strings such as "Categories" and "Load More," but I used double quatation.
+#~ msgid ""
+#~ "To Create New Gallery select gallery template. You can change template and "
+#~ "settings later. Now here four different templates. With PRO version you’ll get "
+#~ "more features like Categories, Load More button, Categories, Post Feed "
+#~ "(Content) gallery, Polaroid gallery and more. Enter name of the gallery and "
+#~ "click “Save”."
+#~ msgstr ""
+#~ "新規ギャラリーを作成するには、まずギャラリーテンプレートを選択します。テンプ"
+#~ "レートと設定は後で変更できます。ここには 4 つのスタイルのテンプレートがありま"
+#~ "す。PRO バージョンでは、\"カテゴリー\"、\"さらにロード\" ボタン、\"投稿フィー"
+#~ "ド (コンテンツ)\" ギャラリー、\"ポラロイド\" ギャラリーなどの追加の機能を利用で"
+#~ "きます。ギャラリーの名前を入力して \"保存\" をクリックしてください。"
+
+#~ msgid "Second Step"
+#~ msgstr "ステップ 2"
+
+#~ msgid "Second Step-2"
+#~ msgstr "ステップ 2 その 2"
+
+#~ msgid ""
+#~ "<p>Import images in several ways:</p><p>Import from Wordpress Media Library/"
+#~ "Upload files from your computer</p><p>Import from social networks</"
+#~ "p><p>Instagram (in the Free version)</p><p>With PRO-version also will be "
+#~ "available import from Flickr, Tumblr and Facebook.</p>"
+#~ msgstr ""
+#~ "<p>画像をインポートする方法は次のようにいくつかあります:</p><p>Wordpress メディ"
+#~ "アライブラリーからインポートする/コンピューターからファイルをアップロードする</"
+#~ "p><p>ソーシャルネットワークからインポートする</p><p>Instagram (無料バージョ"
+#~ "ン)</p><p>PRO バージョンでは Flickr、Tumblr、および Facebook からもインポートで"
+#~ "きる</p>"
+
+#~ msgid "Third Step"
+#~ msgstr "ステップ 3"
+
+# - I changed all the instances of "â" according to the context.
+# - I translated "it will be displayed in a pop-up image when you click on the image." as "the video will be displayed in a pop-up when you click on the image."
+# - "Now follow to the gallery settings â Ñlick âPropertiesâ button." is corrupted and I think this is a feature in the PRO version, so I translated as "Now go to the gallery settings and click "Properties" button" (but I don't know what "gallery settings" is).
+#~ msgid ""
+#~ "<p>Now you can see your image list. Here you can:</p><p>Change the order of "
+#~ "images – simply by dragging them manually.</p><p>Delete images</p><p>Add new "
+#~ "images from different sources to the grid gallery – click “Add Images” button "
+#~ "and select the source to import from.</p><p><b>Caption tab</b> – add caption "
+#~ "to image – it will be displayed on the caption effect of the gallery. Also "
+#~ "here included the support of html-elements inside caption effect</p><p><b>SEO "
+#~ "tab</b> – manage image title and description</p><p><b>Link tab</b> – attach "
+#~ "links to image – it will go to the link when you click the image.</"
+#~ "p><p><b>Video tab</b> – attach video url – it will be displayed in a pop-up "
+#~ "image when you click on the image.</p><p><b>Categories tab</b> – add tags for "
+#~ "image categories.</p><p>Now follow to the gallery settings – сlick "
+#~ "“Properties” button.</p>"
+#~ msgstr ""
+#~ "<p>画像リストが表示されます。ここでは、次の操作を実行できます:</p><p>画像をド"
+#~ "ラッグして画像の順序を変更する</p><p>画像を削除する</p><p>他のソースからグリッ"
+#~ "ドギャラリーに画像を追加する (\"画像を追加\" ボタンをクリックし、インポート元の"
+#~ "ソースを選択します)</p><p><b>\"キャプション\" タブ</b> - 画像にキャプションを追"
+#~ "加できます。これはギャラリーのキャプション効果に表示されます。キャプション効果"
+#~ "内で HTML 要素を使用することもできます。</p><p><b>\"SEO\" タブ</b> - 画像のタイ"
+#~ "トルと説明を管理できます。</p><p><b>\"リンク\" タブ</b> - 画像にリンクを貼るこ"
+#~ "とができます。画像をクリックすると、リンク先が表示されます。</p><p><b>\"動画\" "
+#~ "タブ</b> - 動画の URL を貼ることができます。 画像をクリックすると、動画がポップ"
+#~ "アップに表示されます。</p><p><b>\"カテゴリー\" タブ</b> - 画像のカテゴリーのタ"
+#~ "グを追加できます。</p><p>次に、ギャラリーの設定に進み、\"プロパティー\" ボタン"
+#~ "をクリックします。</p>"
+
+#~ msgid "Fourth Step"
+#~ msgstr "ステップ 4"
+
+# I translated "This window for the settings of your gallery." as "This window is used for the settings of your gallery."
+#~ msgid ""
+#~ "Gallery Properties: At the left side of the monitor you see a preview image in "
+#~ "which will be seen changes made to the settings. This window for the settings "
+#~ "of your gallery."
+#~ msgstr ""
+#~ "ギャラリーのプロパティー: モニターの左側にプレビュー画像が表示され、設定への変"
+#~ "更がそれに反映されます。このウィンドウは、ギャラリーの設定に使用されます。"
+
+# I translated as "Second Fourth Step."
+#~ msgid "Fourth Step-1"
+#~ msgstr "ステップ 4 その 2"
+
+# I translated "Big image appear settings set in the Pop-up Image section." as "Big image appearance settings are set in the Pop-up Image section."
+#~ msgid ""
+#~ "<p>Gallery Type: sets the look of your gallery for more information check this "
+#~ "article. If you were chosen fixed column you'll see new tab where you can make "
+#~ "a Number of Columns for your gallery.</p><p>Load More: adds a button to the "
+#~ "page. And with Custom Buttons: you can make your button better.</p><p>Add to "
+#~ "images border with Border Type and add shadow with Shadow.</p><p>Big image "
+#~ "appear settings set in the Pop-up Image section.</p>"
+#~ msgstr ""
+#~ "<p>\"ギャラリーのタイプ\": ギャラリーの外観を設定します。詳細については、この記"
+#~ "事を参照してください。固定列を選択した場合は、ギャラリーの \"列の数\" を設定す"
+#~ "る新しいタブが表示されます。</p><p>\"さらにロード\": ページにボタンを追加しま"
+#~ "す。\"カスタムボタン\": ボタンを好みにカスタマイズできます。</p><p>画像に枠線を"
+#~ "追加するには \"枠線のタイプ\"、シャドウを追加するには \"シャドウ\" を使用しま"
+#~ "す。</p><p>拡大画像表示は \"ポップアップ画像\" セクションで設定します。</p>"
+
+#~ msgid "Five Step"
+#~ msgstr "ステップ5"
+
+#~ msgid ""
+#~ "<p>Captions: In this tab you can manage the captions and make them your style."
+#~ "</p>"
+#~ msgstr ""
+#~ "<p>\"キャプション\": このタブでは、キャプションを管理したり、キャンプションを好"
+#~ "みのスタイルに設定したりできます。</p>"
+
+#~ msgid "Six Step"
+#~ msgstr "ステップ 6"
+
+#~ msgid ""
+#~ "<p>Categories: Сategories option includes such capabilities:</p><p>Hide \"all"
+#~ "\" category</p><p>Enable shuffling animation of images. (If you enable posts "
+#~ "layout on the Posts tab – this feature will not be available).</p><p>Set the "
+#~ "duration of animation.</p><p>Define the position of categories – over or under "
+#~ "the gallery.</p><p>Determine the alignment of categories.</p><p>Set Categories "
+#~ "order</p><p>To this tab become available you need to buy pro-version."
+#~ msgstr ""
+#~ "<p>\"カテゴリー\": \"カテゴリー\" オプションには次の機能があります:</p><p>\"す"
+#~ "べて\" カテゴリーを非表示にする</p><p>画像のシャッフルアニメーションを有効にす"
+#~ "る (\"投稿\" タブで投稿レイアウトを有効にすると、この機能は使用できません)</"
+#~ "p><p>アニメーションの長さを設定する</p><p>カテゴリーの位置をギャラリーの上また"
+#~ "は下に設定する</p><p>カテゴリーの位置合わせを設定する</p><p>カテゴリーの順序を"
+#~ "設定する</p><p>このタブを使用するには、PRO バージョンを購入する必要があります。"
+
+#~ msgid "Seven Step"
+#~ msgstr "ステップ 7"
+
+#~ msgid ""
+#~ "<p>Posts: Here you can add posts and pages to your gallery and also manage "
+#~ "them. Posts of gallery included in the PRO version of Gallery by Supsystic.</p>"
+#~ msgstr ""
+#~ "<p>\"投稿\": ここでは、ギャラリーに投稿やページを追加したり、それらを管理したり"
+#~ "できます。これは Gallery by Supsystic の PRO バージョンで利用できます。</p>"
+
+#~ msgid "How to use pagination and categories feature of gallery?"
+#~ msgstr ""
+#~ "ギャラリーのページ付け機能とカテゴリー機能を使うには、どうすればいいでしょうか?"
+
+# I assume "Pagination" is NOT on the Categories tab.
+#~ msgid ""
+#~ "Activate “Available” radio button opposite the “Pagination” or “Categories” "
+#~ "option on the Categories tab."
+#~ msgstr ""
+#~ "\"ページ付け\" または \"カテゴリー\" タブの \"カテゴリー\" オプションに対応す"
+#~ "る \"使用可能\" ラジオボタンをアクティブにします。"
+
+#~ msgid "Set the number of images per page."
+#~ msgstr "ページ当たりの画像数を設定します。"
+
+#~ msgid "Choose one of the default presets or create your own."
+#~ msgstr "デフォルトのプリセットを 1 つ選択するか、独自のプリセットを作成します。"
+
+#~ msgid "After configuring the settings click “Save” button."
+#~ msgstr "設定が完了したら、\"保存\" ボタンをクリックします。"
+
+#~ msgid ""
+#~ "For more information for <a href=\"//supsystic.com/pagination/\" target="
+#~ "\"_blank\">Pagination</a> and for <a href=\"//supsystic.com/categories-gallery/"
+#~ "\" target=\"_blank\">Categories</a>"
+#~ msgstr ""
+#~ "\"ページ付け\" については<a href=\"//supsystic.com/pagination/\" target="
+#~ "\"_blank\">ここ</a>、\"カテゴリー\" については<a href=\"//supsystic.com/"
+#~ "categories-gallery/\" target=\"_blank\">ここ</a>を参照してください。"
+
+#~ msgid "What is “Post Feed” Gallery"
+#~ msgstr "\"投稿フィード\" ギャラリーとは"
+
+#~ msgid "Go to Posts tab."
+#~ msgstr "\"投稿\" タブに移動します。"
+
+#~ msgid ""
+#~ "Select “Enable” in Posts Layout dropdown list to activate the posts option."
+#~ msgstr ""
+#~ "\"投稿レイアウト\" ドロップダウンリストで \"有効にする\" を選択して投稿オプショ"
+#~ "ンをアクティブにします。"
+
+#~ msgid "Choose one of post layout styles."
+#~ msgstr "投稿レイアウトのスタイルを 1 つ選択します。"
+
+#~ msgid "Add pages and posts."
+#~ msgstr "ページと投稿を追加します。"
+
+# I translated "what" as "content(s)."
+#~ msgid "Choose what to show on posts layout in gallery."
+#~ msgstr "ギャラリーの投稿レイアウトに表示するコンテンツを選択します。"
+
+#~ msgid ""
+#~ "Learn more about how to do this <a href=\"//supsystic.com/plugins/photo-"
+#~ "gallery/#faq\" target=\"_blank\">here</a>."
+#~ msgstr ""
+#~ "これを行う方法については、<a href=\"//supsystic.com/plugins/photo-gallery/#faq"
+#~ "\" target=\"_blank\">ここ</a>を参照してください。"
+
+#~ msgid "All other FAQs"
+#~ msgstr "その他すべての FAQ"
+
+#~ msgid "Let's Start!"
+#~ msgstr "さあ始めましょう!"
+
+# I translated "Lifetime" as "Retention period."
+#~ msgid "Lifetime for cached data"
+#~ msgstr "キャッシュされているデータの保持期間"
+
+# I translated literally, but I need to know the context. If it's the other way around ("Only numeric values can be used in the field "%s""), then it's "フィールド "%s" では数値しか使用できません。"
+#~ msgid "The field \"%s\" available only for numeric values"
+#~ msgstr "フィールド \"%s\" は数値のみに使用できます。"
+
+#~ msgid "Settings successfully updated!"
+#~ msgstr "設定は正常に更新されました!"
+
+#~ msgid "Please correct following errors:"
+#~ msgstr "次のエラーを訂正してください:"
+
+#~ msgid ""
+#~ "<strong>%s</strong> has its own caching system in order to significantly "
+#~ "reduce the load on the database."
+#~ msgstr ""
+#~ "データベースに対する負荷を大幅に低減するため、<strong>%s</strong> には独自の"
+#~ "キャッシュシステムがあります。"
+
+#~ msgid ""
+#~ "Use this option only if all your galleries are setting correctly and you dont "
+#~ "need to change settings soon"
+#~ msgstr ""
+#~ "このオプションは、すべてのギャラリーが正しく設定され、設定をすぐに変更する必要"
+#~ "がない場合にのみ使用してください"
+
+#~ msgid "Caching is not available because your uploads directory is not writable."
+#~ msgstr ""
+#~ "アップロードディレクトリーに書き込むことができないため、キャッシュを使用できま"
+#~ "せん。"
+
+#~ msgid ""
+#~ "The time in seconds after which the cache will be considered obsolete. "
+#~ "Default: 86400 (24 hours)."
+#~ msgstr ""
+#~ "キャッシュが古くなり、不要であると見なされるまでの時間 (秒)。デフォルト: 86400 "
+#~ "(24 時間)。"
+
+#~ msgid "Clear cache"
+#~ msgstr "キャッシュをクリア"
+
+#~ msgid ""
+#~ "We don't collect statistics on you, we only collect the errors encountered "
+#~ "during use in order to improve our product."
+#~ msgstr ""
+#~ "Supsystic はユーザーに関する統計を収集しておりません。当社の製品の改善を目的と"
+#~ "して、使用中に発生したエラーのみを収集しています。"
+
+#~ msgid "Open in new window."
+#~ msgstr "別のウィンドウで開きます。"
+
+# I used double quatation in place of "â." Also, in Japanese translation, square brakcets are used to enclose UI strings such as "Categories" and "Load More," but I used double quatation.
+#~ msgid ""
+#~ "To Create New Gallery select gallery template. You can change template and "
+#~ "settings later. Now here four different templates. With PRO version youâll get "
+#~ "more features like Categories, Load More button, Categories, Post Feed "
+#~ "(Content) gallery, Polaroid gallery and more. Enter name of the gallery and "
+#~ "click âSaveâ."
+#~ msgstr ""
+#~ "新規ギャラリーを作成するには、まずギャラリーテンプレートを選択します。テンプ"
+#~ "レートと設定は後で変更できます。ここには 4 つのスタイルのテンプレートがありま"
+#~ "す。PRO バージョンでは、\"カテゴリー\"、\"さらにロード\" ボタン、\"投稿フィー"
+#~ "ド (コンテンツ)\" ギャラリー、\"ポラロイド\" ギャラリーなどの追加の機能を利用で"
+#~ "きます。ギャラリーの名前を入力して \"保存\" をクリックしてください。"
+
+# - I changed all the instances of "â" according to the context.
+# - I translated "it will be displayed in a pop-up image when you click on the image." as "the video will be displayed in a pop-up when you click on the image."
+# - "Now follow to the gallery settings â Ñlick âPropertiesâ button." is corrupted and I think this is a feature in the PRO version, so I translated as "Now go to the gallery settings and click "Properties" button" (but I don't know what "gallery settings" is).
+#~ msgid ""
+#~ "<p>Now you can see your image list. Here you can:</p><p>Change the order of "
+#~ "images â simply by dragging them manually.</p><p>Delete images</p><p>Add new "
+#~ "images from different sources to the grid gallery â click âAdd Imagesâ button "
+#~ "and select the source to import from.</p><p><b>Caption tab</b> â add caption "
+#~ "to image â it will be displayed on the caption effect of the gallery. Also "
+#~ "here included the support of html-elements inside caption effect</p><p><b>SEO "
+#~ "tab</b> â manage image title and description</p><p><b>Link tab</b> â attach "
+#~ "links to image â it will go to the link when you click the image.</"
+#~ "p><p><b>Video tab</b> â attach video url â it will be displayed in a pop-up "
+#~ "image when you click on the image.</p><p><b>Categories tab</b> â add tags for "
+#~ "image categories.</p><p>Now follow to the gallery settings â Ñlick "
+#~ "âPropertiesâ button.</p>"
+#~ msgstr ""
+#~ "<p>画像リストが表示されます。ここでは、次の操作を実行できます:</p><p>画像をド"
+#~ "ラッグして画像の順序を変更する</p><p>画像を削除する</p><p>他のソースからグリッ"
+#~ "ドギャラリーに画像を追加する (\"画像を追加\" ボタンをクリックし、インポート元の"
+#~ "ソースを選択します)</p><p><b>\"キャプション\" タブ</b> - 画像にキャプションを追"
+#~ "加できます。これはギャラリーのキャプション効果に表示されます。キャプション効果"
+#~ "内で HTML 要素を使用することもできます。</p><p><b>\"SEO\" タブ</b> - 画像のタイ"
+#~ "トルと説明を管理できます。</p><p><b>\"リンク\" タブ</b> - 画像にリンクを貼るこ"
+#~ "とができます。画像をクリックすると、リンク先が表示されます。</p><p><b>\"動画\" "
+#~ "タブ</b> - 動画の URL を貼ることができます。 画像をクリックすると、動画がポップ"
+#~ "アップに表示されます。</p><p><b>\"カテゴリー\" タブ</b> - 画像のカテゴリーのタ"
+#~ "グを追加できます。</p><p>次に、ギャラリーの設定に進み、\"プロパティー\" ボタン"
+#~ "をクリックします。</p>"
+
+#~ msgid ""
+#~ "<p>Categories: Ð¡ategories option includes such capabilities:</p><p>Hide \"all"
+#~ "\" category</p><p>Enable shuffling animation of images. (If you enable posts "
+#~ "layout on the Posts tab â this feature will not be available).</p><p>Set the "
+#~ "duration of animation.</p><p>Define the position of categories â over or under "
+#~ "the gallery.</p><p>Determine the alignment of categories.</p><p>Set Categories "
+#~ "order</p><p>To this tab become available you need to buy pro-version."
+#~ msgstr ""
+#~ "<p>\"カテゴリー\": \"カテゴリー\" オプションには次の機能があります:</p><p>\"す"
+#~ "べて\" カテゴリーを非表示にする</p><p>画像のシャッフルアニメーションを有効にす"
+#~ "る (\"投稿\" タブで投稿レイアウトを有効にすると、この機能は使用できません)</"
+#~ "p><p>アニメーションの長さを設定する</p><p>カテゴリーの位置をギャラリーの上また"
+#~ "は下に設定する</p><p>カテゴリーの位置合わせを設定する</p><p>カテゴリーの順序を"
+#~ "設定する</p><p>このタブを使用するには、PRO バージョンを購入する必要があります。"
+
+#~ msgid ""
+#~ "Thereâre really many options of photo gallery plugin customization. So as soon "
+#~ "as you close that page, Iâll show you step-by-step tutorial of how to use "
+#~ "plugin. Hope it will be usefull for you :)"
+#~ msgstr ""
+#~ "Photo Gallery プラグインにはさまざまなオプションがあります。このページを閉じる"
+#~ "と、プラグインの使い方を示す操作手順チュートリアルが表示されますので、ご活用く"
+#~ "ださい。"
+
+#~ msgid ""
+#~ "We love our plugin and do the best to improve all features you want and fix "
+#~ "all issues. But sometimes some issues happened or you canât find feature you "
+#~ "want :) Donât worry, just <a href=\"//supsystic.com/plugins/photo-gallery?"
+#~ "utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact\" "
+#~ "target=\"_blank\"> contact us </a> . Weâll answer in an hour and fix all "
+#~ "issues."
+#~ msgstr ""
+#~ "Supsystic は、ユーザーが要望する機能強化と問題の解決に最善を尽くしていますが、"
+#~ "問題が発生することは避けられず、また使いたい機能が見つからないこともあります。"
+#~ "このような場合は、お気軽に<a href=\"//supsystic.com/plugins/photo-gallery?"
+#~ "utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact\" "
+#~ "target=\"_blank\">お問い合わせ</a>ください。1 時間以内に回答し、問題を解決する"
+#~ "ように努めます。"
+
+# I assume "Pagination" is NOT on the Categories tab.
+#~ msgid ""
+#~ "Activate âAvailableâ radio button opposite the âPaginationâ or âCategoriesâ "
+#~ "option on the Categories tab."
+#~ msgstr ""
+#~ "\"ページ付け\" または \"カテゴリー\" タブの \"カテゴリー\" オプションに対応す"
+#~ "る \"使用可能\" ラジオボタンをアクティブにします。"
+
+#~ msgid "After configuring the settings click âSaveâ button."
+#~ msgstr "設定が完了したら、\"保存\" ボタンをクリックします。"
+
+#~ msgid "What is âPost Feedâ Gallery"
+#~ msgstr "\"投稿フィード\" ギャラリーとは"
+
+#~ msgid ""
+#~ "Select âEnableâ in Posts Layout dropdown list to activate the posts option."
+#~ msgstr ""
+#~ "\"投稿レイアウト\" ドロップダウンリストで \"有効にする\" を選択して投稿オプショ"
+#~ "ンをアクティブにします。"

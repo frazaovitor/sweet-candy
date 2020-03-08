@@ -1,0 +1,22 @@
+{# Toolbar #}
+<section id="table-toolbar" class="supsystic-bar" data-intro="{{ manual.intro }}" data-step="1">
+    <ul class="supsystic-bar-controls">
+        <li title="{{ translate('Remove selected') }}">
+            <button id="remove-posts" class="button button-primary" type="button">
+                <i class="fa fa-trash-o"></i>
+                {{ translate('Remove selected') }}
+            </button>
+        </li>
+
+        <li class="separator">
+            |
+        </li>
+
+        <li title="{{ translate('Select/unselect all posts') }}">
+            <button id="button-select-posts" class="button" data-value="select" type="button">
+                <i class="fa fa-check-square-o fa-fw"></i>
+            </button>
+        </li>
+    </ul>
+</section>
+{# End of toolbar #}

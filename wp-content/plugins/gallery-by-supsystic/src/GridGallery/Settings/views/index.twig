@@ -1,0 +1,87 @@
+{% extends 'grid-gallery.twig' %}
+
+{% block content %}
+
+    {% import '@core/helpers.twig' as h %}
+
+    <form action="{{ environment.generateUrl('settings', 'saveSettings', {'_wpnonce': _wpnonce}) }}" method="POST">
+        {% block beforeSettingsList %}
+            <button class="button">
+                <i class="fa fa-fw fa-save"></i>
+                {{ environment.translate('Save') }}
+            </button>
+        {% endblock %}
+        <div class="settings-list">
+            {% block beforeSettings %}{% endblock %}
+            <div class="settings">
+				<div class="setting">
+                    <div class="setting-description">
+                        <label>{{ environment.translate('Send usage statistics') }}</label>
+                        {{ h.showTooltip('If this option is enabled, the statistics about what plugin options you prefer to use will be collected and sent to us automatically. This information will help us make our solution better for you.', 'top', true) }}
+                    </div>
+                    <div class="setting-control">
+						<input type="checkbox" name="settings[send_stats]" value="1" {% if settings.send_stats %}checked{% endif %} />
+                    </div>
+                </div>
+                <div class="setting">
+                    <div class="setting-description">
+                        <label>{{ environment.translate('Image Preprocessor') }}</label>
+                        {{ h.showTooltip('Choose the preprocessor for image transformations (cropping, resizing etc.) Note: Changing the default settings may affect image quality. If you are not sure about how to use this option, please leave the settings by default.', 'top', true) }}
+                    </div>
+                    <div class="setting-control">
+                        <select name="settings[image_editor]">
+                            {% set editors = {
+                                auto: 'Auto',
+                                gd: 'GD',
+								imagic: 'Imagick',
+                            } %}
+                            {% for name, title in editors %}
+                                <option value="{{ name }}"
+                                {% if name == settings.image_editor %}
+                                    selected="selected" 
+                                {% endif %}
+                                >{{ title }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="setting">
+                    <div class="setting-description">
+
+                        <label>{{ environment.translate('Roles') }}</label>
+                        {{ h.showTooltip('Here you may assign the roles of the persons, that are allowed to use the plugin. This feature is useful when you need to depute your site management to someone else. Administrator is included by default.', 'top', true) }}
+
+                        {% if environment.isPro() == false %}
+                            <a target="_blank" href="{{ build_pro_url({ 'utm_medium': 'manage_roles' }) }}">
+                                {{ environment.translate('PRO option') }}
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="setting-control">
+                        <select multiple="multiple" name="settings[access_roles][]" class="chosen-select" data-placeholder="{{ ('Select avalilable roles to use tables.')}}">
+                            <option value="administrator" disabled selected>Administrator</option>
+                            {% set roles = {
+                                editor:'Editor',
+                                author:'Author',
+                                contributor:'Contributor',
+                                subscriber:'Subscriber'
+                            } %}
+                            {% for role, title in roles %}
+                                <option value="{{ role }}"
+                                {% if role in settings.access_roles %}
+                                    selected="selected" 
+                                {% endif %}
+                                >{{ title }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            {% block afterSettings %}{% endblock %}
+        </div>
+        {% block afterSettingsList %}{% endblock %}
+    </form>
+{% endblock %}
+

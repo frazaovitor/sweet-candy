@@ -1,0 +1,414 @@
+{% macro list_view(entities, sliderSettings, galleryId) %}
+    {% import '@core/helpers.twig' as hlp %}
+    {% import _self as view %}
+    {% set head %}
+    <tr class="ui-jqgrid-labels-custom" role="rowheader">
+        <th scope="col" id="check-all" class="ui-state-default ui-th-column ui-th-ltr jqgh_ui-jqgrid-htable_id">
+            <input type="checkbox" id="checkAll" class="gg-checkbox">
+        </th>
+        <th colspan="2" scope="col" class="ui-state-default ui-th-column ui-th-ltr jqgh_ui-jqgrid-htable_id">
+            {{ translate('Position') }}
+        </th>
+        <th scope="col" class="ui-state-default ui-th-column ui-th-ltr jqgh_ui-jqgrid-htable_id">
+        </th>
+        <th scope="col" class="ui-state-default ui-th-column ui-th-ltr jqgh_ui-jqgrid-htable_id">
+            {{ translate('Caption / Description') }}
+            {{ hlp.showTooltip('<b>' ~ translate('Caption') ~ '</b>: '
+                ~ translate('Add image caption. You may find detailed caption settings at Settings > Captions page')
+                ~ '</br></br><b>' ~ translate('Description') ~ '</b>: '
+                ~ translate('Add image description. You may find detailed description settings at Settings > Captions page. Note: in order to show descriptions and to change the description settings \'Caption builder\' option should be enabled first.'), 'top', true) }}
+        </th>
+        <th scope="col" class="ui-state-default ui-th-column ui-th-ltr jqgh_ui-jqgrid-htable_id">
+            {{ translate('SEO Alt / Title') }}
+            {{ hlp.showTooltip(translate('<b>' ~ translate('SEO Alt') ~ '</b>: '
+                ~ translate('Add SEO keywords, separated by comma, or SEO-optimized sentences. They will appear under your image, when it opens in pop-up window.')
+                ~ '</br></br><b>' ~ translate('Title') ~ '</b>: '
+            ~ translate("Add text for title's attribute of image caption. Will be shown by hovering on caption.")), 'top', true) }}
+        </th>
+        <th scope="col" class="ui-state-default ui-th-column ui-th-ltr jqgh_ui-jqgrid-htable_id">
+            {{ translate('Options') }}
+            {{ hlp.showTooltip('<b>' ~ translate('Link') ~ '</b>: ' ~ translate('You may add the link, which opens when clicking on your image thumbnail instead of pop-up window. Note: if you add video URL, this option will be inactive.')
+                 ~ '</br><b>' ~ translate('Video') ~ '</b>: ' ~ translate('Here you may add the video url. After clicking on the image thumbnail, video will open in pop-up window instead of the image.')
+                 ~ '</br><b>' ~ translate('Categories') ~ '</b>: ' ~ translate('If you want to arrange your gallery by categories, you should add category names here and separate them by commas.')
+                 ~ '</br><b>' ~ translate('Linked images') ~ '</b>: ' ~ translate('Here you may choose one or several linked images for this image thumbnail. Note: this option works only with Popup theme #7.')
+                 ~ ' <a target=\'_blank\' href=\'https://supsystic.com/example/linked-images-popup/\'>https://supsystic.com/example/linked-images-popup/</a></br><b>' ~ translate('Crop') ~ '</b>: ' ~ translate('In some gallery types image thumbnails are cropped. Here you may select the crop position to be sure that the most important part of the image will be visible.')
+                 ~ '</br><b>' ~ translate('Image on hover') ~ '</b>: ' ~ translate('Here you may add the image that will the original image when mouse cursor is over the thumbnail. Note: in order to make this feature work, you should enable \'Image on hover\' option in Settings > Captions.')
+                ~ '</br><a target=\'_blank\' href=\'https://supsystic.com/documentation/images-settings/\'>https://supsystic.com/documentation/images-settings/</a>'
+                , 'top', true) }}
+        </th>
+    </tr>
+    {% endset %}
+    <div id="sg-gallery-lang-tabs">{{ environment.getDispatcher().dispatch('tbs_lang_tabs') }}</div>
+    <form id="gallery-editor-hidden" style="display: none;">
+        <input name="gallery_id" value="{{ galleryId }}" type="hidden"/>
+        <input name="action" value="grid-gallery" type="hidden"/>
+        <input name="route[module]" value="photos" type="hidden"/>
+        <input name="route[action]" value="updateAttachment" type="hidden"/>
+    </form>
+    <table id="ui-jqgrid-htable-img" class="ui-jqgrid-htable" style="margin: 0 0 7px -5px; width: 100%;">
+        <thead class="jqgrid-head-nav">
+        {{ head }}
+        </thead>
+        <tbody id="the-list" data-sortable data-container="list">
+        {% for folder in entities.folders %}
+            {{ view.list_folder(folder) }}
+        {% endfor %}
+        {% for image in entities.images %}
+            {{ view.list_image(image, sliderSettings, galleryId) }}
+        {% else %}
+            {# No images. #}
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endmacro %}
+
+{% macro block_view(entities) %}
+    {% import _self as view %}
+    <ul class="sg-photos" data-sortable data-container="block">
+        {% for folder in entities.folders %}
+            {{ view.block_folder(folder) }}
+        {% endfor %}
+
+        {% for image in entities.images %}
+            {{ view.block_image(image) }}
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% macro block_folder(folder) %}
+    <li data-droppable class="gg-list-item" data-entity data-entity-id="{{ folder.id }}" data-entity-type="folder"
+        data-entity-info="{{ folder|json_encode|e }}">
+        <div class="gg-item" style="z-index: 0;">
+            <div class="gg-check">
+                <input type="checkbox" class="gg-checkbox" data-observable>
+            </div>
+            <a href="{{ environment.generateUrl('photos', 'view', { 'folder_id': folder.id, 'view': 'block' }) }}">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAADIAQMAAAAwS4omAAAAA1BMVEXk5+pYcSvrAAAAG0lEQVRIie3BMQEAAADCoPVPbQwfoAAAAIC3AQ+gAAEq5xQCAAAAAElFTkSuQmCC"
+                     alt="" width="150" height="150"/>
+
+                <div style="position: absolute; top: 55px; left: 55px; color: #bdc3c7;">
+                    <i class="fa fa-folder-open-o" style="font-size: 5em;"></i>
+                </div>
+
+                <div class="gg-folder-photos">
+                    <i class="fa fa-picture-o"></i> <span class="gg-folder-photos-num">{{ folder.photos|length }}</span>
+                </div>
+            </a>
+
+            <p>
+                <span class="folder-title">{{ folder.title|title }}</span>
+                <small>
+                    {{ folder.date }}
+                </small>
+            </p>
+        </div>
+    </li>
+{% endmacro %}
+
+{% macro block_image(image) %}
+    <li class="gg-list-item" data-entity data-entity-id="{{ image.id }}" data-entity-type="photo"
+        data-entity-info="{{ image|json_encode|e }}">
+        <div class="gg-item" style="z-index: 10;">
+            <div class="gg-check">
+                <input type="checkbox" class="gg-checkbox" data-observable>
+            </div>
+            <a data-colorbox href="{{ image.attachment.sizes.full.url }}">
+                {% if image.attachment.sizes.thumbnail is empty %}
+                    {% set src = image.attachment.sizes.full.url %}
+                    {% if image.attachment.orientation == 'landscape' %}
+                        {% set sizes = { 'width': 80, 'height': 60 } %}
+                    {% else %}
+                        {% set sizes = { 'width': 60, 'height': 80 } %}
+                    {% endif %}
+                {% else %}
+                    {% set src = image.attachment.sizes.thumbnail.url %}
+                    {% set sizes = { 'width': 60, 'height': 60 } %}
+                {% endif %}
+                <img class="supsystic-lazy" data-original="{{ src }}" alt="{{ image.attachment.title }}" width="150"
+                     style="min-height:150px;max-height:150px;"/>
+            </a>
+
+            <p title="{{ image.attachment.title }}">
+                {{ image.attachment.title }}
+                <small>
+                    {{ image.attachment.dateFormatted }}
+                </small>
+            </p>
+        </div>
+    </li>
+{% endmacro %}
+
+{% macro list_folder(folder) %}
+    <tr data-droppable data-entity data-entity-id="{{ folder.id }}" data-entity-type="folder"
+        data-entity-info="{{ folder|json_encode|e }}">
+        <th scope="row" class="check-column">
+            <label class="screen-reader-text"
+                   for="cb-select-{{ folder.id }}">{{ translate('Select %s')|format(folder.title) }}</label>
+            <input type="checkbox" name="folder[]" id="cb-select-{{ folder.id }}" value="{{ folder.id }}"
+                   data-observable>
+        </th>
+        <td class="column-icon media-icon" style="position: relative;">
+            <a href="{{ environment.generateUrl('photos', 'view', { 'folder_id': folder.id, 'view': 'list' }) }}"
+               data-colorbox>
+                <img width="60" height="60"
+                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAADIAQMAAAAwS4omAAAAA1BMVEXk5+pYcSvrAAAAG0lEQVRIie3BMQEAAADCoPVPbQwfoAAAAIC3AQ+gAAEq5xQCAAAAAElFTkSuQmCC"
+                     class="attachment-80x60 supsystic-lazy" alt="{{ folder.title }}">
+            </a>
+
+            <div style="position: absolute; top: 20px; left: 31px; color: #bdc3c7; z-index: 100;">
+                <i class="fa fa-folder-open-o" style="font-size: 3em;"></i>
+            </div>
+        </td>
+        <td class="title column-title">
+            <strong>
+                <a href="{{ environment.generateUrl('photos', 'view', { 'folder_id': folder.id, 'view': 'list' }) }}">
+                    <span class="folder-title">{{ folder.title|title|raw }}</span>
+                </a>
+            </strong>
+
+            <p>
+                <span class="gg-folder-photos-num">
+                    {{ folder.photos|length }}
+                </span>
+                {% if folder.photos|length == 1 %}
+                    {{ translate('photo') }}
+                {% else %}
+                    {{ translate('photos') }}
+                {% endif %}
+            </p>
+        </td>
+        <td class="date column-date">{{ folder.date }}</td>
+    </tr>
+{% endmacro %}
+
+{% macro list_image(image, sliderSettings, galleryId) %}
+    {% import '@core/helpers.twig' as hlp %}
+
+    {% set nonProMsg = 'Available in PRO' %}
+    <tr data-entity data-entity-id="{{ image.id }}" data-settings="{{ sliderSettings|json_encode|e }}" data-entity-type="photo" data-entity-info="{{ image|json_encode|e }}" class="ggImgInfoRow">
+        <th scope="row" class="check-column ggImgVertMoveCol">
+            <i class="fa fa-arrows-v ggImgVerticalMove" aria-hidden="true"></i>
+            <label class="screen-reader-text"
+                   for="cb-select-{{ image.id }}">{{ translate('Select %s')|format(image.attachment.title) }}</label>
+            <input type="checkbox" name="image[]" id="cb-select-{{ image.id }}" value="{{ image.id }}" data-observable>
+        </th>
+        <td class="title column-title">
+            <input id="position-image-{{ image.id }}" type="text" disabled style="height:24px; width: 30px;" value="{{ image.position + 1 }}">
+        </td>
+        <td class="column-icon media-icon top-align">
+            {% set remoteImgClass = "" %}
+            {% set remoteLinkClass = "" %}
+            {% set remoteImgType = "" %}
+            {% if image.attachment.isRemoteImage is defined and image.attachment.isRemoteImage == 1 %}
+                {% set remoteImgClass = " remote-thumbnail" %}
+                {% set remoteLinkClass = "remote-link" %}
+                {% set remoteImgType = ' data-cbox-photo=1' %}
+            {% endif %}
+            <a href="{{ image.attachment.sizes.full.url }}" data-colorbox class="{{ remoteLinkClass }}"{{ remoteImgType }}>
+                {% if image.attachment.sizes.thumbnail is empty %}
+                    {% set src = image.attachment.sizes.full.url %}
+                    {% if image.attachment.orientation == 'landscape' %}
+                        {% set sizes = { 'width': 120, 'height': 90 } %}
+                    {% else %}
+                        {% set sizes = { 'width': 90, 'height': 120 } %}
+                    {% endif %}
+                {% else %}
+                    {% set src = image.attachment.sizes.thumbnail.url %}
+                    {% set sizes = { 'width': 90, 'height': 90 } %}
+                {% endif %}
+                <img width="100" height="100" data-original="{{ src }}"
+                     class="attachment-thumbnail supsystic-lazy{{ remoteImgClass }}" alt="{{ image.attachment.title }}">
+            </a>
+        </td>
+        <td class="title column-title top-align" style="text-align: left; padding-left:15px !important;">
+            {{ image.attachment.filename }}</br>
+            {{ image.gg_wp_upload_date }}</br>
+            {{ image.attachment.filesizeHumanReadable }}</br>
+            {{ image.attachment.width }}x{{ image.attachment.height }}</br></br>
+            <div class="gg-wraper-option-links">
+                {% if(environment.isPro() == true) %}
+                    <a href="#gg-attributes" class="gg-option-links attributes-image" data-image-id="{{ image.id }}" data-values="{{ image.attributes|json_encode|e }}">{{ translate('Attributes') }}</a></br>
+                {% endif %}
+                {% if(environment.isPro() == false) %}
+                    <a href="#" class="gg-option-links">{{ translate('Attributes') }}</a>
+                    <a href="http://supsystic.com/plugins/photo-gallery?utm_source=plugin&utm_medium=images_caption_attributes&utm_campaign=gallery" target="_blank">
+                        {{ nonProMsg|raw }}
+                    </a>
+                    </br>
+                {% endif %}
+                <a href="#gg-meta" class="gg-option-links metadata-image">{{ translate('Meta') }}</a></br>
+                <a href="#gg-replace" class="gg-option-links replace-image" data-image-id="{{ image.id }}" data-attachment-id="{{ image.attachment.id }}">{{ translate('Replace') }}</a></br>
+                <a href="#gg-delete" id="delete-image-{{ image.id }}" class="gg-option-links">{{ translate('Delete') }}</a>
+            </div></br>
+        </td>
+        <td class="title column-textarea top-align">
+            <form id="photo-editor-caption-{{ image.id }}" class="photo-editor" data-id="{{ image.id }}">
+                <textarea name="caption" rows="2" placeholder="{{ translate('Caption') }}">{{ image.attachment.caption|raw }}</textarea></br>
+                {% if environment.isPro() == false %}
+                    <span style="color:red" class="description">
+                        <textarea name="" disabled rows="5" placeholder="Description">{{ image.attachment.captionDescription|raw }}</textarea>
+                        <a href="http://supsystic.com/plugins/photo-gallery?utm_source=plugin&utm_medium=images_caption_description&utm_campaign=gallery" target="_blank">
+                            {{ nonProMsg|raw }}
+                        </a>
+                    </span>
+                {% else %}
+                    <textarea name="captionDescription" rows="5" placeholder="Description">{{ image.attachment.captionDescription|raw }}</textarea>
+                {% endif %}
+                {{ environment.getDispatcher().dispatch('after_photo_attachment_form', [['caption', 'captionDescription'], image.attachment.id]) }}
+            </form>
+        </td>
+        <td class="title column-textarea top-align">
+            <form id="photo-editor-seo-{{ image.id }}" class="photo-editor" data-id="{{ image.id }}">
+                <textarea name="alt" rows="2" placeholder="{{ translate('SEO Alt') }}">{% if image.attachment.alt is not empty %}{% if image.attachment.alt == " " %}{{ ""}}{% else %}{{ image.attachment.alt }}{% endif %}{% else %}{{ image.attachment.title }}{% endif %}</textarea></br>
+                <textarea name="description" rows="5" placeholder="{{ translate('Title') }}">{{ image.attachment.description|raw }}</textarea>
+                {{ environment.getDispatcher().dispatch('after_photo_attachment_form', [['alt', 'description'], image.attachment.id]) }}
+            </form>
+        </td>
+        <td class="title column-title top-align" style="text-align: left; padding-left:15px !important; padding-right:5px !important;">
+            <form id="photo-editor-{{ image.id }}" class="photo-editor attachment-{{ image.attachment.id }}" data-id="{{ image.id }}" style="margin-top: 0;">
+                <div class="gg-image-option-links">
+                    <div class="gg-wraper-option-links" style="float: left">
+                        <a href="#gg-effect" class="gg-option-links option-link">{{ translate('Choose effect') }}</a></br>
+                        <a href="#gg-linked" class="gg-option-links option-link">{{ translate('Linked Images') }}</a></br>
+                        <a href="#gg-hover" class="gg-option-links option-link">{{ translate('Image on Hover') }}</a></br>
+                        <a href="#gg-copy" class="gg-option-links option-link">{{ translate('Copy to') }}</a></br>
+                        <a href="#gg-move" class="gg-option-links option-link">{{ translate('Move to') }}</a></br>
+                    </div>
+                    <div class="gg-wraper-option-links" style="float: left">
+                        <a href="#gg-categories" class="gg-option-links option-link">{{ translate('Categories') }}</a></br>
+                        <a href="#gg-video" class="gg-option-links option-link">{{ translate('Video') }}</a></br>
+                        <a href="#gg-link" class="gg-option-links option-link">{{ translate('Link') }}</a></br>
+                        <a href="#gg-rotate" class="gg-option-links option-link">{{ translate('Rotate') }}</a></br>
+                        <a href="#gg-crop" class="gg-option-links option-link">{{ translate('Crop') }}</a></br>
+                    </div>
+                </div>
+                <div class="gg-option-containers" style="clear:both;">
+                    <div class="gg-effect-option gg-option-container ggSettingsDisplNone">
+                        <button class="button selectCaptionEffectBtn" data-id="{{ image.attachment.id }}" title="{{ translate('Choose effect') }}">{{ translate('Choose effect') }}</button>
+                        <input type="text" class="captionEffectVal" name="captionEffect" data-id="{{ image.attachment.id }}" value="{{ image.attachment.captionEffect|default(sliderSettings.thumbnail.overlay.effect) }}" style="display: none;" />
+                    </div>
+                    <div class="gg-copy-option gg-option-container ggSettingsDisplNone">
+                        <select class="copy-option" style="width: 100%;"></select></br>
+                        <button class="button image-copy-btn">{{ translate('Apply') }}</button>
+                    </div>
+                    <div class="gg-move-option gg-option-container ggSettingsDisplNone">
+                        <select class="copy-option" style="width: 100%;"></select></br>
+                        <button class="button image-move-btn">{{ translate('Apply') }}</button>
+                    </div>
+                    <div class="gg-link-option gg-option-container ggSettingsDisplNone">
+                        <input type="text" name="link" value="{{ image.attachment.external_link }}" style="width: 100%;" placeholder="{{ translate('http://example.com/') }}"/></br>
+                        <label>
+                            <input type="checkbox" name="target" value="_blank" {% if image.attachment.target == '_blank' %} checked="checked" {% endif %}/>
+                            {{ translate('Open in new window') }}
+                        </label>
+                        <label>
+                            <input type="checkbox" name="rel[]" value="nofollow" {% if 'nofollow' in image.attachment.rel %} checked="checked" {% endif %}/>
+                            {{ translate('Add nofollow attribute') }}
+                        </label>
+                        <label>
+                            <input type="checkbox" name="rel[]" value="noopener" {% if 'noopener' in image.attachment.rel %} checked="checked" {% endif %}/>
+                            {{ translate('Add noopener attribute') }}
+                        </label>
+                        <label>
+                            <input type="checkbox" name="rel[]" value="noreferrer" {% if  'noreferrer' in image.attachment.rel %} checked="checked" {% endif %}/>
+                            {{ translate('Add noreferrer attribute') }}
+                        </label>
+                    </div>
+                    <div class="gg-video-option gg-option-container ggSettingsDisplNone">
+                        <input type="text"
+                            {% if environment.isPro() %}
+                                name="video" value="{{ image.attachment.video }}"
+                            {% else %}
+                                disabled="disabled"
+                            {% endif %}
+                            style="width: 100%;"
+                            placeholder="{{ translate('Video URL') }}"
+                        >
+                        {% if environment.isPro() == false %}
+                            <span style="color:red" class="description">
+                                </br><a href="http://supsystic.com/plugins/photo-gallery?utm_source=plugin&utm_medium=video&utm_campaign=gallery" target="_blank">
+                                    {{ nonProMsg|raw }}
+                                </a>
+                            </span>
+                        {% endif %}
+                    </div>
+                    <div class="gg-categories-option gg-option-container ggSettingsDisplNone">
+                        {% if environment.isPro() == false %}
+                            <input type="text" disabled placeholder="Categories" style="width: 70%;">
+                            <span style="color:red" class="description">
+                                </br><a href="http://supsystic.com/plugins/photo-gallery?utm_source=plugin&utm_medium=imagescategories&utm_campaign=gallery" target="_blank">
+                                    {{ nonProMsg|raw }}
+                                </a>
+                            </span>
+                        {% else %}
+                            <input type="text" class="gg-tags" id="tags-{{ image.id }}" data-id="{{ image.id }}" value="{{ image.tags|join(',')|raw }}">
+                        {% endif %}
+                    </div>
+                    <div class="gg-linked-option gg-option-container ggSettingsDisplNone">
+                        {% if environment.isPro() == false %}
+                            <button class="button disabled" disabled>{{ translate('Choose images') }}</button>
+                            <span style="color:red" class="description">
+                                </br><a href="http://supsystic.com/plugins/photo-gallery?utm_source=plugin&utm_medium=linked_images&utm_campaign=gallery" target="_blank">
+                                    {{ nonProMsg|raw }}
+                                </a>
+                            </span>
+                        {% else %}
+                            <button class="button selectLinkedImages" data-id="{{ image.id }}" title="{{ translate('Choose images') }}">{{ translate('Choose images') }}</button>
+                            <input type="text" name="linkedImages" data-id="{{ image.id }}" value="{{ image.attachment.linkedImages|default('') }}" style="display: none;" />
+                        {% endif %}
+                    </div>
+                    <div class="gg-hover-option gg-option-container ggSettingsDisplNone">
+                        {% if environment.isPro() == false %}
+                            <button class="button disabled" disabled="disabled">{{ translate('Choose image') }}</button>
+                            <span class="description">
+                                </br><a href="http://supsystic.com/plugins/photo-gallery?utm_source=plugin&utm_medium=hover_caption_image_bg&utm_campaign=gallery" target="_blank">
+                                    {{ nonProMsg|raw }}
+                                </a>
+                            </span>
+                        {% else %}
+                            <input id="hover-caption-image-inp-{{ image.id }}" type="text" name="hoverCaptionImageInp" value="{{ image.attachment.hoverCaptionImage|default('') }}"
+                             style="width: 100%;" readonly="readonly"/></br>
+                            <button class="button select-hover-caption-image" data-image-id="{{ image.id }}" title="{{ translate('Choose image') }}">{{ translate('Choose image') }}</button>
+                        {% endif %}
+                    </div>
+                    <div class="gg-crop-option gg-option-container ggSettingsDisplNone">
+                        <label>Image crop position: </label></br>
+                        {% set cropPositionList = {
+                            "left-top":"Top Left",
+                            "center-top":"Top Center",
+                            "right-top":"Top Right",
+                            "left-center":"Center Left",
+                            "center-center":"Center Center",
+                            "right-center":"Center Right",
+                            "left-bottom":"Bottom Left",
+                            "center-bottom":"Bottom Center",
+                            "right-bottom":"Bottom Right"
+                        } %}
+                        <select name="cropPosition">
+                            {% for value, title in cropPositionList %}
+                                <option value="{{ value }}" {% if image.attachment.cropPosition|default('center-center') == value %} selected="selected" {% endif %}>{{ title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="gg-rotate-option gg-option-container ggSettingsDisplNone">
+                        <select class="rotate-option" style="width:100%">
+                            <option value="clockwise" selected="selected">{{ translate('Rotate Clockwise') }}</option>
+                            <option value="counter">{{ translate('Rotate Counter-Clockwise') }}</option>
+                        </select></br>
+                        <button class="button image-rotate-btn">{{ translate('Apply') }}</button>
+                    </div>
+                </div>
+
+                <input name="replace_attachment_id" id="replace_attachment_id_{{ image.id }}" type="hidden"/>
+                <input name="buttonLinkTitle" value="{{ image.attachment.buttonLinkTitle }}" type="hidden"/>
+                <input name="buttonLinkUrl" value="{{ image.attachment.buttonLinkUrl }}" type="hidden"/>
+                <input name="imageKeywords" value="{{ image.attachment.imageKeywords }}" type="hidden"/>
+            </form>
+            <form id="photo-editor-hidden-{{ image.id }}" style="display: none;">
+                <input name="image_id" value="{{ image.id }}" type="hidden"/>
+                <input name="attachment_id" value="{{ image.attachment.id }}" type="hidden"/>
+            </form>
+        </td>
+    </tr>
+{% endmacro %}

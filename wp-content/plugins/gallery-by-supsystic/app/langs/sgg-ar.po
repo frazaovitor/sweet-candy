@@ -1,0 +1,1348 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Arabic Translation\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Moe Hodroj <mrmoehj@gmail.com>\n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? "
+"3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 1.8.7\n"
+
+msgid "An error has occurred"
+msgstr "حدث خطأ ما"
+
+msgid "Overview"
+msgstr "نظرة عامة"
+
+msgid "New Gallery"
+msgstr "إضافة معرض جديد"
+
+msgid "Galleries"
+msgstr "معارض الصور"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "License"
+msgstr "ترخيص"
+
+msgid "Images"
+msgstr "صور"
+
+msgid "Instagram"
+msgstr "رابط الإنستغرام"
+
+msgid "Flickr"
+msgstr "فليكر"
+
+# تمبلر
+msgid "Tumblr"
+msgstr "تمبلر"
+
+msgid "Facebook"
+msgstr "فايسبوك"
+
+msgid "Get PRO"
+msgstr "اشتر النسخة الكاملة"
+
+msgid "Loading"
+msgstr "تحميل"
+
+msgid "Authorization code is not specified."
+msgstr "رقم الترخيص غير معرف"
+
+msgid "Gallery by Supsystic"
+msgstr "معرض صور بواسطة Supsystic"
+
+msgid "Import images"
+msgstr "ادخال الصور"
+
+msgid "Facebook authorization"
+msgstr "تعريف الفايسبوك"
+
+msgid "Upload your images from the Facebook Media Library"
+msgstr "حمل صورك من مكتبة الصور للفايسبوك"
+
+msgid "Login with Facebook"
+msgstr "دخول عبر الفايسبوك"
+
+msgid "Return to the gallery"
+msgstr "العودة لمعرض الصور"
+
+msgid "Upload new images"
+msgstr "حمّل صور جديدة"
+
+msgid "Logout"
+msgstr "خروج"
+
+msgid "Select/unselect all photos"
+msgstr "حدد/الغاء التحديد لكل الصور"
+
+msgid "Empty user data."
+msgstr "افراغ محتوى المستخدم"
+
+msgid "Flickr authorization"
+msgstr "ترخيص فليكر"
+
+msgid "Upload your images from the Flickr Media Library"
+msgstr "حمل صورك من مكتبة الصور للفلكر"
+
+msgid "Upload from Flickr"
+msgstr "حمل من فلكر"
+
+msgid "Images not in albums"
+msgstr "الصور ليست في الألبوم"
+
+msgid "Albums"
+msgstr "الألبومات"
+
+msgid "Fullscreen"
+msgstr "شاشة كاملة"
+
+msgid "Load More Button"
+msgstr "زر تحميل المزيد"
+
+msgid "Enable"
+msgstr "تفعيل"
+
+msgid "Disable"
+msgstr "الغاء"
+
+msgid "Load with scroll"
+msgstr "حمل مع التمرير"
+
+msgid "No"
+msgstr "كلا"
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid "Load more button text"
+msgstr "ملصق زر تحميل المزيد"
+
+msgid "Images amount"
+msgstr "كمية الصور"
+
+msgid "Load more amount"
+msgstr "حمل كمية اخرى"
+
+msgid "Custom Buttons"
+msgstr "أزرار مخصصة"
+
+msgid "Video size"
+msgstr "حجم الفيديو"
+
+msgid "Autoplay video"
+msgstr "تشغيل تلقائي للفيديو"
+
+msgid "When video ends"
+msgstr "عند انتهاء الفيديو"
+
+msgid "Do nothing"
+msgstr "لا تفعل شيئاً"
+
+msgid "Open next slide"
+msgstr "فتح الشاشة (السلايد) التالية"
+
+msgid "Close popup"
+msgstr "اغلاق النافذة النافرة"
+
+msgid "Posts layout"
+msgstr "مظهر صفحة المشاركات"
+
+msgid "Posts layout style"
+msgstr "نمط مظهر صفحة المشاركات"
+
+msgid "Posts"
+msgstr "المشاركات"
+
+msgid "Pages"
+msgstr "الصفحات"
+
+msgid "Show author"
+msgstr "اظهار الناشر"
+
+msgid "Show date"
+msgstr "اظهار التاريخ"
+
+msgid "Show contents"
+msgstr "اظهار المحتوى"
+
+msgid "Show categories"
+msgstr "اظهار التصنيفات"
+
+msgid "Hide \"All\" category"
+msgstr "إخفاء كل التصنيفات"
+
+msgid "Enable shuffling animation"
+msgstr "تفعيل حركة الخلط"
+
+msgid "Animation duration"
+msgstr "مدة الحركة"
+
+msgid "Position"
+msgstr "المركز"
+
+msgid "Over the gallery"
+msgstr "فوق المعرض"
+
+msgid "Under the gallery"
+msgstr "تحت المعرض"
+
+msgid "Align"
+msgstr "محاذاة"
+
+msgid "Left"
+msgstr "شمال"
+
+msgid "Center"
+msgstr "وسط"
+
+msgid "Right"
+msgstr "يمين"
+
+msgid "Presets"
+msgstr "الخيارات المعدة مسبقاً"
+
+msgid "Choose preset"
+msgstr "اختيار اعداد"
+
+msgid "Preset Editor"
+msgstr "محرر الاعدادات"
+
+msgid "Categories order"
+msgstr "ترتيب الفئات"
+
+msgid "All"
+msgstr "الكل"
+
+msgid "Enable pagination"
+msgstr "تفعيل ترقيم الصفحات"
+
+msgid "Pagination"
+msgstr "ترقيم الصفحات"
+
+msgid "Images per page"
+msgstr "عدد الصور في كل صفحة"
+
+msgid "Buttons position"
+msgstr "أماكن الأزرار"
+
+msgid "Top"
+msgstr "الأعلى"
+
+msgid "Bottom"
+msgstr "الأسفل"
+
+msgid "Container background"
+msgstr "خلفية الحاوية"
+
+msgid "Hide container background."
+msgstr "إخفاء خلفية الحاوية"
+
+msgid "Text background"
+msgstr "خط الخلفية"
+
+msgid "Hide text background."
+msgstr "إخفاء خط الخلفية"
+
+msgid "Text color"
+msgstr "لون الخط"
+
+msgid "Use color, based on my theme."
+msgstr "استعمال لون وفق الثيم المعتمد "
+
+msgid "Vertical padding"
+msgstr "الحشو العامودي"
+
+msgid "Horizontal padding"
+msgstr "الحشو الأفقي"
+
+msgid "Font weight"
+msgstr "حجم الخط"
+
+msgid "Font size"
+msgstr "قياس الخط"
+
+msgid "Border width"
+msgstr "عرض الحدود"
+
+msgid "Border type"
+msgstr "نوع الحدود"
+
+msgid "Border color"
+msgstr "لون الحدود"
+
+msgid "Border radius"
+msgstr "قطر الحدود"
+
+msgid "Select icons effects"
+msgstr "اختيار تأثيرات الأيقونات"
+
+msgid "Click on the icon to select effect"
+msgstr "اضغط على الأيقونة لأختيار التأثير"
+
+msgid "Buttons preset editor for Paginations, Categories and Load More buttons"
+msgstr "أزرار معدّة مسبقاً لصفحة الترقيم ، فئات و تحميل المزيد من الأزرار"
+
+msgid "Custom class"
+msgstr "كائن مخصص"
+
+msgid "Background color"
+msgstr "لون الخلفية"
+
+msgid "Font family"
+msgstr "عائلة الخطوط"
+
+msgid "Border style"
+msgstr "نمط الحدود"
+
+msgid "Page "
+msgstr "صفحة"
+
+msgid "Activate License"
+msgstr "تفعيل الرخصة"
+
+msgid "Renew License"
+msgstr "تجديد الرخصة"
+
+msgid "Slider by Supsystic"
+msgstr "معرض صور بواسطة Supsystic"
+
+msgid ""
+"Congratulations! You have successfully installed and activated PRO version of ' ~ "
+"environment.getMenu().getMenuTitle() ~ ' plugin."
+msgstr ""
+"تهانينا! لقد نجحت في تثبيت و تنشيط نسخة للمحترفين ل' ~ environment.getMenu()."
+"getMenuTitle() ~ ' plugin."
+
+msgid "Your premium support is expired in ' ~ days ~ ' days"
+msgstr "دعمك المدفوع سوف ينتهي في ' ~ days ~ ' ايام"
+
+msgid "You will not be able to update your pro version with expired license"
+msgstr "لن تكون قادرا على تحديث نسخة للمحترفين مع رخصة منتهية الصلاحية"
+
+msgid "Activate"
+msgstr "تفعيل "
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Authorization oauth_verifier is not specified."
+msgstr "لم يتم تحديد ترخيص  oauth_verifier "
+
+msgid "Tumblr authorization"
+msgstr "تفعيل تمبلر"
+
+msgid "Upload your images from the Tumblr Media Library"
+msgstr "حمل صورك من مكتبة الصور للتمبلر"
+
+msgid "Upload from Tumblr"
+msgstr "حمل من تمبلر"
+
+msgid ""
+"Here you can specify your business pages and images will load from those pages. You can "
+"set several pages, just separate ID of pages by \",\". To get the ID of your page you need "
+"to switch to the wanted page, then click on \"About\" link right below page cover, and at "
+"the bottom of \"About\" page you will find Facebook Page ID."
+msgstr ""
+"هنا يمكنك تحديد صفحات عملك و سوف يتم تحميل الصور من تلك الصفحات . يمكنك تعيين عدة صفحات ، "
+"فقط افصل معرف الصفحات التي كتبها بـ \", \" . للحصول على معرف صفحتك تحتاج إلى تبديل إلى "
+"الصفحة المطلوبة ، ثم انقر على الرابط \"حول\" اسفل الصفحة ، وعلى الجزء السفلي من صفحة "
+"\"المعلومات \" سوف تجد  معرف صفحة الفيسبوك ."
+
+msgid "Gallery Loader"
+msgstr "تشغيل معرض الصور"
+
+msgid "Choose Icon"
+msgstr "اختر ايقونة"
+
+msgid "Disable right click"
+msgstr "إيقاف زر اليمين للماوس"
+
+msgid "Choose icon"
+msgstr "اختر ايقونة"
+
+msgid "New gallery successfully created"
+msgstr "تم إضافة معرض جديد بنجاح"
+
+msgid "Title successfully updated"
+msgstr "تم تعديل العنوان بنجاح"
+
+msgid "Not enough data."
+msgstr "معلومات غير كافية"
+
+msgid "Preset successfully saved."
+msgstr "تم حفظ محرر الاعدادات بنجاح"
+
+msgid "The preset ID is not specified."
+msgstr "رقم محرر الاعدادات غير معرف"
+
+msgid "Preset successfully removed."
+msgstr "تم إزالة محرر الاعدادات بنجاح"
+
+msgid "Failed to find the preset."
+msgstr "فشل إيجاد محرر الاعدادات"
+
+msgid "Preset successfully applied to the gallery."
+msgstr "تم تطبيق محرر الاعدادات لمعرض الصور بنجاح"
+
+msgid "Unnamed gallery"
+msgstr "معرض غير مسمى"
+
+msgid "The identifier of the gallery is invalid"
+msgstr "معرف معرض الصور غير موجود"
+
+msgid "Title is empty"
+msgstr "العنوان فارغ"
+
+msgid "Failed to rename the gallery"
+msgstr "فشل في إعادة تسمية معرض الصور"
+
+msgid "Invalid gallery identifier specified"
+msgstr "معرف معرض الصور الذي تم تحديده غير موجود"
+
+msgid "Failed to delete the gallery"
+msgstr "فشل في إزالة معرض الصور"
+
+msgid "Resources are does not exists"
+msgstr "الموارد غير موجودة"
+
+msgid "The identifier of the Gallery is not specified"
+msgstr "معرف معرض الصور غير محدد"
+
+msgid "New gallery"
+msgstr "إضافة معرض جديد"
+
+msgid "Add Images"
+msgstr "إضافة صور"
+
+msgid "Add selected items"
+msgstr "اضف العناصر المحددة"
+
+msgid "Cancel"
+msgstr "الغاء"
+
+msgid "You need to import images to your gallery before you can start using galleries"
+msgstr ""
+"أنت في حاجة لاستيراد الصور إلى معرض الصور الخاص بك قبل أن تتمكن من البدء في استخدام معارض "
+"الصور"
+
+msgid "Selected"
+msgstr "محدد"
+
+msgid "Create new gallery"
+msgstr "إضافة معرض جديد"
+
+msgid "Choose Gallery Template.You can change template and settings on the next step."
+msgstr "اختيار قالب معرض.ويمكنك تغيير القالب والإعدادات في الخطوة التالية."
+
+msgid "Gallery Name:"
+msgstr "اسم معرض الصور"
+
+msgid "Choose Gallery Template."
+msgstr "اختيار قالب للمعرض"
+
+msgid "Remove selected"
+msgstr "إزالة المحدد"
+
+msgid "Select/unselect all posts"
+msgstr "حدد/الغاء التحديد لكل المشاركات"
+
+msgid "Images list"
+msgstr "لائحة الصور"
+
+msgid "Preview"
+msgstr "معاينة"
+
+msgid "Total Images: "
+msgstr "مجموع الصور"
+
+msgid "There are %s photos in the gallery %s"
+msgstr "هنالك photos in the gallery%s  %s "
+
+msgid "Are you sure you want to delete this gallery?"
+msgstr "هل أنت متأكد أنك تريد حذف هذا المعرض ؟"
+
+msgid "Delete gallery"
+msgstr "حذف المعرض"
+
+msgid "Shortcode:"
+msgstr "كود مختصر:"
+
+msgid "PHPCode:"
+msgstr "كود PHP:"
+
+msgid "You have no galleries"
+msgstr "لا يوجد لديك معارض الصور"
+
+msgid "You don't have any galleries yet."
+msgstr "لا يوجد لديك أي معارض صور بعد"
+
+msgid "Want to create one right now?"
+msgstr "تريد إنشاء واحدة في الوقت الحالي ؟"
+
+msgid "What is a gallery"
+msgstr "ما هو معرض الصور"
+
+msgid ""
+"<strong>Gallery</strong> &mdash; the highest type of entity in the Gallery by Supsystic."
+msgstr "<strong>المعرض</strong> &mdash; أعلى نوع من كيان في المعرض بواسطة Supsystic."
+
+msgid ""
+"You can have an unlimited number of galleries, to which you can attach the preloaded "
+"pictures."
+msgstr ""
+"يمكن أن يكون لديك عدد غير محدود من معارض الصور ، والتي يمكنك إرفاق الصور التي تم تحميلها "
+"مسبقا ."
+
+msgid ""
+"Each gallery has a number of display settings and behaviors that you can save to presets "
+"and apply to other galleries."
+msgstr ""
+"كل معرض له عدد من إعدادات العرض و السلوكيات التي يمكنك حفظها على الاعدادت المسبقة وتنطبق "
+"على معارض الصور الأخرى."
+
+msgid "Gallery title can't be empty!"
+msgstr "عنوان المعرض لا يمكن أن يكون فارغا !"
+
+msgid "Gallery title:"
+msgstr "عنوان المعرض:"
+
+msgid "Back to the gallery"
+msgstr "العودة لمعرض الصور"
+
+msgid "Main"
+msgstr "الرئيسية"
+
+msgid "Captions"
+msgstr "العناوين"
+
+msgid "Categories"
+msgstr "الفئات"
+
+msgid "Add images"
+msgstr "إضافة صور"
+
+msgid "Import settings"
+msgstr "استيراد الإعدادات"
+
+msgid "Your changes not saved. You really want to leave without saving?"
+msgstr "التغييرات لم يتم حفظها . هل تريد حقا أن تترك دون حفظ ؟"
+
+msgid "Gallery Type"
+msgstr "نوع معرض الصور"
+
+msgid "Number of Columns"
+msgstr "عدد العواميد"
+
+msgid "Responsive columns"
+msgstr "أعمدة متمددة"
+
+msgid "Images distance"
+msgstr "مسافة الصور"
+
+msgid "Gallery width"
+msgstr "حجم معرض الصور"
+
+msgid "Gallery padding"
+msgstr "حشو معرض الصور"
+
+msgid "Gallery height"
+msgstr "ارتفاع معرض الصور"
+
+msgid "Image width"
+msgstr "عرض الصورة"
+
+msgid "Image height"
+msgstr "ارتفاع الصورة"
+
+msgid "Image radius"
+msgstr "قطر الصورة"
+
+msgid "Horizontal Scroll"
+msgstr "تمرير عامودي"
+
+msgid "Scroll Bar Color"
+msgstr "لون شريط التمرير"
+
+msgid "Scroll Bar Transparency"
+msgstr "شفافية شريط التمرير"
+
+msgid "Border"
+msgstr "الحدود"
+
+msgid "Available"
+msgstr "متوفر"
+
+msgid "Border Type"
+msgstr "نوع الحدود"
+
+msgid "Shadow"
+msgstr "التظليل"
+
+msgid "Shadow preset"
+msgstr "اعدادت التظليل"
+
+msgid "When mouse is over"
+msgstr "عندما تكون الماوس على"
+
+msgid "Off"
+msgstr "مطفئ"
+
+msgid "Show mouse on"
+msgstr "اظهار الماوس على"
+
+msgid "Hide mouse on"
+msgstr "اخفاء الماوس على"
+
+msgid "Overlay image with shadow"
+msgstr "تغطية الصورة مع الظل"
+
+msgid "Shadow color"
+msgstr "لون التظليل"
+
+msgid "Shadow blur"
+msgstr "ضبابية الظل"
+
+msgid "Shadow X"
+msgstr "ظل X"
+
+msgid "Shadow Y"
+msgstr "ظل Y"
+
+msgid "Pop-up Image"
+msgstr "صورة نافرة"
+
+msgid "Popup box theme"
+msgstr "ثيم صندوق الصورة النافرة"
+
+msgid "Choose theme"
+msgstr "اختيار ثيم"
+
+msgid "Disable on mobile"
+msgstr "تعطيل على الموبايل"
+
+msgid "Hide Popup Captions"
+msgstr "إخفاء النافذة النافرة"
+
+msgid "Slideshow"
+msgstr "معرض"
+
+msgid "Slideshow speed"
+msgstr "سرعة المعرض"
+
+msgid "Slideshow autostart"
+msgstr "تشغيل ذاتي للمعرض"
+
+msgid "Popup Image size"
+msgstr "حجم النافذة النافرة"
+
+msgid "Effect"
+msgstr "تأثير"
+
+msgid "Show caption"
+msgstr "اظهار العنوان"
+
+msgid "Choose effect"
+msgstr "اختيار تأثير"
+
+msgid "Personal captions"
+msgstr "عناوين خاصة"
+
+msgid "Polaroid Style"
+msgstr "نمط Polaroid"
+
+msgid "Polaroid Image Animation"
+msgstr "حركة صورة Polaroid"
+
+msgid "Polaroid Image Scattering "
+msgstr "بعثرة صورة Polaroid"
+
+msgid "Transparency"
+msgstr "شفافية "
+
+msgid "Text size"
+msgstr "قياس الخط"
+
+msgid "Text horizontal align"
+msgstr "محاذاة الخط أفقياً"
+
+msgid "Text vertical align"
+msgstr "محاذاة الخط عامودياً"
+
+msgid "Hide image title tooltip"
+msgstr "إخفاء أدوات عنوان الصورة "
+
+msgid "Show icons"
+msgstr "اظهار الأيقونات"
+
+msgid "Select effect"
+msgstr "اختر تأثير"
+
+msgid "Animation"
+msgstr "تأثيرات"
+
+msgid "Icons color"
+msgstr "لون الأيقونات"
+
+msgid "Icons hover color"
+msgstr "لون الحوم الأيقونات"
+
+msgid "Background hover color"
+msgstr "لون خلفية الحوم"
+
+msgid "Icons size"
+msgstr "حجم الأيقونات"
+
+msgid "Distance between icons"
+msgstr "المسافة بين الأيقونات"
+
+msgid "Show overlay"
+msgstr "اظهار التغطية"
+
+msgid "Overlay color"
+msgstr "لون التغطية"
+
+msgid "Overlay transparency"
+msgstr "شفافية التغطية"
+
+msgid "Categorize images in the gallery"
+msgstr "تصنيف الصور في المعرض"
+
+msgid "Let user switch gallery pages"
+msgstr "السماح  للمستخدم تبديل صفحات المعرض"
+
+msgid "Save settings as preset"
+msgstr "حفظ الإعدادات كاعدادت مسبقة"
+
+msgid "Preset title:"
+msgstr "عنوان الاعدادت المسبقة:"
+
+msgid "Delete preset"
+msgstr "حذف الاعدادت المسبقة:"
+
+msgid "Are you really want to delete preset \"%s\"?"
+msgstr "هل تريد حقا أن تحذف اعدادت مسبقة  \"%s\"؟"
+
+msgid "Load settings from presets"
+msgstr "تحميل الإعدادات من الإعدادات المسبقة"
+
+msgid "Select preset:"
+msgstr "اختيار اعداد مسبق"
+
+msgid "Failed to load the presets."
+msgstr "فشل في تحميل الاعدادت المسبقة"
+
+msgid "Currently you have no presets."
+msgstr "لا يوجد لديك حالياً أي اعدادت مسبقة"
+
+msgid "Select \"Big image\" theme"
+msgstr "حدد ثيم \" صورة كبيرة \""
+
+msgid "Select a theme"
+msgstr "حدد ثيم"
+
+msgid "Select"
+msgstr "حدد"
+
+msgid "Select overlay effect"
+msgstr "اختر تغطية"
+
+msgid "This effect requires icons be enabled. Enable Icons?"
+msgstr "يتطلب هذا التأثير تمكين الأيقونات. تمكين الأيقونات ؟"
+
+msgid "Select shadow preset"
+msgstr "اختيار اعدادت مسبقة للتظليل"
+
+msgid "Select shadow"
+msgstr "اختيار التظليل"
+
+msgid "Import settings from gallery"
+msgstr "استيراد الإعدادات من المعرض"
+
+msgid ""
+"Here you can import settings from other galleries, but right now, you have only one "
+"gallery, create more - and see how it works"
+msgstr ""
+"هنا يمكنك استيراد الإعدادات من المعارض الأخرى، ولكن في الوقت الراهن، لديك فقط معرض واحد ، "
+"قم بخلق المزيد - و انظر كيف يعمل"
+
+msgid "Select source to import from"
+msgstr "حدد مصدر لاستيراد من"
+
+msgid "Choose source"
+msgstr "حدد مصدر "
+
+msgid "Import from WordPress Media Library"
+msgstr "الاستيراد من مكتبة الوسائط وورد برس"
+
+msgid "Import from social networks"
+msgstr "الاستيراد من الشبكات الاجتماعية"
+
+msgid "Import from your Instagram account"
+msgstr "الاستيراد من حساب إينستاجرام الخاص بك"
+
+msgid "Import from your Flickr account"
+msgstr "الاستيراد من حساب فليكر الخاص بك"
+
+msgid "Import from your Tumblr account"
+msgstr "الاستيراد من حساب Tumblr الخاص بك"
+
+msgid "Import from your Facebook account"
+msgstr "الاستيراد من حساب الفيسبوك الخاص بك"
+
+msgid "Get Pro to enable import"
+msgstr "الحصول على برو لتمكين استيراد"
+
+msgid "Properties"
+msgstr "خصائص"
+
+msgid "Delete Image"
+msgstr "حذف صورة"
+
+msgid "Switch to the list view"
+msgstr "التبديل إلى طريقة عرض القائمة"
+
+msgid "Switch to the block view"
+msgstr "التبديل إلى طريقة عرض البلوك"
+
+msgid "The gallery is does not exists"
+msgstr "معرض الصور غير موجود"
+
+msgid "Currently this gallery has no images"
+msgstr "حاليا هذا المعرض ليس لديه صور"
+
+msgid "Linked Images"
+msgstr "صور مرتبطة"
+
+msgid "Instagram authorization"
+msgstr "ترخيص الإنستغرام"
+
+msgid "Upload your images from the Instagram Media Library"
+msgstr "حمل صورك من مكتبة الصور للانستغرام"
+
+msgid "Upload from Instagram"
+msgstr "تحميل من إينستاجرام"
+
+msgid "Your message successfully send. We contact you soon."
+msgstr "تم  إرسال رسالتك بنجاح . سوف نتصل بك قريبا "
+
+msgid "Step-by-step Tutorial"
+msgstr "تعليم خطوة بخطوة"
+
+msgid "Begin Step-by-step Tutorial"
+msgstr "ابدأ تعليم خطوة بخطوة"
+
+msgid "Name"
+msgstr "اسم"
+
+msgid "Email"
+msgstr "البريد الالكتروني"
+
+msgid "Website"
+msgstr "الموقع"
+
+msgid "Subject"
+msgstr "العنوان"
+
+msgid "Topic"
+msgstr "النص"
+
+msgid "Plugin options"
+msgstr "خيارات الـPlugin"
+
+msgid "Report a bug"
+msgstr "الإبلاغ عن خطأ"
+
+msgid "Require a new functionallity"
+msgstr "يتطلب وظائف جديدة"
+
+msgid "Other"
+msgstr "اخرى"
+
+msgid "Message"
+msgstr "رسالة"
+
+msgid "Hello Supsystic Team!"
+msgstr "مرحباً Supsystic Team!"
+
+msgid ""
+"Some errors occurred while sending mail please send your message trough this contact form:"
+msgstr "حدثت بعض الأخطاء أثناء إرسال البريد يرجى ارسال رسالتك عبر هذه الاستمارة :"
+
+msgid "Unable to save chosen photo %s: %s"
+msgstr "غير قادر على حفظ الصورة المختارة  %s: %s"
+
+msgid "New Folder"
+msgstr "مجلد جديد"
+
+msgid "The title can't be empty"
+msgstr "العنوان لا يمكن أن يكون فارغا !"
+
+msgid "Failed to update position."
+msgstr "فشل تحديث الموقف."
+
+msgid "Position updated successfully!"
+msgstr "تم تحديث الموقف بنجاح !"
+
+msgid "Rename folder"
+msgstr "إعادة تسمية المجلد"
+
+msgid "Folder name:"
+msgstr "اسم المجلد"
+
+msgid "Add images to the gallery"
+msgstr "إضافة صور للمعرض"
+
+msgid "Please wait while the plugin to get the list of galleries..."
+msgstr "الرجاء الانتظار لحين المساعد يستطيع الحصول على قائمة معارض الصور ..."
+
+msgid "Select the gallery:"
+msgstr "اختيار معرض"
+
+msgid "New folder"
+msgstr "مجلد جديد"
+
+msgid "Add images to the new gallery"
+msgstr "إضافة صور للمعرض"
+
+msgid "Create new folder"
+msgstr "انشاء مجلد جديد"
+
+msgid "Edit selected item"
+msgstr "تعديل العنصر المحدد"
+
+msgid "Delete selected items"
+msgstr "حذف العنصر المحدد"
+
+msgid "Create new gallery from the selected items"
+msgstr "إنشاء معرض جديد من العناصر المحددة"
+
+msgid "New gallery from selected"
+msgstr "معرض جديد من المحدد"
+
+msgid "Add the selected items to the existing gallery"
+msgstr "إضافة العناصر المحددة إلى المعرض الموجود"
+
+msgid "Add selected to the gallery"
+msgstr "إضافة العناصر المحددة إلى المعرض "
+
+msgid "Upload your images from the WordPress Media Library"
+msgstr "حمل صورك من مكتبة الصور للوردبرس"
+
+msgid "All photos"
+msgstr "كل الصور"
+
+msgid "Drop photos here to move them from the folder"
+msgstr "إسقاط الصور هنا لنقلها من المجلد"
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "Close Tutorial"
+msgstr "غلق التعليم"
+
+msgid "Hello! This is the Gallery by Supsystic. "
+msgstr "معرض صور بواسطة Supsystic"
+
+msgid ""
+"Here you can get help: watch the video tutorial or read FAQ and Documentation, make use of "
+"contact form. Also here requirements for server - Server Settings."
+msgstr ""
+"هنا يمكنك الحصول على مساعدة: مشاهدة فيديو تعليمي أو قراءة التعليمات والتوثيق ، والاستفادة "
+"من نموذج الاتصال . هنا أيضا متطلبات الخادم - ​​إعدادات الخادم ."
+
+msgid "First Step"
+msgstr "خطوة اولى"
+
+msgid ""
+"To Create New Gallery select gallery template. You can change template and settings later. "
+"Now here are four different templates. With PRO version you’ll get more features like "
+"Categories, Load More button, Post Feed (Content) gallery, Polaroid gallery and more. "
+"Enter name of the gallery and click “Save”."
+msgstr ""
+"لإنشاء جديد معرض معرض اختر القالب. يمكنك تغيير القالب والإعدادات لاحقاً. وإليك الآن أربعة "
+"قوالب مختلفة. مع إصدار المحترفين وستحصل على المزيد من الميزات مثل فئات، زر \"تحميل المزيد"
+"\" ومعرض \"وظيفة تغذية\" (المحتوى)، ومعرض بولارويد وأكثر. قم بإدخال اسم للمعرض وانقر فوق "
+"\"حفظ\"."
+
+msgid "Second Step"
+msgstr "خطوة ثانية"
+
+msgid ""
+"Now you are in the edit menu of your gallery. And the first thing you need to do are add "
+"media to the gallery. Click \"Add Images\" button."
+msgstr ""
+"أنت الآن في قائمة التحرير من معرض الصور الخاص بك . وأول شيء عليك القيام به هو إضافة "
+"الوسائط إلى المعرض. انقر فوق زر \"إضافة الصور \"  ."
+
+msgid "Second Step-2"
+msgstr "خطوة ثانية-2"
+
+msgid ""
+"<p>Import images in several ways:</p><p>Import from Wordpress Media Library/Upload files "
+"from your computer</p><p>Import from social networks</p><p>Instagram (in the Free "
+"version)</p><p>With PRO-version also will be available import from Flickr, Tumblr and "
+"Facebook.</p>"
+msgstr ""
+"<p> استيراد الصور بعدة طرق: < / P > <P > استيراد من ملفات وورد مكتبة الوسائط / التحميل من "
+"جهاز الكمبيوتر الخاص بك < / P > <P > استيراد من الشبكات الاجتماعية < / P > <P > إينستاجرام "
+"( في الإصدار المجاني) < / P > <P > و PRO- الإصدار أيضا سيكون الاستيراد متاح من فليكر ، "
+"Tumblr و الفيسبوك . < / P >"
+
+msgid "Third Step"
+msgstr "خطوة ثالثة"
+
+msgid ""
+"<p>Now you can see your image list. Here you can:</p><p>Change the order of images – "
+"simply by dragging them manually.</p><p>Delete images</p><p>Add new images from different "
+"sources to the grid gallery – click “Add Images” button and select the source to import "
+"from.</p><p><b>Caption tab</b> – add caption to image – it will be displayed on the "
+"caption effect of the gallery. Also here included the support of html-elements inside "
+"caption effect</p><p><b>SEO tab</b> – manage image title and description</p><p><b>Link "
+"tab</b> – attach links to image – it will go to the link when you click the image.</"
+"p><p><b>Video tab</b> – attach video url – it will be displayed in a pop-up image when you "
+"click on the image.</p><p><b>Categories tab</b> – add tags for image categories.</p><p>Now "
+"follow to the gallery settings – сlick “Properties” button.</p>"
+msgstr ""
+"<p> و الآن يمكنك أن ترى قائمة الصورة. هنا يمكنك: . < / P > <P > تغيير ترتيب الصور - ببساطة "
+"عن طريق سحبها يدويا < / P > <P > حذف الصور < / P > <P > إضافة صور جديدة من مصادر مختلفة "
+"إلى معرض الشبكة - اضغط على زر \"إضافة الصور \"و حدد مصدر لاستيراد منه < / P > <P > < ب > "
+"عنونة التبويب < / B> - إضافة تعليق على الصورة - أنه سيتم عرضها على تأثير العنونة للمعرض . "
+"وشملت أيضا هنا دعم عناصر HTML داخل تأثير العنونة < / P > <P > < ب >تبويب محرك البحث< / B> "
+"- إدارة عنوان الصورة والوصف < / P > <P > < ب > تبويب الارتباط < / B> - إرفاق روابط لصورة - "
+"سوف تذهب إلى الارتباط عند النقر فوق صورة < / P > <P > < ب > علامة التبويب فيديو < / B> - "
+"إرفاق رابط الفيديو - سوف يتم عرضها في صورة منبثقة عندما النقر على الصورة < / P > <P > < ب "
+"> أقسام التبويب < / B> - إضافة علامات لفئات صورة < / P > <P > الآن تتبع لإعدادات معرض -"
+"خصائص زر сlick >"
+
+msgid "Fourth Step"
+msgstr "خطوة رابعة"
+
+msgid ""
+"Gallery Properties: At the left side of the monitor you see a preview image in which will "
+"be seen changes made to the settings. This window for the settings of your gallery."
+msgstr ""
+"خصائص المعرض : في الجانب الأيسر من الشاشة التي ترى فيها صورة المعاينة التي ستظهر التغييرات "
+"التي أدخلت على إعدادات . هذه النافذة للحصول على اعدادات الضبط لمعرض الصور الخاص بك ."
+
+msgid "Fourth Step-1"
+msgstr "خطوة رابعة-1"
+
+msgid ""
+"<p>Gallery Type: sets the look of your gallery for more information check this article. If "
+"you were chosen fixed column you'll see new tab where you can make a Number of Columns for "
+"your gallery.</p><p>Load More: adds a button to the page. And with Custom Buttons: you can "
+"make your button better.</p><p>Add to images border with Border Type and add shadow with "
+"Shadow.</p><p>Big image appear settings set in the Pop-up Image section.</p>"
+msgstr ""
+"<P > أنواع المعرض: يحدد مظهر معرض الصور الخاص بك لمزيد من المعلومات مراجعة هذه المادة . لو "
+"كنت اخترت عمود ثابت سترى علامة تبويب جديدة حيث يمكنك جعل عدد من الأعمدة لمعرض الصور الخاص "
+"بك < / P > <P > تحميل المزيد : يضيف زر إلى الصفحة . و مع أزرار مخصصة : يمكنك جعل الزر "
+"الخاص بك أفضل < / P > <P > إضافة إلى الحدود الصور مع نوع الحدود و إضافة الظل مع الظل < / P "
+"> <P > صورة كبيرة تظهر الإعدادات المحددة في الصورة المنبثقة . قسم . < / P >"
+
+msgid "Five Step"
+msgstr "خطوة خامسة"
+
+msgid "<p>Captions: In this tab you can manage the captions and make them your style.</p>"
+msgstr "<p> العناوين: في هذا التبويب يمكنك إدارة العناوين وجعلها أسلوب خاص بك< / P > ."
+
+msgid "Six Step"
+msgstr "خطوة سادسة"
+
+msgid ""
+"<p>Categories: Сategories option includes such capabilities:</p><p>Hide \"all\" category</"
+"p><p>Enable shuffling animation of images. (If you enable posts layout on the Posts tab – "
+"this feature will not be available).</p><p>Set the duration of animation.</p><p>Define the "
+"position of categories – over or under the gallery.</p><p>Determine the alignment of "
+"categories.</p><p>Set Categories order</p><p>To this tab become available you need to buy "
+"pro-version."
+msgstr ""
+"<p>التصنيفات: ويشمل الخيار Сategories هذه القدرات:</p><p>إخفاء فئة \"التصنيف\"</p><p>يمكن "
+"خلط الرسوم المتحركة من الصور. (إذا قمت بتمكين وظائف التخطيط في علامة التبويب الوظائف – لن "
+"تتوفر هذه الميزة).</p><p>تعيين المدة للرسوم المتحركة.</p><p>تحديد موقف فئات – أو أكثر في "
+"إطار المعرض.</p><p>تحديد المحاذاة للفئات.</p><p>تعيين ترتيب الفئات</p><p>على علامة التبويب "
+"لتصبح متاحة تحتاج إلى شراء النسخة الكاملة."
+
+msgid "Seven Step"
+msgstr "خطوة سابعة"
+
+msgid ""
+"<p>Posts: Here you can add posts and pages to your gallery and also manage them. Posts of "
+"gallery included in the PRO version of Gallery by Supsystic.</p>"
+msgstr ""
+"<P > المشاركات: هنا يمكنك إضافة وظائف وصفحات لمعرض الصور الخاص بك ، وكذلك إدارتها. مشاركات "
+"معرض الصور مدرجة في النسخة PRO Supsystic . < / P >"
+
+msgid "Welcome to the"
+msgstr "أهلا بك في"
+
+msgid ""
+"Photo Gallery plugin is created for people who would like to show their photos in a "
+"marvelous way. Perform your best ideas, making delightful presentations or galleries from "
+"videos and photos."
+msgstr ""
+"يتم إنشاء معرض الصور المساعد للأشخاص الذين يرغبون في عرض الصور بطريقة رائعة. قم بأداء أفضل "
+"لأفكارك ، وتقديم عروض جميلة أو معارض من أشرطة الفيديو والصور"
+
+msgid "Step-by-step tutorial"
+msgstr "تعليم خطوة بخطوة"
+
+msgid ""
+"There’re really many options of photo gallery plugin customization. So as soon as you "
+"close that page, I’ll show you step-by-step tutorial of how to use plugin. Hope it will be "
+"usefull for you :)"
+msgstr ""
+"هناك فعلا العديد من الخيارات لتخصيص البرنامج المساعد لمعرض الصور. لذا بمجرد أن تقوم بإغلاق "
+"هذه الصفحة، سوف تظهر لك تعليمات خطوة بخطوة عن كيفية استخدام البرنامج المساعد. نأمل أن تكون "
+"مفيدة بالنسبة لك:)"
+
+msgid "Support"
+msgstr "دعم"
+
+msgid ""
+"We love our plugin and do the best to improve all features you want and fix all issues. "
+"But sometimes some issues happened or you can’t find feature you want :) Don’t worry, just "
+"<a href=\"//supsystic.com/plugins/photo-gallery?"
+"utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact\" target="
+"\"_blank\"> contact us </a> . We’ll answer in an hour and fix all issues."
+msgstr ""
+"نحن نحب برنامجنا، والقيام بأفضل الطرق لتحسين كافة الميزات التي تريدها وحل جميع القضايا. "
+"ولكن يحدث أحياناً بعض القضايا أو لا تجد الميزة التي تريدها:) لا تقلق، فقط <a href=\"//"
+"supsystic.com/plugins/photo-gallery?"
+"utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact\" target="
+"\"_blank\">اتصل بنا</a> . سنقوم بالرد في غضون ساعة وحل كافة المشاكل."
+
+msgid "Video Tutorial"
+msgstr "فيديو تعليمي"
+
+msgid "Frequently Asked Questions"
+msgstr "الأسئلة الشائعة"
+
+msgid "How to use pagination and categories feature of gallery?"
+msgstr "كيفية استخدام ترقيم الصفحات ميزة الفئات من المعرض؟"
+
+msgid ""
+"Activate “Available” radio button opposite the “Pagination” or “Categories” option on the "
+"Categories tab."
+msgstr ""
+"تنشيط زر الاختيار \"متوفر\" مقابل الخيار \"ترقيم الصفحات\" أو \"الفئات\" في علامة تبويب "
+"فئات."
+
+msgid "Set the number of images per page."
+msgstr "تعيين عدد من الصور في كل صفحة ."
+
+msgid "Choose one of the default presets or create your own."
+msgstr "اختيار واحد من الإعدادات المسبقة الافتراضية أو إنشاء واحدة خاصة بك ."
+
+msgid "After configuring the settings click “Save” button."
+msgstr "بعد تكوين الإعدادات انقر فوق الزر \"حفظ\"."
+
+msgid ""
+"For more information for <a href=\"//supsystic.com/pagination/\" target=\"_blank"
+"\">Pagination</a> and for <a href=\"//supsystic.com/categories-gallery/\" target=\"_blank"
+"\">Categories</a>"
+msgstr ""
+"للمزيد من المعلومات <a href=\"//supsystic.com/pagination/\" target=\"_blank\">Pagination</"
+"a> and for <a href=\"//supsystic.com/categories-gallery/\" target=\"_blank\">Categories</a>"
+
+msgid "What is “Post Feed” Gallery"
+msgstr "ما هو معرض \"تغذية البوست\""
+
+msgid "Go to Posts tab."
+msgstr "الذهاب إلى علامة تبويب المشاركات ."
+
+msgid "Select “Enable” in Posts Layout dropdown list to activate the posts option."
+msgstr "حدد \"تمكين\" في القائمة المنسدلة \"تخطيط الوظائف\" تفعيل خيار الوظائف."
+
+msgid "Choose one of post layout styles."
+msgstr "اختيار واحد من مظاهر أنماط المشاركات ."
+
+msgid "Add pages and posts."
+msgstr "إضافة الصفحات والمشاركات"
+
+msgid "Choose what to show on posts layout in gallery."
+msgstr "اختر ما تريد أن تظهر على واجهة المشاركات في المعرض."
+
+msgid ""
+"Learn more about how to do this <a href=\"//supsystic.com/plugins/photo-gallery/#faq\" "
+"target=\"_blank\">here</a>."
+msgstr ""
+"تعلم اكثر حول كيفية القيام بهذا  <a href=\"//supsystic.com/plugins/photo-gallery/#faq\" "
+"target=\"_blank\">هنا</a>."
+
+msgid "All other FAQs"
+msgstr "كل الأسئلة الشائعة الاخرى"
+
+msgid "Let's Start!"
+msgstr "لنبدأ!"
+
+msgid "Roles"
+msgstr "أدوار"
+
+msgid "PRO option"
+msgstr "النسخة الاحترافية "
+
+msgid "Edit image"
+msgstr "تعديل الصورة"
+
+msgid "Caption"
+msgstr "عنوان"
+
+msgid "SEO"
+msgstr "SEO"
+
+msgid "Description"
+msgstr "شرح"
+
+msgid "Alternative text"
+msgstr "نص بديل"
+
+msgid "External link"
+msgstr "رابط خارجي"
+
+msgid "Available in PRO version."
+msgstr "متوفر في النسخة الاحترافية "
+
+msgid "Link"
+msgstr "رابط"
+
+msgid "Open in new window"
+msgstr "افتح في نافذة جديدة"
+
+msgid "Embeded video"
+msgstr "تضمين فيديو"
+
+msgid "Video URL"
+msgstr "رابط فيديو"
+
+msgid "Supports Youtube and Vimeo. URL will be converted to embed automatically."
+msgstr "يدعم يوتيوب و فيميو . وسيتم تحويل URL إلى تضمين تلقائيا ."
+
+msgid "Image"
+msgstr "صورة"
+
+msgid "Date"
+msgstr " التاريخ"
+
+msgid "Select %s"
+msgstr "اختر  %s"
+
+msgid "photo"
+msgstr "صورة"
+
+msgid "photos"
+msgstr "صور"
+
+msgid "Caption effect"
+msgstr "تأثيرات العنوان"
+
+msgid "Video"
+msgstr "فيديو"
+
+msgid "Linked images"
+msgstr "صور مرتبطة"
+
+msgid "http://example.com/"
+msgstr "http://example.com/"
+
+msgid "Open in new window."
+msgstr "افتح في نافذة جديدة"
+
+msgid "Choose images"
+msgstr "اختر صور"
+
+#~ msgid ""
+#~ "To Create New Gallery select gallery template. You can change template and settings "
+#~ "later. Now here are four different templates. With PRO version youâll get more features "
+#~ "like Categories, Load More button, Post Feed (Content) gallery, Polaroid gallery and "
+#~ "more. Enter name of the gallery and click âSaveâ."
+#~ msgstr ""
+#~ "لإنشاء معرض جديد حدد معرض القالب. يمكنك تغيير القالب و الإعدادات لاحقا . الآن وهنا "
+#~ "أربعة نماذج مختلفة . مع نسخة للمحترفين youâ  تحصل على المزيد من الميزات مثل فئات، تحميل "
+#~ "الزر المزيد ، مشاركة الأعلاف ( المحتوى) معرض ، معرض بولارويد وأكثر من ذلك . أدخل اسم "
+#~ "المعرض و اضغط Saveâ ."
+
+#~ msgid ""
+#~ "<p>Now you can see your image list. Here you can:</p><p>Change the order of images â "
+#~ "simply by dragging them manually.</p><p>Delete images</p><p>Add new images from "
+#~ "different sources to the grid gallery â click âAdd Imagesâ button and select the source "
+#~ "to import from.</p><p><b>Caption tab</b> â add caption to image â it will be displayed "
+#~ "on the caption effect of the gallery. Also here included the support of html-elements "
+#~ "inside caption effect</p><p><b>SEO tab</b> â manage image title and description</"
+#~ "p><p><b>Link tab</b> â attach links to image â it will go to the link when you click "
+#~ "the image.</p><p><b>Video tab</b> â attach video url â it will be displayed in a pop-up "
+#~ "image when you click on the image.</p><p><b>Categories tab</b> â add tags for image "
+#~ "categories.</p><p>Now follow to the gallery settings â Ñlick âPropertiesâ button.</p>"
+#~ msgstr ""
+#~ "<p> و الآن يمكنك أن ترى قائمة الصورة. هنا يمكنك: < / P > <P > تغيير ترتيب الصور â "
+#~ "ببساطة عن طريق سحبها يدويا < / P > <P > حذف الصور < / P > <P > إضافة صور جديدة من مصادر "
+#~ "مختلفة إلى الشبكة.â إضافة زر فوق المعرض Imagesâ وحدد مصدر للاستيراد منه . < / P > <P > "
+#~ "< ب > توضيحية التبويب < / B> â إضافة تعليق على صورة لذلك سوف يكون ظهور تأثير التسمية "
+#~ "التوضيحية معرض . وشملت أيضا هنا بدعم من عناصر HTML داخل تأثير التوضيحية < / P > <P > < "
+#~ "ب > كبار المسئولين الاقتصاديين التبويب < / B> â إدارة عنوان الصورة والوصف < / P > <P > "
+#~ "< ب > رابط التبويب < / ب > إرفاق روابط لصورة لذلك سوف تذهب إلى الرابط عند النقر فوق "
+#~ "صورة . < / P > <P > < ب > علامة التبويب فيديو < / B> â إرفاق رابط الفيديو لذلك سيتم "
+#~ "عرضه في صورة منبثقة عند النقر على الصورة. < / P > <P > < ب > أقسام التبويب < / B> â "
+#~ "إضافة علامات لفئات صورة . < / P > <P > الآن اتبع إلى الإعدادات معرض للتطبيق اضغط زر "
+#~ "Propertiesâ زر . < / P >"
+
+#~ msgid ""
+#~ "<p>Categories: Ð¡ategories option includes such capabilities:</p><p>Hide \"all\" "
+#~ "category</p><p>Enable shuffling animation of images. (If you enable posts layout on the "
+#~ "Posts tab â this feature will not be available).</p><p>Set the duration of animation.</"
+#~ "p><p>Define the position of categories â over or under the gallery.</p><p>Determine the "
+#~ "alignment of categories.</p><p>Set Categories order</p><p>To this tab become available "
+#~ "you need to buy pro-version."
+#~ msgstr ""
+#~ "<p> فئات : يتضمن خيار Ð¡ategories هذه القدرات : < / P > <P > إخفاء \"جميع\" فئة < / P > "
+#~ "<P > تمكين خلط الرسوم المتحركة من الصور. ( في حالة تمكين تخطيط المشاركات على علامة "
+#~ "تبويب المشاركات â  فانّ هذه الميزة لن تكون متاحة ) . < / P > <P > حدد المدة من الرسوم "
+#~ "المتحركة . < / P > <P > تحديد موقف من فئات â على أو تحت المعرض . < / P > <P > تحديد "
+#~ "المحاذاة من الفئات. < / P > <P > تعيين فئات النظام < / P > < p>  ليصبح هذا التبويب "
+#~ "متاحاً عليك شراء النسخة الكاملة."
+
+#~ msgid ""
+#~ "Thereâre really many options of photo gallery plugin customization. So as soon as you "
+#~ "close that page, Iâll show you step-by-step tutorial of how to use plugin. Hope it will "
+#~ "be usefull for you :)"
+#~ msgstr ""
+#~ "Thereâ هنالك العديد من خيارات التخصيص لمعرض الصور . لذلك بمجرد إغلاق هذه الصفحة ، سوف "
+#~ "تظهر لك خطوة بخطوة تعليمية لكيفية استخدام البرنامج المساعد . نأمل أن تكون مفيدة بالنسبة "
+#~ "لك :)"
+
+#~ msgid ""
+#~ "We love our plugin and do the best to improve all features you want and fix all issues. "
+#~ "But sometimes some issues happened or you canât find feature you want :) Donât worry, "
+#~ "just <a href=\"//supsystic.com/plugins/photo-gallery?"
+#~ "utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact\" target="
+#~ "\"_blank\"> contact us </a> . Weâll answer in an hour and fix all issues."
+#~ msgstr ""
+#~ "نحن نحب برنامجنا، و نبذل قصارى جهدنا لتحسين جميع الميزات التي تريدها و إصلاح كافة "
+#~ "القضايا. لكن في بعض الأحيان يحدث بعض القضايا أو أنك  غير قادر على العثور على ميزة "
+#~ "تريدها :) لا تقلق ، فقط تواصل معنا < ل href=\"//supsystic.com/plugins/photo-gallery?"
+#~ "utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact\" الهدف = "
+#~ "\"_ فارغة \"> الاتصال بنا </a> ."
+
+#~ msgid ""
+#~ "Activate âAvailableâ radio button opposite the âPaginationâ or âCategoriesâ option on "
+#~ "the Categories tab."
+#~ msgstr ""
+#~ "تنشيط Availableâ زر الراديو مقابل â Paginationâ أو خيار Categoriesâ على علامة تبويب "
+#~ "فئات ."
+
+#~ msgid "After configuring the settings click âSaveâ button."
+#~ msgstr "بعد تكوين الإعدادات انقر فوق زر Saveââ "
+
+#~ msgid "What is âPost Feedâ Gallery"
+#~ msgstr "ما هي  âPost Feedâ معرض الصور"
+
+#~ msgid "Select âEnableâ in Posts Layout dropdown list to activate the posts option."
+#~ msgstr "حدد  âEnableâ  في المشاركات القائمة المنسدلة لتفعيل وظائف المشاركات."

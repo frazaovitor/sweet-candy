@@ -1,0 +1,28 @@
+{% extends '@photos/index.twig' %}
+
+{% block header %}
+
+    <nav id="gg-breadcrumbs" class="gg-breadcrumbs">
+        <a href="{{ environment.generateUrl('galleries') }}">{{ translate('Gallery by Supsystic') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('photos', 'index', { 'view': view_type }) }}">{{ translate('Images') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="#">{{ folder.title }}</a>
+    </nav>
+
+{% endblock %}
+
+{% block photos %}
+    <section id="sg-photos" data-intro="{{ manual.workspace }}" data-step="7">
+
+        {% import '@ui/type.twig' as view %}
+        {% set entity = { 'images': folder.photos } %}
+
+        {% if view_type == 'block' %}
+            {{ view.block_view(entity) }}
+        {% else %}
+            {{ view.list_view(entity) }}
+        {% endif %}
+        <div class="clear"></div>
+    </section>
+{% endblock %}

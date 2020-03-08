@@ -1,0 +1,183 @@
+{% extends 'grid-gallery.twig' %}
+
+{% block header %}
+    <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs" style="float: left; padding: 20px 0 0 20px;">
+        {#<a href="{{ environment.generateUrl('galleries') }}">{{ translate('Gallery by Supsystic') }}</a>#}
+        {#<i class="fa fa-angle-right"></i>#}
+        <a href="{{ environment.generateUrl('galleries') }}">{{ translate('Galleries') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('galleries', 'settings', { 'gallery_id': gallery.id }) }}">{{ gallery.title }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': gallery.id }) }}">{{ translate('Images List') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('galleries', 'sort', { 'gallery_id': gallery.id }) }}">{{ translate('Sort Images') }}</a>
+    </nav>
+
+    <section class="sgg-all-img-info-sect" id="single-gallery-head-toolbar" style="margin-left: 75px;">
+    	<div class="gg-settings-row">
+	    	<div class="gg-settings-block">
+		    	<ul class="supsystic-bar-controls" style="padding-left: 20px;">
+		            <li title="{{ translate('Upload new images') }}">
+		                <button class="button button-primary gallery import-to-gallery">
+		                    <i class="fa fa-fw fa-upload"></i>
+		                    {{ translate('Add Images') }}
+		                </button>
+		            </li>
+		            <li>
+		                <a href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': gallery.id }) }}"
+		                   class="button">
+		                    <i class="fa fa-fw fa-arrow-left"></i>
+							{{ translate('Back to Images List') }}
+		                </a>
+		            </li>
+		        </ul>
+        	</div>
+    		<div class="gg-settings-block">
+		    	<ul class="supsystic-bar-controls">
+		    		<li>
+		            	<a href="{{ environment.generateUrl('galleries', 'settings', { 'gallery_id': gallery.id }) }}"
+		                	class="button">
+		                    <i class="fa fa-fw fa-cogs"></i>
+							{{ translate('Settings') }}
+		                </a>
+		            </li>
+
+		            <li>
+		                <a target="_blank"
+		                   href="{{ environment.generateUrl('galleries', 'preview', { 'gallery_id': gallery.id }) }}"
+		                   class="button" data-button="preview">
+		                    <i class="fa fa-fw fa-eye"></i>
+		                    {{ translate('Preview') }}
+		                </a>
+		            </li>
+		        </ul>
+        	</div>
+        </div>
+    </section>
+    <section class="supsystic-bar sgg-all-img-info-sect" id="single-gallery-toolbar" style="padding-bottom:0;">
+    	<div class="gg-settings-row">
+    		<div class="gg-settings-block">
+		    	<ul class="supsystic-bar-controls">
+		            <li>
+						<button class="button button-primary" data-button="save-sort-order" {% if gallery.photos is empty %}disabled{% endif %}>
+						<i class="fa fa-fw fa-save"></i>
+							{{ translate('Update Sort Order') }}
+						</button>
+					</li>
+					<li>
+                   		<div class="gg-wraper-option-links" style="padding-left: 20px">
+                   			{{ translate('Preview size: ') }}
+                        	<a href="#gg-big" class="gg-option-links" data-size-image data-width="200">{{ translate('Big') }}</a> / 
+                        	<a href="#gg-medium" class="gg-option-links active" data-size-image data-width="150">{{ translate('Medium') }}</a> / 
+                        	<a href="#gg-small" class="gg-option-links" data-size-image data-width="80">{{ translate('Small') }}</a>
+		                </div>
+					</li>
+					<li>
+						{% if environment.isPro() == true %}
+							<button class="button button-primary" data-button="show-categories">
+								<i class="fa fa-fw fa-tags"></i>
+								{{ translate('Show Categories') }}
+							</button>
+							<button class="button button-primary ggSettingsDisplNone" data-button="hide-categories">
+								<i class="fa fa-fw fa-eye-slash"></i>
+								{{ translate('Hide Categories') }}
+							</button>
+						{% endif %}
+					</li>
+		        </ul>
+        	</div>
+
+	        <div class="gg-settings-block">        	
+		        <ul class="supsystic-bar-controls">
+		            <li title="{{ translate('Sort By: ') }}">
+						{{  translate('Sort By: ') }}
+		                <select name="sortby" style="height: 34px;">
+		                    <option value="postion" {% if settings.sort.sortby == 'position' %}selected{% endif %}>Position</option>
+		                    <option value="adate" {% if settings.sort.sortby == 'adate' %}selected{% endif %}>Add date</option>
+		                    <option value="date" {% if settings.sort.sortby == 'date' %}selected{% endif %}>Create date</option>
+		                    <option value="size" {% if settings.sort.sortby == 'size' %}selected{% endif %}>Size</option>
+		                    <option value="name" {% if settings.sort.sortby == 'name' %}selected{% endif %}>Name</option>
+		                    <option value="filename" {% if settings.sort.sortby == 'filename' %}selected{% endif %}>File name</option>
+							{% if(environment.isPro() == true) %}<option value="tags" {% if settings.sort.sortby == 'tags' %}selected{% endif %}>Tags</option>{% endif %}
+		                    <option value="randomly" {% if settings.sort.sortby == 'randomly' %}selected{% endif %}>Randomly</option>
+		                </select>
+		            </li>
+					<li id="sortToLi" title="{{ translate('Sort To: ') }}" style="{% if settings.sort.sortby == 'randomly' %} display:none; {% endif %} }}">
+						<button class="button button-invisible" data-button="sortbtn">
+							<i class="fa fa-fw fa-arrow-{% if settings.sort.sortto == 'asc' %}up{% else %}down{% endif %}"></i>
+						</button>
+					</li>
+					<li>
+						{{ gallery.photos | length }} {{ translate('media') }}
+					</li>
+		        </ul>
+			</div>
+		</div>
+
+    </section>
+
+{% endblock %}
+
+{% block content %}
+	{% import '@galleries/shortcode/import.twig' as importTypes %}
+    {% if gallery is not defined or gallery is null %}
+        <p>{{ translate('The gallery is does not exists') }}</p>
+    {% else %}
+        {% if gallery.photos is empty %}
+            <h2 style="text-align: center; color: #bfbfbf; margin: 50px 0 25px 0;">
+                <span style="margin-bottom: 20px; display: block;">
+                    {{ translate('Currently this gallery has no images') }}
+                </span>
+                {{ importTypes.show('1000', gallery.id) }}
+            </h2>
+        {% else %}
+        	{% import _self as view %}
+        	<div class="gg-entities">
+	        	<ul class="sg-photos gg-sort-entities gg-all-container" style="margin:0 0 0 -15px;">
+	        		{% for image in gallery.photos %}
+	            		{{ view.block_image(image) }}
+	        		{% endfor %}
+	    		</ul>
+	    	</div>
+	    	{% if environment.isPro() == true %}
+		    	<div class="gg-categories ggSettingsDisplNone">
+		    		{% for category in gallery.tags %}
+	    				<div class="gg-category ggImgVertMoveCol">
+	        				<div class="gg-category-caption">
+	        					<i class="fa fa-arrows-v ggImgVerticalMove" style="padding:4px" aria-hidden="true"></i>
+	        					<a href="#gg-rename" class="gg-rename-category">{{ category }}</a>: <label data-count>0</label> {{ translate('media') }}
+	        				</div>
+	        				<ul class="sg-photos gg-sort-entities gg-category-container" data-category="{{ category }}"></ul>	        		
+	        			</div>
+		        	{% endfor %}
+		        	<div class="gg-category">
+		        		<div class="gg-category-caption">
+		        			<i class="fa fa-arrows-v ggImgVerticalMove" style="padding:4px" aria-hidden="true"></i>
+		        			<label class>{{ translate('No category') }}:</label> <label data-count>0</label> {{ translate('media') }}
+		        		</div>
+		        		<ul class="sg-photos gg-sort-entities gg-category-container" data-category=""></ul>	        		
+		        	</div>
+		    	</div>
+		    {% endif %}
+        {% endif %}
+    {% endif %}
+   	{{ importTypes.view_dialogs(gallery.id) }}
+   	<div id="ggRenameCategory" title="{{ translate('Rename Category') }}" style="display:none;">
+        <label>{{ translate('New Name') }}: </label>
+        <input id="newCategoryName" type="text" value="">
+    </div>
+{% endblock %}
+
+
+{% macro block_image(image) %}
+    <li class="gg-list-item" data-entity data-entity-id="{{ image.id }}" data-entity-type="photo" data-entity-tag=";{{ image.tags | join(';')|raw }};">
+        {% if image.attachment.sizes.thumbnail is empty %}
+    	    {% set src = image.attachment.sizes.full.url %}
+        {% else %}
+            {% set src = image.attachment.sizes.thumbnail.url %}
+        {% endif %}
+        <img class="supsystic-lazy gg-image-thumbnail" data-original="{{ src }}" alt="{{ image.attachment.title }}" width="150" height="150"/>
+    </li>
+{% endmacro %}
+
+

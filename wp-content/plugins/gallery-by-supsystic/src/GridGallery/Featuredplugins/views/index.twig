@@ -1,0 +1,56 @@
+{% extends 'grid-gallery.twig' %}
+
+{% block header %}
+
+    <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs">
+        {#<a href="{{ environment.generateUrl('galleries') }}">{{ translate('Gallery by Supsystic') }}</a>#}
+        {#<i class="fa fa-angle-right"></i>#}
+        <a href="{{ environment.generateUrl('galleries') }}">{{ translate('Featured Plugins') }}</a>
+    </nav>
+
+{% endblock %}
+
+{% block content %}
+	<section id="supsystic-featured-plugins">
+		<div class="supsysticPageBundleContainer container-fluid">
+			<div class="bundle-text col-md-7 col-xs-12">{{ translate('Get plugins bundle today and save over 80%', PPS_LANG_CODE) }}</div>
+			<div class="bundle-btn col-md-5 col-xs-12">
+				<a href="{{ bundleUrl }}" class="btn btn-full btn-revert hvr-shutter-out-horizontal" target="_blank">
+					{{ translate('Check It out', PPS_LANG_CODE) }}
+				</a>
+			</div>
+		</div>
+		<hr />
+		{% for p in pluginsList %}
+			<div class="catitem col-md-4 col-sm-6 col-xs-12">
+				<div class="download-product-item">
+					<div class="dp-thumb text-center">
+						<a href="{{ p.url }}" target="_blank">
+							<img src="{{ p.img }}" class="img-responsive wp-post-image" alt="{{ p.label }}" />					
+						</a>
+					</div>
+					<div class="dp-title">
+						<a href="{{ p.url }}" target="_blank">
+							{{ p.label }}
+						</a>
+					</div>
+					<div class="dp-excerpt">
+						<div class="dp-excerpt-wrapper">
+							{{ p.desc }}
+						</div>
+					</div>
+                    <div class="dp-buttons">
+                        <a href="{{ p.url }}" target="_blank" class="btn btn-full hvr-shutter-out-horizontal {% if p.download is empty %}btn-center{% endif %}">
+                            {{ translate('More info') }}
+                        </a>
+                        {% if p.download is not empty %}
+                            <a href="{{ p.download }}" target="_blank" class="btn btn-full btn-info hvr-shutter-out-horizontal">
+                                {{ translate('Download') }}
+                            </a>
+                        {% endif %}
+                    </div>
+				</div>
+			</div>
+		{% endfor %}
+	</section>
+{% endblock %}

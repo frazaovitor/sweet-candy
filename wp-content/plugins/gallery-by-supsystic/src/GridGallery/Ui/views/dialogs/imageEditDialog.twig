@@ -1,0 +1,188 @@
+<!-- @UI/views/dialogs/imageEditDialog.twig -->
+<style>
+    #editDialog .title {
+        margin: 0;
+        padding: 0;
+        font-weight: 700;
+    }
+</style>
+
+<div id="editDialog" title="{{ translate('Edit image') }}">
+    <form id="editDialogForm">
+        <table class="form-table">
+            <tbody>
+                <tr>
+                    <th scope="row" colspan="2">
+                        <h4 class="title">
+                            {{ translate('Main') }}
+                        </h4>
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <label for="imageCaption">
+                            {{ translate('Caption') }}
+                        </label>
+                    </th>
+                    <td>
+                        <input id="imageCaption" type="text" name="caption" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" colspan="2">
+                        <h4 class="title">
+                            {{ translate('SEO') }}
+                        </h4>
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <label for="imageDescription">
+                            {{ translate('Description') }}
+                        </label>
+                    </th>
+                    <td>
+                        <input id="imageDescription" type="text" name="description"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <label for="imageAlt">
+                            {{ translate('Alternative text') }}
+                        </label>
+                    </th>
+                    <td>
+                        <input id="imageAlt" type="text" name="alt"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" colspan="2">
+                        <h4 class="title">
+                            {{ translate('External link') }}
+                            {% if environment.isPro() == false %}
+                                <span style="color:red;font-size: .7em;">
+                                    {{ translate('Available in PRO version.') }}
+                                </span>
+                            {% endif %}
+                        </h4>
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <label for="imageLink">
+                            {{ translate('Link') }}
+                        </label>
+                    </th>
+                    <td>
+                        <input
+                            id="imageLink"
+                            type="url"
+                            placeholder="http://example.com/"
+                            {% if environment.isPro() %}
+                                name="link"
+                            {% else %}
+                                disabled="disabled"
+                            {% endif %}
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <label for="inNewWindow">
+                            {{ translate('Open in new window') }}
+                        </label>
+                    </th>
+                    <td>
+                        <select id="inNewWindow" {% if environment.isPro() %}name="target"{% else %}disabled="disabled"{% endif %}>
+                            <option value="_self">{{ translate('No') }}</option>
+                            <option value="_blank">{{ translate('Yes') }}</option>
+                        </select>
+                    </td>
+                    <tr>
+                        <th scope="row" colspan="2">
+                            <h4 class="title">
+                                {{ translate('Embeded video') }}
+                                {% if environment.isPro() == false %}
+                                    <span style="color:red;font-size: .7em;">
+                                        {{ translate('Available in PRO version.') }}
+                                    </span>
+                                {% endif %}
+                            </h4>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="imageVideo">
+                                {{ translate('Video URL') }}
+                            </label>
+                        </th>
+                        <td>
+                            <input id="imageVideo" type="text" {% if environment.isPro() %}name="video"{% else %}disabled="disabled"{% endif %}/>
+                            <p class="description">
+                                {{ translate('Supports Youtube and Vimeo. URL will be converted to embed automatically.') }}
+                            </p>
+                        </td>
+                    </tr>
+                </tr>
+            </tbody>
+        </table>
+        <input name="attachment_id" id="imageAttachmentId" type="hidden"/>
+        <input name="action" value="grid-gallery" type="hidden"/>
+        <input name="route[module]" value="photos" type="hidden"/>
+        <input name="route[action]" value="updateAttachment" type="hidden"/>
+    </form>
+</div>
+
+<script type="text/javascript">
+    (function (app, $) {
+
+        // Polyfill if browser doesn't support String.startsWith
+        if (!String.prototype.startsWith) {
+            Object.defineProperty(String.prototype, 'startsWith', {
+                enumerable: false,
+                configurable: false,
+                writable: false,
+                value: function (searchString, position) {
+                    position = position || 0;
+                    return this.lastIndexOf(searchString, position) === position;
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            var close, save;
+
+            close = function () {
+                $('#editDialog').dialog('close');
+            };
+
+            save = function () {
+                var $form = $('#editDialogForm');
+
+                $.post(ajaxurl, $form.serialize() + '&_wpnonce=' + SupsysticGallery.nonce, function (response) {
+                    $.jGrowl('Information updated.');
+                    close();
+                });
+            };
+
+            $('#editDialog').dialog({
+                autoOpen: false,
+                buttons:  { Save: save, Cancel: close },
+                modal:    true,
+                width:    500
+            });
+
+            $('input[type="url"]').bind('change keyup', function () {
+                if (this.value.length < 5) {
+                    this.value = this.value;
+                }
+
+                if (!this.value.startsWith('http') && !this.value.startsWith('https')) {
+                    this.value = 'http://' + this.value;
+                }
+            });
+        });
+    })(window.SupsysticGallery = window.SupsysticGallery || {}, jQuery);
+</script>
+
+<!-- End of @UI/views/dialogs/imageEditDialog.twig -->

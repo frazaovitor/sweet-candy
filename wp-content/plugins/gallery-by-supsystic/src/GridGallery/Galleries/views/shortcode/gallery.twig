@@ -1,0 +1,273 @@
+{% import '@galleries/shortcode/style.twig' as style %}
+
+{% if gallery is defined and gallery is not empty %}
+	{% block gallery_before %}
+		{% if settings.icons is defined and settings.icons.enabled == 'true' %}
+			<style>
+				 #grid-gallery-{{ gallery.id }}-{{ gallery.random_val }} .{{ settings.icons.effect }} .hi-icon { color: {{ settings.icons.color }} !important; background: {{ settings.icons.background }} !important; }
+				 #grid-gallery-{{ gallery.id }}-{{ gallery.random_val }} .{{ settings.icons.effect }} .hi-icon:hover { color: {{ settings.icons.hover_color }} !important; background: {{ settings.icons.background_hover }} !important; }
+				 #grid-gallery-{{ gallery.id }}-{{ gallery.random_val }} .hi-icon { width: {{ settings.icons.size * 2 }}px !important; height: {{ settings.icons.size * 2 }}px !important; }
+				 #grid-gallery-{{ gallery.id }}-{{ gallery.random_val }} .hi-icon:before { font-size: {{ settings.icons.size|default(16) }}px !important; line-height: {{ settings.icons.size * 2 }}px !important; }
+			</style>
+		{% endif %}
+	{% endblock %}
+
+	<div
+		{% block gallery_attributes %}
+			id="grid-gallery-{{ gallery.id }}-{{ gallery.random_val }}"
+			data-gg-id="{{ gallery.id }}"
+			data-title="{{ gallery.title }}"
+			data-grid-type="{{ settings.area.grid }}"
+			data-offset="{{ settings.area.distance }}"
+			data-area-position="{{ settings.area.position }}"
+			data-icons="{{ settings.icons.enabled }}"
+			data-preloader="{{ settings.preload.enabled }}"
+			{% if settings.area.grid == '2' %}
+ 				data-width="auto"
+ 			{% else %}
+ 				data-width="{{ settings.area.photo_width }}{% if settings.area.photo_width_unit == 1 %}%{% endif %}"
+ 			{% endif %}
+			data-height="{{ settings.area.photo_height }}{% if settings.area.photo_height_unit == 1 %}%{% endif %}"
+			data-padding="{{ settings.area.padding }}"
+			data-quicksand="{% if settings.categories is defined and settings.categories.enabled == 'true' and settings.quicksand.enabled == '1' %}enabled{% else %}disabled{% endif %}"
+			data-quicksand-duration="{% if settings.quicksand.duration is not empty %}{{ settings.quicksand.duration }}{% else %}none{% endif %}"
+			{% if settings.browserUrlTooltipHide is defined and settings.browserUrlTooltipHide == 1 %}
+				data-popup-type="disable"
+			{% else %}
+				{% if settings.box.enabled is defined and settings.box.enabled == 'false' %}
+					data-popup-type="disable"
+				{% else %}
+					data-popup-theme="{{ settings.box.theme }}"
+				{% endif %}
+				{% if settings.box.type == '0' and mobile != 'true' %}
+					data-popup-type="colorbox"
+					data-popup-fadeOut="{{ settings.box.fadeOut|default(300) }}"
+				{% endif %}
+				{% if settings.box.type == '1' and mobile != 'true' and settings.box.enabled|default('true') == 'true' %}
+					data-popup-type="pretty-photo"
+				{% endif %}
+				{% if settings.box.type == '2' and mobile != 'true' and settings.box.enabled|default('true') == 'true' %}
+					data-popup-type="photobox"
+				{% endif %}
+				{% if settings.area.grid == '3' %}
+					data-columns-number="{{ settings.general.columns.number }}"
+				{% endif %}
+				{% if settings.box.captions == 'on' %}
+					data-popup-captions="hide"
+				{% endif %}
+
+				data-popup-image-text="{{ settings.box.imageText|default('title') }}"
+
+				{% if settings.box.popupwidth == '' %} 
+					data-popup-widthsize="auto"
+				{% else %} 
+					data-popup-widthsize="{{ settings.box.popupwidth }}"
+				{% endif %}
+
+				{% if settings.box.popupheight == '' %} 
+					data-popup-heightsize="auto"
+				{% else %} 
+					data-popup-heightsize="{{ settings.box.popupheight }}"
+				{% endif %}
+			{% endif %}
+
+			{% set popup_i18n_words = {close: translate('close'), next: translate('next'),previous: translate('previous'), start_slideshow: translate('start slideshow'),stop_slideshow: translate('stop slideshow'), image: translate('image'),of: translate('of'), 'prev': translate('prev'), 'cExpand': translate('Expand'), 'cPrevious': translate('Previous'), 'cNext': translate('Next'), 'cExpandStr': translate('Expand the image'), 'cRotate': translate('Rotate'), 'cDetails': translate('Details')} %}
+			data-popup-i18n-words="{{ popup_i18n_words|json_encode|e }}"
+
+            data-popup-slideshow="{{ settings.box.slideshow|default('false') }}"
+			data-popup-slideshow-speed="{{ settings.box.slideshowSpeed|default(2500) }}"
+			data-popup-hoverstop="{{ settings.box.popupHoverStop|default('true') }}"
+			data-popup-slideshow-auto="{{ settings.box.slideshowAuto|default('false') }}"
+			data-popup-background="{{ settings.box.background }}"
+			data-popup-transparency="{{ settings.box.transparency|default(30) }}"
+			data-popup-disable-history="{{ settings.box.disableHistory }}"
+			data-popup-disable-changed-url="{{ settings.box.disableChangeUrl }}"
+			data-popup-border-type="{{ settings.popup.border.type }}"
+			data-popup-border-color="{{ settings.popup.border.color }}"
+			data-popup-border-width="{{ settings.popup.border.width }}"
+			data-popup-border-enable="{{ settings.popup.border.enable }}"
+			data-fullscreen="{{ settings.fullscreen ? 'true' : 'false' }}"
+			data-hide-tooltip="{{ settings.thumbnail.tooltip }}"
+			data-caption-font-family="{{ settings.thumbnail.overlay.font_family }}"
+			data-caption-text-size="{{ settings.thumbnail.overlay.text_size }}{{ settings.thumbnail.overlay.text_size_unit|replace(['px', '%', 'em']) }}"
+			data-is-mobile="{{ isMobile|default('0') }}"
+			data-caption-mobile="{{ settings.thumbnail.isMobile|default('false') }}" {# Always show in mobile #}
+			data-hide-long-tltp-title="{{ settings.hideLongTooltipTitles == 'on' ? '1' : '0' }}"
+			data-caption-disabled-on-mobile="{{ settings.thumbnail.isDisableMobileCaption|default('false') }}"
+			{% if settings.lazyload.enabled == '1' %} 
+				data-lazyload-enable='1' 
+				data-lazyload-effect="{{ settings.lazyload.animationEffect | default('show') }}"
+				data-lazyload-effect-duration="{{ settings.lazyload.effectDuration | default('400') }}"
+			{% endif %}
+			{% if settings.thumbnail.overlay.effect == 'polaroid' %}
+				data-polaroid-animation="{{ settings.thumbnail.overlay.polaroidAnimation  | default('true') }}"
+				data-polaroid-scattering="{{ settings.thumbnail.overlay.polaroidScattering | default('true') }}"
+				data-polaroid-frame-width="{{ settings.thumbnail.overlay.polaroidFrameWidth | default(20) }}"
+				{% if settings.captionBuilder.enabled == '1' %}
+					data-polaroid-caption-height="{{ settings.captionBuilder.title.height | default(50) }}"
+				{% endif %}
+			{% endif %}
+			{% if settings.area.grid == '3' %}
+				data-responsive-colums="{{ settings.general.responsiveColumns|default("")|json_encode|e }}"
+			{% endif %}
+			{% if settings.horizontalScroll is defined and settings.horizontalScroll.enabled == 'true'  %}
+				data-horizontal-scroll="{{ settings.horizontalScroll|json_encode|e }}"
+			{% endif %}
+			{% if settings.thumbnail.overlay.personal == 'true' %}
+				data-thumb-overlay-personal="1"
+			{% endif %}
+			data-popup-placement-type="{{ settings.popup.placementType | default(0) }}"
+
+            {% set imageSharingButPos = settings.socialSharing.imageSharing.buttonsPosition %}
+            {% set imageSharingWrapperClass = imageSharingButPos ~ ' ' %}
+            {% if imageSharingButPos == 'top' or imageSharingButPos == 'bottom' %}
+                {% set imageSharingWrapperClass = imageSharingWrapperClass ~ settings.socialSharing.imageSharing.buttonsAlignHorizontal %}
+            {% else %}
+                    {% set imageSharingWrapperClass = imageSharingWrapperClass ~
+                    'vertical ' ~ settings.socialSharing.imageSharing.buttonsAlignVertical %}
+            {% endif %}
+
+            {% macro getSocialSharingWrapperClass(position, horizontalAlign, verticalAlign) %}
+                {% set class = position ~ ' ' %}
+                {% if position == 'top' or position == 'bottom' %}
+                    {% set class = class ~ horizontalAlign %}
+                {% else %}
+                        {% set class = class ~
+                        'vertical ' ~ verticalAlign %}
+                {% endif %}
+                {{ class }}
+            {% endmacro %}
+
+            {% set socialSharing = {
+                        'enabled': settings.socialSharing.enabled,
+                        'gallerySharing': {
+                            'enabled': settings.socialSharing.gallerySharing.enabled,
+                            'position': settings.socialSharing.gallerySharing.buttonsPosition,
+                        },
+                        'imageSharing': {
+                            'enabled': settings.socialSharing.imageSharing.enabled,
+                            'wrapperClass': _self.getSocialSharingWrapperClass(
+                                        settings.socialSharing.imageSharing.buttonsPosition,
+                                        settings.socialSharing.imageSharing.buttonsAlignHorizontal,
+                                        settings.socialSharing.imageSharing.buttonsAlignVertical
+                                    ),
+                        },
+                        'popupSharing': {
+                            'enabled': settings.socialSharing.popupImageSharing.enabled,
+                            'wrapperClass': _self.getSocialSharingWrapperClass(
+                                        settings.socialSharing.popupImageSharing.buttonsPosition,
+                                        settings.socialSharing.popupImageSharing.buttonsAlignHorizontal,
+                                        settings.socialSharing.popupImageSharing.buttonsAlignVertical
+                                    ),
+
+                        },
+                    }
+            %}
+			data-social-sharing="{{ socialSharing|json_encode|e }}"
+			{% set varAdditionalGalleryClass %}
+				{% block additionalGridGalleryClass %}
+					{% if settings.area.grid == '1' %}
+						grid-gallery-fluid-height
+					{% else %}
+						grid-gallery-fixed
+					{% endif %}
+				{% endblock %}
+			{% endset %}
+			class="grid-gallery
+				{{ varAdditionalGalleryClass }}
+				{% if settings.thumbs.enable == '1' %}
+					grid-gallery-thumbs
+				{% endif %}
+
+				{% if environment.getConfig().get('optimizations') == 1 and environment.isPro() == false %}
+						optimizations
+				{% endif %}
+
+				{% if settings.openByLink == 'on' %}
+				    hidden-item
+                {% endif %}
+
+				{% if settings.displayFirstPhoto == 'on' %}
+				    one-photo
+                {% endif %}
+                "
+			style="
+				width:{{ settings.area.width ~ settings.area.width_unit|replace(['px', '%']) }};
+				height:{{ settings.area.height | default('auto') }}
+					{% if settings.area.height != 'auto' and settings.area.height != null %}px {% endif %};
+				{% if settings.area.position == '1' or settings.area.position == 'left'  %}
+					float: left;
+				{% endif %}
+				{% if settings.area.position == '2' or settings.area.position == 'right' %}
+					float: left;
+				{% endif %}
+				{% if  settings.area.position == 'center' %}
+				margin-left:auto;
+				margin-right:auto;
+				{% endif %}
+			{% if settings.fullscreen.enabled %}position: fixed; z-index: 9999999; top: 0; left: 0; background-color: white;{% else %}position:relative;{% endif %}"
+		{% endblock %}>
+
+		{% if settings.preload.enabled == 'true' or settings.preload.enabled == null %}
+			{% if settings.preload.icon_name == 'default' or environment.isPro() != true or settings.preload.enabled == null %}
+				<div class="gallery-loading">
+					<div class="blocks">
+						<div class="block"></div>
+						<div class="block"></div>
+						<div class="block"></div>
+						<div class="block"></div>
+					</div>
+				</div>
+			{% else %}
+				<div class="gallery-loading">
+					<div class="la-{{ settings.preload.icon_name }}" style="color: {{ settings.preload.background }}">
+						{% for i in 1..settings.preload.icon_items %}
+							<div></div>
+						{% endfor %}
+					</div>
+				</div>
+			{% endif %}
+		{% endif %}
+
+		{% block photos_before %}
+		{% endblock %}
+
+		{% if settings.socialSharing.enabled %}
+            <div id="social-share-html" style="display:none;">
+                {{ settings.socialSharing.html|raw }}
+                {#<div data-animation="rubberBand" data-icons-animation="tada" data-overlay="on" data-change-size="" data-button-size="0.7" style="font-size: 0.7em; display: block;" class="supsystic-social-sharing supsystic-social-sharing-package-flat supsystic-social-sharing-content supsystic-social-sharing-content-align-center supsystic-social-sharing-init supsystic-social-sharing-loaded"><a class="social-sharing-button sharer-flat sharer-flat-5 counter-white-arrowed without-counter facebook" target="_blank" title="Facebook" href="http://www.facebook.com/sharer.php?u={url}" data-nid="1" data-pid="1" data-post-id="433" data-url="http://wordpress/wp-admin/admin-ajax.php" data-action="" rel="nofollow"><i class="fa fa-fw fa-facebook"></i><div class="counter-wrap white-arrowed"><span class="counter">3</span></div></a><a class="social-sharing-button sharer-flat sharer-flat-5 counter-white-arrowed without-counter googleplus" target="_blank" title="Google+" href="https://plus.google.com/share?url={url}" data-nid="3" data-pid="1" data-post-id="433" data-url="http://wordpress/wp-admin/admin-ajax.php" data-action="" rel="nofollow"><i class="fa fa-fw fa-google-plus"></i><div class="counter-wrap white-arrowed"><span class="counter">7</span></div></a><a class="social-sharing-button sharer-flat sharer-flat-5 counter-white-arrowed without-counter vk" target="_blank" title="VKontakte" href="http://vk.com/share.php?url={url}" data-nid="4" data-pid="1" data-post-id="433" data-url="http://wordpress/wp-admin/admin-ajax.php" data-action="" rel="nofollow"><i class="fa fa-fw fa-vk"></i><div class="counter-wrap white-arrowed"><span class="counter">24</span></div></a></div>#}
+            </div>
+        {% endif %}
+
+		<div class="gallery-sharing-top"></div>
+		<div
+			{% block photos_attributes %}
+				id="photos-{{ gallery.id }}"
+				class="grid-gallery-photos {% block photos_attributes_class %}{% endblock %}"
+			{% endblock %}>
+
+			{% block photos %}
+			    {% set i = 0 %}
+
+				{% for photo in gallery.photos %}
+					{% include '@galleries/shortcode/helpers.twig' with {'gallery': gallery,'photo': photo, 'settings': settings, 'index' : i} only %}
+				    {% set i = i + 1 %}
+				{% endfor %}
+			{% endblock %}
+
+			<div class="grid-gallery-clearfix"></div>
+		</div>
+		<div class="gallery-sharing-bottom"></div>
+
+		<div class="grid-gallery-clearfix"></div>
+
+		{% block photos_after %}
+		{% endblock %}
+	</div>
+	
+	<!-- Gallery by Supsystic plugin {{ environment.getConfig().get('plugin_version') }}  {% if environment.isPro() == true %} / {{ environment.getConfig().get('pro_plugin_version') }}{% endif %} -->
+{% endif %}
+
+{% block styleForEffectInclude %}
+	{% include '@galleries/shortcode/style_for_effects.twig' with {'gallery': gallery, 'settings': settings} %}
+{% endblock %}

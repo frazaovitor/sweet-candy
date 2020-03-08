@@ -1,0 +1,154 @@
+<div class="wraper">
+
+    {# {% if core_alerts|length > 0 %}
+        {% for alert in core_alerts %}
+            {{ alert|raw }}
+        {% endfor %}
+    {% endif %} #}
+
+    {% block alerts %}{% endblock %}
+
+    <div class="supsystic-plugin{% if pageOptions.isSettingPage == 1 %} {{ ' sgg-setting-page' }} {% endif %}">
+        {% block header %}
+            <div class="supsystic-breadcrumbs">
+                Galleries
+            </div>
+        {% endblock %}
+        <section class="supsystic-content">
+            <nav class="supsystic-navigation supsystic-sticky" style="top: 0px;">
+                <ul>
+                    <li class="supsystic-sticky {% if request.query.module == 'overview' %}active{% endif %}">
+                        <a href="{{ environment.generateUrl('overview') }}">
+                            <i class="fa fa-info"></i>
+							<span class="gg-sps-sticky-link">{{ translate('Overview') }}</span>
+                        </a>
+                    </li>
+                    <li {% if request.query.module == 'galleries' and request.query.action == 'showPresets' %}class="active" {% endif %}>
+                        <a id="btn-add-new" href="{{ environment.generateUrl('galleries', 'showPresets') }}">
+                            <i class="fa fa-plus-circle"></i>
+							<span class="gg-sps-sticky-link">{{ translate('New Gallery') }}</span>
+                        </a>
+                    </li>
+                    <li class="supsystic-sticky {% if (request.query.module == 'galleries' or request.query.module is null) and request.query.action != 'showPresets' %}active{% endif %}">
+                        <a href="{{ environment.generateUrl('galleries') }}">
+                            <i class="fa fa-archive"></i>
+							<span class="gg-sps-sticky-link">{{ translate('Galleries') }}</span>
+                        </a>
+                    </li>
+                    <li class="supsystic-sticky{% if (request.query.module == 'optimization') %} active{% endif %}">
+                        <a href="{{ environment.generateUrl('optimization') }}">
+                            <i class="fa fa-compress"></i>
+							<span class="gg-sps-sticky-link">{{ translate('Image Optimize') }}</span>
+                        </a>
+                    </li>
+
+                    <li class="supsystic-sticky {% if request.query.module == 'settings' %}active{% endif %}">
+                        <a href="{{ environment.generateUrl('settings') }}">
+                            <i class="fa fa-gear"></i>
+							<span class="gg-sps-sticky-link">{{ translate('Advanced Settings') }}</span>
+                        </a>
+                    </li>
+                    
+                    {% if environment.getModule('license') %}
+                        <li class="supsystic-sticky {% if (request.query.module == 'license') %}active{% endif %}">
+                            <a href="{{ environment.generateUrl('license') }}">
+                                <i class="fa fa-hand-o-right"></i>
+								<span class="gg-sps-sticky-link">{{ translate('License') }}</span>
+                            </a>
+                        </li>
+                    {% endif %}
+					
+					<li class="supsystic-sticky {% if request.query.module == 'featuredplugins' %}active{% endif %}">
+                        <a href="{{ environment.generateUrl('featuredplugins') }}">
+                            <i class="fa fa-heart"></i>
+							<span class="gg-sps-sticky-link">{{ translate('Featured Plugins') }}</span>
+                        </a>
+                    </li>
+
+                    {# Uncomment to enable images tab #}
+                    {#<li class="supsystic-sticky {% if request.query.module == 'photos' or request.query.module is null %}active{% endif %}">
+                        <a href="{{ environment.generateUrl('photos') }}">
+                            <i class="fa fa-picture-o"></i>
+                            {{ environment.translate('Images') }}
+                        </a>
+                    </li>#}
+
+                    {# Ucomment to enable social tabs #}
+                    {#<li class="supsystic-sticky {% if request.query.module == 'insta' or request.query.module is null %}active{% endif %}">
+                        <a href="{{ environment.generateUrl('insta') }}">
+                            <i class="fa fa-instagram"></i>
+                            {{ environment.translate('Instagram') }}
+                        </a>
+                    </li>
+                    <li {% if environment.isPro() == false %} class="supsystic-pro" {% endif %} class="supsystic-sticky {% if request.query.module == 'flickr' or request.query.module is null %}active{% endif %}">
+			            {% if environment.isPro() == false %}
+                            <a href="http://supsystic.com/plugins/photo-gallery/">
+				                <i class="fa fa-unlock"></i>
+                                {{ environment.translate('Flickr') }}
+                            </a>
+			            {% else %}
+                            <a href="{{ environment.generateUrl('flickr') }}">
+                                <i class="fa fa-flickr"></i>
+                                {{ environment.translate('Flickr') }}
+                            </a>
+                        {% endif %}
+                    </li>
+                    <li {% if environment.isPro() == false %} class="supsystic-pro" {% endif %} class="supsystic-sticky {% if request.query.module == 'tumblr' or request.query.module is null %}active{% endif %}">
+                        {% if environment.isPro() == false %}
+                        <a href="http://supsystic.com/plugins/photo-gallery/">
+                            <i class="fa fa-unlock"></i>
+                            {{ environment.translate('Tumblr') }}
+                        </a>
+                        {% else %}
+                            <a href="{{ environment.generateUrl('tumblr') }}">
+                                <i class="fa fa-tumblr"></i>
+                                {{ environment.translate('Tumblr') }}
+                            </a>
+                        {% endif %}
+                    </li>
+                    <li {% if environment.isPro() == false %} class="supsystic-pro" {% endif %} class="supsystic-sticky {% if request.query.module == 'facebook' or request.query.module is null %}active{% endif %}">
+                        {% if environment.isPro() == false %}
+                        <a href="http://supsystic.com/plugins/photo-gallery/">
+                            <i class="fa fa-unlock"></i>
+                            {{ environment.translate('Facebook') }}
+                        </a>
+                        {% else %}
+                            <a href="{{ environment.generateUrl('facebook') }}">
+                                <i class="fa fa-facebook"></i>
+                                {{ environment.translate('Facebook') }}
+                            </a>
+                        {% endif %}
+                    </li>#}
+
+                    {#{% if environment.isPro() == false %}
+                        <li class="supsystic-pro">
+                            <a href="http://supsystic.com/plugins/photo-gallery/">
+                                <i class="fa fa-unlock"></i>
+                                {{ environment.translate('Get PRO') }}
+                            </a>
+                        </li>
+                    {% endif %}#}
+                </ul>
+            </nav>
+            <div class="supsystic-container supsystic-item supsystic-panel" {% if request.query.module == 'galleries' %}style="min-height: 500px"{% endif %}>
+                {{ environment.getDispatcher().dispatch('messages') }}
+                {% block preview %}{% endblock %}
+                {% block content %}{% endblock %}
+                <div class="clear"></div>
+                {% block table %}{% endblock %}
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal loading overlay -->
+    <div class="gg-modal-loading-overlay"></div>
+    <div class="gg-modal-loading-object">
+        <p>
+            <span id="loading-text">Loading</span>
+            <img src="{{ environment.config.get('admin_url') ~ '/images/wpspin_light.gif' }}" alt=""
+                 title="{{ translate('Loading') }}"/>
+        </p>
+    </div>
+
+    {% block notes %}{% endblock %}
+</div>

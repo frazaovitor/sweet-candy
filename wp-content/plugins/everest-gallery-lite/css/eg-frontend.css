@@ -1,0 +1,1343 @@
+.eg-wrap * {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.eg-wrap ul li {
+    list-style: none;
+}
+.eg-wrap ul {
+    margin: 0;
+    padding: 0;
+}
+.entry-content a {
+    box-shadow: none !important;
+}
+.eg-wrap .eg-icon-search:before {
+    content: none;
+}
+.eg-wrap a:active,
+.eg-wrap a:hover,
+.eg-wrap a:focus,
+.eg-wrap a:visited {
+    outline: 0;
+    box-shadow: none;
+}
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+    table-layout: fixed;
+}
+.clearfix:after {
+    clear: both
+}
+.eg-wrap a:active,
+.eg-wrap a:hover,
+.eg-wrap input {
+    outline: 0;
+    box-shadow: none;
+}
+.eg-button-holder {
+    z-index: 999999;
+}
+.eg-button-holder a {
+    cursor: pointer;
+}
+.eg-masonary-wrap .eg-overlay-wrapper > a {
+    display: block;
+}
+.eg-masonary-wrap .eg-overlay-wrapper > a img {
+    display: block;
+}
+.eg-wrap img {
+    display: block;
+    max-width: 100%;
+    vertical-align: middle;
+}
+.eg-wrap .eg-load-more-block img {
+    text-align: center;
+    margin: 0 auto;
+}
+div.pp_overlay {
+    z-index: 9999;
+}
+/*==================================================
+pop up
+==================================================*/
+.eg-everest-lightbox-overlay {
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999999;
+    transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    -ms-transition: all ease 0.5s;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+.eg-everest-lightbox-overlay.eg-overlay-active {
+    opacity: 1;
+    visibility: visible;
+    overflow: hidden;
+}
+.eg-everest-lightbox-overlay .eg-everest-lightbox-inner-overlay {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+.eg-everest-lightbox-overlay .eg-everest-lightbox-wrap {
+    width: 50%;
+    position: fixed;
+    top: 51%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    z-index: 999;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 7px;
+    background: #fff;
+}
+.eg-everest-lightbox-overlay .eg-everest-lightbox-wrap .eg-everest-lightbox-details-wrap {
+    margin-top: 10px;
+    padding: 5px 10px 10px;
+    color: #fff;
+}
+.eg-everest-lightbox-overlay .eg-everest-lightbox-wrap .eg-everest-lightbox-details-wrap .eg-everest-lightbox-description {
+    font-size: 13px;
+}
+.eg-everest-lightbox-overlay .eg-everest-lightbox-controls {
+    position: fixed;
+    top: 47%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+.eg-everest-lightbox-overlay .eg-everest-lightbox-controls .eg-everest-lightbox-previous,
+.eg-everest-lightbox-overlay .eg-everest-lightbox-controls .eg-everest-lightbox-next {
+    font-size: 0;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+}
+.eg-everest-lightbox-overlay .eg-everest-lightbox-controls .eg-everest-lightbox-previous {
+    left: 50px
+}
+.eg-everest-lightbox-overlay .eg-everest-lightbox-controls .eg-everest-lightbox-next {
+    right: 50px;
+    left: auto;
+}
+.eg-everest-lightbox-overlay .eg-everest-lightbox-controls .eg-everest-lightbox-previous:before,
+.eg-everest-lightbox-overlay .eg-everest-lightbox-controls .eg-everest-lightbox-next:before {
+    content: '';
+    position: absolute;
+    font-family: FontAwesome;
+    font-size: 50px;
+    color: #fff;
+    transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+}
+.eg-everest-lightbox-overlay .eg-everest-lightbox-controls .eg-everest-lightbox-previous:hover:before,
+.eg-everest-lightbox-overlay .eg-everest-lightbox-controls .eg-everest-lightbox-next:hover:before {
+    color: #65b5f4;
+}
+.eg-everest-lightbox-overlay .eg-everest-lightbox-controls .eg-everest-lightbox-previous:before {
+    content: '\f104';
+    left: 45px;
+}
+.eg-everest-lightbox-overlay .eg-everest-lightbox-controls .eg-everest-lightbox-next:before {
+    content: '\f105';
+    right: 45px;
+}
+.eg-everest-lightbox-overlay .eg-close-pop-up {
+    position: fixed;
+    top: 50px;
+    right: 70px;
+    font-size: 0;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    z-index: 999999;
+    transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+}
+.eg-everest-lightbox-overlay .eg-close-pop-up:before,
+.eg-everest-lightbox-overlay .eg-close-pop-up:after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 25px;
+    height: 4px;
+    top: 0;
+    transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+}
+.eg-everest-lightbox-overlay .eg-close-pop-up:hover:before,
+.eg-everest-lightbox-overlay .eg-close-pop-up:hover:after {
+    background: #ccc;
+}
+.eg-everest-lightbox-overlay .eg-close-pop-up:before {
+    transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.eg-everest-lightbox-overlay .eg-close-pop-up:after {
+    transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.eg-everest-lightbox-overlay.eg-black-lightbox .eg-everest-lightbox-wrap,
+.eg-everest-lightbox-overlay.eg-black-lightbox .eg-close-pop-up {
+    background: #000;
+    box-shadow: inset 0px 1px 4px #fbfbfb;
+    -webkit-box-shadow: inset 0px 1px 4px #fbfbfb;
+    border-radius: 5px;    
+}
+.eg-everest-lightbox-overlay.eg-white-lightbox .eg-everest-lightbox-wrap,
+.eg-everest-lightbox-overlay.eg-white-lightbox .eg-close-pop-up {
+    background: #fff;
+    box-shadow: inset 0 0 7px #151313;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 7px #151313;
+    -webkit-border-radius: 3px;
+}
+.eg-everest-lightbox-overlay.eg-white-lightbox .eg-everest-lightbox-details-wrap {
+    color: #000;
+}
+.eg-everest-lightbox-overlay.eg-blue-lightbox .eg-everest-lightbox-wrap,
+.eg-everest-lightbox-overlay.eg-blue-lightbox .eg-close-pop-up {
+    background: #67b7f6;
+    border-radius: 5px;     
+}
+.eg-everest-lightbox-overlay.eg-blue-lightbox .eg-close-pop-up:before,
+.eg-everest-lightbox-overlay.eg-blue-lightbox .eg-everest-lightbox-details-wrap {
+    color: #655a5a;
+    background: #fff;
+}
+.eg-everest-lightbox-overlay.eg-blue-lightbox .eg-everest-lightbox-details-wrap {
+    margin-top: 7px;
+    padding: 8px 12px;
+}
+.eg-everest-lightbox-overlay.eg-grey-lightbox .eg-everest-lightbox-wrap {
+    background: #e1e1de;    
+    border-radius: 5px;
+    box-shadow: inset 0 0 6px #000;
+    -webkit-border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px #000;
+} 
+.eg-everest-lightbox-overlay.eg-grey-lightbox .eg-everest-lightbox-details-wrap {
+    color: #333;
+}
+.eg-everest-lightbox-wrap .eg-everest-lightbox-caption {
+    font-weight: 600;
+    text-transform: capitalize;
+}
+/*===================================================================================
+width for columns 
+===================================================================================*/
+.eg-grid-wrap .eg-each-item {
+    float: left;
+}
+.eg-grid-wrap.eg-column-1 .eg-each-item,
+.eg-masonary-wrap.eg-column-1 .eg-each-item {
+    width: 100%;
+    display: block;
+}
+.eg-grid-wrap.eg-column-2 .eg-each-item,
+.eg-masonary-wrap.eg-column-2 .eg-each-item {
+    width: 50%;
+}
+.eg-masonary-wrap.eg-column-2 .eg-each-item:nth-child(2n+1) {
+    clear: both
+}
+.eg-grid-wrap.eg-column-3 .eg-each-item {
+    width: 33.33%;
+}
+.eg-masonary-wrap.eg-column-3 .eg-each-item {
+    width: 33.33%;
+}
+.eg-grid-wrap.eg-column-3 .eg-each-item:nth-child(3n+1),
+.eg-masonary-wrap.eg-column-3 .eg-each-item:nth-child(3n+1) {
+    clear: both
+}
+.eg-grid-wrap.eg-column-4 .eg-each-item,
+.eg-masonary-wrap.eg-column-4 .eg-each-item {
+    width: 25%;
+}
+.eg-grid-wrap.eg-column-4 .eg-each-item:nth-child(4n+1),
+.eg-masonary-wrap.eg-column-4 .eg-each-item:nth-child(4n+1) {
+    clear: both;
+}
+.eg-grid-wrap.eg-column-5 .eg-each-item,
+.eg-masonary-wrap.eg-column-5 .eg-each-item {
+    width: 20%;
+}
+.eg-grid-wrap.eg-column-5 .eg-each-item:nth-child(5n+1),
+.eg-masonary-wrap.eg-column-5 .eg-each-item:nth-child(5n+1) {
+    clear: both;
+}
+.eg-grid-wrap.eg-column-6 .eg-each-item,
+.eg-masonary-wrap.eg-column-6 .eg-each-item {
+    width: 16.66%;
+}
+.eg-grid-wrap.eg-column-6 .eg-each-item:nth-child(6n+1),
+.eg-masonary-wrap.eg-column-6 .eg-each-item:nth-child(6n+1) {
+    clear: both;
+}
+/*=====================================
+grid layouts
+======================================*/ 
+.eg-grid-wrap.eg-column-2.eg-grid-layout-2 .eg-each-item {
+    width: 49%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+.eg-grid-wrap.eg-column-2.eg-grid-layout-2 .eg-each-item:nth-child(even) {
+    margin-right: 0;
+}
+.eg-grid-wrap.eg-column-3.eg-grid-layout-2 .eg-each-item {
+    width: 32.33%;
+    margin-right: 1.5%;
+    margin-bottom: 1.5%;
+}
+.eg-grid-wrap.eg-column-3.eg-grid-layout-2 .eg-each-item:nth-child(3n) {
+    margin-right: 0;
+}
+.eg-grid-wrap.eg-column-4.eg-grid-layout-2 .eg-each-item {
+    width: 23.8%;
+    margin-right: 1.5%;
+    margin-bottom: 1.5%;
+}
+.eg-grid-wrap.eg-column-4.eg-grid-layout-2 .eg-each-item:nth-child(4n) {
+    margin-right: 0;
+}
+.eg-grid-wrap.eg-column-5.eg-grid-layout-2 .eg-each-item {
+    width: 19%;
+    margin-right: 1.2%;
+    margin-bottom: 1.2%;
+}
+.eg-grid-wrap.eg-column-5.eg-grid-layout-2 .eg-each-item:nth-child(5n) {
+    margin-right: 0;
+}
+.eg-grid-wrap.eg-column-6.eg-grid-layout-2 .eg-each-item {
+    width: 15.5%;
+    margin-right: 1.4%;
+    margin-bottom: 1.4%;
+}
+.eg-grid-wrap.eg-column-6.eg-grid-layout-2 .eg-each-item:nth-child(6n) {
+    margin-right: 0;
+}
+/*=====================================
+masonary padding
+======================================*/
+.eg-masonary-wrap.eg-masonary-layout-2 .eg-masonary-padding {
+    padding: 10px;
+}
+.eg-masonary-wrap.eg-column-6.eg-masonary-layout-2 .eg-masonary-padding,
+.eg-masonary-wrap.eg-column-5.eg-masonary-layout-2 .eg-masonary-padding {
+    padding: 5px;
+}
+/*================
+compatible
+================*/
+.eg-grid-wrap .eg-slider-caption,
+.eg-masonary-wrap .eg-slider-caption {
+    display: none;
+}
+/*===========================
+no hover animation
+============================*/
+.eg-no-hover .eg-mask {
+    display: none;
+}
+/*============================
+hover layout css for frontend
+============================*/
+.eg-wrap .eg-overlay-wrapper {
+   position: relative;
+   overflow: hidden;
+}
+.eg-wrap .eg-overlay-wrapper div.eg-mask {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+    -ms-transition: all ease 0.3s;
+}
+.eg-wrap .eg-overlay-wrapper > img {
+    transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+    -ms-transition: all ease 0.3s;
+}
+.eg-wrap .eg-overlay-wrapper p {
+    margin: 0;
+    line-height: 1.3;
+}
+.eg-wrap .eg-overlay-wrapper .eg-caption {
+    padding: 0px 15px;
+}
+.eg-wrap .eg-overlay-wrapper .eg-button-holder {
+    margin-bottom: 0;
+}
+.eg-wrap .eg-overlay-wrapper .eg-button-holder a {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    display: inline-block;
+    margin: 0 2px;
+    line-height: 35px;
+    transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+    -ms-transition: all ease 0.3s;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff;
+    text-align: center;
+    font-size: 13px;
+}
+.eg-wrap .eg-overlay-wrapper .eg-button-holder a i:before,
+.eg-wrap .eg-overlay-wrapper .eg-layout-32-wrap a i:before {
+    line-height: 40px;
+}
+.eg-wrap .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-title {
+    display: block;    
+}
+.eg-wrap .eg-overlay-wrapper .eg-caption {
+    color: #fff;
+}
+.eg-wrap .eg-overlay-wrapper .eg-caption,
+.eg-wrap .eg-overlay-wrapper .eg-button-holder {
+    position: relative;
+    transition: all ease 1.5s;
+    -webkit-transition: all ease 1.5s;
+    -ms-transition: all ease 1.5s;
+}
+.eg-wrap .eg-overlay-wrapper .eg-button-holder {
+    margin-bottom: 10px;
+}
+.eg-wrap .eg-overlay-wrapper .eg-button-holder a i.fa-play {
+    font-size: 15px;
+}
+.eg-wrap .eg-overlay-wrapper img {
+    transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+}
+.eg-overlay-wrapper .eg-caption {
+    width: 80%;
+    margin: 0 auto;
+}
+.eg-wrap .eg-overlay-wrapper .eg-caption p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 13px;
+}
+.eg-wrap .eg-overlay-wrapper .eg-mask .eg-inner-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    height: 100%;
+}
+.eg-wrap .eg-overlay-wrapper .eg-title {
+    line-height: 1.2;
+}
+/*==============
+layout-1
+==============*/
+.eg-overlay-layout-1 .eg-overlay-wrapper .eg-mask {
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    background: rgba(255, 255, 255, 0.85);
+}
+.eg-overlay-layout-1 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper {
+    text-align: center;
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.eg-overlay-layout-1 .eg-overlay-wrapper:hover .eg-mask {
+    opacity: 1;
+    visibility: visible;
+}
+.eg-overlay-layout-1 .eg-overlay-wrapper .eg-content-holder {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+.eg-overlay-layout-1 .eg-overlay-wrapper .eg-caption {
+    color: #333;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -30px;
+}
+.eg-overlay-layout-1 .eg-overlay-wrapper .eg-caption p {
+    font-size: 16px;
+}
+.eg-overlay-layout-1 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper span.eg-title {
+    display: none !important;
+}
+.eg-overlay-layout-1 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-caption span.eg-title {
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block !important;
+    overflow: hidden;
+}
+.eg-overlay-layout-1 .eg-overlay-wrapper .eg-button-holder {
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    text-align: left;
+    transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    left: 20px
+}
+.eg-overlay-layout-1 .eg-overlay-wrapper:hover .eg-button-holder {
+    top: 20px;
+}
+.eg-overlay-layout-1 .eg-overlay-wrapper .eg-button-holder a {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    color: #333;
+    border: none;
+    font-size: 20px;
+    margin: 0 5px;
+}
+.eg-overlay-layout-1 .eg-overlay-wrapper .eg-button-holder a i:before {
+    line-height: 1 !important;
+}
+/*==============
+layout-2
+==============*/  
+.eg-overlay-layout-2 .eg-overlay-wrapper .eg-mask {
+    width: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(48, 133, 163, 0.7);
+    opacity: 0;
+    visibility: hidden;
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper:hover .eg-mask {
+    opacity: 1;
+    visibility: visible;
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper .eg-content-holder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper .eg-caption,
+.eg-overlay-layout-2 .eg-overlay-wrapper .eg-title {
+    width: 100%;
+    padding: 0 15px;
+    text-align: right;
+    position: absolute;
+    color: #fff;
+    right: -100%;
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper .eg-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper:hover .eg-caption,
+.eg-overlay-layout-2 .eg-overlay-wrapper:hover span.eg-title {
+    right: 0;
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper:hover .eg-caption {
+    transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper:hover span.eg-title {
+    transition: all ease 0.6s;
+    -webkit-transition: all ease 0.6s;
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper .eg-caption {
+    top: 50px;
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper .eg-title {
+    font-size: 24px;
+    top: 18px;
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper .eg-button-holder {
+    transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+    -ms-transition: all ease 0.3s;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%) scale(1.3);
+    -webkit-transform: translateY(-50%) scale(1.3);
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper:hover .eg-button-holder {
+    transform: translateY(-50%) scale(1);
+    -webkit-transform: translateY(-50%) scale(1);
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper .eg-button-holder a {
+    background: #222;
+    border: none !important;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.eg-overlay-layout-2 .eg-overlay-wrapper .eg-button-holder a:hover,
+.eg-overlay-layout-2 .eg-overlay-wrapper .eg-button-holder a.eg-icon-chain:hover {
+    background: #fff;
+    color: #333;
+}
+/*==============
+layout-3
+==============*/
+.eg-wrap .eg-overlay-layout-3 .eg-overlay-wrapper .eg-mask {
+    height: 100%;
+    top: auto;
+    background: rgba(255, 255, 255, 0.8);
+    left: auto;
+    right: auto;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+}
+.eg-wrap .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-mask {
+    visibility: visible;
+    opacity: 1;
+}
+.eg-wrap .eg-overlay-layout-3 .eg-overlay-wrapper:hover img {
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+}
+.eg-wrap .eg-overlay-layout-3 .eg-overlay-wrapper .eg-content-holder {
+    top: -100%;
+    opacity: 0;
+    visibility: hidden;
+}
+.eg-wrap .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder {
+    top: 50%;
+    margin-top: -50px;
+    position: absolute;
+    width: 100%;
+    transition: all ease 1s;
+    -webkit-transition: all ease 1s;
+    opacity: 1;
+    visibility: visible;
+}
+.eg-wrap .eg-overlay-layout-3 .eg-overlay-wrapper .eg-caption {
+    color: #333;
+    text-transform: uppercase;
+}
+.eg-wrap .eg-overlay-layout-3 .eg-overlay-wrapper .eg-caption p {
+    font-size: 13px;
+}
+.eg-wrap .eg-overlay-layout-3 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper span.eg-title {
+    display: none !important;
+}
+.eg-wrap .eg-overlay-layout-3 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-caption span.eg-title {
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    display: block !important;
+}
+.eg-wrap .eg-overlay-layout-3 .eg-overlay-wrapper .eg-button-holder a {
+    border: none;
+    position: relative;
+    margin: 0 8px;    
+}
+.eg-wrap .eg-overlay-layout-3 .eg-overlay-wrapper .eg-button-holder a:before {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 25px 43.3px 25px;
+    border-color: transparent transparent rgba(0,0,0,0.3) transparent;
+    z-index: -9;
+    left: -6px;
+    top: -8px;
+    transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+    -ms-transition: all ease 0.3s;
+}
+.eg-wrap .eg-overlay-layout-3 .eg-overlay-wrapper .eg-button-holder a:hover:before {
+    border-color: transparent transparent rgba(0,0,0,0.8) transparent;
+}
+/*==============
+layout-4
+==============*/ 
+.eg-wrap .eg-overlay-layout-4 .eg-overlay-wrapper .eg-mask {
+    height: 100%;
+    bottom: -100%;
+    background: #000;
+    left: auto;
+    right: auto;
+    top: auto;
+    transition: all ease 0.2s;
+    -webkit-transition: all ease 0.2s;
+}
+.eg-wrap .eg-overlay-layout-4 .eg-overlay-wrapper:hover .eg-mask {
+    bottom: 0;
+}
+.eg-wrap .eg-overlay-layout-4 .eg-overlay-wrapper .eg-caption {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+}
+.eg-wrap .eg-overlay-layout-4 .eg-overlay-wrapper span.eg-title {
+    display: none !important;
+}
+.eg-wrap .eg-overlay-layout-4 .eg-overlay-wrapper .eg-caption {
+    bottom: 10px;
+}
+.eg-wrap .eg-overlay-layout-4 .eg-overlay-wrapper .eg-caption span.eg-title {
+    display: block !important;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+.eg-wrap .eg-overlay-layout-4 .eg-overlay-wrapper .eg-caption p {
+    padding-bottom: 10px;
+    font-size: 15px;
+    color: #fff;
+}
+.eg-wrap .eg-overlay-layout-4 .eg-overlay-wrapper .eg-button-holder {
+    opacity: 0;
+    visibility: hidden;
+    right: -100%;
+    width: 100%;
+    position: absolute;
+    transition: all ease 0.8s;
+    -webkit-transition: all ease 0.8s;
+    text-align: right;
+    top: 20px;
+}
+.eg-wrap .eg-overlay-layout-4 .eg-overlay-wrapper:hover .eg-button-holder {
+    opacity: 1;
+    visibility: visible;
+    right: 20px;
+}
+.eg-wrap .eg-overlay-layout-4 .eg-overlay-wrapper .eg-button-holder a {
+    border: none;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    color: #000;
+    background: #fff;
+}
+.eg-wrap .eg-overlay-layout-4 .eg-overlay-wrapper .eg-button-holder a:hover,
+.eg-wrap .eg-overlay-layout-4 .eg-overlay-wrapper .eg-button-holder a.eg-icon-chain:hover {
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+}
+/*==============
+layout-5
+==============*/ 
+.eg-overlay-layout-5 .eg-overlay-wrapper .eg-mask {
+    width: 100%;
+    height: 100%;
+    left: -100%;
+    background-color: rgba(53,56,61,0.6);
+    transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    -ms-transition: all ease 0.5s;     
+}
+.eg-overlay-layout-5 .eg-overlay-wrapper:hover .eg-mask {
+    left: 0;
+}
+.eg-overlay-layout-5 .eg-overlay-wrapper .eg-mask span.eg-title {
+    display: none !important;
+}
+.eg-overlay-layout-5 .eg-overlay-wrapper .eg-mask .eg-caption {
+    color: #fff;
+    position: absolute;
+    left: -100%;
+}
+.eg-overlay-layout-5 .eg-overlay-wrapper .eg-mask .eg-caption  span.eg-title {
+    font-size: 22px;
+    text-transform: capitalize;
+    width: 100%;
+    margin-bottom: 8px;
+    display: block !important;
+}
+.eg-overlay-layout-5 .eg-overlay-wrapper .eg-mask .eg-caption {
+    bottom: 20px;
+    width: 100%;
+    padding-left: 25px;
+}
+.eg-overlay-layout-5 .eg-overlay-wrapper:hover .eg-mask .eg-caption {
+    left: 0;
+    transition: all ease 1.5s;
+    -webkit-transition: all ease 1.5s;
+}
+.eg-overlay-layout-5 .eg-overlay-wrapper .eg-mask .eg-caption p {
+    font-size: 14px;
+}
+.eg-overlay-layout-5 .eg-overlay-wrapper .eg-button-holder {
+    text-align: right;
+    right: 15px;
+    position: absolute;
+    width: 100%;
+    top: -100%;
+    transition: all ease 1.5s;
+    -webkit-transition: all ease 1.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+.eg-overlay-layout-5 .eg-overlay-wrapper:hover .eg-button-holder {
+    top: 15px;
+    opacity: 1;
+    visibility: visible;
+}
+.eg-overlay-layout-5 .eg-overlay-wrapper .eg-button-holder a {
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    color: rgb(53,56,61)
+}
+.eg-overlay-layout-5 .eg-overlay-wrapper .eg-button-holder a:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-34 .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-34 .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-34 .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-34 .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-34 .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-grid-wrap.eg-component-link .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-34 .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-link .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-34 .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-grid-wrap.eg-component-title-caption .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-34 .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-title-caption .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-34 .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-grid-wrap.eg-component-title .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-34 .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-title .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder
+ {
+    top: 50%;
+    margin-top: -20px;
+}
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-34 .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-title .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-34 .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-title .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-34 .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-34 .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-link-caption .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder {
+    top: 50%;
+    margin-top: -30px;
+}
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-34 .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-grid-wrap.eg-component-link-title .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-34 .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-title .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-34 .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-title .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-34 .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-title .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-34 .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-grid-wrap.eg-component-lightbox-caption .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-34 .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-lightbox-caption .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-34 .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-grid-wrap.eg-component-link-caption .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-34 .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-link-caption .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder {
+    top: 50%;
+    margin-top: -40px;
+}
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-34 .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-grid-wrap.eg-component-caption .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-31 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-button-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-28 .eg-overlay-wrapper:hover .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-29 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-27 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-35 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-3 .eg-overlay-wrapper:hover .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-34 .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-26 .eg-overlay-wrapper:hover .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-25 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-22 .eg-overlay-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-20 .eg-overlay-wrapper .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-13 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-12 .eg-overlay-wrapper .eg-mask .eg-inner-wrapper .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-10 .eg-overlay-wrapper:hover .eg-button-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-8 .eg-overlay-wrapper .eg-mask .eg-content-holder,
+.eg-masonary-wrap.eg-component-caption .eg-overlay-layout-7 .eg-overlay-wrapper .eg-mask .eg-content-holder {
+    top: 50%;
+    margin-top: -10px;
+}    
+.eg-everest-lightbox-source-holder audio {
+    width: 100%;
+}
+.eg-overlay-wrapper .eg-item-type-icon {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 40px;
+    font-size: 20px;
+    color: #fff;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.9);
+    height: 40px;
+    text-align: center;
+    padding: 9px;
+    border-radius: 5px;
+    opacity: 1;
+    visibility: visible;
+    transiton: all ease 0.3s;
+    -webkit-transiton: all ease 0.3s;
+    line-height: 1;
+}
+.eg-overlay-wrapper:hover .eg-item-type-icon {
+    opacity: 0;
+    visibility: hidden;
+}
+/*=============================
+responsive
+=============================*/
+@media (max-width: 1170px) {
+    .eg-blog-wrap .eg-blog-layout-7 .eg-each-item {
+        width: 100%;
+        float: none;
+        margin-bottom: 10px;
+    }
+    .eg-blog-wrap .eg-blog-layout-7 .eg-each-item .eg-blog-item-inner-wrap.eg-blog-image-right .blog-image-holer {
+        float: left;
+    }
+}
+@media (max-width: 768px) {
+    .eg-blog-layout-1 .blog-image-holer,
+    .eg-blog-layout-1 .eg-blog-caption {
+        width: 100% !important;
+        float: none !important;
+    }
+    .eg-blog-layout-1 .blog-image-holer {
+        margin-bottom: 5px;
+    }
+    .eg-blog-wrap .eg-blog-layout-1 .eg-each-item:nth-child(odd) .eg-blog-item-inner-wrap .eg-blog-caption {
+        padding-right: 0;
+    }
+    .eg-blog-wrap .eg-blog-layout-1 .eg-blog-item-inner-wrap .eg-blog-caption {
+        padding-left: 0;
+    }
+    .eg-blog-wrap .eg-blog-layout-2 .eg-each-item .blog-image-holer,
+    .eg-blog-wrap .eg-blog-layout-2 .eg-each-item .eg-blog-caption,
+    .eg-blog-wrap .eg-blog-layout-3 .eg-each-item .blog-image-holer,
+    .eg-blog-wrap .eg-blog-layout-3 .eg-each-item .eg-blog-caption,
+    .eg-blog-wrap .eg-blog-layout-5 .eg-each-item .blog-image-holer,
+    .eg-blog-wrap .eg-blog-layout-5 .eg-each-item .eg-blog-caption,
+    .eg-blog-wrap .eg-blog-layout-6 .eg-each-item,
+    .eg-blog-wrap .eg-blog-layout-7 .eg-each-item .eg-blog-item-inner-wrap .blog-image-holer,
+    .eg-blog-wrap .eg-blog-layout-7 .eg-each-item .eg-blog-item-inner-wrap .eg-blog-caption {
+        width: 100%;
+        float: none;
+    }
+    .eg-blog-wrap .eg-blog-layout-7 .eg-each-item .eg-blog-item-inner-wrap .eg-blog-caption {
+        padding-left: 0;
+    }
+    .eg-blog-wrap .eg-blog-layout-2 .eg-each-item .eg-blog-caption,
+    .eg-blog-wrap .eg-blog-layout-3 .eg-each-item .eg-blog-caption,
+    .eg-blog-wrap .eg-blog-layout-5 .eg-each-item .eg-blog-caption {
+        padding: 20px 0;
+    }
+    .eg-blog-wrap .eg-blog-layout-6 .eg-each-item:nth-child(even) {
+        margin-left: 0;
+    }
+    .eg-slideshow-wrap .eg-slideshow-outer-layout-4 .bx-wrapper .bx-controls-direction a:before {
+        font-size: 16px;
+    }
+    .eg-slideshow-wrap .eg-slideshow-outer-layout-4 .bx-wrapper .bx-controls-direction a.bx-next:before {
+        right: 8px;
+    }
+    .eg-slideshow-wrap .eg-slideshow-outer-layout-4 .bx-wrapper .bx-controls-direction a.bx-prev:before {
+        left: 7px;
+    }
+    .eg-slideshow-wrap .eg-slideshow-outer-layout-3 .bx-wrapper .bx-controls.bx-has-pager .bx-pager {
+        position: static;
+        text-align: center;
+    }
+    .eg-slideshow-wrap .eg-slideshow-outer-layout-3 .bx-wrapper .bx-controls .bx-controls-direction {
+        margin: 0 auto;
+    }
+}

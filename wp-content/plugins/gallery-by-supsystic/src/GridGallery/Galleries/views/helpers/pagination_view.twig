@@ -1,0 +1,40 @@
+{% macro paginationRender(settings) %}
+	{% import '@core/form.twig' as form %}
+	{% import '@core/helpers.twig' as hlp %}
+
+	<div class="gg-sett-pagination-wrapper">
+		<label class="gg-pagination-per-page-lbl">{{ translate('Show images per page') }}
+		{{ hlp.showTooltip(
+			translate('Here you may choose the amount of images per page, displayed at the image list below. ')
+			~ '<a target=\'_blank\' href=\'https://supsystic.com/documentation/images-settings/\'>https://supsystic.com/documentation/images-settings/</a>'
+		, 'top', true) }}
+		{{ form.select('gg-pagination-per-page', settings.info.perPageArr, settings.info.perPage, {
+			'id': 'gg-pagination-per-page',
+		}) }}
+		</label>
+		<input type="hidden" id="ggPaginationViewCurrPage" value="{{ settings.info.currPageForJs }}"/>
+		<input type="hidden" id="ggPaginationViewTotal" value="{{ settings.info.total }}"/>
+		<div class="gg-links-list" style="float:left;">
+			{% if settings.info.first is defined and settings.info.prev is defined %}
+				<a class="gg-sett-pagination-link button" href="{{ settings.info.first }}">{{ translate('First') }}</a>
+				<a class="gg-sett-pagination-link button" href="{{ settings.info.prev }}">{{ translate('Previous') }}</a>
+			{% endif %}
+
+			{% for ind1, val1 in settings %}
+				{% if (ind1) != 'info' %}
+					{% if settings.info.currentPage == ind1 %}
+						<span class="gg-sett-pagination-link button active">{{ ind1 }}</span>
+					{% else %}
+						<a class="gg-sett-pagination-link button" href="{{ val1 }}">{{ ind1 }}</a>
+					{% endif %}
+
+				{% endif %}
+			{% endfor %}
+
+			{% if settings.info.next is defined and settings.info.last is defined %}
+				<a class="gg-sett-pagination-link button" href="{{ settings.info.next }}">{{ translate('Next') }}</a>
+				<a class="gg-sett-pagination-link button" href="{{ settings.info.last }}">{{ translate('Last') }}</a>
+			{% endif %}
+		</div>
+	</div>
+{% endmacro %}

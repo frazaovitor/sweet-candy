@@ -1,0 +1,62 @@
+<style type="text/css">
+	.sggDeactivateDescShell {
+		display: none;
+		margin-left: 25px;
+		margin-top: 5px;
+	}
+	.sggDeactivateReasonShell {
+		display: block;
+		margin-bottom: 10px;
+	}
+	#sggDeactivateWnd input[type="text"],
+	#sggDeactivateWnd textarea {
+		width: 100%;
+	}
+	#sggDeactivateWnd h4 {
+		line-height: 1.53em;
+	}
+	#sggDeactivateWnd + .ui-dialog-buttonpane .ui-dialog-buttonset {
+		float: none;
+	}
+	.sggDeactivateSkipDataBtn {
+		float: right;
+		margin-top: 15px;
+		text-decoration: none;
+		color: #777 !important;
+	}
+</style>
+<div id="sggDeactivateWnd" style="display: none;" title="{{ environment.translate('Your Feedback') }}">
+	<h4>{{ environment.translate('If you have a moment, please share why you are deactivating Photo Gallery by Supsystic') }}</h4>
+	<form id="sggDeactivateForm">
+		<label class="sggDeactivateReasonShell">
+			<input type="radio" name="deactivate_reason" value="not_working" />
+			{{ environment.translate("Couldn\'t get the plugin to work") }}
+			<div class="sggDeactivateDescShell">
+				{{ environment.translate('If you have a question, <a href="%s" target="_blank">contact us</a> and will do our best to help you') | format('https://supsystic.com/contact-us/?utm_source=plugin&utm_medium=deactivated_contact&utm_campaign=gallery') | raw }}
+			</div>
+		</label>
+		<label class="sggDeactivateReasonShell">
+			<input type="radio" name="deactivate_reason" value="found_better" />
+			{{ environment.translate('I found a better plugin') }}
+			<div class="sggDeactivateDescShell">
+				<input type="text" name="better_plugin" placeholder="{{ environment.translate("If it\'s possible, specify plugin name") }}" />
+			</div>
+		</label>
+		<label class="sggDeactivateReasonShell">
+			<input type="radio" name="deactivate_reason" value="not_need" />
+			{{ environment.translate('I no longer need the plugin') }}
+		</label>
+		<label class="sggDeactivateReasonShell">
+			<input type="radio" name="deactivate_reason" value="temporary" />
+			{{ environment.translate("It\'s a temporary deactivation") }}
+		</label>
+		<label class="sggDeactivateReasonShell">
+			<input type="radio" name="deactivate_reason" value="other" />
+			{{ environment.translate('Other') }}
+			<div class="sggDeactivateDescShell">
+				<input type="text" name="other" placeholder="{{ environment.translate("What is the reason?") }}" />
+			</div>
+		</label>
+	</form>
+	<a href="" class="sggDeactivateSkipDataBtn">{{ environment.translate('Skip & Deactivate') }}</a>
+</div>

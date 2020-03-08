@@ -1,0 +1,81 @@
+{% macro put_photo(entity) %}
+    <li class="gg-list-item">
+        <div class="gg-item" data-type="photo" data-id="{{ entity.id }}" data-edit-link="{{ entity.attachment.editLink }}" style="z-index: 10;">
+            <div class="gg-check">
+                <input type="checkbox" class="gg-checkbox">
+            </div>
+            <a class="gg-box" href="{{ entity.attachment.sizes.full.url }}" data-title="{{ entity.attachment.title }}">
+                <img class="supsystic-lazy" data-original="{{ entity.attachment.sizes.thumbnail.url }}" alt="{{ entity.attachment.alt }}" />
+            </a>
+            <p title="{{ entity.attachment.title }}">
+                {{ entity.attachment.title }}
+                <small>
+                    {{ entity.attachment.dateFormatted }}
+                </small>
+            </p>
+        </div>
+    </li>
+{% endmacro %}
+
+{% macro put_folder(entity) %}
+
+    <li class="gg-list-item">
+
+        <div class="gg-item" data-type="folder" data-id="{{ entity.id }}" style="z-index: 0;">
+
+            <div class="gg-check">
+                <input type="checkbox" class="gg-checkbox">
+            </div>
+
+            <a href="{{ environment.generateUrl('photos', 'view', { 'folder_id': entity.id }) }}">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAADIAQMAAAAwS4omAAAAA1BMVEXk5+pYcSvrAAAAG0lEQVRIie3BMQEAAADCoPVPbQwfoAAAAIC3AQ+gAAEq5xQCAAAAAElFTkSuQmCC"
+                     alt="" width="150" height="150"/>
+
+                <div style="position: absolute; top: 55px; left: 55px; color: #bdc3c7;">
+                    <i class="fa fa-folder-open-o" style="font-size: 5em;"></i>
+                </div>
+
+                <div class="gg-folder-photos">
+                    <i class="fa fa-picture-o"></i> <span class="gg-folder-photos-num">{{ entity.photos|length }}</span>
+                </div>
+
+            </a>
+
+            <p>
+                <span class="gg-folder-name">{{ entity.title }}</span>
+                <small>
+                    {{ entity.date }}
+                </small>
+            </p>
+
+        </div>
+
+    </li>
+
+{% endmacro %}
+
+{% macro put_levelup() %}
+    <li class="gg-list-item">
+
+        <div class="gg-item" data-type="folder" data-id="0" style="z-index: 0;">
+
+            <a href="{{ environment.generateUrl('photos') }}">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAADIAQMAAAAwS4omAAAAA1BMVEXk5+pYcSvrAAAAG0lEQVRIie3BMQEAAADCoPVPbQwfoAAAAIC3AQ+gAAEq5xQCAAAAAElFTkSuQmCC"
+                     alt="" width="150" height="150"/>
+
+                <div style="position: absolute; top: 55px; left: 50px; color: #bdc3c7;">
+                    <i class="fa fa-cloud-upload" style="font-size: 5em;"></i>
+                </div>
+            </a>
+
+            <p style="text-align: center;">
+                {#<span style="font-weight: bold;">{{ environment.translate('All photos') }}</span>#}
+                <small style="text-overflow: clip; white-space: normal; padding-bottom: 3px;">
+                    {{ translate('Drop photos here to move them from the folder') }}
+                </small>
+            </p>
+
+        </div>
+
+    </li>
+{% endmacro %}

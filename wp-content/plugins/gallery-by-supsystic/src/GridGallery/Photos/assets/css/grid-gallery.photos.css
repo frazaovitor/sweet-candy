@@ -1,0 +1,89 @@
+.sg-photos {
+    overflow: hidden;
+    /*background-color: #e4e7ea;*/
+    margin-right: 10px;
+}
+
+.sg-photos > li {
+    float: left;
+    position: relative;
+    /*width: 172px;*/
+    padding: 10px;
+}
+
+.gg-item {
+    border-bottom: 1px solid #7f8c8d;
+    background: #fdfdfd;
+    padding: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    height: 300px;
+}
+
+.gg-checked {
+    border-color: #ccc !important;
+}
+
+.gg-item > .gg-check {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: none;
+}
+
+.gg-item p {
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+.gg-item small {
+    display: block;
+    color: #ccc;
+}
+
+.gg-folder-photos {
+    position: absolute;
+    top: 140px;
+    left: 15px;
+    color: #7f8c8d;
+}
+
+.gg-breadcrumbs {
+    border-top: 1px solid rgba(12,12,12,0.03);
+    background-color: #ecf0f1;
+    margin-left: -10px;
+    padding: 15px;
+    -moz-box-shadow: 0 3px 0 rgba(12,12,12,0.03);
+    -webkit-box-shadow: 0 3px 0 rgba(12,12,12,0.03);
+    box-shadow: 0 3px 0 rgba(12,12,12,0.03);
+}
+
+.gg-breadcrumbs > a {
+    text-decoration: none;
+    padding: 0 5px;
+}
+
+.gg-breadcrumbs > a:last-child {
+    color: #7f8c8d;
+}
+
+.gg-check.hover {
+    display: block;
+}
+
+/* Highlight */
+.folder-highlight .gg-item {
+    box-shadow: 0 0 15px #3498db;
+}
+
+tr.folder-highlight .check-column {
+    border-left: 4px solid #2ea2cc;
+}
+
+tr.folder-highlight {
+    background-color: rgba(46, 162, 204, 0.2);
+}

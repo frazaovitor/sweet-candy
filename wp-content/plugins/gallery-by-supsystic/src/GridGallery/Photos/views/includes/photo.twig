@@ -1,0 +1,4 @@
+{% import '@photos/macros/photos.twig' as list %}
+{% if photo is defined %}
+    {{ list.put_photo(photo) }}
+{% endif %}

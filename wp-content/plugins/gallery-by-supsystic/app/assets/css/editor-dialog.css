@@ -1,0 +1,33 @@
+.gallery-select-dialog {
+    position: relative;
+    width: 400px;
+    height: 240px;
+    margin-top: 40px;
+    background: #ffffff;
+    border-radius: 20px;
+}
+
+.gallery-select-dialog select {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    background: rgba(0, 0, 0, 0.06);
+    width: 240px;
+    height: 34px;
+    padding: 5px;
+    font-size: 14px;
+    line-height: 1;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.gallery-select-dialog button {
+    position: absolute;
+    bottom: 10%;
+    left: 35%;
+    padding: 20px 40px !important;
+    line-height: 0 !important;
+}
+
+.gallery-select-dialog h3 {
+    margin: 20px;
+}

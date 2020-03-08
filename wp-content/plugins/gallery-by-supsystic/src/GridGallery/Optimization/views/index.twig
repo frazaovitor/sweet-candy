@@ -1,0 +1,590 @@
+{% extends 'grid-gallery.twig' %}
+
+{% block header %}
+	{% import '@core/helpers.twig' as hlp %}
+
+    <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs">
+        <a href="{{ environment.generateUrl('galleries') }}">{{ translate('Galleries') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('optimization') }}">{{ translate('Image Optimization') }}</a>
+    </nav>
+
+    <div class="sgg-io-tabs-links-list sgg-main-tab-anch">
+        <a href="#" class="sgg-io-tab-link sggActive" data-tab-id="sgg-maintab-image-opt">
+            <i class="fa fa-compress"></i>
+            {{ translate('Image Optimize') }}
+			{{ hlp.showTooltip(
+				translate('Onboard image opimization with TinyPNG. ')
+				~ '<a target=\'_blank\' href=\'https://supsystic.com/documentation/image-optimize/\'>https://supsystic.com/documentation/image-optimize/</a>', 'top', true) }}
+        </a>
+        <a href="#" class="sgg-io-tab-link" data-tab-id="sgg-maintab-transfer-cdn">
+            <i class="fa fa-cloud-upload"></i>
+            {{ translate('Transfer to CDN') }}
+			{{ hlp.showTooltip(
+				translate('Here you may transfer your gallery images to CDN (Content Delivery Network) in order to reduce your site database load. ')
+				~ '<a target=\'_blank\' href=\'https://supsystic.com/documentation/transfer-to-cdn/\'>https://supsystic.com/documentation/transfer-to-cdn/</a>', 'top',
+			true) }}
+        </a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% import _self as imgOptTemplate %}
+    <div class="supsystic-image-optimize">
+        <div class="sgg-io-tabs-list sgg-main-tab-anch">
+            <input id="sggImgOptMainTabName" name="sggImgOptMainTabName" value="{{ tabName }}" type="hidden"/>
+            <div class="sgg-io-one-tab sgg-maintab-image-opt">
+                {{ imgOptTemplate.imageOptimizeMainDialog(imgOptTemplate, imgOptimizationSett) }}
+                {{ imgOptTemplate.imageOptimizeMainTab(imgOptTemplate, imgOptimizationSett, galleryList, statistic) }}
+            </div>
+            <div class="sgg-io-one-tab sgg-maintab-transfer-cdn sgg-io-tab-hidden">
+				{% if cdnSett == null %}
+					<div class="sgg-error-list-page">
+						<h2>{{ translate('Your host does not support the minimum requirements:') }}</h2>
+						{% for elem1 in cdnRequirements %}
+							<h3>{{ elem1 }}</h3>
+						{% endfor %}
+					</div>
+				{% else %}
+					{{ imgOptTemplate.transferToCdnDialog(cdnSett) }}
+					{{ imgOptTemplate.imageOptimizeCdnTab(cdnSett, galleryList) }}
+					{{ imgOptTemplate.cdnServiceSettingDialog(cdnSett) }}
+				{% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% macro imageOptimizeCdnTab(cdnSettings, cdnGalleryList) %}
+	{% import '@core/helpers.twig' as hlp %}
+
+    <input type="hidden" id="sgg-transfer-to-cdn-used";/>
+    <div class="supsystic-io-block sgg-cdn-service-block">
+        <div class="supsystic-io-block-table sgg-cnd-service-info">
+            <div class="supsystic-io-block-row">
+                <div class="supsystic-io-block-cell sgg-io-tab-hidden">
+                    <input value="keycdn" {% if cdnSettings.current == 'keycdn' %} checked="checked" {% endif %} type="radio" class="selected-cnd-opt-service" name="selected-cdn-opt-service"/>
+                </div>
+                <div class="supsystic-io-block-cell">
+					{{ translate('KeyCDN') }}
+					{{ hlp.showTooltip(
+						translate('Transfer your galleries to Content Delivery Network. Note: in order to do this, you should be a member of CDN. ')
+						~ '<a target=\'_blank\' href=\'https://supsystic.com/documentation/transfer-to-cdn/\'>https://supsystic.com/documentation/transfer-to-cdn/</a>'
+						~ '<br/>' ~ translate('Note: before starting the transfer you should press the \'Setup\' button, fill in the data and save the settings.')
+					, 'top', true) }}
+				</div>
+				<div class="supsystic-io-block-cell">
+                    <a href="" class="button sgg-setup-button" data-dialog-code="keycdn"  data-dialog-title="{{ translate("KeyCDN Settings") }}">
+                        <i class="fa fa-info-circle"></i>
+                        {% if cdnSettings.setting.keycdn.u_name is defined and cdnSettings.setting.keycdn.u_name != '' %}
+                            {{ translate('Change Details') }}
+                        {% else %}
+                            {{ translate('Setup') }}
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="supsystic-io-block sgg-cdn-list">
+		<input id="sgg-cdn-auth-sett" type="hidden" value="{{ cdnSettings | json_encode }}"/>
+        <button class="button sgg-transer-to-cdn" disabled="disabled">{{ translate('Transfer selected') }}</button>
+
+        <div class="supsystic-io-block-table sgg-transfer-to-cdn-table">
+            <div class="supsystic-io-block-row sgg-table-row-header">
+                <div class="supsystic-io-block-cell"></div>
+                <div class="supsystic-io-block-cell">{{ translate('Gallery Name') }}</div>
+                <div class="supsystic-io-block-cell">{{ translate('Total Images') }}</div>
+                <div class="supsystic-io-block-cell">{{ translate('Total Size') }}</div>
+                <div class="supsystic-io-block-cell">{{ translate('Location') }}</div>
+                <div class="supsystic-io-block-cell"></div>
+            </div>
+
+			{% set disableTransferBtn = false %}
+			{% if cdnSettings.setting.keycdn.u_name is defined and cdnSettings.setting.keycdn.u_name != '' %}
+				{% set disableTransferBtn = false %}
+			{% else %}
+				{% set disableTransferBtn = true %}
+			{% endif %}
+
+            {% for gallInfo in cdnGalleryList %}
+                <div class="supsystic-io-block-row sgg-cdn-info-row-{{ gallInfo.id }}">
+                    <div class="supsystic-io-block-cell">
+						<input class="sgg-check-gallery-inp" name="sgg-check-gallery-inp" type="checkbox"
+							   data-gallery-size="{% if gallInfo.cdn_size is defined %}{{ gallInfo.cdn_size}} {% elseif gallInfo.optimized_size is defined %}{{ gallInfo.optimized_size }}{% else %}-{% endif %}"
+							   data-gallery-img-cnt="{{ gallInfo.photo_count }}" value="{{ gallInfo.id }}"/>
+                    </div>
+					<div class="supsystic-io-block-cell">{{ gallInfo.title }}</div>
+					<div class="supsystic-io-block-cell">
+						{{ gallInfo.photo_count }}
+					</div>
+					<div class="supsystic-io-block-cell sgg-cdn-info-size">
+						{% if gallInfo.cdn_size is defined %}
+							{{ gallInfo.cdn_size ~ ' ' ~ translate('Mb') }}
+						{% elseif gallInfo.optimized_size is defined %}
+							{{ gallInfo.optimized_size ~ ' ' ~ translate('Mb') }}
+						{% else %}-{% endif %}
+					</div>
+					<div class="supsystic-io-block-cell sgg-cdn-info-tr-date">
+						{% if gallInfo.cdn_last_transfer_date is defined and gallInfo.cdn_service_name is defined %}
+							{{ gallInfo.cdn_service_name ~ ' / ' ~ gallInfo.cdn_last_transfer_date }}
+						{% else %}{{ translate('website') }}{% endif %}
+					</div>
+					<div class="supsystic-io-block-cell">
+						<button class="button sgg-transfer-to" data-gallery-id="{{ gallInfo.id }}"
+								{% if disableTransferBtn == true %} {{ 'disabled="disabled"' }} {% endif %}
+								data-photo-count="{{ gallInfo.photo_count }}"
+								data-img-size="{% if gallInfo.cdn_size is defined %}{{ gallInfo.cdn_size}} {% elseif gallInfo.optimized_size is defined %}{{ gallInfo.optimized_size }}{% else %}-{% endif %}">
+							{{ translate('Transfer to') }}
+						</button>
+					</div>
+                </div>
+            {% endfor %}
+        </div>
+	</div>
+{% endmacro %}
+
+{% macro transferToCdnDialog(cdnSettings) %}
+	<div id="transfer-to-cdn-dialog">{# #}
+		<div class="sgg-io-tabs-links-list sgg-il-transfer-dialog sgg-io-tab-hidden">
+			<a href="#" class="sgg-io-tab-link " data-tab-id="sgg-il-transfer-start">1</a>
+			<a href="#" class="sgg-io-tab-link " data-tab-id="sgg-il-transfer-process">2</a>
+		</div>
+
+		<div class="sgg-io-tabs-list sgg-il-transfer-dialog">
+        	<div class="sgg-io-one-tab sgg-il-transfer-start">
+				<div class="sgg-cdndlg-row">
+					{{ translate('Transfer Gallery to') }}
+					<strong><span class="sgg-cdn-service-name">{{ translate('Servicename') }}</span></strong>
+				</div>
+				<div class="sgg-cdndlg-row">
+					<strong>{{ translate('Total images') }}:</strong>
+					<span class="sgg-cdndlg-img-count">55</span>
+				</div>
+				<div class="sgg-cdndlg-row sgg-cnddlg-imgs-size-row">
+					<strong>{{ translate('Total size') }}:</strong>
+					<span class="sgg-cnddlg-imgs-size">66</span> {{ translate('Mb') }}
+				</div>
+				{#<div class="sgg-cdndlg-row">#}
+					{#<label>#}
+						{#<input class="sgg-cdndlg-delete-res" name="sgg-cdndlg-delete-res" type="checkbox"/>#}
+						{#{{ translate('Delete source image after transfer') }}#}
+					{#</label>#}
+				{#</div>#}
+				<input type="hidden" id="sgg-transl-start-transf" value="{{ translate('Start Transfer') }}"/>
+			</div>
+
+			<div class="sgg-io-one-tab sgg-il-transfer-process">
+				<div class="sgg-cdndlg-row">
+					{{ translate('Connected to') }}
+					<strong><span class="sgg-cdn-service-name">Servicename</span></strong>
+					{{ translate('service') }}
+				</div>
+				<div class="sgg-cdndlg-row"><strong>{{ translate('Transfer information:') }}</strong></div>
+				<div class="sgg-cdndlg-row sgg-cdndlg-info">
+					<div class="sgg-cdndlg-row">
+						<span id="sgg-cdn-curr-gallery">2</span>
+						{{ translate('of') }}
+						<span id="sgg-cdn-gallery-count">22</span>
+						{{ translate('galleries') }}
+					</div>
+					<div class="sgg-cdndlg-row">
+						<span id="sgg-cdn-curr-img">1</span>
+						{{ translate('of') }}
+						<span id="sgg-cdn-img-count">34</span>
+						<span class="sgg-cdn-img-text1">{{ translate('images') }}</span>
+					</div>
+				</div>
+				<div class="sgg-cdndlg-row sgg-cdn-info-error">
+					<span>{{ translate('Transfer ending with errors!') }}</span>
+				</div>
+				<div class="sgg-cdndlg-row sgg-cdn-info-succ">
+					<span>{{ translate('Transfer completed successfully!') }}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro imageOptimizeMainDialog(_selfTemplate, ioSetting) %}
+    <input type="hidden" id="sgg-ai-optimize-sel-auth" value="{{ ioSetting|json_encode }}"/>
+    <div class="sgg-io-tabs-links-list sgg-il-optimize-dlg-wnd sgg-io-tab-hidden">
+        <a href="#" class="sgg-io-tab-link sggActive" data-tab-id="sgg-il-optimize-start">FirstPage</a>
+        <a href="#" class="sgg-io-tab-link" data-tab-id="sgg-il-optimize-servlist">Service List</a>
+        <a href="#" class="sgg-io-tab-link" data-tab-id="sgg-il-optimize-process">Image Optimize process</a>
+        <a href="#" class="sgg-io-tab-link" data-tab-id="sgg-il-optimize-result">Image Optimize Result</a>
+    </div>
+
+    <!--  sgg-io-tab-hidden -->
+    <div class="sgg-io-tabs-list sgg-il-optimize-dlg-wnd">
+        <div class="sgg-io-one-tab sgg-il-optimize-start sgg-io-tab-hidden">
+			<input type="hidden" id="sgg-transl-img-opt-1" value="{{ translate('Image optimization') }}"/>
+			<input type="hidden" id="sgg-transl-start-opt-1" value="{{ translate('Start Optimization') }}"/>
+
+            {#<label for="sgg-il-select-sevice-to-opt"  class="sgg-il-os-item"> {{ translate('Service') }}#}
+                {# Get configured service list (for first Service it's look like one condition) #}
+                {#{% if ioSetting.setting.tinypng.auth_key is defined and ioSetting.setting.tinypng.auth_key != '' %}#}
+                    {#<select id="sgg-il-select-sevice-to-opt" name="sgg-il-select-sevice-to-opt">#}
+                        {#<option value="tinypng" selected="selected">TinyPNG</option>#}
+                    {#</select>#}
+                {#{% else %}#}
+                    {#<button class="button" id="sgg-setup-service-btn">{{ translate('Setup Service') }}</button>#}
+                {#{% endif %}#}
+            {#</label>#}
+
+            <div class="sgg-il-os-item">
+                <div class="sgg-il-os-onerow">{{ translate('Images') }}:
+					<div id="sgg-il-full-img-cnt-div" class="sgg-il-img-cnt-type-obj">
+						<span id="sgg-il-amount-img-cnt">18</span>
+						(<span class="sgg-il-preview-img-cnt">9</span> preview and <span class="sgg-il-original-img-cnt">9</span> original images)
+					</div>
+				</div><br/>
+                <div id="sgg-iop-totalrow" class="sgg-il-os-onerow">{{ translate('Total Size') }}:
+					<span id="sgg-il-gallery-size">00</span>
+					<span id="sgg-il-gallery-units">{{ translate('Mb') }}</span>
+				</div>
+            </div>
+            <label for="sgg-il-backup-img-src" class="sgg-il-os-item">
+                <input id="sgg-il-backup-img-src" class="sgg-il-checkbox-prm" name="sgg-il-backup-img-src" type="checkbox" checked="checked"/>
+                {{ translate('Backup Images Source') }}
+            </label>
+            <label for="sgg-il-optimize-preview" class="sgg-il-os-item">
+                <input id="sgg-il-optimize-preview" class="sgg-il-checkbox-prm" name="sgg-il-optimize-preview" type="checkbox" checked="checked"/>
+                {{ translate('Optimize Preview images') }}
+            </label>
+        </div>
+        <div class="sgg-io-one-tab sgg-il-optimize-servlist sgg-io-tab-hidden">
+            {{ _selfTemplate.imageOptimizeServiceSettingTable(_selfTemplate, ioSetting) }}
+        </div>
+        <div class="sgg-io-one-tab sgg-il-optimize-process sgg-io-tab-hidden">
+			<input type="hidden" id="sgg-transl-img-opt-2" value="{{ translate('Optimization in process...') }}"/>
+            <div class="sgg-optimize-info sgg-io-tab-hidden">
+                <div>
+                    {{ translate('Connected to') }}
+                    <strong><span id="sgg-conn-to-serv-name">servicename</span></strong>
+                    {{ translate('service') }}
+                </div>
+                <div><strong>{{ translate('Optimize:') }}</strong></div>
+                <div>
+                    <span id="sgg-opt-curr-gallery">curr</span>
+                    {{ translate('of') }}
+                    <span id="sgg-opt-numb-gallery">numb</span>
+                    {{ translate('galleries') }}
+                </div>
+                <div>
+                    <span id="sgg-opt-curr-img">curr</span>
+                    {{ translate('of') }}
+                    <span id="sgg-opt-numb-imgs">numb</span>
+                    <span class="sgg-iop-without-prev">{{ translate('images') }}</span>
+                    <span class="sgg-iop-with-prev">{{ translate('images (preview and original images)') }}</span>
+                </div>
+                <div class="sgg-opt-info-error sgg-io-tab-hidden">
+                    <span>{{ translate('Error ocured. Optimize process stopped!') }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="sgg-io-one-tab sgg-il-optimize-result sgg-io-tab-hidden">
+			<input type="hidden" id="sgg-transl-img-opt-3" value="{{ translate('Optimization complete') }}"/>
+            <div class="sgg-iores-info">
+                <div class="sgg-iores-txt">
+                    {{ translate('Images size before:') }}
+                    <span class="sgg-iores-tsizebefore">0</span>
+                    {{ translate('Mb') }}
+                </div>
+                <div class="sgg-iores-txt">
+                    {{ translate('Images size after:') }}
+                    <span class="sgg-iores-tsizeafter">0</span>
+                    {{ translate('Mb') }}
+                </div>
+                <div class="sgg-iores-txt">
+                    {{ translate('Total Saving:') }} <span class="sgg-iores-tsaving">0</span>%
+                </div>
+            </div>
+            <br/>
+            <button class="button sgg-il-optimize-again-btn">
+                <i class="fa fa-compress"></i>
+                {{ translate('Optimize one more time') }}
+            </button>
+            <br/>
+            <a href="" class="sgg-iores-link-compare">
+                {{ translate('Show image comparision') }}
+            </a>
+
+            <div class="supsystic-io-block-table sgg-iores-compare-wrap sgg-io-tab-hidden">
+                <!-- Rows to compare Images -->
+            </div>
+            <div class="sgg-iores-cmp-template sgg-io-tab-hidden">
+                <div class="supsystic-io-block-row sgg-compare-first-row">
+                    <div class="supsystic-io-block-cell"><h3>{{ translate("Before") }}</h3></div>
+                    <div class="supsystic-io-block-cell"><h3>{{ translate("After") }}</h3></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ _selfTemplate.imageOptimizeServiceSettingsDialog(ioSetting) }}
+{% endmacro %}
+
+{% macro imageOptimizeServiceSettingTable(_selfTemplate, ioSetting) %}
+	{% import '@core/helpers.twig' as hlp %}
+
+    <div class="supsystic-io-block sgg-service-setting">
+        <div class="supsystic-io-block-table sgg-service-info">
+            <div class="supsystic-io-block-row">
+                <div class="supsystic-io-block-cell sgg-io-tab-hidden">
+                    <input value="tinypng" {% if ioSetting.current == 'tinypng' %} checked="checked" {% endif %} type="radio" class="selected-opt-service" name="selected-opt-service"/>
+                </div>
+                <div class="supsystic-io-block-cell">
+					{{ translate('TinyPNG') }}
+					{{ hlp.showTooltip(
+						translate('The intelligent image optimization feature allows you to save bandwidth and make your gallery load faster. ')
+						~ '<a target=\'_blank\' href=\'https://supsystic.com/documentation/image-optimize/\'>https://supsystic.com/documentation/image-optimize/</a> '
+						~ '<br/>' ~ translate('Note: before starting the optimization you should press the \'Change Details\' button, get your TinyPNG API key and insert it to the text field. Use the tooltip to find the key. '), 'top',
+					true) }}
+				</div>
+				<div class="supsystic-io-block-cell">
+                    <a href="" class="button sgg-setup-button" data-dialog-code="tinypng"  data-dialog-title="{{ translate("TinyPNG Settings") }}">
+                        <i class="fa fa-info-circle"></i>
+                        {% if ioSetting.setting.tinypng.auth_key is defined and ioSetting.setting.tinypng.auth_key != '' %}
+                            {{ translate('Change Details') }}
+                        {% else %}
+                            {{ translate('Setup') }}
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
+            {#<div class="supsystic-io-block-row">#}
+                {#<div class="supsystic-io-block-cell">#}
+                    {#<input value="Another Service" {% if ioSetting.current == 'Another Service' %} checked="checked" {% endif %} type="radio" class="selected-opt-service" name="selected-opt-service"/>#}
+                {#</div>#}
+                {#<div class="supsystic-io-block-cell">{{ translate('Another Service') }}</div>#}
+                {#<div class="supsystic-io-block-cell">#}
+                    {#<a href="" class="button sgg-setup-button" data-dialog-code="another1"  data-dialog-title="{{ translate("Another Service Settgins") }}">#}
+                        {#<i class="fa fa-info-circle"></i>#}
+                        {#{{ translate('Setup') }}#}
+                    {#</a>#}
+                {#</div>#}
+            {#</div>#}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro imageOptimizeMainTab(_selfTemplate, ioSetting, galleryList, statistic) %}
+	{% import '@core/helpers.twig' as hlp %}
+
+    <input type="hidden" id="sgg-optimize-main-tab-inp"/>
+    {{ _selfTemplate.imageOptimizeServiceSettingTable(_selfTemplate, ioSetting) }}
+
+    <div class="supsystic-io-block sgg-io-stat-block">
+        <!--<div class="sgg-io-tabs-links-list sgg-io-stat-anch">
+            <a href="#" class="sgg-io-tab-link" data-tab-id="sgg-io-one-tab">All</a>
+            <a href="#" class="sgg-io-tab-link sggActive" data-tab-id="sgg-stat-tab-1">TinyPNG</a>
+            <a href="#" class="sgg-io-tab-link" data-tab-id="sgg-stat-tab-2">Another Service</a>
+        </div>-->
+        <div class="sgg-io-tabs-list sgg-io-stat-anch">
+            <div class="sgg-io-one-tab sgg-stat-tab-1">
+                {{ _selfTemplate.oneImageOptimizeStatTable('tinypng', '', statistic) }}
+            </div>
+            <!-- <div class="sgg-io-one-tab sgg-stat-tab-2 sgg-io-tab-hidden">
+                {#{{ _selfTemplate.oneImageOptimizeStatTable('1', '') }}#}
+            </div>-->
+        </div>
+    </div>
+
+    <div class="supsystic-io-block sgg-optimize-list">
+        <button class="button sgg-optimize-selected" disabled="disabled">{{ translate('Optimize selected') }}</button>
+		{{ hlp.showTooltip(
+			translate('You may choose one, several or all the galleries at once to optimize them. ')
+			~ '<a target=\'_blank\' href=\'https://supsystic.com/documentation/image-optimize/\'>https://supsystic.com/documentation/image-optimize/</a>'
+		, 'top', true) }}
+
+        <div class="supsystic-io-block-table sgg-gallery-opt-table">
+            <div class="supsystic-io-block-row sgg-table-row-header">
+                <div class="supsystic-io-block-cell"></div>
+                <div class="supsystic-io-block-cell">{{ translate('Gallery Name') }}</div>
+                <div class="supsystic-io-block-cell">{{ translate('Total Images') }}</div>
+                <div class="supsystic-io-block-cell">{{ translate('Total Size') }}</div>
+                <div class="supsystic-io-block-cell">{{ translate('Optimization') }}</div>
+                <div class="supsystic-io-block-cell"></div>
+            </div>
+            {% for gallInfo in galleryList %}
+                <div class="supsystic-io-block-row">
+                    <div class="supsystic-io-block-cell">
+                        <input class="sgg-checkb-inp" type="checkbox" value="{{ gallInfo.id }}"
+                               data-once-optimize="{% if gallInfo.last_optimize_date is defined and gallInfo.service_name is defined %}1{% else %}0{% endif %}"
+                               data-gallery-total-size="{% if gallInfo.optimized_size is defined %}{{ gallInfo.optimized_size }}{% else %}-{% endif %}"
+                               data-phot-count="{{ gallInfo.photo_count }}"
+                        />
+                    </div>
+                    <div class="supsystic-io-block-cell">{{ gallInfo.title }}</div>
+                    <div class="supsystic-io-block-cell">
+                        {{ gallInfo.photo_count }}
+                    </div>
+                    <div class="supsystic-io-block-cell">
+                        {% if gallInfo.optimized_size is defined %}
+                            {{ gallInfo.optimized_size ~ ' ' ~ translate('Mb') }}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </div>
+                    <div class="supsystic-io-block-cell">
+                        {% if gallInfo.last_optimize_date is defined and gallInfo.service_name is defined and gallInfo.optimize_percent is defined %}
+                            {# gallInfo.service_name ~ ' / ' ~ ...  ~ translate('optimize') #}
+                            {{ gallInfo.last_optimize_date ~ ' / ' ~ gallInfo.optimize_percent ~ '% '}}
+                        {% else %}
+                            {{ translate('No') }}
+                        {% endif %}
+					</div>
+                    <div class="supsystic-io-block-cell">
+                        {% if gallInfo.last_optimize_date is defined %}
+                            <button class="button sgg-restore-src-img" data-gallery-id="{{ gallInfo.id }}">
+                                {{ translate('Restore Source Images') }}
+                            </button>
+                            <div class="sgg-opt-twi-button">
+                                <button class="button sgg-tbl-optimize-retr"
+                                        data-gallery-id="{{ gallInfo.id }}"
+                                        data-gallery-total-size="{% if gallInfo.optimized_size is defined %}{{ gallInfo.optimized_size }}{% else %}-{% endif %}"
+                                        data-photo-count="{{ gallInfo.photo_count }}">
+                                    {{ translate('Optimize') }}
+                                </button>
+                                <br/><span class="sgg-more-info-str">* one more time</span>
+                            </div>
+                        {% else %}
+                            <button class="button sgg-restore-src-img sgg-io-tab-hidden" data-gallery-id="{{ gallInfo.id }}">
+                                {{ translate('Restore Source Images') }}
+                            </button>
+                            <button class="button sgg-tbl-optimize-first"
+                                    data-gallery-id="{{ gallInfo.id }}"
+                                    data-gallery-total-size="{% if gallInfo.optimized_size is defined %}{{ gallInfo.optimized_size }}{% else %}-{% endif %}"
+                                    data-photo-count="{{ gallInfo.photo_count }}">
+                                {{ translate('Optimize Now') }}
+                            </button>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro imageOptimizeServiceSettingsDialog(ioSetting) %}
+    {% import '@core/helpers.twig' as helper1 %}
+
+    <div id="sggDialogSeviceSetting" title="" style="display:none;">
+        <div class="sgg-dialog-block-part sgg-io-tab-hidden" data-img-opt-sett-code="tinypng">
+            <label>
+                {{ translate('Enter your TinyPNG API key') }}
+                {{ helper1.showTooltip(translate("Enter your name and email address on this <a target='_blank' href='https://tinypng.com/developers'>page</a> to retrieve your API key. On your email will be sent a link to your API key. Follow the link from email and grab your API key."), 'top', true) }}
+                <br/>
+                <input type="text" class="sgg-tinypng-sett-auth-val" name="tinypng-auth-val" value="{% if ioSetting.setting.tinypng.auth_key is defined %}{{ ioSetting.setting.tinypng.auth_key }}{% endif %}"/>
+            </label>
+            <button class="button sgg-setup-button sgg-tinypng-save" >{{ translate('Save') }}</button>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro cdnServiceSettingDialog(cdnSett) %}
+    {% import '@core/helpers.twig' as helper1 %}
+
+    <div id="sggCdnDialogSeviceSett" title="" style="display:none;">
+        <div class="sgg-dialog-block-part sgg-io-tab-hidden" data-img-opt-sett-code="keycdn">
+            <label>
+                {{ translate('Enter your Site name') }}
+				{{ helper1.showTooltip(
+					translate("Enter your KeyCdn Zone name (for example: pz-6f09.kxcdn.com)")
+					~ ' <a target=\'_blank\' href=\'https://supsystic.com/documentation/transfer-to-cdn/\'>https://supsystic.com/documentation/transfer-to-cdn/</a>'
+				, 'top', true) }}
+				<br/>
+                <input type="text" autocomplete="off" class="sgg-keycdn-sett-zonename" name="sgg-keycdn-sett-sitename" value="{% if cdnSett.setting.keycdn.zone_name is defined %}{{ cdnSett.setting.keycdn.zone_name }}{% endif %}"/>
+            </label>
+            <br/>
+			<label>
+				{{ translate('Enter your username') }}
+				{{ helper1.showTooltip(
+					translate("Enter your KeyCdn username")
+					~ ' <a target=\'_blank\' href=\'https://supsystic.com/documentation/transfer-to-cdn/\'>https://supsystic.com/documentation/transfer-to-cdn/</a>'
+				, 'top', true) }}
+				<br/>
+				<input type="text" autocomplete="off" class="sgg-keycdn-sett-uname" name="sgg-keycdn-sett-uname" value="{% if cdnSett.setting.keycdn.u_name is defined %}{{ cdnSett.setting.keycdn.u_name }}{% endif %}"/>
+			</label><br/>
+			<label>
+				{{ translate('Enter your password') }}
+				{{ helper1.showTooltip(
+					translate("Enter your KeyCdn password")
+					~ ' <a target=\'_blank\' href=\'https://supsystic.com/documentation/transfer-to-cdn/\'>https://supsystic.com/documentation/transfer-to-cdn/</a>'
+				, 'top', true) }}
+				<br/>
+				{# {% if cdnSett.setting.keycdn.u_pass is defined %}{{ cdnSett.setting.keycdn.u_pass }}{% endif %} #}
+				<input type="password" autocomplete="off" class="sgg-keycdn-sett-upass" name="sgg-keycdn-sett-upass" value=""/>
+			</label><br/>
+			<label>
+				{{ translate('Enter your ftp base path') }}
+				{{ helper1.showTooltip(
+					translate("Enter your KeyCdn ftp base path (for example: /pz)")
+					~ ' <a target=\'_blank\' href=\'https://supsystic.com/documentation/transfer-to-cdn/\'>https://supsystic.com/documentation/transfer-to-cdn/</a>'
+				, 'top', true) }}
+				<br/>
+				<input type="text" class="sgg-keycdn-sett-base-ftp" name="sgg-keycdn-sett-base-ftp" value="{% if cdnSett.setting.keycdn.base_ftp_path is defined %}{{ cdnSett.setting.keycdn.base_ftp_path }}{% endif %}"/>
+			</label>
+			<button class="button sgg-setup-button sgg-keycdn-save" disabled="disabled">{{ translate('Save') }}</button>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro oneImageOptimizeStatTable(serviceCode, tblData, statistic) %}
+	{% import '@core/helpers.twig' as hlp %}
+
+    <div class="supsystic-io-block-table sgg-service-stat-info">
+        <div class="supsystic-io-block-caption">
+            <h4>
+                {% if serviceCode == 'tinypng' %}
+					{{ translate('TinyPNG Statistics') }}
+					{{ hlp.showTooltip(
+						translate('Here you may find the detailed optimization statistics for your gallery. ')
+						~ '<a target=\'_blank\' href=\'https://supsystic.com/documentation/image-optimize/\'>https://supsystic.com/documentation/image-optimize/</a>'
+					, 'top', true) }}
+                {% else %}
+                    {{ translate('Incorrect service Code') }}
+                {% endif %}
+            </h4>
+        </div>
+
+        <div class="supsystic-io-block-row">
+            <div class="supsystic-io-block-cell"></div>
+            <div class="supsystic-io-block-cell"><span class="sgg-text-style1">{{ translate('Last 24 hours') }}</span></div>
+            <div class="supsystic-io-block-cell"><span class="sgg-text-style1">{{ translate('Week') }}</span></div>
+            <div class="supsystic-io-block-cell"><span class="sgg-text-style1">{{ translate('Month') }}</span></div>
+        </div>
+        {#{{ dump(statistic) }}#}
+        <div class="supsystic-io-block-row">
+            <div class="supsystic-io-block-cell">{{ translate('Number of images') }}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[1].photo_count }}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[2].photo_count }}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[3].photo_count }}</div>
+        </div>
+        <div class="supsystic-io-block-row">
+            <div class="supsystic-io-block-cell">{{ translate('Total size before') }}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[1].size_mb }}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[2].size_mb }}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[3].size_mb }}</div>
+        </div>
+        <div class="supsystic-io-block-row">
+            <div class="supsystic-io-block-cell">{{ translate('Total size after') }}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[1].optimized_size_mb }}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[2].optimized_size_mb }}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[3].optimized_size_mb }}</div>
+        </div>
+        <div class="supsystic-io-block-row">
+            <div class="supsystic-io-block-cell">{{ translate('Save in Mb') }}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[1].save_mb ~ translate('Mb')}}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[2].save_mb ~ translate('Mb')}}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[3].save_mb ~ translate('Mb')}}</div>
+        </div>
+        <div class="supsystic-io-block-row">
+            <div class="supsystic-io-block-cell">{{ translate('Save in %') }}</div>
+            <div class="supsystic-io-block-cell">{{ statistic[1].save_percent }}%</div>
+            <div class="supsystic-io-block-cell">{{ statistic[2].save_percent }}%</div>
+            <div class="supsystic-io-block-cell">{{ statistic[3].save_percent }}%</div>
+        </div>
+    </div>
+{% endmacro %}

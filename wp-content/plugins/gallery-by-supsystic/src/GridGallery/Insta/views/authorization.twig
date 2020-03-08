@@ -1,0 +1,28 @@
+{% extends 'grid-gallery.twig' %}
+
+{% block header %}
+    <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs">
+        {#<a href="{{ environment.generateUrl('galleries') }}">{{ translate('Gallery by Supsystic') }}</a>#}
+        {#<i class="fa fa-angle-right"></i>#}
+        <a href="{{ environment.generateUrl('galleries') }}">{{ translate('Galleries') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': id }) }}">{{ galleryName|capitalize }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': id }) }}">{{ translate('Import images') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('insta', 'authorization', { 'id': id }) }}">{{ translate('Instagram authorization') }}</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+
+    <h2 id="gg-alrt" style="text-align: center; color: #bfbfbf; margin: 50px 0 25px 0;">
+		<span style="margin-bottom: 20px; display: block;">
+			{{ translate('Upload your images from the Instagram Media Library') }}
+		</span>
+        <a class="button button-primary button-hero bordered" href="{{ url }}">
+            <i class="fa fa-fw fa-instagram"></i>
+            {{ translate('Upload from Instagram') }}
+        </a>
+    </h2>
+{% endblock %}

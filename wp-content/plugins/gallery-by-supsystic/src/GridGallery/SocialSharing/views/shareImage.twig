@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="twitter:card"               content="photo" />
+    <meta name="twitter:title"              content="{{ title|default('Untitled') }}" />
+    <meta name="twitter:description"        content="{{ description|default('No description') }}" />
+    <meta name="twitter:image"              content="{{ img_url }}" />
+    <meta name="twitter:url"                content="{{ current_url|raw }}" />
+
+    <meta property="og:title"              content="{{ title }}" />
+    <meta property="og:url"                content="{{ current_url|raw }}" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="{{ title }}" />
+    <meta property="og:description"        content="{{ description }}" />
+    <meta property="og:image"              content="{{ img_url }}" />
+
+    <script type="text/javascript">
+        window.location.href = '{{ redirect_url|raw }}';
+    </script>
+</head>
+
+<body>
+    <img src="{{ img_url }}">
+    <br>
+    <a href="{{ back_url }}">Redirecting to gallery...</a>
+
+</body>
+</html>

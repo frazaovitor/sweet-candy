@@ -1,0 +1,125 @@
+.supsystic-overview {
+    width: 100%;
+    margin-top: 20px;
+    float: left;
+}
+
+.supsystic-overview .half-page-left {
+    float: left;
+    margin-left: 20px;
+    width: 50%;
+    border-right: 1px solid rgba(164, 170, 172, 0.28);
+    padding-right: 20px;
+}
+
+.supsystic-overview .half-page-right {
+    float: left;
+    margin:0 20px;
+    width: 40%;
+}
+
+.supsystic-overview .half-page > div {
+	border-bottom: 1px solid rgba(164, 170, 172, 0.28);
+	padding-bottom: 20px;
+}
+
+.supsystic-overview .half-page > div:last-child {
+	border-bottom: none;
+}
+
+.supsystic-overview .text-block {
+	margin: 10px 0;
+}
+
+.supsystic-overview .faq-title {
+    cursor: pointer;
+}
+
+.supsystic-overview .faq-title .description {
+    margin-top: 10px;
+    border: none !important;
+}
+
+.supsystic-overview .faq-title,
+.supsystic-overview-news h3 {
+    padding: 10px 20px;
+    margin-bottom: 4px;
+    background-color: rgba(164, 170, 172, 0.28);
+}
+
+.supsystic-overview .supsystic-overview-news h3 {
+    line-height: 2;
+}
+
+.supsystic-overview .button {
+    float: right;
+    margin-top: 24px;
+    display: block;
+}
+
+.supsystic-overview .faq-list .button.button-primary.button-hero{
+    float: left;
+    margin-left: 10px;
+}
+
+.supsystic-overview .settings-title {
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.supsystic-overview .supsystic-overview-news {
+    margin-right: 10px;
+}
+
+.supsystic-overview .supsystic-overview-news p,
+.supsystic-overview .supsystic-overview-news ul {
+    white-space: normal !important;
+    margin:0 8px;
+}
+
+.supsystic-overview .supsystic-overview-news p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.supsystic-overview .supsystic-overview-news ul {
+    list-style-type: disc;
+}
+
+.supsystic-overview .supsystic-overview-news li {
+    margin-left: 20px;
+}
+
+.supsystic-overview form {
+    border: none !important;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.supsystic-overview form label {
+    float: left;
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 10px;
+    white-space: nowrap;
+}
+
+.supsystic-overview form input,
+.supsystic-overview form select,
+.supsystic-overview form textarea {
+    float: left;
+    margin-left: 50px;
+    width: calc(100% - 50px);
+}
+
+#contact-form-dialog p {
+    font-size: 15px;
+}
+#contact-form-dialog a {
+    color: #4ae8ea;
+}
+#contact-form-dialog a:focus {
+    outline: none;
+}

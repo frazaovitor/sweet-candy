@@ -1,0 +1,19 @@
+{% macro image(attachmentId, settings) %}
+	{% set width, height, crop = 0, 0, 0 %}
+
+	{% if settings.area.photo_width_unit == 0 %}
+		{% set width = settings.area.photo_width %}
+	{% endif %}
+
+	{% if settings.area.photo_height_unit == 0 %}
+		{% set height = settings.area.photo_height %}
+	{% endif %}
+
+	{% if settings.area.grid == 0 or settings.area.grid == 3 %}
+		{% set crop = 1 %}
+	{% else %}
+		{% set height = null %}
+	{% endif %}
+
+	{{ get_attachment(attachmentId, width, height, crop) }}
+{% endmacro %}

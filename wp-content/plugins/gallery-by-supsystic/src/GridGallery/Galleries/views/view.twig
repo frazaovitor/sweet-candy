@@ -1,0 +1,501 @@
+{% extends 'grid-gallery.twig' %}
+
+{% block header %}
+    <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs" style="float: left; padding: 20px 0 0 20px;">
+        {#<a href="{{ environment.generateUrl('galleries') }}">{{ translate('Gallery by Supsystic') }}</a>#}
+        {#<i class="fa fa-angle-right"></i>#}
+        <a href="{{ environment.generateUrl('galleries') }}">{{ translate('Galleries') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('galleries', 'settings', { 'gallery_id': gallery.id }) }}">{{ gallery.title }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': gallery.id }) }}">{{ translate('Images List') }}</a>
+    </nav>
+
+    <section class="sgg-all-img-info-sect" id="single-gallery-head-toolbar" style="margin-left: 75px;">
+    	<div class="gg-settings-row">
+	    	<div class="gg-settings-block">
+		    	<ul class="supsystic-bar-controls" style="padding-left: 20px;">
+		            <li title="{{ translate('Upload new images') }}">
+		                <button class="button button-primary gallery import-to-gallery">
+		                    <i class="fa fa-fw fa-upload"></i>
+		                    {{ translate('Add Images') }}
+		                </button>
+		            </li>
+		            <li>
+		                <a href="{{ environment.generateUrl('galleries', 'sort', { 'gallery_id': gallery.id }) }}"
+		                   class="button">
+		                    <i class="fa fa-fw fa-sort"></i>
+							{{ translate('Grid View') }}
+		                </a>
+		            </li>
+		        </ul>
+        	</div>
+    		<div class="gg-settings-block">
+		    	<ul class="supsystic-bar-controls">
+		    		<li>
+		            	<a href="{{ environment.generateUrl('galleries', 'settings', { 'gallery_id': gallery.id }) }}"
+		                	class="button">
+		                    <i class="fa fa-fw fa-cogs"></i>
+							{{ translate('Settings') }}
+		                </a>
+		            </li>
+
+		            <li>
+		                <a target="_blank"
+		                   href="{{ environment.generateUrl('galleries', 'preview', { 'gallery_id': gallery.id }) }}"
+		                   class="button" data-button="preview">
+		                    <i class="fa fa-fw fa-eye"></i>
+		                    {{ translate('Preview') }}
+		                </a>
+		            </li>
+		        </ul>
+        	</div>
+        </div>
+    </section>
+    <section class="supsystic-bar sgg-all-img-info-sect" id="single-gallery-toolbar" style="padding-bottom:0;">
+    	<div class="gg-settings-row">
+    		<div class="gg-settings-block">
+		    	<ul class="supsystic-bar-controls gg-checked-options">
+		            <li id="checkedDoLi" data-delete-confirm="{{ translate('Are you sure you want to delete photo from this gallery?') }}">
+						<select name="checkedDo" style="height: 34px;">
+							<option value="rotate-clock">{{ translate('Rotate Clockwise') }}</option>
+							<option value="rotate-cclock">{{ translate('Rotate Counter-Clockwise') }}</option>
+							<option value="copy">{{ translate('Copy to') }}</option>
+							<option value="move">{{ translate('Move to') }}</option>
+							<option value="crop">{{ translate('Crop') }}</option>
+							<option value="delete">{{ translate('Delete selected') }}</option>
+							{% if(environment.isPro() == true) %}
+								<option value="new-category">{{ translate('New Category') }}</option>
+								<option value="add-category">{{ translate('Add Category') }}</option>
+								<option value="del-category">{{ translate('Delete Category') }}</option>
+							{% endif %}
+							{% if environment.isPro() == true and settings.attributes is defined and settings.attributes.order|length > 0 %}
+								<optgroup label="Add Attributes">
+									{% for index, name in settings.attributes.order %}
+										<option data-attribute value="{{ index }}">{{ name }}</option>
+									{% endfor %}
+								</optgroup>
+							{% endif %}
+						</select>
+					</li>
+					{% if(environment.isPro() == true) %}
+						<li class="gg-checked-container gg-checked-attributes ggSettingsDisplNone">
+							<select id="gg-attribute-values" style="height: 34px; width: 150px;" data-values="{{ gallery.attributes|json_encode }}">
+							</select>
+						</li>
+						<li class="gg-checked-container gg-checked-new-category ggSettingsDisplNone">
+							<input type="text" id="gg-new-category" style="width: 150px; height:34px;" value="" placeholder="Category name...">
+			 			</li>
+						<li class="gg-checked-container gg-checked-add-category ggSettingsDisplNone">
+							<select id="gg-categories-list" style="height: 34px;">
+								{% if(gallery.tags|length > 0) %}	                    
+									{% for value, title in gallery.tags %}
+										<option value="{{ title }}">{{ title }}</option>
+									{% endfor %}
+								{% endif %}
+							</select>
+						</li>
+						<li class="gg-checked-container gg-checked-del-category ggSettingsDisplNone">
+							<select id="gg-categories-del" style="height: 34px;">
+								{% if(gallery.tags|length > 0) %}	                    
+									{% for value, title in gallery.tags %}
+										<option value="{{ title }}">{{ title }}</option>
+									{% endfor %}
+									<option value="allcat">{{ translate('All Categories') }}</option>
+								{% endif %}
+							</select>
+						</li>
+					{% endif %}
+					<li class="gg-checked-copy gg-checked-move gg-checked-container ggSettingsDisplNone">
+						<select id="gg-galleries-list" style="height: 34px;">
+							{% for obj in galleries %}
+								{% if obj.id != gallery.id %}
+									<option value="{{ obj.id }}">{{ obj.title }}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</li>
+					<li class="gg-checked-crop gg-checked-container ggSettingsDisplNone">
+						{% set cropPositionList = {
+                            "left-top":"Top Left",
+                            "center-top":"Top Center",
+                            "right-top":"Top Right",
+                            "left-center":"Center Left",
+                            "center-center":"Center Center",
+                            "right-center":"Center Right",
+                            "left-bottom":"Bottom Left",
+                            "center-bottom":"Bottom Center",
+                            "right-bottom":"Bottom Right"
+                        } %}
+						<select id="gg-crop-positions" style="height: 34px;">
+                            {% for value, title in cropPositionList %}
+                                <option value="{{ value }}" {% if image.attachment.cropPosition|default('center-center') == value %} selected="selected" {% endif %}>{{ title }}</option>
+                            {% endfor %}
+                        </select>
+					</li>
+					<li>
+						<button class="button button-primary" data-button="checkedbtn" {% if gallery.photos is empty %}disabled{% endif %}>
+							<i class="fa fa-fw fa-check"></i>
+							{{ translate('Apply') }}
+						</button>
+					</li>
+		        </ul>
+        	</div>
+
+	        <div class="gg-settings-block">
+		        <ul class="supsystic-bar-controls">
+					<li>
+						<input id="find-by-caption" type="text" style="height:34px; width: 150px;" placeholder="{{ translate('Search') }}">
+					</li>
+					<li class="separator">|</li>
+				</ul>
+		        	
+		        <ul class="supsystic-bar-controls">
+		            <li title="{{ translate('Sort By: ') }}">
+						{{  translate('Sort By: ') }}
+		                <select name="sortby" style="height: 34px;">
+		                    <option value="postion" {% if settings.sort.sortby == 'position' %}selected{% endif %}>Position</option>
+		                    <option value="adate" {% if settings.sort.sortby == 'adate' %}selected{% endif %}>Add date</option>
+		                    <option value="date" {% if settings.sort.sortby == 'date' %}selected{% endif %}>Create date</option>
+		                    <option value="size" {% if settings.sort.sortby == 'size' %}selected{% endif %}>Size</option>
+		                    <option value="name" {% if settings.sort.sortby == 'name' %}selected{% endif %}>Name</option>
+		                    <option value="filename" {% if settings.sort.sortby == 'filename' %}selected{% endif %}>File name</option>
+							{% if(environment.isPro() == true) %}<option value="tags" {% if settings.sort.sortby == 'tags' %}selected{% endif %}>Tags</option>{% endif %}
+		                    <option value="randomly" {% if settings.sort.sortby == 'randomly' %}selected{% endif %}>Randomly</option>
+		                </select>
+		            </li>
+					<li id="sortToLi" title="{{ translate('Sort To: ') }}" style="{% if settings.sort.sortby == 'randomly' %} display:none; {% endif %} }}">
+						<button class="button button-invisible" data-button="sortbtn">
+							<i class="fa fa-fw fa-arrow-{% if settings.sort.sortto == 'asc' %}up{% else %}down{% endif %}"></i>
+						</button>
+					</li>
+		        </ul>
+
+		        <ul class="supsystic-bar-controls">
+					<li>
+						{% if gallery.photos | length > 0 %}
+							{% import '@galleries/helpers/pagination_view.twig' as pagination_view %}
+							{{ pagination_view.paginationRender(paginationSettings) }}
+						{% endif %}
+					</li>
+					<li>
+						{{ gallery.photos | length }} {{ translate('media') }}
+					</li>
+				</ul>
+			</div>
+		</div>
+
+    </section>
+
+{% endblock %}
+
+{% block content %}
+    {% import '@galleries/shortcode/import.twig' as importTypes %}
+	{% import '@core/form.twig' as form %}
+
+    {% if gallery is not defined or gallery is null %}
+        <p>{{ translate('The gallery is does not exists') }}</p>
+    {% else %}
+        {% if gallery.photos is empty %}
+            <h2 style="text-align: center; color: #bfbfbf; margin: 50px 0 25px 0;">
+                <span style="margin-bottom: 20px; display: block;">
+                    {{ translate('Currently this gallery has no images') }}
+                </span>
+                {{ importTypes.show('1000', gallery.id) }}
+            </h2>
+        {% else %}
+            {% import '@ui/type.twig' as view %}
+            {% set entity = { images: gallery.photos } %}
+            {% set sliderSettings = settings %}
+ 
+            {% if viewType == 'block' %}
+                {{ view.block_view(entity) }}
+            {% endif %}
+
+            {% if viewType == 'list' %}
+                {{ view.list_view(entity, sliderSettings, gallery.id) }}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+    {{ importTypes.view_dialogs(gallery.id) }}
+
+    <div id="linkedImagesDialog" title="{{ translate('Linked Images') }}" style="display:none;">
+        <div class="linked-images-action-buttons">
+            <button class="button add">{{ translate('Add images') }}</button>
+            <button class="button remove">{{ translate('Remove selected') }}</button>
+        </div>
+        <div class="linked-attachments-list">
+            
+        </div>
+        <div class="loading-container">
+            <i class="fa fa-spinner fa-spin fa-2x"></i>
+        </div>
+    </div>
+
+    <div id="effectDialog" title="{{ translate('Select overlay effect') }}" style="display:none;">
+        <div id="effectsPreview" style="margin-top: 10px;">
+            {% set effects = {
+                'none': 'None',
+                'center': 'Middle',
+                'quarter-appear': 'Appear',
+				'quarter-disappear': 'Disappear',
+                'quarter-slide-up': 'Quarter Slide Up',
+                'quarter-slide-side': 'Quarter Slide Side',
+                'quarter-fall-in': 'Quarter Fall in',
+                'quarter-two-step': 'Quarter Two-step',
+                'quarter-zoom': 'Quarter Caption Zoom',
+                'cover-fade': 'Cover Fade',
+                'cover-push-right': 'Cover Push Right',
+                'revolving-door-left': 'Revolving Door Left',
+                'revolving-door-right': 'Revolving Door Right',
+                'revolving-door-top': 'Revolving Door Top',
+                'revolving-door-bottom': 'Revolving Door Bottom',
+				'revolving-door-original-left': 'Revolving Door Original Left',
+				'revolving-door-original-right': 'Revolving Door Original Right',
+				'revolving-door-original-top': 'Revolving Door Original Top',
+				'revolving-door-original-bottom': 'Revolving Door Original Bottom',
+                'cover-slide-top': 'Cover Slide Top',
+                'offset': 'Caption Offset',
+                'guillotine-reverse': 'Guillotine Reverse',
+                'half-slide': 'Half Slide',
+                'sqkwoosh': 'Skwoosh',
+                'tunnel': 'Tunnel',
+                'direction-aware': 'Direction Aware',
+				'phophorus-rotate': 'Phosphorus Rotate',
+				'phophorus-offset': 'Phosphorus Offset',
+				'phophorus-scale': 'Phosphorus Scale',
+                'cube': 'Cube',
+                'polaroid': 'Polaroid',
+				'3d-cube': '3D Cube',
+				'show-on-hover' : 'Show on Hover',
+				'swing': 'Swing',
+            } %}
+            {% set iconsWithCaptionsEffects = {
+                'icons': 'Default',
+                'icons-scale': 'Scale',
+                'icons-sodium-left': 'Sodium Left',
+                'icons-sodium-top': 'Sodium Top',
+                'icons-nitrogen-top': 'Nitrogen Top'
+            } %}
+            {% set figcaptionStyle %}
+                border-radius: {{ settings.thumbnail.border.radius ~ settings.thumbnail.border.radius_unit|replace(['px', '%']) }};
+                {% if environment.isPro() and settings.icons is defined and settings.icons.enabled == 'true' %}
+                    {% if settings.icons.overlay_enabled == 'true' %}
+                        background-color:{{ settings.icons.overlay_color|default('#3498db') }};
+                    {% endif %}
+                {% else %}
+                    color:{{ settings.thumbnail.overlay.foreground }};
+                    background-color:{{ settings.thumbnail.overlay.background }};
+                    font-size:{{ settings.thumbnail.overlay.text_size }}{{ settings.thumbnail.overlay.text_size_unit|replace(['px', '%', 'em']) }};
+                    {% if settings.thumbnail.overlay.text_align != 3 %}
+                        text-align:{{ settings.thumbnail.overlay.text_align|replace(['left', 'right', 'center']) }};
+                    {% endif %}
+                    {% if settings.thumbnail.overlay.effect == 'none' or settings.thumbnail.overlay.enabled == 'false' %}
+                        {#opacity:1;#}
+                        bottom:0;
+                    {% endif %}
+                {% endif %}
+            {% endset %}
+
+			{% block settingsCaptionsView %}
+				{% if (gallery.settings.icons.enabled == 'false') %}
+					{% block settingsCaptionsIconsEnabledView %}
+						{% for type, name in effects %}
+							{% if type == 'direction-aware' %}
+								<figure class="grid-gallery-caption" data-grid-gallery-type="{{ type }}">
+									<div class="box">
+										<div class="box__right">Right ? Left</div>
+										<div class="box__left">Left ? Right</div>
+										<div class="box__top">Top ? Bottom</div>
+										<div class="box__bottom">Bottom ? Top</div>
+										<div class="box__center">
+										</div>
+										<img data-src="holder.js/150x150?theme=industrial&text={{ name }}" class="dialog-image">
+									</div>
+									<div class="select-element">
+										{{ translate('Select') }}
+									</div>
+								</figure>
+							{% elseif type in ['show-on-hover', 'fade-in', 'grow', 'shrink', 'rotate-z', 'square-to-circle',] %}
+								{% block captionEffectInPro %}
+								<figure class="grid-gallery-caption available-in-pro" data-grid-gallery-type="{{ type }}">
+									<a target="_blank" href="{{ getProUrl('?utm_source=plugin&utm_medium=caption-show-on-hover&utm_campaign=gallery') }}" class="caption-available-in-pro-link">
+										<img data-src="holder.js/150x150?theme=industrial&text={{ name }}" class="dialog-image">
+										<figcaption style="{{ figcaptionStyle|trim }}">
+											<div class="grid-gallery-figcaption-wrap" style="width:100%;height:100%;top:0;">
+												<div style="display:table;width:100%;height:100%;">
+													<span {% if settings.rtl == true %}dir="rtl" class="ggRtlClass"{% endif %} style="display:table-cell;font-size:{{ settings.thumbnail.overlay.text_size }}{{ settings.thumbnail.overlay.text_size_unit|replace(['px', '%', 'em']) }};padding:10px;vertical-align:{{ settings.thumbnail.overlay.position }};">Caption</span>
+												</div>
+											</div>
+										</figcaption>
+										<div class="get-in-pro-element">
+											{{ translate('Pro Feature') }}
+										</div>
+									</a>
+								</figure>
+								{% endblock %}
+							{% elseif type == '3d-cube' %}
+								<figure class="grid-gallery-caption" data-grid-gallery-type="{{ type }}">
+									<div class="box-3d-cube-scene" style="perspective: 300px;-webkit-perspective: 300px">
+										<div class="box-3d-cube"
+											 style="
+												 transform-origin:50% 50% -75px;
+												 -ms-transform-origin: 50% 50% -75px;
+												 -webkit-transform-origin: 50% 50% -75px;
+												 width:150px; height:150px
+											 "
+										>
+											<div class="face front" style="width:150px; height:150px">
+												<img data-src="holder.js/150x150?theme=industrial&text={{ name }}" class="dialog-image">
+											</div>
+											<div style="{{ figcaptionStyle|trim }}width:150px; height:150px" class="face back">
+												<div class="grid-gallery-figcaption-wrap">
+													<span>{{ name }}</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="select-element">
+										{{ translate('Select') }}
+									</div>
+								</figure>
+							{% else %}
+								<figure class="grid-gallery-caption" data-grid-gallery-type="{{ type }}">
+									<img data-src="holder.js/150x150?theme=industrial&text={{ name }}" class="dialog-image">
+									<figcaption style="{{ figcaptionStyle|trim }}">
+										<div class="grid-gallery-figcaption-wrap">
+											<span>{{ name }}</span>
+										</div>
+									</figcaption>
+									<div class="select-element">
+										{{ translate('Select') }}
+									</div>
+								</figure>
+							{% endif %}
+						{% endfor %}
+						<div class="grid-gallery-clearfix" style="clear: both;"></div>
+					{% endblock %}
+				{% else %}
+					{% block settingsCaptionsIconsDisabledView %}
+						<div class="captions-effect-with-icons" data-confirm="{{ translate('This effect requires icons be enabled. Enable Icons?') }}">
+							<h3>Captions effects with icons</h3>
+							{% block iconsEffects %}
+								{% for type, name in iconsWithCaptionsEffects %}
+									<figure class="grid-gallery-caption" data-type="icons" data-grid-gallery-type="{{ type }}">
+										<img data-src="holder.js/150x150?theme=industrial&text={{ name }}" class="dialog-image"/>
+										<figcaption style="{{ figcaptionStyle|trim }}">
+											<div class="hi-icon-wrap" style="width: 48px; height: 48px; margin-top: 30%; position:relative;">
+												<a href="#" class="hi-icon icon-link" style="border:1px solid #ccc; border-radius:50%;margin:auto;position:absolute;left:0;right:0;top: 0;bottom: 0;">
+												</a>
+											</div>
+										</figcaption>
+										<div class="caption-with-{{ type }}">
+											<div style="display: table; height:100%; width:100%;">
+												<span style="padding: 10px;display:table-cell;font-size:{{ settings.thumbnail.overlay.text_size }}
+												vertical-align:{{ settings.thumbnail.overlay.position }};">
+													Caption
+												</span>
+											</div>
+										</div>
+										<div class="select-element">
+											{{ translate('Select') }}
+										</div>
+									</figure>
+								{% endfor %}
+							{% endblock %}
+						</div>
+					{% endblock %}
+				{% endif %}
+			{% endblock %}
+        </div>
+        <style>
+            .hi-icon { 
+                color: {{ settings.icons.color }} !important; 
+                background: {{ settings.icons.background }} !important; 
+            }
+            .hi-icon:hover { 
+                color: {{ settings.icons.hover_color }} !important; 
+                background: {{ settings.icons.background_hover }} !important; 
+            }
+            .hi-icon { 
+                width: {{ settings.icons.size * 2 }}px !important; 
+                height: {{ settings.icons.size * 2 }}px !important; 
+            }
+            .hi-icon:before { 
+                font-size: {{ settings.icons.size|default(16) }}px !important; 
+                line-height: {{ settings.icons.size * 2 }}px !important; 
+            }
+        </style>
+		{% block settingsOtherPro %}
+		{% endblock %}
+    </div>
+
+	<div id="ggImageMetaDialog" title="{{ translate('Meta Data') }}" style="display:none;">
+        <div class="image-meta-list">
+        </div>
+    </div>
+
+    {% if environment.isPro() == true %}
+    	<div id="ggImageAttributesDialog" class="supsystic-plugin" title="{{ translate('Custom Attributes') }}" data-image-id="" style="display:none;">
+        	<div>
+        		<table>
+        			{% if settings.attributes is defined and settings.attributes.order|length > 0 %}
+	   					{% for index, name in settings.attributes.order %}
+	   						<tr style="height:auto">
+	   							<td>
+	   								{{ name }}
+	   								<input class="gg-attribute-names" type="hidden" value="{{ name }}">
+	   							</td>
+	   							<td>
+	   								<select class="gg-attribute-values" data-attribute="{{ index }}" style="height: 30px; width: 200px;">
+									</select>
+	   							</td>
+	   							<td>
+	   								<input class="gg-attribute-new" type="text" data-attribute="{{ index }}" style="height:30px; width: 100%;" placeholder="{{ translate('New value') }}">
+	   							</td>
+	   						</tr>
+						{% endfor %}
+        			{% else %}
+	        			<tr>
+							{% if settings.attributes.enabled != 'false' %}
+								<td colspan="3">
+									{{ translate('No custom attributes have been specified for the gallery.') }}
+								</td>
+							{% else %}
+								<td colspan="3" style="color:red;">
+									{{ translate('You need enable attribute in gallery settings.') }}
+								</td>
+							{% endif %}
+	        			</tr>
+        			{% endif %}
+        			<tr style="height:auto">
+        				<td colspan="3">
+        					<hr>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td>
+        					<span style="font-weight: bold">{{ translate('Button Link') }}</span>
+        				</td>
+        				<td>
+        					<input id="ggButtonLinkUrl" type="text" style="height:30px; width: 100%;" placeholder="{{ translate('Url') }}">
+        				</td>
+        				<td>
+        					<input id="ggButtonLinkTitle" type="text" style="height:30px; width: 100%;" placeholder="{{ translate('Title') }}">
+        				</td>
+        			</tr>
+        			<tr>
+        				<td>
+        					<span style="font-weight: bold">{{ translate('Keywords') }}</span>
+        				</td>
+        				<td colspan="2">
+        					<input id="ggImageKeywords" type="text" style="height:30px; width: 100%;">
+        				</td>
+        			</tr>
+        		</table>
+        	</div>
+    	</div>
+    {% endif %}
+
+{% endblock %}

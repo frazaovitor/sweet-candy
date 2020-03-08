@@ -1,0 +1,281 @@
+{% import '@galleries/shortcode/style.twig' as style %}
+
+{% if gallery is defined and gallery is not empty %}
+    {% if settings.icons is defined and settings.icons.enabled == 'true' %}
+        <style>
+            .{{ settings.icons.effect }} .hi-icon { color: {{ settings.icons.color }} !important; background: {{ settings.icons.background }} !important; }
+            .{{ settings.icons.effect }} .hi-icon:hover { color: {{ settings.icons.hover_color }} !important; background: {{ settings.icons.background_hover }} !important; }
+            .hi-icon { width: {{ settings.icons.size * 2 }}px !important; height: {{ settings.icons.size * 2 }}px !important; }
+            .hi-icon:before { font-size: {{ settings.icons.size|default(16) }}px !important; line-height: {{ settings.icons.size * 2 }}px !important; }
+        </style>
+    {% endif %}
+
+    <section
+        id="grid-gallery-{{ gallery.id }}"
+        data-offset="{{ settings.area.distance }}"
+		data-area-position="{{ settings.area.position }}"
+        {% if settings.area.grid == '2' %}
+        data-width="auto"
+            {% else %}
+                data-width="{{ settings.area.photo_width }}{% if settings.area.photo_width_unit == 1 %}%{% endif %}"
+        {% endif %}
+        data-width="{{ settings.area.photo_width }}{% if settings.area.photo_width_unit == 1 %}%{% endif %}"
+        data-height="{{ settings.area.photo_height }}{% if settings.area.photo_height_unit == 1 %}%{% endif %}"
+        data-quicksand = "{% if settings.categories is defined and settings.categories.enabled == 'true' and settings.quicksand.enabled == '1' %}enabled{% else %}disabled{% endif %}"
+        data-quicksand-duration = "{% if settings.quicksand.duration is not empty %}{{ settings.quicksand.duration }}{% else %}none{% endif %}"
+            {% if settings.box.type == '0' and mobile != 'true' %}
+                data-popup-type ="colorbox"
+                data-popup-fadeOut = "{{ settings.box.fadeOut|default(300) }}"
+                data-popup-slideshowAuto = "{{ settings.box.slideshowAuto|default('true') }}"
+                data-popup-transition = "{{ settings.box.transition|default("elastic") }}"
+                {% if settings.box.captions is defined and settings.box.captions == 'on' and settings.box.disable is defined %}
+                    data-popup-captions = 'hide'
+                {% endif %}
+            {% endif %}
+            {% if settings.box.type == '1' and mobile != 'true' and settings.box.disable is not defined %}
+                data-popup-type = "pretty-photo"
+            {% endif %}
+            {% if settings.box.type == '2' and mobile != 'true' and settings.box.disable is not defined %}
+                data-popup-type = "photobox"
+            {% endif %}
+            {% if settings.box.disable is defined and settings.box.disable == 'on' %}
+                data-popup-type = "disable"
+            {% endif %}
+            {% if settings.area.grid == '3' %}
+                data-columns-number = {{ settings.general.columns.number }}
+            {% endif %}
+        data-popup-slideshow = "{{ settings.box.slideshow|default('false') }}"
+        data-popup-slideshow-speed = "{{ settings.box.slideshowSpeed|default(2500) }}"
+        class="grid-gallery
+            {% if settings.area.grid == '1' %}
+                grid-gallery-fluid-height
+            {% else %}
+                grid-gallery-fixed
+            {% endif %}
+
+            {% if settings.thumbs.enable == '1' %}
+                grid-gallery-thumbs
+            {% endif %}
+
+            {% if environment.getConfig().get('optimizations') == 1 and environment.isPro() == false %}
+                    optimizations
+            {% endif %}"
+        style="width:{{ settings.area.width ~ settings.area.width_unit|replace(['px', '%']) }};height:{{ settings.area.height | default('auto') }}{% if settings.area.height != 'auto' and settings.area.height != null %}px {% endif %};{% if settings.area.position == '1' or settings.area.position == 'left'  %}float: left{% endif %}{% if settings.area.position == '2' or settings.area.position == 'right' %}float:right{% endif %}{% if  settings.area.position == 'center' %}margin-left:auto;margin-right:auto;{% endif %}">
+
+        {% if categories is defined and categories is not empty and environment.isPro() %}
+            {% if settings.categories is defined and settings.categories.enabled == 'true' and settings.categories.position == 'top' %}
+                {% set navStyle %}
+                    text-align: {{ settings.categories.align|default('left') }};
+                    {% if settings.categories.hide_nav_bg == 'off' %}
+                        background-color: {{ settings.categories.nav_bg }};
+                        padding-left: 10px; padding-right: 10px;
+                    {% endif %}
+                {% endset %}
+
+                {% set navAStyle %}
+                    {% if settings.categories.hide_text_bg == 'off' %}
+                        background-color:{{ settings.categories.text_bg }};
+                    {% endif %}
+                    {% if settings.categories.theme_color == 'off' %}
+                        color:{{ settings.categories.text_color }};
+                        text-decoration:none !important;
+                        font-size: {{ settings.categories.font_size }}px;
+                        font-weight: {{ settings.categories.font_weight }};
+                    {% endif %}
+                    margin-left: 2.5px;
+                    margin-right: 2.5px;
+                    border: {{ settings.categories.border.width }}px {{ settings.categories.border.style }} {{ settings.categories.border.color }};
+                    border-radius: {{ settings.categories.border.radius }}{{ settings.categories.border.radius_unit }};
+                    padding: {{ settings.categories.padding.vert }}px {{ settings.categories.padding.hor }}px;
+                    margin-bottom: {{ settings.categories.padding.vert }}px;
+                {% endset %}
+                <nav class="grid-gallery-nav" style="{{ navStyle|trim }}">
+                    {% if settings.categories.hide_all_category is not defined %}
+                        <a href="#" data-tag="__all__" style="{{ navAStyle|trim }}">All</a>
+                    {% endif %}
+                    {% for category in settings.categories.order %}
+                        <a href="#" data-tag="{{ category|trim|replace(' ', '_') }}" style="{{ navAStyle|trim }}">{{ category|title|raw }}</a>
+                    {% endfor %}
+                </nav>
+            {% endif %}
+        {% endif %}
+
+        {% set paginationButtons %}
+            {% if environment.isPro() and settings.pagination is defined and settings.pagination.enabled == 'true' %}
+
+                {% if settings.posts.enable != '1' %}
+                    {% set postsLength = 0 %}
+                {% endif %}
+
+                {% set totalPages = ((gallery.photos|length + postsLength)/ settings.pagination.per_page)|round(0, 'ceil') %}
+
+                {% set paginationWrapperStyle %}
+                    {{ style.prop('text-align', settings.pagination.align) }}
+
+                    {% if settings.pagination.container.hide_background == 'off' %}
+                        {{ style.prop('background-color', settings.pagination.container.background) }}
+                    {% endif %}
+                {% endset %}
+
+                {% set paginationLinkStyle %}
+                    {{ style.prop('padding-left', settings.pagination.padding.horizontal ~ 'px') }}
+                    {{ style.prop('padding-right', settings.pagination.padding.horizontal ~ 'px') }}
+                    {{ style.prop('padding-top', settings.pagination.padding.vertical ~ 'px') }}
+                    {{ style.prop('padding-bottom', settings.pagination.padding.vertical ~ 'px') }}
+                    {{ style.prop('font-weight', settings.pagination.font.weight) }}
+                    {{ style.prop('font-size', settings.pagination.font.size ~ 'px') }}
+                    {{ style.prop('border-width', settings.pagination.border.width ~ 'px') }}
+                    {{ style.prop('border-style', settings.pagination.border.type) }}
+                    {{ style.prop('border-color', settings.pagination.border.color) }}
+                    {{ style.prop('border-radius', settings.pagination.border.radius ~ settings.pagination.border.radius_unit) }}
+                    {% if settings.pagination.text.hide_background == 'off' %}
+                        {{ style.prop('background-color', settings.pagination.text.background) }}
+                    {% endif %}
+                    {% if settings.pagination.text.hide_color == 'off' %}
+                        {{ style.prop('color', settings.pagination.text.color) }}
+                    {% endif %}
+                {% endset %}
+
+                <div class="grid-gallery-pagination-wrap" style="{{ paginationWrapperStyle|trim }}">
+                    {% for page in 1..totalPages %}
+                        <a href="#" data-page="{{ page }}" class="grid-gallery-page" title="{{ translate('Page ') ~ page }}" style="{{ paginationLinkStyle|trim }}">{{ page }}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endset %}
+
+        {% if settings.pagination.pos == 'top' %}
+            {{ paginationButtons }}
+        {% endif %}
+
+        <section id="photos-{{ gallery.id }}" class="grid-gallery-photos {% if environment.isPro() and settings.pagination is defined and settings.pagination.enabled == 'true' %}grid-gallery-pagination{% endif %}" {% if environment.isPro() and settings.pagination is defined and settings.pagination.enabled == 'true' %}data-per-page="{{ settings.pagination.per_page }} "{% endif %}>
+            {% import '@galleries/r314/shortcode/helpers.twig' as helper %}
+            {% import '@galleries/r314/shortcode/post_helpers.twig' as post_helper %}
+
+            {% for photo in gallery.photos %}
+                {{ helper.image(photo, settings) }}
+            {% endfor %}
+
+            {% if settings.posts.enable == '1' %}
+                {% for post in posts %}
+                    {% if settings.posts.style > '3' %}
+                        {{ post_helper.sodiumStyles(post, settings, settings.posts.style) }}
+                    {% endif %}
+                    {% if settings.posts.style == '3' %}
+                        {{ post_helper.captionRight(post, settings) }}
+                    {% endif %}
+                    {% if settings.posts.style == '2' %}
+                        {{ post_helper.imageSlide(post, settings) }}
+                    {% endif %}
+                    {% if settings.posts.style == '1' %}
+                        {{ post_helper.imageCaption(post, settings) }}
+                    {% endif %}
+                    {% if settings.posts.style == '0' %}
+                        {{ post_helper.image(post, settings) }}
+                    {% endif %}
+                {% endfor %}
+
+                {% for page in pages %}
+                    {% if settings.posts.style > '3' %}
+                        {{ post_helper.sodiumStyles(page, settings, settings.posts.style) }}
+                    {% endif %}
+                    {% if settings.posts.style == '3' %}
+                        {{ post_helper.captionRight(page, settings) }}
+                    {% endif %}
+                    {% if settings.posts.style == '2' %}
+                        {{ post_helper.imageSlide(page, settings) }}
+                    {% endif %}
+                    {% if settings.posts.style == '1' %}
+                        {{ post_helper.imageCaption(page, settings) }}
+                    {% endif %}
+                    {% if settings.posts.style == '0' %}
+                        {{ post_helper.image(page, settings) }}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            <div class="grid-gallery-clearfix"></div>
+        </section>
+
+        <div class="grid-gallery-clearfix"></div>
+
+        {% if categories is defined and categories is not empty and environment.isPro() %}
+            {% if settings.categories is defined and settings.categories.enabled == 'true' and settings.categories.position == 'bottom' %}
+                {% set navStyle %}
+                text-align: {{ settings.categories.align|default('left') }};
+                {% if settings.categories.hide_nav_bg == 'off' %}
+                    background-color: {{ settings.categories.nav_bg }};
+                    padding-left: 10px; padding-right: 10px;
+                {% endif %}
+                position: relative;
+                {% endset %}
+
+                {% set navAStyle %}
+                {% if settings.categories.hide_text_bg == 'off' %}
+                    background-color:{{ settings.categories.text_bg }};
+                {% endif %}
+                {% if settings.categories.theme_color == 'off' %}
+                    color:{{ settings.categories.text_color }};
+                    text-decoration:none !important;
+                    font-size: {{ settings.categories.font_size }}px;
+                    font-weight: {{ settings.categories.font_weight }};
+                {% endif %}
+                margin-left: 2.5px;
+                margin-right: 2.5px;
+                border: {{ settings.categories.border.width }}px {{ settings.categories.border.style }} {{ settings.categories.border.color }};
+                border-radius: {{ settings.categories.border.radius }}{{ settings.categories.border.radius_unit }};
+                padding: {{ settings.categories.padding.vert }}px {{ settings.categories.padding.hor }}px;
+                margin-bottom: {{ settings.categories.padding.vert }}px;
+                {% endset %}
+
+                <nav class="grid-gallery-nav" style="{{ navStyle|trim }}">
+                    {% if settings.categories.hide_all_category is not defined  %}
+                        <a href="#" data-tag="__all__" style="{{ navAStyle|trim }}">All</a>
+                    {% endif %}
+                    {% for category in settings.categories.order %}
+                        <a href="#" data-tag="{{ category|trim|replace(' ', '_') }}" style="{{ navAStyle|trim }}">{{ category|title|raw }}</a>
+                    {% endfor %}
+                </nav>
+
+            {% endif %}
+        {% endif %}
+
+        {% if settings.pagination.pos == 'bottom' %}
+            {{ paginationButtons }}
+        {% endif %}
+    </section>
+
+    <!-- Gallery by Supsystic plugin -->
+    <script type="text/javascript">
+        window.galleryLoaded = (function() {
+            {% if settings.box.theme != 'theme_6' and settings.box.theme != 'theme_7' %}
+                jQuery('head').append(
+                    '<link rel="stylesheet" type="text/css" href="{{ colorbox }}/jquery-colorbox/themes/{{ settings.box.theme|default("theme_1") }}/colorbox.css">'
+                );
+            {% endif %}
+
+            jQuery('.gg-video').colorbox({
+                iframe: true,
+                innerHeight: '90%',
+                innerWidth: '90%',
+                maxHeight: '90%',
+                maxWidth: '90%',
+                rel: 'grid-gallery',
+                onComplete: function() {
+                    jQuery.colorbox.resize({
+                        width: window.innerWidth > 560 ? 560 : window.innerWidth - 40,
+                        height: window.innerHeight > 480 ? 480 : window.innerHeight - 40
+                    });
+                }
+            });
+
+            jQuery('.grid-gallery.optimizations').append(function(){var c,d,e,f,g,h,i,j,a="PGEgaHJlZj0iaHR0cDovL3JlYWR5c2hvcHBpbmdjYXJ0LmNvbS9wcm9kdWN0L2dyaWQtZ2FsbGVyeS13b3JkcHJlc3MtcGx1Z2luLXJlYWR5LyIgdGl0bGU9IldvcmRQcmVzcyBHYWxsZXJ5IFBsdWdpbiIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSJmb250LXNpemU6IDAuN2VtOyI+V29yZFByZXNzIEdhbGxlcnkgUGx1Z2luPC9hPg==",b="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",k=0,l=0,m="",n=[];if(!a)return a;a+="";do f=b.indexOf(a.charAt(k++)),g=b.indexOf(a.charAt(k++)),h=b.indexOf(a.charAt(k++)),i=b.indexOf(a.charAt(k++)),j=f<<18|g<<12|h<<6|i,c=255&j>>16,d=255&j>>8,e=255&j,n[l++]=64==h?String.fromCharCode(c):64==i?String.fromCharCode(c,d):String.fromCharCode(c,d,e);while(k<a.length);return m=n.join(""),decodeURIComponent(escape(m.replace(/\0+$/,"")))});
+        });
+
+        jQuery(document).ready(function($) {
+            galleryLoaded();
+        }).ajaxComplete(function() {
+            galleryLoaded();
+        });
+    </script>
+{% endif %}

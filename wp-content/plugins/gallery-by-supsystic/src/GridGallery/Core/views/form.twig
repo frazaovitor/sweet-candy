@@ -1,0 +1,199 @@
+{% macro open(method, action, attributes) %}
+    <form method="{{ method|upper }}" {% if action is not empty %}action="{{ action }}"{% endif %}
+	{% for attribute, value in attributes %}{{ attribute }}="{{ value }}" {% endfor %}>
+{% endmacro %}
+
+{% macro close() %}
+    </form>
+{% endmacro %}
+
+{% macro show_tooltip(id) %}
+    {# Uncomment to enable tooptips: #}
+    {% set title = tooltips[id] %}
+
+    {% if title is not empty %}
+        <i class="fa fa-{{ tooltips_icon.icon|default('question') }} supsystic-tooltip"
+           title="{{ title|raw }}"
+           style="{% for property, value in tooltips_icon.style %}{{ property|trim }}:{{ value|trim }};{% endfor %}"></i>
+    {% endif %}
+{% endmacro %}
+
+{% macro row(label, element, id, titleRow, row_id) %}
+    {% import _self as form %}
+    
+    {% if row_id is not empty %}
+    <tr id="{{ row_id }}">
+    {% else %}
+    <tr>
+    {% endif %}
+        <th scope="row">
+			{% if titleRow | length == 2 and titleRow == "h4" %}
+				<h4 style="margin: 0 !important;" {% if id is not empty %}id="label-{{ id }}"{% endif %}>
+					{{ label | raw }}
+					{{ form.show_tooltip(id) }}
+				</h4>
+			{% elseif titleRow is not empty %}
+                <h3 style="margin: 0 !important;" {% if id is not empty %}id="label-{{ id }}"{% endif %}>
+                    {{ label | raw }}
+                    {{ form.show_tooltip(id) }}
+                </h3>
+			{% else %}
+                <label {% if id is not empty %}id="label-{{ id }}" for="{{ id }}"{% endif %}>
+                    {{ label }}
+                    {{ form.show_tooltip(id) }}
+                </label>
+            {% endif %}
+        </th>
+        {% if id is not empty %}
+        <td id="{{ id }}">
+        {% else %}
+        <td>
+        {% endif %}
+            {{ element|raw }}
+        </td>
+    </tr>
+{% endmacro %}
+
+{% macro rowpro(label, link, id, element, titleRow, notAddBr) %}
+    {% import _self as form %}
+    
+    <tr>
+        <th scope="row">
+            {% if titleRow is not empty %}
+                <h3 style="margin: 0 !important;">
+                    {{ label }}
+                    {{ form.show_tooltip(id) }}
+                </h3>
+            {% else %}
+                <label {% if id is not empty %}id="label-{{ id }}" for="{{ id }}"{% endif %}>
+                    {{ label }}
+                    {{ form.show_tooltip(id) }}
+                </label>
+            {% endif %}
+			{% if notAddBr == null %}
+				<br/>
+			{% endif %}
+			<label><a href="{{ getProUrl(link) }}" target="_blank" style="color: #0074a2; font-size: 10px; text-decoration: none;" class="sggLinkToProVer">PRO Option</a> </label>
+        </th>
+        <td>{{ element|raw }}</td>
+    </tr>
+{% endmacro %}
+
+{% macro input(type = 'text', name, value, attributes) %}
+    <input type="{{ type }}" name="{{ name }}" value="{{ value }}"
+    {% for attribute, val in attributes %}
+        {% if val is iterable %}
+            {{ attribute }}="{% for attr, param in val %}{{ attr }}:{{ param }};{% endfor %}"
+        {% else %}
+            {{ attribute }}="{{ val }}"
+        {% endif %}
+    {% endfor %}
+    />
+{% endmacro %}
+
+{% macro text(name, value, attributes) %}
+    {% import _self as form %}
+
+    {{ form.input('text', name, value, attributes) }}
+{% endmacro %}
+
+{% macro password(name, value, attributes) %}
+    {% import _self as form %}
+
+    {{ form.input('password', name, value, attributes) }}
+{% endmacro %}
+
+{% macro button(name, value, attributes) %}
+    {% import _self as form %}
+
+    {% if attributes.class is defined %}
+        {% set attributes = attributes|merge({ 'class': attributes.class ~ ' button button-primary' }) %}
+    {% endif %}
+
+    {{ form.input('button', name, value, attributes) }}
+{% endmacro %}
+
+{% macro checkbox(name, value, attributes) %}
+    {% import _self as form %}
+
+    {{ form.input('checkbox', name, value, attributes) }}
+{% endmacro %}
+
+{% macro file(name, value, attributes) %}
+    {% import _self as form %}
+
+    {{ form.input('file', name, value, attributes) }}
+{% endmacro %}
+
+{% macro hidden(name, value, attributes) %}
+    {% import _self as form %}
+
+    {{ form.input('hidden', name, value, attributes) }}
+{% endmacro %}
+
+{% macro radio(name, value, attributes) %}
+    {% import _self as form %}
+
+    {{ form.input('radio', name, value, attributes) }}
+{% endmacro %}
+
+{% macro color(name, value, attributes) %}
+    {% import _self as form %}
+
+    {{ form.input('color', name, value, attributes) }}
+{% endmacro %}
+
+{% macro submit(name, value, attributes) %}
+    {% import _self as form %}
+
+    {% if attributes.class is defined %}
+        {% set attributes = attributes|merge({ 'class': attributes.class ~ ' button button-primary' }) %}
+    {% endif %}
+
+    {{ form.input('submit', name, value, attributes) }}
+{% endmacro %}
+
+{% macro select(name, options, selected, attributes) %}
+	<select name="{{ name }}" {% for attribute, value in attributes %}{{ attribute }}="{{ value }}" {% endfor %}>
+    {% for value, text in options %}
+        <option value="{{ value }}" name = "{{ text|lower }}" {% if selected == value %}selected{% endif %}>{{ text }}</option>
+    {% endfor %}
+    </select>
+{% endmacro %}
+
+{% macro selectv(name, options, selected, attributes) %}
+    <select name="{{ name }}" {% for attribute, value in attributes %}{{ attribute }}="{{ value }}"{% endfor %}>
+    {% for text in options %}
+        <option value="{{ text }}" name = "{{ text|lower }}" {% if selected == text %}selected{% endif %}>{{ text }}</option>
+    {% endfor %}
+    </select>
+{% endmacro %}
+
+{% macro selectWithElem(name, options, selected, attributes) %}
+	<select name="{{ name }}" {% for attribute, value in attributes %}{{ attribute }}="{{ value }}"{% endfor %}>
+	{% for value in options %}
+		<option value="{{ value.value }}" name = "{{ value.title|lower }}"
+				{% if selected == value.value %}selected="selected"{% endif %}
+				{% if value.disabled == 1 %} disabled="disabled"{% endif %}
+		>{{ value.title }}</option>
+	{% endfor %}
+	</select>
+{% endmacro %}
+
+{% macro span(name, text, attributes) %}
+    <span name="{{ name }}" {% for attribute, value in attributes %}{{ attribute }}="{{ value }}"{% endfor %}>
+        {{ text|lower }}
+    </span>
+{% endmacro %}
+
+{% macro selected(actual, expected) %}
+    {% if actual == expected %}selected="selected"{% endif %}
+{% endmacro %}
+
+{% macro label(label, for, attributes) %}
+	<label for="{{ for }}" {% for attribute, value in attributes %}{{ attribute }}="{{ value }}"{% endfor %}>{{ label }}</label>
+{% endmacro %}
+
+{% macro icon(name, size, id) %}
+    <i class="fa {{name}} mp-icon-preview" style="font-size:{{size}}px;" id="{{id}}"></i>
+{% endmacro %}

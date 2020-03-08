@@ -1,0 +1,2674 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ca\n"
+
+msgid " Mb "
+msgstr " Mb "
+
+msgid " Size: "
+msgstr " Tamany: "
+
+msgid " image "
+msgstr " imatge "
+
+msgid " of "
+msgstr " de "
+
+msgid ""
+" plugin from your admin area, or visit it's official page on Wordpress.org "
+msgstr ""
+" plugin de la teva àrea administrativa, o visita la pàgina oficial de "
+"Wordpress.org "
+
+msgid ""
+"<p><b>Upgrading</b></p><p>Once you have purchased Premium version of plugin "
+"- you’ll have to enter license key (you can find it in your personal account "
+"on our site). Go to the License tab and enter your email and license key. "
+"Once you have activated your PRO license - you can use all its advanced "
+"options.</p><p>That’s all. From this moment you can use your Gallery without "
+"any doubt. But if you still have some question - do not hesitate to contact "
+"us through our <a href=\"https://supsystic.com/contact-us/\">internal "
+"support</a> or on our <a href=\"http://supsystic.com/forum/photo-gallery-"
+"plugin/\">Supsystic Forum.</a> Besides you can always describe your "
+"questions on <a href=\"https://wordpress.org/support/plugin/gallery-by-"
+"supsystic\">WordPress Ultimate Forum.</a></p><p><b>Enjoy this plugin?</b></"
+"p><p>It will be nice if you`ll help us and boost plugin with <a href="
+"\"https://wordpress.org/support/view/plugin-reviews/gallery-by-supsystic?"
+"rate=5#postform/\">Five Stars rating on WordPress.org.</a></p><p>We hope "
+"that you like this plugin and wish you all the best! Good luck!</p>"
+msgstr ""
+"<p><b>Actualizant</b></p><p>Un cop hagis comprat la versió Premium del "
+"plugin - hauràs d’introduïr una llicència (pots trobar-la al teu compte "
+"personal a la nostra web). Ves a la pestanya de llicències i introdueix el "
+"teu email i llicència. Un cop hagis activat la teva llicència PRO - pots "
+"utilitzar totes les opcions avançades.</p><p>Això es tot. De moment pots "
+"utilitzar la teva Galeria sense problema. Però si encara tens alguna "
+"pregunta - no dubtis en contactar-nos a través del nostre <a href=“https://"
+"supsystic.com/contact-us/“>suport intern</a> en el nostre <a href=“http://"
+"supsystic.com/forum/photo-gallery-plugin/“>Fòrum Supsystic.</a> A més a més, "
+"sempre pots ficar les teves preguntes al <a href=“https://wordpress.org/"
+"support/plugin/gallery-by-supsystic”>WordPress Ultimate Forum.</a></"
+"p><p><b>T’agrada aquest plugin?</b></p><p>Estaria bé si ens ajudessis a "
+"propulsar el plugin amb <a href=“https://wordpress.org/support/view/plugin-"
+"reviews/gallery-by-supsystic?rate=5#postform/“>Cinc Estrelles a WordPress."
+"org.</a></p><p>Esperem que disfrutis del plugin i et desitjem lo millor! "
+"Bona sort!</p>"
+
+msgid ""
+"<p>Categories tab: here you can enable Categories and Pagination options.</"
+"p><p>To this tab become available you need to buy PRO version."
+msgstr ""
+"<p>Pestanya de categories: aquí pots activar Categories i opcions de "
+"Paginació</p><p>Per activar aquesta pestanya has de comprar la versió PRO."
+
+msgid ""
+"<p>Here you can set main settings of gallery - choose Gallery Type, for more "
+"information check this <a href=\"//supsystic.com/gallery-order-types/\" "
+"target=\"_blank\">article</a>.</p><p>Social Sharing: add social share "
+"buttons to your gallery. Or showcase images in a Horizontal Scroll view.</"
+"p><p>Load More: adds \"load more\" button to your gallery. And with Custom "
+"Buttons: you can make your button better.</p><p>Add to images border and "
+"shadow with Border Type and Shadow settings.</p><p>In the Pop-up Image "
+"section customize lightbox of your gallery.</p>"
+msgstr ""
+"<p>Aquí pots configurar les configuracións principals de la galeria - tria "
+"el Tipus de Galeria, per més informació mira aquest <a href=“//supsystic.com/"
+"gallery-order-types/“ target=“_blank”>article</a>.</p><p>Compartir a les "
+"Xarxes: Afegeix botons per compartir a la teva galeria. O mostra imatges en "
+"una vista horitzontal.</p><p>Carregar Més: agrega un botó de “carregar més” "
+"a la teva galeria. I amb els Botons Personalitzats: pots fer el teu botó "
+"millor</p><p>Afegeix un marc d’imatge i ombres amb les configuracions Tipus "
+"de Marc i Ombra</p><p>A Pop-up Image pots canviar el lightbox de la teva "
+"galeria.</p>"
+
+msgid ""
+"<p>Import images in several ways:</p><p>Import from Wordpress Media Library/"
+"Upload files from your computer</p><p>Import from social networks</"
+"p><p>Instagram (in the Free version)</p><p>With PRO-version also will be "
+"available import from Flickr, Tumblr and Facebook.</p><p>Besides with "
+"Gallery PRO version you can import images from such cloud services - FTP "
+"server, Google Drive.</p>"
+msgstr ""
+"<p>Importa imatges de diferents maneres:</p><p>Importa de la Llibreria de "
+"Wordpress/Puja archius del teu ordinador</p><p>Importa de les xarxes "
+"socials</p><p>Instagram (a la versió gratuïta)</p><p>Amb la versió PRO també "
+"pots importar de Flickr, Tumblr i Facebook</p><p>A més amb la versió PRO "
+"pots importar imatges de serveis cloud - FTP, Google Drive.</p>"
+
+msgid ""
+"<p>Now you can see your image list. Here you can:</p><p>Change the order of "
+"images – simply by dragging them manually.</p><p>Delete images.</p><p>Add "
+"new images from different sources to the grid gallery – click “Add Images” "
+"button and select the source to import from.</p><p><b>Caption tab</b> – add "
+"caption to image – it will be displayed on the caption effect of the "
+"gallery. Also here included the support of html-elements inside caption "
+"effect</p><p><b>SEO tab</b> – manage image title and description</"
+"p><p><b>Link tab</b> – attach links to image – it will go to the link when "
+"you click the image.</p><p><b>Video tab</b> – attach video url – it will be "
+"displayed in a pop-up image when you click on the image.</p><p><b>Categories "
+"tab</b> – add tags for image categories.</p><p><b>Linked images tab</b> – "
+"add linked images to the chosen image.</p><p><b>Crop tab</b> – choose image "
+"crop position.</p><p><b>Replace image tab</b> – replace image without losing "
+"image settings.</p><p>Now follow to the gallery settings – сlick "
+"“Properties” button.</p>"
+msgstr ""
+"<p>Ara pots veure la teva llista d’imatges. Aquí pots:</p><p>Canviar l’ordre "
+"de les imatges - simplement arrosegant-les manualment.</p><p>Eliminar "
+"imatges.</p><p>Afegir noves imatges de diferents fonts a la galeria - fes "
+"click a “Afegir Imatges” i selecciona la font de les que les vols importar</"
+"p><p><b>Pestanya de text</b> – afegir text a la imatge – es mostrarà a "
+"l’efecte de text de la galeria. A més està incluit el suport d’elements html "
+"dintre de l’efecte de text</p><p><b>Pestanya SEO</b> – administra el títol "
+"d’imatge i la descripció</p><p><b>Pestanya de Links</b> – afegeix links a la "
+"imatge - es redirigirà al link quan es fagi click a la imatge.</"
+"p><p><b>Pestanya de Video</b> – afegir direcció de vídeo - serà mostrat en "
+"un pop-up quan fagis click en la imatge.</p><p><b>Pestanya de categories</b> "
+"– afegeix pestanyes sobre les categories de l’imatge.</p><p><b>Pestanya "
+"d’imatges linkades</b> – afegeix imatges linkades a la imatge seleccionada.</"
+"p><p><b>Pestanya de retall</b> – tria com vols retallar l’imatge.</"
+"p><p><b>Pestanya de canvi d’imatge</b> – canvia l’imatge sense perdre les "
+"configuracions d’aquesta.</p><p>Ara segueix amb les configuracions de "
+"galeria - fes click al botó de “Propietats”.</p>"
+
+msgid ""
+"<p>On Captions tab you can manage the Captions and Icons, and make them your "
+"style.</p>"
+msgstr ""
+"<p>A la pestanya de Textos pots canviar els Textos i Icones, i canviar-los "
+"al teu estil.</p>"
+
+msgid ""
+"<p>Posts tab: here you can add posts and pages to your gallery and also "
+"manage them. Posts of gallery included in the PRO version of Gallery by "
+"Supsystic.</p>"
+msgstr ""
+"<p>Pestanya de Publicacions: aquí pots afegir publicacions i pàgines a la "
+"galeria i administrar-los. La Galeria de Publicacions està inclosa en la "
+"versió PRO de Gallery de Supsystic.</p>"
+
+msgid ""
+"<strong>Gallery</strong> &mdash; the highest type of entity in the Gallery "
+"by Supsystic."
+msgstr ""
+"<strong>Galeria</strong> &mdash; el tipus d’entitat més superior a la "
+"Galeria de Supsystic."
+
+msgid "Activate"
+msgstr "Activar"
+
+msgid "Activate License"
+msgstr "Activar Llicència"
+
+msgid "Add Images"
+msgstr "Afegir Imatges"
+
+msgid "Add images"
+msgstr "Afegir imatges"
+
+msgid "Add images to the gallery"
+msgstr "Afegir imatges a la galeria"
+
+msgid "Add images to the new gallery"
+msgstr "Afegir imatges a una nova galeria"
+
+msgid "Add images to your Gallery"
+msgstr "Afegir imatges a la teva Galeria"
+
+msgid "Add nofollow attribute"
+msgstr "Afegir un atribut de nofollow"
+
+msgid "Add selected items"
+msgstr "Afegir els elements seleccionats"
+
+msgid "Add selected to the gallery"
+msgstr "Afegir lo seleccionat a la galeria"
+
+msgid "Add the selected items to the existing gallery"
+msgstr "Afegir els elements selccionats a la galeria existent"
+
+msgid "Add watermarks to your photos"
+msgstr "Afegir marques d’aigua a les teves fotos"
+
+msgid "After"
+msgstr "Després"
+
+msgid "Albums"
+msgstr "Àlbums"
+
+msgid "Align"
+msgstr "Alinear"
+
+msgid "All"
+msgstr "Tot"
+
+msgid "All photos"
+msgstr "Totes les fotos"
+
+msgid "Alt text"
+msgstr "Text Alternatiu"
+
+msgid "Alternative text"
+msgstr "Text Alternatiu"
+
+msgid "An error has occurred"
+msgstr "Hi ha hagut un error"
+
+msgid "Animation"
+msgstr "Animació"
+
+msgid "Animation Effect"
+msgstr "Efecte d’Animació"
+
+msgid "Animation Effects"
+msgstr "Efectes d’Animació"
+
+msgid "Animation duration"
+msgstr "Duració de l’Animació"
+
+msgid "Animation start"
+msgstr "Inici de l’Animació"
+
+msgid "Another Service"
+msgstr "Un altre Servei"
+
+msgid "Another Service Settgins"
+msgstr "Configuració d’un altre Servei"
+
+msgid "Aperture"
+msgstr "Obertura"
+
+msgid "Apply"
+msgstr "Aplicar"
+
+msgid "Apply to all images"
+msgstr "Aplicar a totes les imatges"
+
+msgid "Are you really want to delete preset \"%s\"?"
+msgstr "Segur que vols eliminar el preset “%s”?"
+
+msgid "Are you sure you want to delete this gallery?"
+msgstr "Segur que vols eliminar aquesta galeria?"
+
+msgid ""
+"At the left side of the monitor you see a preview image in which will be "
+"seen changes made to the settings. This window for the settings of your "
+"gallery."
+msgstr ""
+"Al costat esquerra del monitor pots veure una imatge de previsualització en "
+"la que veuràs els canvis fets a les configuracions. Aquesta finestra és per "
+"les configuracions de la teva galeria."
+
+msgid "Auth key saved!"
+msgstr "Clave d’autenticació guardada!"
+
+msgid "Authorization code is not specified."
+msgstr "Codi d’autorització no especificat."
+
+msgid "Authorization oauth_verifier is not specified."
+msgstr "L’autorització oauth_verifier no està especificada."
+
+msgid "Auto Posts Categories"
+msgstr "Categories de Publicacions Automàtiques"
+
+msgid "Auto posts"
+msgstr "Auto Publicacions"
+
+msgid "Auto, Did not fire"
+msgstr "Auto, No va llençar-se"
+
+msgid "Auto, Did not fire, Red-eye reduction"
+msgstr "Auto, No va llençarse, Reducció d’ulls vermells"
+
+msgid "Auto, Fired"
+msgstr "Auto, Disparat"
+
+msgid "Auto, Fired, Red-eye reduction"
+msgstr "Auto, Disparat, Reducció d’ulls vermells"
+
+msgid "Auto, Fired, Red-eye reduction, Return detected"
+msgstr "Auto, Disparat, Reducció d’ulls vermells, Retorn detectat"
+
+msgid "Auto, Fired, Red-eye reduction, Return not detected"
+msgstr "Auto, Disparat, Reducció d’ulls vermells, Retorn no detectat"
+
+msgid "Auto, Fired, Return detected"
+msgstr "Auto, Disparat, Retorn detectat"
+
+msgid "Auto, Fired, Return not detected"
+msgstr "Auto, Disparat, Retorn no detectat"
+
+msgid "Autoplay video"
+msgstr "Reproduïr el video automàticament"
+
+msgid "Available"
+msgstr "Disponible"
+
+msgid "Available in PRO version."
+msgstr "Disponible en la versió PRO."
+
+msgid "Available in Pro"
+msgstr "Disponible en Pro"
+
+msgid "Back to the gallery"
+msgstr "Tornar a la galeria"
+
+msgid "Background"
+msgstr "Fons"
+
+msgid "Background Transparency"
+msgstr "Transparència de fons"
+
+msgid "Background color"
+msgstr "Color de fons"
+
+msgid "Background color for \"Show on hover\""
+msgstr "Color de fons per “Mostrar al passar ratolí”"
+
+msgid "Background hover color"
+msgstr "Color de fons per quan passa el ratolí"
+
+msgid "Background transparency"
+msgstr "Transparència de fons"
+
+msgid "Backup Images Source"
+msgstr "Còpia de Seguretat de les Imatges de Font"
+
+msgid "Backup Plugin"
+msgstr "Còpia de Seguretat del Plugin"
+
+msgid ""
+"Backup and Restore WordPress Plugin by Supsystic provides quick and "
+"unhitched DropBox, FTP, Amazon S3, Google Drive backup for your WordPress "
+"website."
+msgstr ""
+"Plugin de Còpia i Restauració de Supsystic dona una còpia ràpida i eficaç de "
+"Drpobox, FTP, Amazon S3 i Google Drive per la teva pàgina web."
+
+msgid ""
+"Be closer to your visitors and customers with Live Chat Support by "
+"Supsystic. Help you visitors, support them in real-time with exceptional "
+"Live Chat WordPress plugin by Supsystic."
+msgstr ""
+"Sigues més proper als teus visitants i compradors amb el Live Chat Support "
+"de Supsystic. Ajuda als teus visitants en temps real amb el Live Chat "
+"Support de Supsystic."
+
+msgid "Before"
+msgstr "Abans"
+
+msgid "Bold"
+msgstr "Negreta"
+
+msgid "Border"
+msgstr "Marc"
+
+msgid "Border Type"
+msgstr "Tipus de Marc"
+
+msgid "Border color"
+msgstr "Color de Marc"
+
+msgid "Border radius"
+msgstr "Radi de Marc"
+
+msgid "Border style"
+msgstr "Estil de Marc"
+
+msgid "Border type"
+msgstr "Tipus de Marc"
+
+msgid "Border width"
+msgstr "Amplada de Marc"
+
+msgid "Bottom"
+msgstr "Part inferior"
+
+msgid "Bottom Center"
+msgstr "Centre Inferior"
+
+msgid "Bottom Left"
+msgstr "Inferior Esquerra"
+
+msgid "Bottom Right"
+msgstr "Inferior Dret"
+
+msgid "Buttons"
+msgstr "Botons"
+
+msgid "Buttons align"
+msgstr "Alineació de Botons"
+
+msgid "Buttons position"
+msgstr "Posició de Botons"
+
+msgid "Buttons preset editor for Paginations, Categories and Load More buttons"
+msgstr ""
+"Editor de presets de Botons per Paginació, Categories i botons de Carregar "
+"Més"
+
+msgid "Camera"
+msgstr "Càmera"
+
+msgid "Camera model"
+msgstr "Model de Càmera"
+
+msgid "Can't check current version of cUrl extension"
+msgstr "No podem mirar la versió actual de l’extensió cUrl"
+
+msgid "Can't create image position for gallery!"
+msgstr "No podem crear la posició de l’imatge per la galeria!"
+
+msgid "Can't create membership params for gallery!"
+msgstr "No podem crear la membresía per la galeria!"
+
+msgid "Can't create resources for gallery!"
+msgstr "No podem crear les fonts per la galeria!"
+
+msgid "Can't create restore directory!"
+msgstr "No podem crear el directori de restauració!"
+
+msgid "Can't create restore file!"
+msgstr "No podem crear l’archiu de restauració!"
+
+msgid "Can't create settings for gallery!"
+msgstr "No podem crear les configuracions per la galeria!"
+
+msgid "Cancel"
+msgstr "Cancel·lar"
+
+msgid "Caption"
+msgstr "Text"
+
+msgid "Captions"
+msgstr "Textos"
+
+msgid "Captions and Icons"
+msgstr "Textos i Icones"
+
+msgid "Categories"
+msgstr "Categories"
+
+msgid "Categories and Pagination"
+msgstr "Categoris i Paginació"
+
+msgid "Categories order"
+msgstr "Ordre de Categories"
+
+msgid "Categorize images in the gallery"
+msgstr "Categoritzar les imatges a la galeria"
+
+msgid "Center"
+msgstr "Centrar"
+
+msgid "Center Center"
+msgstr "Centrar el Centre"
+
+msgid "Change Details"
+msgstr "Canviar Detalls"
+
+msgid "Check all other FAQs"
+msgstr "Comprobar les altres Preguntes Freqüents"
+
+msgid "Choose"
+msgstr "Triar"
+
+msgid "Choose Gallery Template."
+msgstr "Triar la Plantilla de Galeria."
+
+msgid ""
+"Choose Gallery Template. You can change template and settings on the next "
+"step."
+msgstr ""
+"Triar la Plantilla de Galeria. Pots canviar la plantilla i les "
+"configuracions al pròxim pas."
+
+msgid "Choose Icon"
+msgstr "Triar Icona"
+
+msgid "Choose effect"
+msgstr "Triar efecte"
+
+msgid "Choose icon"
+msgstr "Triar icona"
+
+msgid "Choose image"
+msgstr "Triar imatge"
+
+msgid "Choose images"
+msgstr "Triat imatges"
+
+msgid "Choose preset"
+msgstr "Triar preset"
+
+msgid "Choose source"
+msgstr "Triar font"
+
+msgid "Choose theme"
+msgstr "Triar tema"
+
+msgid "Click on the icon to select effect"
+msgstr "Click a la icona per seleccionar l’efecte"
+
+msgid "Clone"
+msgstr "Clonar"
+
+msgid "Clone type parameter is incorrect"
+msgstr "El tipus de paràmetre a clonar és incorrecte"
+
+msgid "Clone with images"
+msgstr "Clonar amb imatges"
+
+msgid "Clone without images"
+msgstr "Clonar sense imatges"
+
+msgid "Cloned "
+msgstr "Clonat "
+
+msgid ""
+"Cloned gallery ' . $galleryId);\n"
+"\t\t\t}\n"
+"\t\t\tif(!$this->add($ggTitle)) {\n"
+"\t\t\t\t$message = $language->translate('Can't create new gallery!"
+msgstr ""
+"Galeria clonada ‘ . $galleryId);\n"
+"\t\t\t}\n"
+"\t\t\tif(!$this->add($ggTitle)) {\n"
+"\t\t\t\t$message = $language->translate(‘No puc crear la nova galeria!"
+
+msgid "Cloning gallery..."
+msgstr "Clonant la galeria…"
+
+msgid "Close Tutorial"
+msgstr "Tancar Tutorial"
+
+msgid "Close popup"
+msgstr "Tancar popup"
+
+msgid "Color"
+msgstr "Color"
+
+msgid "Coming Soon Plugin"
+msgstr "Plugin en procés"
+
+msgid ""
+"Coming soon page with drag-and-drop builder or under construction | "
+"maintenance mode to notify visitors and collects emails."
+msgstr ""
+"Pàgina en procés amb un constructor de drag-and-drop | mode de manteniment "
+"per notificar als visitant i coleccionar emails."
+
+msgid ""
+"Congratulations! You have successfully installed and activated PRO version "
+"of ' ~ environment.getMenu().getMenuTitle() ~ ' plugin."
+msgstr ""
+"Felicitats! Has instal·lat i activat amb èxit la versió PRO del plugin ‘ ~ "
+"environment.getMenu().getMenuTitle() ~ ‘."
+
+msgid "Connected to"
+msgstr "Connectat a"
+
+msgid "Contact Form Plugin"
+msgstr "Plugin de Contacte"
+
+msgid "Container background"
+msgstr "Fons del contenedor"
+
+msgid "Couldn't get the plugin to work"
+msgstr "No aconseguim que funcioni el plugin"
+
+msgid ""
+"Create and manage beautiful data tables with custom design. No HTML "
+"knowledge is required."
+msgstr ""
+"Crea i administra taules de contingut maques amb un disseny propi. No cal "
+"tenir coneixements d’HTML."
+
+msgid "Create new folder"
+msgstr "Crear nova carpeta"
+
+msgid "Create new gallery"
+msgstr "Crear nova galeria"
+
+msgid "Create new gallery from the selected items"
+msgstr "Crear nova galeria amb els elements seleccionats"
+
+msgid ""
+"Create online membership community with custom user profiles, roles, "
+"FrontEnd registration and login. Members Directory, activity, groups, "
+"messages."
+msgstr ""
+"Crear una membresía online comunitària amb perfils d’usuari, rols, "
+"registració i login. Directoris d’Usuari, activitat, grups, missatges."
+
+msgid "Create your first Gallery"
+msgstr "Crea la teva primera Galeria"
+
+msgid "Create your first project"
+msgstr "Crea el teu primer projecte"
+
+msgid ""
+"Creating slideshows with Slider plugin is fast and easy. Simply select "
+"images from your WordPress Media Library, Flickr, Instagram or Facebook, set "
+"slide captions, links and SEO fields all from one page."
+msgstr ""
+"Crear presentacions amb el plugin Slider es ràpid i fàcil. Simplement "
+"selecciona les imatges de la teva Llibreria Wordpress, Flickr, Instagram o "
+"Facebook, configura els textos de la presentació, els links i els camps SEO "
+"en una sola pàgina."
+
+msgid "Crop"
+msgstr "Retallar"
+
+msgid "Currently this gallery has no images"
+msgstr "Ara mateix aquesta galeria no té imatges"
+
+msgid "Currently you have no presets."
+msgstr "Ara mateix no tens presets."
+
+msgid "Custom Buttons"
+msgstr "Botons Personalitzats"
+
+msgid "Custom class"
+msgstr "Classes personalitzades"
+
+msgid "Data Tables Generator"
+msgstr "Generador de Taules de Contingut"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Delay for"
+msgstr "Retrasar a"
+
+msgid "Delete Image"
+msgstr "Borrar Imatge"
+
+msgid "Delete gallery"
+msgstr "Borrar galeria"
+
+msgid "Delete preset"
+msgstr "Borrar preset"
+
+msgid "Delete selected items"
+msgstr "Borrar els elements seleccionats"
+
+msgid "Delete source image after transfer"
+msgstr "Borrar l’imatge font després de la transferència"
+
+msgid "Description"
+msgstr "Descripció"
+
+msgid "Digital Publication Plugin"
+msgstr "Plugin de Publicació Digital"
+
+msgid ""
+"Digital Publication WordPress Plugin by Supsystic for Magazines, Catalogs, "
+"Portfolios. Convert images, posts, PDF to the page flip book."
+msgstr ""
+"Plugin de Publicació Digital de Supsystic per Revistes, Catàlegs, Portfolis. "
+"Converteix imatges, publicacions i PDFs a un flip book per la teva pàgina."
+
+msgid "Disable"
+msgstr "Deshabilitar"
+
+msgid "Disable browser history"
+msgstr "Deshabilitar l’historial del navegador"
+
+msgid "Disable captions on mobile"
+msgstr "Deshabilitar els textos en mòvil"
+
+msgid "Disable on mobile"
+msgstr "Deshabilitar en el mòvil"
+
+msgid "Disable right click"
+msgstr "Deshabilitar click dret"
+
+msgid "Disable source image for Linked Images"
+msgstr "Deshabilitar l’imatge de font per Imatges Linkades"
+
+msgid "Disable title optimize"
+msgstr "Deshabilitar l’optimització de títol"
+
+msgid "Display all images"
+msgstr "Mostrar totes les iamtges"
+
+msgid ""
+"Display custom Google Maps. Set markers and locations with text, images, "
+"categories and links. Customize google map in a simple and intuitive way."
+msgstr ""
+"Mostra un Google Maps personalitzat. Configura marcadors i localitzacions "
+"amb text, imatges, categories i enllaços. Customitza el mapa de forma "
+"intuitiva i simple."
+
+msgid "Display only first image"
+msgstr "Mostra només la primera imatge"
+
+msgid "Distance between icons"
+msgstr "Distància entre icones"
+
+msgid "Do nothing"
+msgstr "No fer res"
+
+msgid "Drop photos here to move them from the folder"
+msgstr "Deixa anar fotos aquí per moure-les de la carpeta"
+
+msgid ""
+"Each gallery has a number of display settings and behaviors that you can "
+"save to presets and apply to other galleries."
+msgstr ""
+"Cada galeria te un número de configuracions de pantalla i comportaments que "
+"pots guardar en presets i aplicar a altre galeries."
+
+msgid "Edit image"
+msgstr "Editar l’imatge"
+
+msgid "Edit selected item"
+msgstr "Editar l’element seleccionat"
+
+msgid "Effect"
+msgstr "Efecte"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Embeded video"
+msgstr "Vídeo inserit"
+
+msgid "Empty user data."
+msgstr "Buidar l’informació de l’usuari."
+
+msgid "Enable"
+msgstr "Habilitar"
+
+msgid "Enable cUrl extension"
+msgstr "Habilitar l’extenisió cUrl"
+
+msgid "Enable for Membership:"
+msgstr "Habilitar per Membresía:"
+
+msgid "Enable pagination"
+msgstr "Habilitar paginació"
+
+msgid "Enable shuffling animation"
+msgstr "Habilitar animació de barreja aleatòria"
+
+msgid "Enter images folder name, e.g. my-images"
+msgstr "Introdueix el nom de la carpeta d’imatges, exemple: imatges-meves"
+
+msgid "Enter the full path to images folder"
+msgstr "Introdueix la ruta completa a la carpeta d’imatges"
+
+msgid "Enter your KeyCdn Zone name (for example: pz-6f09.kxcdn.com)"
+msgstr "Introdueix el nom del teu KeyCdn Zone (per exemple: pz-6f09.kxcdn.com)"
+
+msgid "Enter your KeyCdn ftp base path (for example: /pz)"
+msgstr "Introdueix la teva ruta FTP pel KeyCdn (per exemple /pz)"
+
+msgid "Enter your KeyCdn password"
+msgstr "Introdueix la teva contrassenya de KeyCdn"
+
+msgid "Enter your KeyCdn username"
+msgstr "Introdueix el teu usuari de KeyCdn"
+
+msgid "Enter your Site name"
+msgstr "Introdueix el nom de la teva pàgina"
+
+msgid "Enter your TinyPNG API key"
+msgstr "Introdueix la teva clau API de TinyPNG"
+
+msgid "Enter your ftp base path"
+msgstr "Introdueix la ruta base del teu FTP"
+
+msgid ""
+"Enter your name and email address on this <a target='_blank' href='https://"
+"tinypng.com/developers'>page</a> to retrieve your API key. On your email "
+"will be sent a link to your API key. Follow the link from email and grab "
+"your API key."
+msgstr ""
+"Introdueix el teu nom i direcció de correu electrònic en aquesta <a "
+"target=‘_blank’ href=‘https://tinypng.com/developers’>pàgina</a> per "
+"aconseguir la teva clau API. La rebràs al teu email. Segueix el link del "
+"email i aconsegueix la clau API."
+
+msgid "Enter your password"
+msgstr "Introdueix la teva contrassenya"
+
+msgid "Enter your username"
+msgstr "Introdueix el teu usuari"
+
+msgid "Error occurred"
+msgstr "Hi ha hagut un error"
+
+msgid "Error occurred!"
+msgstr "Hi ha hagut un error!"
+
+msgid "Error ocured. Optimize process stopped!"
+msgstr "Hi ha hagut un error. Procés d’optimització aturat!"
+
+msgid "Error! Incorrect auth params!"
+msgstr "Error! Paràmetres d’identificació incorrectes!"
+
+msgid "Error! Incorrect params!"
+msgstr "Error! Paràmetres incorrectes!"
+
+msgid "Error! Incorrect selected service!"
+msgstr "Error! Servei seleccionat incorrecte!"
+
+msgid "Error! Incorrect service params!"
+msgstr "Error! Paràmetres del servei incorrectes!"
+
+msgid "Expand"
+msgstr "Expandir"
+
+msgid "Expand the image"
+msgstr "Expandir la imatge"
+
+msgid "Exposure Bias"
+msgstr "Biaix d’exposició"
+
+msgid "External link"
+msgstr "Link extern"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Facebook authorization"
+msgstr "Autorització de Facebook"
+
+msgid "Failed to delete the gallery"
+msgstr "Error borrant la galeria"
+
+msgid "Failed to find the preset."
+msgstr "Error intentant trobar el preset."
+
+msgid "Failed to load the presets."
+msgstr "Error carregant els presets."
+
+msgid "Failed to rename the gallery"
+msgstr "Error canviant el nom de la galeria"
+
+msgid "Failed to update position."
+msgstr "Error actualitzant la posició."
+
+msgid "Featured Plugins"
+msgstr "Plugins Recomanats"
+
+msgid "Fired"
+msgstr "Disparat"
+
+msgid "Fired, Red-eye reduction"
+msgstr "Disparat, reducció d’ulls vermells"
+
+msgid "Fired, Red-eye reduction, Return detected"
+msgstr "Disparat, reducció d’ulls vermells, retorn detectat"
+
+msgid "Fired, Red-eye reduction, Return not detected"
+msgstr "Disparat, reducció d’ulls vermells, retorn no detectat"
+
+msgid "Fired, Return detected"
+msgstr "Disparat, retorn detectat"
+
+msgid "Fired, Return not detected"
+msgstr "Disparat, retorn no detectat"
+
+msgid "First"
+msgstr "Primer"
+
+msgid "Fit To Screen"
+msgstr "Ajustar a la Pantalla"
+
+msgid "Fit Width"
+msgstr "Ajustar Horitzontalment"
+
+msgid "Flash"
+msgstr "Flash"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Flickr authorization"
+msgstr "Autorització de Flickr"
+
+msgid "Focal Length"
+msgstr "Longitud d'enfoc"
+
+msgid "Folder name:"
+msgstr "Nom de Carpeta:"
+
+msgid "Font"
+msgstr "Font"
+
+msgid "Font family"
+msgstr "Familia de font"
+
+msgid "Font size"
+msgstr "Tamany de font"
+
+msgid "Font style"
+msgstr "Estil de font"
+
+msgid "Font weight"
+msgstr "Alçada de font"
+
+msgid "Frequently Asked Questions"
+msgstr "Preguntes Freqüents"
+
+msgid "Full screen width"
+msgstr "Amplada de Pantalla Completa"
+
+msgid "Fullscreen"
+msgstr "Pantalla Completa"
+
+msgid "Galleries"
+msgstr "Galeries"
+
+msgid "Gallery Image optimizing..."
+msgstr "Optimitzant Galeria d'Imatges..."
+
+msgid "Gallery Loader"
+msgstr "Carregador de Galeries"
+
+msgid "Gallery Name"
+msgstr "Nom de Galeria"
+
+msgid "Gallery Name:"
+msgstr "Nom de Galeria:"
+
+msgid "Gallery Position"
+msgstr "Posició de Galeria"
+
+msgid "Gallery Sharing"
+msgstr "Compartir Galeria"
+
+msgid "Gallery Type"
+msgstr "Tipus de Galeria"
+
+msgid "Gallery by Supsystic"
+msgstr "Galeries de Supsystic"
+
+msgid "Gallery clone error"
+msgstr "Error clonant la Galeria"
+
+msgid ""
+"Gallery doesn’t load on the front end. If the loading gallery icon just "
+"keeps playing but never loads the gallery."
+msgstr ""
+"La Galeria no es carrega. Si l’icona de carregant segueix rodant però no "
+"carrega la galeria."
+
+msgid "Gallery height"
+msgstr "Alçada de Galeria"
+
+msgid "Gallery image optimization error ocured."
+msgstr "Hi ha hagut un error amb l’optimització d’imatges de la Galeria."
+
+msgid "Gallery link"
+msgstr "Enllaç de Galeria"
+
+msgid "Gallery padding"
+msgstr "Amplada de Galeria"
+
+msgid "Gallery title can't be empty!"
+msgstr "El títol de la galeria no pot estar buit!"
+
+msgid "Gallery title:"
+msgstr "Títol de Galeria:"
+
+msgid "Gallery width"
+msgstr "Amplada de Galeria"
+
+msgid "Get PRO"
+msgstr "Fes-te PRO"
+
+msgid "Get Pro to enable import"
+msgstr "Aconsegueix PRO per activar la funció d'importar"
+
+msgid "GetPRO for 39$"
+msgstr "Aconsegueix PRO per 39$"
+
+msgid "Go to Appearance -> Widgets."
+msgstr "Ves a Apariencia -> Widgets."
+
+msgid "Google Drive"
+msgstr "Google Drive"
+
+msgid "Google Drive authorization"
+msgstr "Autorització de Google Drive"
+
+msgid "Google Maps Easy"
+msgstr "Google Maps Easy"
+
+msgid "Hello Supsystic Team!"
+msgstr "Hola equip de Supsystic!"
+
+msgid "Hello! This is the Gallery by Supsystic Overview."
+msgstr "Hola! Això es la vista principal de la Galeria de Supsystic."
+
+msgid ""
+"Here you can get help: watch the video tutorial or read FAQ and "
+"Documentation, make use of contact form. Also here requirements for server - "
+"Server Settings."
+msgstr ""
+"Aquí pots aconsgeuir ajuda: mira el tutorial de video o llegeix les "
+"preguntes freqüents i la Documentació, utilitza els formularis de contacte. "
+"També tenim els requeriments pel servidor - Configuració de Servidor."
+
+msgid ""
+"Here you can import settings from other galleries, but right now, you have "
+"only one gallery, create more - and see how it works"
+msgstr ""
+"Aquí pots importar configuracions d’altres galeries, però ara mateix, només "
+"tens una galeria, crea una més - i mira com funciona"
+
+msgid ""
+"Here you can specify your business pages and images will load from those "
+"pages. You can set several pages, just separate ID of pages by \",\". To get "
+"the ID of your page you need to switch to the wanted page, then click on "
+"\"About\" link right below page cover, and at the bottom of \"About\" page "
+"you will find Facebook Page ID."
+msgstr ""
+"Aquí pots especificar les teves pàgines del teu negoci i les imatges es "
+"carregaran d’aquestes pàgines. Pots configurar varies pàgines, simplement "
+"separa les ID de les pàgines per “,”. Per aconseguir la ID de la teva pàgina "
+"has d’anar a la pàgina en qüestió i fer click al botó “About” que té a sota, "
+"i al fons d’aquesta pàgina trobaràs l’ID de la teva pàgina de Facebook."
+
+msgid "Hide \"All\" category"
+msgstr "Amagar la categoria “All” "
+
+msgid "Hide Popup Captions"
+msgstr "Amaga els textos de Popup"
+
+msgid "Hide browser url tooltip on image hover"
+msgstr "Amaga el desplegable url al passar per sobre de l’imatge"
+
+msgid "Hide container background."
+msgstr "Amagar el fons del contenedor."
+
+msgid "Hide image title tooltip"
+msgstr "Amagar el desplegable del nom de l'imatge"
+
+msgid "Hide long titles"
+msgstr "Amagar títols llargs"
+
+msgid "Hide mouse on"
+msgstr "Amagar ratolí on"
+
+msgid "Hide text background."
+msgstr "Amagar el fons del text."
+
+msgid "Hope you will come back!"
+msgstr "Esperem que tornis!"
+
+msgid "Horizontal (normal)"
+msgstr "Horitzontal (normal)"
+
+msgid "Horizontal Scroll"
+msgstr "Desplaçament Horitzontal"
+
+msgid "Horizontal padding"
+msgstr "Marges horitzontals"
+
+msgid "Host"
+msgstr "Host"
+
+msgid "How to change the position of photos in gallery?"
+msgstr "Com canviar la posició de les fotos a la galeria?"
+
+msgid "How to fit image in lightbox"
+msgstr "Com fer que l’imatge encaixi en el lightbox"
+
+msgid "How to insert gallery into widget?"
+msgstr "Com insertar la galeria en un widget?"
+
+msgid "I found a better plugin"
+msgstr "He trobat un plugin millor"
+
+msgid "I no longer need the plugin"
+msgstr "Ja no necessito el plugin"
+
+msgid "ISO"
+msgstr "ISO"
+
+msgid "Icon entry type"
+msgstr "Tipus d’entrada d’Icona"
+
+msgid "Icons"
+msgstr "Icones"
+
+msgid "Icons Transparency"
+msgstr "Transparència d’Icona"
+
+msgid "Icons color"
+msgstr "Color d’Icona"
+
+msgid "Icons hover color"
+msgstr "Color d’Icona al passar per sobre"
+
+msgid "Icons size"
+msgstr "Tamany d'Icona"
+
+msgid "If it's possible, specify plugin name"
+msgstr "Si es possible, especifica el nom del plugin"
+
+msgid ""
+"If you have a moment, please share why you are deactivating Photo Gallery by "
+"Supsystic"
+msgstr ""
+"Si tens un moment, si us plau digues perquè desactives la Galeria de "
+"Supsystic"
+
+msgid ""
+"If you have a question, <a href=\"%s\" target=\"_blank\">contact us</a> and "
+"will do our best to help you"
+msgstr ""
+"Si tens una pregunta. <a href=“%s” target=“_blank”>contacta’ns</a> i farem "
+"tot lo possible per ajudar-te"
+
+msgid "Image"
+msgstr "Imatge"
+
+msgid "Image Count"
+msgstr "Recompte d’Imatges"
+
+msgid "Image Count Text"
+msgstr "Recompte de Text d’Imatges"
+
+msgid "Image Editor"
+msgstr "Editor d’Imatges"
+
+msgid "Image List"
+msgstr "Llista d'Imatges"
+
+msgid "Image Load"
+msgstr "Carregar Imatge"
+
+msgid "Image Optimization"
+msgstr "Optimització d'Imatge"
+
+msgid "Image Optimize"
+msgstr "Optimitzar Imatge"
+
+msgid "Image Sharing"
+msgstr "Compartir Imatge"
+
+msgid "Image crop quality"
+msgstr "Qualitat de retallada d’imatge"
+
+msgid "Image height"
+msgstr "Alçada d’imatge"
+
+msgid "Image on hover"
+msgstr "Imatge al passar per sobre"
+
+msgid "Image optimization"
+msgstr "Optimització d'imatge"
+
+msgid "Image radius"
+msgstr "Radi d'imatge"
+
+msgid "Image reccollected successfully. Processed "
+msgstr "Imatge recol·lectada correctament. Processada "
+
+msgid "Image width"
+msgstr "Amplada d’imatge"
+
+msgid "Images"
+msgstr "Imatges"
+
+msgid "Images Import Options"
+msgstr "Opcións de l’importació d’imatges"
+
+msgid "Images Optimization"
+msgstr "Optimització d’Imatges"
+
+msgid "Images amount"
+msgstr "Quantitat d’imatges"
+
+msgid "Images count"
+msgstr "Recompte d’imatges"
+
+msgid "Images distance"
+msgstr "Distància d’imatges"
+
+msgid "Images list"
+msgstr "Llista d'imatges"
+
+msgid "Images not in albums"
+msgstr "Imatges que no estàn en àlbums"
+
+msgid "Images per page"
+msgstr "Imatges per pàgina"
+
+msgid "Images size after:"
+msgstr "Tamany d’imatges després:"
+
+msgid "Images size before:"
+msgstr "Tamany d’imatges abans:"
+
+msgid "Images: "
+msgstr "Imatges: "
+
+msgid "Import EXIF data"
+msgstr "Importar Informació EXIF"
+
+msgid "Import from WordPress Media Library"
+msgstr "Importar de la Llibreria de Wordpress"
+
+msgid "Import from cloud services"
+msgstr "Importar de serveis de Cloud"
+
+msgid "Import from social networks"
+msgstr "Importar de les xarxes socials"
+
+msgid "Import from your FTP server"
+msgstr "Importar del teu servidor FTP"
+
+msgid "Import from your Facebook account"
+msgstr "Importar del teu compte de Facebook"
+
+msgid "Import from your Flickr account"
+msgstr "Importar de la teva compte de Flickr"
+
+msgid "Import from your Google Drive account"
+msgstr "Importar de la teva compte de Google Drive"
+
+msgid "Import from your Instagram account"
+msgstr "Importar de la teva compte d'Instagram"
+
+msgid "Import from your Tumblr account"
+msgstr "Importar de la teva compte de Tumblr"
+
+msgid "Import images"
+msgstr "Importar imatges"
+
+msgid "Import settings"
+msgstr "Importar configuració"
+
+msgid "Import settings from gallery"
+msgstr "Importar configuració desde la galeria"
+
+msgid "Improve free version"
+msgstr "Millorar la versió gratuïta"
+
+msgid "Incorrect service Code"
+msgstr "Codi de servei incorrecte"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "Instagram authorization"
+msgstr "Autorització d’Instagram"
+
+msgid "Install plugin"
+msgstr "Instal·lar Plugin"
+
+msgid "Invalid gallery identifier specified"
+msgstr "Identificador de Galeria especificat invàlid"
+
+msgid "It's a temporary deactivation"
+msgstr "Es una desactivació temporal"
+
+msgid "Italic"
+msgstr "Cursiva"
+
+msgid ""
+"It’s never been so easy to create and manage pricing and comparison tables "
+"with table builder. Any element of the table can be customise with mouse "
+"click."
+msgstr ""
+"Mai ha sigut tan fàcil crear i administrar preus i taules de comparació amb "
+"table builder. Qualsevol element de la taula es pot canviar amb un click de "
+"mouse."
+
+msgid "KeyCDN"
+msgstr "KeyCDN"
+
+msgid "KeyCDN Settings"
+msgstr "Configuració de KeyCDN"
+
+msgid "Last"
+msgstr "Últim"
+
+msgid "Last 24 hours"
+msgstr "Últimes 24 hores"
+
+msgid "Lazy Load"
+msgstr "Carrega Lenta"
+
+msgid "LazyLoad"
+msgstr "CarregaLenta"
+
+msgid "Left"
+msgstr "Esquerra"
+
+msgid "Left Bottom"
+msgstr "Esquerra Inferior"
+
+msgid "Left Center"
+msgstr "Esquerra Centre"
+
+msgid "Left Top"
+msgstr "Esquerra Superior"
+
+msgid "Let user switch gallery pages"
+msgstr "Deixar canviar pàgines de galeria al usuari"
+
+msgid "Let's Start!"
+msgstr "Comencem!"
+
+msgid "License"
+msgstr "Llicència"
+
+msgid "Lightbox"
+msgstr "Lightbox"
+
+msgid "Line"
+msgstr "Linia"
+
+msgid "Link"
+msgstr "Enllaç"
+
+msgid "Link icon"
+msgstr "Icona d’enllaç"
+
+msgid "Linked Images"
+msgstr "Imatges Linkades"
+
+msgid "Linked images"
+msgstr "Imatges linkades"
+
+msgid "Live Chat Plugin"
+msgstr "Plugin de Xat en Temps Real"
+
+msgid "Load More"
+msgstr "Carregar Més"
+
+msgid "Load More Button"
+msgstr "Botó de Carregar Més"
+
+msgid "Load more amount"
+msgstr "Carregar més quantitat"
+
+msgid "Load more button text"
+msgstr "Text del botó de carregar més"
+
+msgid "Load more gallery images with scroll or button"
+msgstr "Carregar més imatges de la galeria amb desplaçament o botó"
+
+msgid "Load settings from presets"
+msgstr "Carregar més configuracions des dels presets"
+
+msgid "Load with scroll"
+msgstr "Carregar amb el desplaçament"
+
+msgid "Loader"
+msgstr "Carregador"
+
+msgid "Loading"
+msgstr "Carregant"
+
+msgid "Loading text"
+msgstr "Text de carregant"
+
+msgid "Loading..."
+msgstr "Carregant..."
+
+msgid "Location"
+msgstr "Localització"
+
+msgid "Login with Facebook"
+msgstr "Entrar amb Facebook"
+
+msgid "Logout"
+msgstr "Tancar sessió"
+
+msgid "Main"
+msgstr "Principal"
+
+msgid "Main Settings"
+msgstr "Configuració Principal"
+
+msgid "Make this settings - default"
+msgstr "Fer aquestes configuracions - per defecte"
+
+msgid "Margin"
+msgstr "Marge"
+
+msgid "Mb"
+msgstr "Mb"
+
+msgid "Membership by Supsystic"
+msgstr "Membresía de Supsystic"
+
+msgid "Message"
+msgstr "Missatge"
+
+msgid "Middle Center"
+msgstr "Centre del mig"
+
+msgid "Middle Left"
+msgstr "Esquerra del mig"
+
+msgid "Middle Right"
+msgstr "Dreta del mig"
+
+msgid "Minimal cUrl extension version 7.20.0"
+msgstr "Mínima cUrl extension versió 7.20.0"
+
+msgid "Minimal version of php = 5.3.0"
+msgstr "Mínima versió de php = 5.3.0"
+
+msgid "Mirror horizontal"
+msgstr "Mirall horitzontal"
+
+msgid "Mirror horizontal and rotate 270 CW"
+msgstr "Mirall horitzontal i rotar 270 CW"
+
+msgid "Mirror horizontal and rotate 90 CW"
+msgstr "Mirall horitzontal i rotar 90 CW"
+
+msgid "Mirror vertical"
+msgstr "Mirall vertical"
+
+msgid "Mobile - show always caption"
+msgstr "Mòvil - mostrar sempre text"
+
+msgid "Month"
+msgstr "Mes"
+
+msgid "Mouse Wheel Scroll Step"
+msgstr "Longitud de Baixada de la Rodeta del Ratolí"
+
+msgid "Mouser Over"
+msgstr "Passant el ratolí per sobre"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "New Folder"
+msgstr "Nova Carpeta"
+
+msgid "New Gallery"
+msgstr "Nova Galeria"
+
+msgid "New folder"
+msgstr "Nova carpeta"
+
+msgid "New gallery"
+msgstr "Nova galeria"
+
+msgid "New gallery from selected"
+msgstr "Nova galeria a partir de les seleccionades"
+
+msgid "New gallery successfully created"
+msgstr "Nova galeria creada amb èxit"
+
+msgid "Newsletter Plugin"
+msgstr "Plugin de Butlletí de Notícies"
+
+msgid "Next"
+msgstr "Següent"
+
+msgid "No"
+msgstr "No"
+
+msgid "No Flash"
+msgstr "Sense Flash"
+
+msgid "No flash function"
+msgstr "Funció sense flash"
+
+msgid "None"
+msgstr "Cap"
+
+msgid "Not enough data."
+msgstr "No hi ha informació suficient."
+
+msgid "Note: images folder must be in wp-content/uploads/directory"
+msgstr "Nota: la carpeta d’iamtges ha d’estar a wp-content/uploads/directory"
+
+msgid "Note: you need to specify the full path to images folder"
+msgstr "Note: has d’especificar la ruta sencera fins la carpeta d'imatges"
+
+msgid ""
+"Now you are in the edit menu of your gallery. And the first thing you need "
+"to do are add media to the gallery. Click \"Add Images\" button."
+msgstr ""
+"Ara estàs al menú on pots editar la teva galeria. I la primera cosa que "
+"hauries de fer és afegir media a la galeria. Fes click al botó de “Afegir "
+"Imatges”."
+
+msgid "Number of Columns"
+msgstr "Número de Columnes"
+
+msgid "Number of images"
+msgstr "Número d’imatges"
+
+msgid "Number of posts"
+msgstr "Número de publicacions"
+
+msgid "Off"
+msgstr "Off"
+
+msgid "Off, Did not fire"
+msgstr "Off, No es va disparar"
+
+msgid "Off, Did not fire, Return not detected"
+msgstr "Off, No es va disparar, Retorn no detectat"
+
+msgid "Off, No flash function"
+msgstr "Off, Sense funció de flash"
+
+msgid "Off, Red-eye reduction"
+msgstr "Off, Reducció d’ulls vermells"
+
+msgid "On, Did not fire"
+msgstr "On, No es va disparar"
+
+msgid "On, Fired"
+msgstr "On, Disparat"
+
+msgid "On, Red-eye reduction"
+msgstr "On, Reducció d’ulls vermells"
+
+msgid "On, Red-eye reduction, Return detected"
+msgstr "On, Reducció d’ulls vermells, Retorn detectat"
+
+msgid "On, Red-eye reduction, Return not detected"
+msgstr "On, Reducció d’ulls vermells, Retorn no detectat"
+
+msgid "On, Return detected"
+msgstr "On, Retorn detectat"
+
+msgid "On, Return not detected"
+msgstr "On, Retorn no detectat"
+
+msgid "One by One"
+msgstr "Un a Un"
+
+msgid ""
+"One of the best plugin for creating Contact Forms on your WordPress site. "
+"Changeable fonts, backgrounds, an option for adding fields etc."
+msgstr ""
+"Un dels millors plugins per crear formularis de contacte a la teva pàgina "
+"WordPress. Fonts intercanviables, fons, opció per afegir camps etc."
+
+msgid "Open by link in popup"
+msgstr "Obrir el link en un popup"
+
+msgid "Open in new window"
+msgstr "Obrir en una nova finestra"
+
+msgid "Open next slide"
+msgstr "Obrir la següent diapositiva"
+
+msgid "Optimization"
+msgstr "Optimitzar"
+
+msgid "Optimization complete"
+msgstr "Optimització completada"
+
+msgid "Optimization in process..."
+msgstr "Optimització en procés…"
+
+msgid "Optimize"
+msgstr "Optimitzar"
+
+msgid "Optimize Now"
+msgstr "Optimitzar Ara"
+
+msgid "Optimize Preview images"
+msgstr "Optimitzar Imatges de Previsualització"
+
+msgid "Optimize one more time"
+msgstr "Optimitzar un altre cop"
+
+msgid "Optimize selected"
+msgstr "Optimitzar les seleccionades"
+
+msgid "Optimize:"
+msgstr "Optimitzar:"
+
+msgid "Optimized"
+msgstr "Optimitzat"
+
+msgid "Other"
+msgstr "Altres"
+
+msgid "Over the gallery"
+msgstr "Per sobre de la galeria"
+
+msgid "Overlay color"
+msgstr "Color per sobre"
+
+msgid "Overlay image with shadow"
+msgstr "Imatge per sobre amb ombra"
+
+msgid "Overlay transparency"
+msgstr "Transparència de la capa de per sobre"
+
+msgid "Overview"
+msgstr "Vista general"
+
+msgid "PHPCode:"
+msgstr "Codi PHP:"
+
+msgid "PRO option"
+msgstr "Opció PRO"
+
+msgid "Paddings"
+msgstr "Espaiat"
+
+msgid "Page "
+msgstr "Pàgina "
+
+msgid "Pages"
+msgstr "Pàgines"
+
+msgid "Pagination"
+msgstr "Paginació"
+
+msgid "Password"
+msgstr "Contrassenya"
+
+msgid "Personal captions"
+msgstr "Textos Personals"
+
+msgid "Photo Gallery Plugin"
+msgstr "Plugin de Galeria d'Imatges"
+
+msgid ""
+"Photo Gallery Plugin with a great number of layouts will help you to create "
+"quality respectable portfolios and image galleries."
+msgstr ""
+"Plugin de Galeria d’Imatges amb un gran nombre de configuracions que "
+"t’ajudarà a crear porfolis de qualitat i galeries d’imatges."
+
+msgid ""
+"Photo Gallery plugin is created for people who would like to show their "
+"photos in a marvelous way. Perform your best ideas, making delightful "
+"presentations or galleries from videos and photos."
+msgstr ""
+"El Plugin de Galeria d’Imatges està creat per gent a qui li agradaria "
+"mostrar les seves fotos de formes boniques. Porta a terme les teves millors "
+"idees, fent presentacions boniques o galeries de videos i fotos."
+
+msgid "Please fill all fields"
+msgstr "Si us plau omple tots els camps"
+
+msgid "Please wait until Exif data has been recollected"
+msgstr "Si us plau espera fins que la informació Exif hagi estat recolectada"
+
+msgid "Please wait while the plugin to get the list of galleries..."
+msgstr "Si us plau espera mentre el plugin busca la llista de galeries…"
+
+msgid "Please, wait while reading images info..."
+msgstr "Si us pla, espere mentre llegim la informació de les imatges..."
+
+msgid "Plugin options"
+msgstr "Opcións del plugin"
+
+msgid "Polaroid Frame Width"
+msgstr "Amplada del Marc Polaroid"
+
+msgid "Polaroid Image Animation"
+msgstr "Animació de l’Imatge Polaroid"
+
+msgid "Polaroid Image Scattering "
+msgstr "Dispersió de l’Imatge Polaroid "
+
+msgid "Polaroid Style"
+msgstr "Estil de Polaroid"
+
+msgid "Pop-up Image"
+msgstr "Imatge de Pop-up"
+
+msgid "Popup Image Sharing"
+msgstr "Compartició d’Imatges en Popup"
+
+msgid "Popup Image Text"
+msgstr "Text d’Imatge en Popup"
+
+msgid "Popup Image size"
+msgstr "Tamany de Popup d’Imatge"
+
+msgid "Popup Images"
+msgstr "Imatge de Popup"
+
+msgid "Popup Linked Image Text"
+msgstr "Text d’Imatge Linkat a Popup"
+
+msgid "Popup Plugin"
+msgstr "Plugin de Popup"
+
+msgid "Popup box theme"
+msgstr "Tema d’encapçalament de Popup"
+
+msgid "Popup image icon"
+msgstr "Icona d’imatge de popup"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Position"
+msgstr "Posició"
+
+msgid "Position updated successfully!"
+msgstr "Posició actualitzada correctament!"
+
+msgid "Posts"
+msgstr "Publicacions"
+
+msgid "Posts layout"
+msgstr "Estructura de publicacions"
+
+msgid "Posts layout style"
+msgstr "Estil d’estructura de publicacions"
+
+msgid "Preset Editor"
+msgstr "Editor de Presets"
+
+msgid "Preset successfully applied to the gallery."
+msgstr "Preset aplicat a la galeria amb èxit."
+
+msgid "Preset successfully removed."
+msgstr "Preset eliminat correctament."
+
+msgid "Preset successfully saved."
+msgstr "Preset guardat amb èxit."
+
+msgid "Preset title:"
+msgstr "Títol de preset:"
+
+msgid "Presets"
+msgstr "Presets"
+
+msgid "Preview"
+msgstr "Previsualització"
+
+msgid "Preview of Gallery settings"
+msgstr "Previsualització de les configuracions de Galeria"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Pricing Table"
+msgstr "Taula de Preus"
+
+msgid "Pro Feature"
+msgstr "Característica Pro"
+
+msgid "Pro plugin params Error!"
+msgstr "Errors en els paràmetres del plugin Pro!"
+
+msgid "Properties"
+msgstr "Propietats"
+
+msgid "Recollect EXIF"
+msgstr "Recolectar EXIF"
+
+msgid "Recollect image error!. Processed "
+msgstr "Recolectar imatge error!. Processat "
+
+msgid "Remove selected"
+msgstr "Eliminar seleccionats"
+
+msgid "Rename folder"
+msgstr "Renombrar carpeta"
+
+msgid "Renew License"
+msgstr "Renovar Llicència"
+
+msgid "Replace image"
+msgstr "Reemplaçar imatge"
+
+msgid "Report a bug"
+msgstr "Reportar un bug"
+
+msgid "Require a new functionallity"
+msgstr "Requerir una nova funcionalitat"
+
+msgid "Resources are does not exists"
+msgstr "Les fonts no existeixen"
+
+msgid "Responsive Mode"
+msgstr "Mode Responsiu"
+
+msgid "Responsive columns"
+msgstr "Columnes responsives"
+
+msgid "Restore Source Images"
+msgstr "Restaurar Imatges de Font"
+
+msgid "Return to the gallery"
+msgstr "Retornar a la galeria"
+
+msgid "Right"
+msgstr "Dreta"
+
+msgid "Right Bottom"
+msgstr "Dreta Inferior"
+
+msgid "Right Center"
+msgstr "Dreta Centre"
+
+msgid "Right Top"
+msgstr "Dreta Superior"
+
+msgid "Roles"
+msgstr "Rols"
+
+msgid "Rotate"
+msgstr "Rotar"
+
+msgid "Rotate 180"
+msgstr "Rotar 180"
+
+msgid "Rotate 270 CW"
+msgstr "Rotar 270 CW"
+
+msgid "Rotate 90 CW"
+msgstr "Rotar 90 CW"
+
+msgid "SEO"
+msgstr "SEO"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Save in %"
+msgstr "Guardar en %"
+
+msgid "Save in Mb"
+msgstr "Guardar en Mb"
+
+msgid "Save settings as preset"
+msgstr "Guardar les configuracions com a preset"
+
+msgid "Save source images"
+msgstr "Guardar les imatges de font"
+
+msgid "Scroll"
+msgstr "Desplaçar"
+
+msgid "Scroll Bar Color"
+msgstr "Color de la Barra de Desplaçament"
+
+msgid "Scroll Bar Transparency"
+msgstr "Transparència de la Barra de Desplaçament"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Select"
+msgstr "Seleccionar"
+
+msgid "Select \"Big image\" theme"
+msgstr "Seleccionar el tema “Imatges grans” "
+
+msgid "Select %s"
+msgstr "Seleccionar %s"
+
+msgid "Select a theme"
+msgstr "Seleccionar un tema"
+
+msgid "Select categories"
+msgstr "Seleccionar categories"
+
+msgid "Select clone type"
+msgstr "Seleccionar el tipus de clon"
+
+msgid "Select clone type:"
+msgstr "Selccionat el tipus de clon:"
+
+msgid "Select effect"
+msgstr "Seleccionar l’efecte"
+
+msgid "Select icons effects"
+msgstr "Selccionar els efectes d’icona"
+
+msgid "Select image on hover"
+msgstr "Selccionar imatge al passar per sobre"
+
+msgid "Select images per page"
+msgstr "Selccionar imatges per pàgina"
+
+msgid "Select one icon"
+msgstr "Selccionar una icona"
+
+msgid "Select overlay effect"
+msgstr "Seleccionar l’efecte al passar per sobre"
+
+msgid "Select preset:"
+msgstr "Selccionar preset:"
+
+msgid "Select shadow"
+msgstr "Seleccionar ombra"
+
+msgid "Select shadow preset"
+msgstr "Seleccionar preset d'ombra"
+
+msgid "Select source to import from"
+msgstr "Seleccionar la font de la que importar"
+
+msgid "Select the gallery:"
+msgstr "Seleccionar la galeria:"
+
+msgid "Select/unselect all photos"
+msgstr "Seleccionar/deseleccionar totes les fotos"
+
+msgid "Select/unselect all posts"
+msgstr "Seleccionar/deseleccionar totes les publicacions"
+
+msgid "Selected"
+msgstr "Seleccionats/des"
+
+msgid ""
+"Selected ' ~ name) }}</div>\n"
+"\t\t\t\t\t\t</div>\n"
+"                    </div>\n"
+"                {% endfor %}\n"
+"\n"
+"            </div>\n"
+"        </div>\n"
+"\n"
+"        <div id=\"effectDialog\" title=\"{{ translate('Select overlay effect"
+msgstr ""
+"Selected ‘ ~ name) }}</div>\n"
+"\t\t\t\t\t\t</div>\n"
+"                    </div>\n"
+"                {% endfor %}\n"
+"\n"
+"            </div>\n"
+"        </div>\n"
+"\n"
+"        <div id=“effectDialog” title=“{{ translate(‘Seleccionar l’efecte "
+"d’overlay"
+
+msgid "Send usage statistics"
+msgstr "Enviar estadístiques d’ús"
+
+msgid "Server internal error"
+msgstr "Error intern del servidor"
+
+msgid "Service"
+msgstr "Servei"
+
+msgid "Service data was saved!"
+msgstr "Data del servei guardada!"
+
+msgid "Servicename"
+msgstr "Nomdelservei"
+
+msgid "Settings"
+msgstr "Configuracions"
+
+msgid "Setup"
+msgstr "Configuració"
+
+msgid "Setup Service"
+msgstr "Configurar Servei"
+
+msgid "Shadow"
+msgstr "Ombra"
+
+msgid "Shadow X"
+msgstr "Ombra X"
+
+msgid "Shadow Y"
+msgstr "Ombra Y"
+
+msgid "Shadow blur"
+msgstr "Ombra borrosa"
+
+msgid "Shadow color"
+msgstr "Color d’ombra"
+
+msgid "Shadow preset"
+msgstr "Preset d’ombra"
+
+msgid "Shortcode:"
+msgstr "Shortcode:"
+
+msgid "Show EXIF as caption"
+msgstr "Mostrar EXIF en el text"
+
+msgid "Show EXIF as description"
+msgstr "Mostrar EXIF a la descripció"
+
+msgid "Show EXIF data"
+msgstr "Mostrar dades EXIF"
+
+msgid "Show EXIF on Lightbox image"
+msgstr "Mostrar EXIF a la imatge Lightbox"
+
+msgid "Show Original"
+msgstr "Mostrar l’Original"
+
+msgid "Show Posts and Pages"
+msgstr "Mostrar Publicacions i Pàgines"
+
+msgid "Show Previous/Next Arrows"
+msgstr "Mostrar Fletxes d’Anterior/Següent"
+
+msgid "Show Watermark"
+msgstr "Mostrar Marca d’Aigua"
+
+msgid "Show Watermark for"
+msgstr "Mostrar Marca d’Aigua per"
+
+msgid "Show author"
+msgstr "Mostrar autor"
+
+msgid "Show categories"
+msgstr "Mostrar categories"
+
+msgid "Show contents"
+msgstr "Mostrar continguts"
+
+msgid "Show date"
+msgstr "Mostrar data"
+
+msgid "Show hidden images by click"
+msgstr "Mostrar imatges amagades al fer click"
+
+msgid "Show icons"
+msgstr "Mostrar icones"
+
+msgid "Show image comparision"
+msgstr "Mostrar comparació d'imatge"
+
+msgid "Show mouse on"
+msgstr "Mostrar quan passi el ratolí"
+
+msgid "Show options"
+msgstr "Mostrar opcions"
+
+msgid "Show overlay"
+msgstr "Mostrar capa per sobre"
+
+msgid "Show the next page of the grid"
+msgstr "Mostrar la pròxima pàgina de la cuadrícula"
+
+msgid "Show the previous page of the grid"
+msgstr "Mostra la pàgina anterior de la cuadrícula"
+
+msgid "Shutter Speed"
+msgstr "Velocitat d’Obsturació"
+
+msgid "Skip & Deactivate"
+msgstr "Saltar i Desactivar"
+
+msgid "Slider Plugin"
+msgstr "Plugin de Presentació"
+
+msgid "Slider by Supsystic"
+msgstr "Presentació de Supsystic"
+
+msgid "Slideshow"
+msgstr "Presentació"
+
+msgid "Slideshow autostart"
+msgstr "Principi Automàtic de Presentació"
+
+msgid "Slideshow pause on hover"
+msgstr "Pausar la presentació al passar el ratolí per sobre"
+
+msgid "Slideshow speed"
+msgstr "Velocitat de presentació de diapositives"
+
+msgid "Social"
+msgstr "Social"
+
+msgid "Social Buttons Project"
+msgstr "Projecte de Botons Socials"
+
+msgid "Social Share Buttons"
+msgstr "Botons per Compartir a les Xarxes Socials"
+
+msgid "Social Sharing"
+msgstr "Compartir a les Xarxes Socials"
+
+msgid "Social setup"
+msgstr "Configurar Xarxes Socials"
+
+msgid ""
+"Social share buttons to increase social traffic and popularity. Social "
+"sharing to Facebook, Twitter and other social networks."
+msgstr ""
+"Botons per compartir a les Xarxes Socials per incrementar el tràfic i la "
+"popularitat. Compartir a Facebook, Twitter i altres xarxes socials."
+
+msgid ""
+"Some errors occurred while sending mail please send your message trough this "
+"contact form:"
+msgstr ""
+"Hi hagut errors al enviar el mail si us plau envia el teu mail a través "
+"d’aquest formulari de contacte:"
+
+msgid "Sort By: "
+msgstr "Ordenar Per:"
+
+msgid "Sort To: "
+msgstr "Ordenar A:"
+
+msgid "Source gallery incorrect id"
+msgstr "ID de galeria font incorrecta"
+
+msgid "Start Optimization"
+msgstr "Començar l’Optimització"
+
+msgid "Start Transfer"
+msgstr "Començar la Transferència"
+
+msgid "Start step-by-step tutorial"
+msgstr "Començar tutorial pas a pas"
+
+msgid "Step-by-step tutorial"
+msgstr "Tutorial pas a pas"
+
+msgid "Subject"
+msgstr "Subjecte"
+
+msgid "Support"
+msgstr "Suport"
+
+msgid ""
+"Supports Youtube and Vimeo. URL will be converted to embed automatically."
+msgstr ""
+"És compatible amb Youtube i Vimeo. La direcció serà transformada a incrustat "
+"automàticament."
+
+msgid ""
+"Supsystic Newsletter plugin for automatic mailing of your letters. You will "
+"have no need to control it or send them manually. No coding, hard skills or "
+"long hours of customizing are required."
+msgstr ""
+"El plugin de Suscripció de Supsystic per enviar automàticament els teus "
+"correus. Ja no hauràs de controlar-ho o enviar-ho manualment. Sense codi, "
+"habilitats o llargues hores per personalitzar-ho."
+
+msgid "Switch to the block view"
+msgstr "Canviar a la vista de blocs"
+
+msgid "Switch to the list view"
+msgstr "Canviar a la vista de llista"
+
+msgid "Table ' . $this->table. ' not exists! Please reactivate this plugin!"
+msgstr ""
+"Taula ‘ . $this->table. ‘ no existeix! Si us plau reactiva aquest plugin!"
+
+msgid "Template: SuperMega"
+msgstr "Plantilla: SuperMega"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Text Highlight Color"
+msgstr "Color de Subratllat de Text"
+
+msgid "Text Highlight Color Transparency"
+msgstr "Transparència del Color de Subratllat de Text"
+
+msgid "Text background"
+msgstr "Fons del text"
+
+msgid "Text color"
+msgstr "Color del text"
+
+msgid "Text for Next Arrow"
+msgstr "Text per la Fletxa de Següent"
+
+msgid "Text for Previous Arrow"
+msgstr "Text per la Fletxa d'Anterior"
+
+msgid "Text horizontal align"
+msgstr "Alinear horitzontalment el text"
+
+msgid "Text size"
+msgstr "Tamany de text"
+
+msgid "Text vertical align"
+msgstr "Alinear verticalment el text"
+
+msgid ""
+"Thank you for choosing our Gallery plugin. Just click here to start using it "
+"- and we will show you it's possibilities and powerfull features."
+msgstr ""
+"Gràcies per triar el nostre plugin de Galeria. Fes click aquí per començar a "
+"utilitzar-lo - i et mostrarem les seves possibilitats i poderoses "
+"característiques."
+
+msgid ""
+"The Best WordPress PopUp option plugin to help you gain more subscribers, "
+"social followers or advertisement. Responsive pop-ups with friendly options."
+msgstr ""
+"El millor plugin de Popup de Wordpress per ajudar-te a guanyar més "
+"suscriptors, seguidors o anunciants. Popups responsius amb opcions amigables."
+
+msgid "The gallery is does not exists"
+msgstr "La galeria no existeix"
+
+msgid "The identifier of the Gallery is not specified"
+msgstr "L’identificador de la Galeria no està especificat"
+
+msgid "The identifier of the gallery is invalid"
+msgstr "L’identificador de la galeria és invàlid"
+
+msgid "The preset ID is not specified."
+msgstr "L’ID del preset no està especificat."
+
+msgid ""
+"The resources are successfully attached to the '.$gallery->title),\n"
+"\t\t\t\t'galleryId' => (int)$gallery->id,\n"
+"\t\t\t\t'redirectUrl' => $this->getEnvironment()->generateUrl(\n"
+"\t\t\t\t\t'galleries',\n"
+"\t\t\t\t\t'view',\n"
+"\t\t\t\t\tarray('gallery_id' => $gallery->id)\n"
+"\t\t\t\t)\n"
+"\t\t\t)\n"
+"\t\t);\n"
+"    }\n"
+"\n"
+"    public function chooseAction(Rsc_Http_Request $request)\n"
+"    {\n"
+"        $resourceId = $request->post->get('resources"
+msgstr ""
+"Les fonts estàn adherides correctament a ’.$gallery->title),\n"
+"\t\t\t\t’galleryId’ => (int)$gallery->id,\n"
+"\t\t\t\t’redirectUrl’ => $this->getEnvironment()->generateUrl(\n"
+"\t\t\t\t\t’galleries’,\n"
+"\t\t\t\t\t’view’,\n"
+"\t\t\t\t\tarray(‘gallery_id’ => $gallery->id)\n"
+"\t\t\t\t)\n"
+"\t\t\t)\n"
+"\t\t);\n"
+"    }\n"
+"\n"
+"    public function chooseAction(Rsc_Http_Request $request)\n"
+"    {\n"
+"        $resourceId = $request->post->get(‘resources"
+
+msgid "The title can't be empty"
+msgstr "El títol no pot estar buit"
+
+msgid "Then choose what gallery you want to display. And press save."
+msgstr "Ara tria quina galeria vols mostrar. I fes click a guardar."
+
+msgid "There are %s photos in the gallery %s"
+msgstr "Hi ha %s fotos a la galeria %s"
+
+msgid "There're no images in the gallery."
+msgstr "No hi ha imatges a la galeria."
+
+msgid ""
+"There’re really many options of photo gallery plugin customization. So as "
+"soon as you close that page, I’ll show you step-by-step tutorial of how to "
+"use plugin. Hope it will be usefull for you :)"
+msgstr ""
+"Hi ha moltes opcions per customitzar el plugin de galeria. Així que tan "
+"d’hora com tanquis aquesta pagina, t’ensenyaré pas a pas un tutorial sobre "
+"com utilitzar el plugin. Espero que et sigui d’ajuda :)"
+
+msgid "This effect requires icons be enabled. Enable Icons?"
+msgstr ""
+"Aquest efecte requereix que les icones estiguin habilitades. Habilitar "
+"icones?"
+
+msgid "Thumbnail and Popup Images"
+msgstr "Miniatura i Imatges de Popup"
+
+msgid "Thumbnails"
+msgstr "Miniatures"
+
+msgid "TinyPNG"
+msgstr "TinyPNG"
+
+msgid "TinyPNG Settings"
+msgstr "Configuració de TinyPNG"
+
+msgid "Title"
+msgstr "Títol"
+
+msgid "Title is empty"
+msgstr "El Títol està buit"
+
+msgid "Title successfully updated"
+msgstr "Títol actualitzat amb èxit"
+
+msgid ""
+"To Create New Gallery select gallery template. You can change template and "
+"settings later. Now here are four different templates. With PRO version "
+"you’ll get more features like Categories, Load More button, Post Feed "
+"(Content) gallery, Polaroid gallery and more. Enter name of the gallery and "
+"click “Save”."
+msgstr ""
+"Per Crear una Nova Galeria fes click a la plantilla de galeria. Pots canviar "
+"la plantilla i la configuració després. Aquí hi ha cuatre plantilles "
+"diferents. Amb la versió PRO tindràs més característiques com Categories, "
+"botó de Carregar Més, galeria de Feed de Publicacions, galeria Polaroid i "
+"més. Introdueix el nom de la galeria i fes click a “Guardar”."
+
+msgid ""
+"To use this option, you must install php-extension GD. The list of functions "
+"that are used in the plugin can be seen in readme.txt file."
+msgstr ""
+"Per utilitzar aquesta opció, has d’instal·lar php-extension GD. La llista de "
+"funcions que s’utilitzen del plugin es poden llegir en el archiu readme.txt."
+
+msgid "Top"
+msgstr "Superior"
+
+msgid "Top Center"
+msgstr "Superior Centre"
+
+msgid "Top Left"
+msgstr "Superior Esquerra"
+
+msgid "Top Right"
+msgstr "Superior Dreta"
+
+msgid "Topic"
+msgstr "Tòpic"
+
+msgid "Total Images"
+msgstr "Total d'Imatges"
+
+msgid "Total Saving:"
+msgstr "Total Guardant:"
+
+msgid "Total Size"
+msgstr "Total Tamany"
+
+msgid "Total images"
+msgstr "Total d’imatges"
+
+msgid "Total size"
+msgstr "Total tamany"
+
+msgid "Total size after"
+msgstr "Total de tamany després"
+
+msgid "Total size before"
+msgstr "Total de tamany abans"
+
+msgid "Touch Scroll Step"
+msgstr "Longitud de desplaçament tàctil"
+
+msgid "Tranfer images to CDN"
+msgstr "Transferir imatges al CDN"
+
+msgid "Transfer Gallery to"
+msgstr "Transferir Galeria a"
+
+msgid "Transfer completed successfully!"
+msgstr "Transferència completada amb èxit!"
+
+msgid "Transfer ending with errors!"
+msgstr "Transferència acabada amb errors!"
+
+msgid "Transfer information:"
+msgstr "Informació de transferència:"
+
+msgid "Transfer selected"
+msgstr "Transferència seleccionada"
+
+msgid "Transfer to"
+msgstr "Transferir a"
+
+msgid "Transfer to CDN"
+msgstr "Transferir a CDN"
+
+msgid "Transfered"
+msgstr "Transferit"
+
+msgid "Transparency"
+msgstr "Transparència"
+
+msgid "Tumblr"
+msgstr "Tumblr"
+
+msgid "Tumblr authorization"
+msgstr "Autorització Tumblr"
+
+msgid "Type"
+msgstr "Tipus"
+
+msgid "Unable to save chosen photo %s: %s"
+msgstr "Incapaç de guardar la foto triada %s: %s"
+
+msgid "Under the gallery"
+msgstr "Sota la galeria"
+
+msgid "Unnamed gallery"
+msgstr "Galeria sense nom"
+
+msgid "Upload"
+msgstr "Pujar"
+
+msgid "Upload Image"
+msgstr "Pujar Imatge"
+
+msgid "Upload from Flickr"
+msgstr "Pujar desde Flickr"
+
+msgid "Upload from Google Drive"
+msgstr "Pujar desde Google Drive"
+
+msgid "Upload from Instagram"
+msgstr "Pujar desde Instagram"
+
+msgid "Upload from Tumblr"
+msgstr "Pujar desde Tumblr"
+
+msgid "Upload new images"
+msgstr "Pujar imatges noves"
+
+msgid "Upload your images from Google Drive CDN"
+msgstr "Pujar les teves imatges del CDN de Google Drive"
+
+msgid "Upload your images from the FTP Server"
+msgstr "Pujar les teves imatges del servidor FTP"
+
+msgid "Upload your images from the Facebook Media Library"
+msgstr "Pujar les teves imatges de la llibreria de Facebook"
+
+msgid "Upload your images from the Flickr Media Library"
+msgstr "Pujar les teves imatges de la llibreria de Flickr"
+
+msgid "Upload your images from the Instagram Media Library"
+msgstr "Pujar les teves imatges de la llibreria d'Instagram"
+
+msgid "Upload your images from the Tumblr Media Library"
+msgstr "Pujar les teves imatges de la llibreria de Tumblr"
+
+msgid "Upload your images from the WordPress Media Library"
+msgstr "Pujar les teves imatges de la llibreria de WordPress"
+
+msgid "Use Caption Builder"
+msgstr "Utilitzar el constructor de textos"
+
+msgid "Use color, based on my theme."
+msgstr "Utilitzar color, basat en el meu tema."
+
+msgid "Use old icons and overlay"
+msgstr "Utilitzar icones antigues i capa superposada"
+
+msgid "Username"
+msgstr "Nom d'usuari"
+
+msgid "Vertical padding"
+msgstr "Espaiat Vertical"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Video Tutorial"
+msgstr "Tutorial en Video"
+
+msgid "Video URL"
+msgstr "URL de Video"
+
+msgid "Video icon"
+msgstr "Icona de video"
+
+msgid "Video size"
+msgstr "Tamany de video"
+
+msgid "Video, Link, LightBox"
+msgstr "Video, Enllaç, Lightbox"
+
+msgid "Want to create one right now?"
+msgstr "Vols crear un ara mateix?"
+
+msgid "Watermark"
+msgstr "Marca d'Aigua"
+
+msgid "Watermark Image"
+msgstr "Imatge de Marca d’Aigua"
+
+msgid "Watermark saved succesfully"
+msgstr "Marca d’Aigua guardada amb èxit"
+
+msgid ""
+"We love our plugin and do the best to improve all features you want and fix "
+"all issues. But sometimes some issues happened or you can’t find feature you "
+"want :) Don’t worry, just <a href=\"//supsystic.com/plugins/photo-gallery?"
+"utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact"
+"\" target=\"_blank\"> contact us </a> . We’ll answer in an hour and fix all "
+"issues."
+msgstr ""
+"Estimem el nostre plugin i ho fem lo millor que podem per millorar totes les "
+"característiques que vols i arreglar tots els errors. Però a vegades algunes "
+"hi ha problemes o no pots trobar una característica que busques :) No "
+"pateixis, simplement <a href=“//supsystic.com/plugins/photo-gallery?"
+"utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact” "
+"target=“_blank”> contacta’ns </a> . Respondrem en una hora i arreglarem "
+"qualsevol error."
+
+msgid "Website"
+msgstr "Pàgina web"
+
+msgid "Week"
+msgstr "Setmana"
+
+msgid "Welcome to Photo Gallery plugin by Supsystic!"
+msgstr "Benvingut/da al plugin de Galeries de Supsystic!"
+
+msgid "Welcome to the"
+msgstr "Benvingut/da al"
+
+msgid "Well done!"
+msgstr "Ben fet!"
+
+msgid "What is a gallery"
+msgstr "Què és una galeria"
+
+msgid "What is the reason?"
+msgstr "Quina és la raó?"
+
+msgid "When mouse is over"
+msgstr "Quan passa el ratolí"
+
+msgid "When video ends"
+msgstr "Quan s’acaba el video"
+
+msgid "Yes"
+msgstr "Si"
+
+msgid ""
+"You can have an unlimited number of galleries, to which you can attach the "
+"preloaded pictures."
+msgstr ""
+"Pots tenir un nombre il·limitat de galeries, a les que pots afegir les "
+"imatges precarregades."
+
+msgid "You don't have any galleries yet."
+msgstr "No tens cap galeria encara."
+
+msgid "You have no Social Sharing projects for now."
+msgstr "No tens projectes de compartició a les Xarxes Socials ara mateix."
+
+msgid "You have no galleries"
+msgstr "No tens galeries"
+
+msgid ""
+"You need to import images to your gallery before you can start using "
+"galleries"
+msgstr ""
+"Has d’importar imatges a la teva galeria abans de poder començar a utilitzar "
+"les galeries"
+
+msgid "You need to install Membership by Supsystic to use this feature. "
+msgstr ""
+"Has d’instalar Membresía de Supsystic per utilitzar aquesta característica."
+
+msgid ""
+"You need to install Social Share Buttons by Supsystic to use this feature."
+msgstr ""
+"Has d’instalar Social Share Buttons de Supsystic per utilitzar aquesta "
+"característica."
+
+msgid "You will not be able to update your pro version with expired license"
+msgstr "No podràs actualitzar la teva versió pro amb una llicència expirada"
+
+msgid "Your Feedback"
+msgstr "El teu Feedback"
+
+msgid "Your changes not saved. You really want to leave without saving?"
+msgstr "Els teus canvis no han estat guardats."
+
+msgid "Your host does not support the minimum requirements:"
+msgstr "El teu host no té suport pels requeriments mínims:"
+
+msgid "Your message successfully send. We contact you soon."
+msgstr "El teu missatge ha estat enviat amb èxit. Et contactarem en breus."
+
+msgid "Your premium support is expired in ' ~ days ~ ' days"
+msgstr "El teu suport premium expira en ‘ ~ dies ~ ‘ dies"
+
+msgid ""
+"You’ll see Gallery by Supsystic Widget on the left. Drag it to the area, "
+"where you want it to appear."
+msgstr ""
+"Veuràs el widget de Galeria a l’esquerra. Arrosega’l a l’àrea on vols que "
+"apareixi."
+
+msgid "close"
+msgstr "tancar"
+
+msgid "from your admin area, or visit it's official page on Wordpress.org"
+msgstr ""
+"des de la teva àrea d’admin, o visita la pàgina oficial a Wordpress.org"
+
+msgid "galleries"
+msgstr "galeries"
+
+msgid "here."
+msgstr "aquí."
+
+msgid "http://example.com/"
+msgstr "http://exemple.com/"
+
+msgid "image"
+msgstr "imatge"
+
+msgid "images"
+msgstr "imatges"
+
+msgid "images (preview and original images)"
+msgstr "imatges (previsualització i imatges originals)"
+
+msgid "next"
+msgstr "següent"
+
+msgid "of"
+msgstr "de"
+
+msgid "optimize"
+msgstr "optimitzar"
+
+msgid "photo"
+msgstr "foto"
+
+msgid "photos"
+msgstr "fotos"
+
+msgid "prev"
+msgstr "anterior"
+
+msgid "previous"
+msgstr "anterior"
+
+msgid "service"
+msgstr "servei"
+
+msgid "start slideshow"
+msgstr "començar presentació"
+
+msgid "stop slideshow"
+msgstr "parar presentació"
+
+msgid ""
+"then just reload page with your Gallery settings, and you will see list with "
+"available Social Projects for your Gallery."
+msgstr ""
+"ara recarrega la pàgina amb les teves configuracions de Galeria, i podràs "
+"veure una llista amb els projectes Socials per la teva Galeria."
+
+msgid "website"
+msgstr "pàgina web"

@@ -1,0 +1,1732 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Translator: Mehmet Koçali <membus@gmail.com>\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+msgid "An error has occurred"
+msgstr "Bir hata oluştu"
+
+msgid "Overview"
+msgstr "Genel bakış"
+
+msgid "New Gallery"
+msgstr "Yeni Galeri"
+
+msgid "Galleries"
+msgstr "Galeriler"
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "License"
+msgstr "Lisans"
+
+msgid "Images"
+msgstr "Resimler"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Tumblr"
+msgstr "Tumblr"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Get PRO"
+msgstr "Pro'yu edinin"
+
+msgid "Loading"
+msgstr "Yükleniyor"
+
+msgid "Authorization code is not specified."
+msgstr "Yetkilendirme kodu belirtilmemiş."
+
+msgid "Gallery by Supsystic"
+msgstr "Supsystic'ten Galeri"
+
+msgid "Import images"
+msgstr "Resimleri içe aktar"
+
+msgid "Facebook authorization"
+msgstr "Facebook yetkilendirme"
+
+msgid "Upload your images from the Facebook Media Library"
+msgstr "Resimlerinizi Facebook Ortam Kitaplığı'ndan yükleyin"
+
+msgid "Login with Facebook"
+msgstr "Facebook ile giriş"
+
+msgid "Return to the gallery"
+msgstr "Galeriye dönüş"
+
+msgid "Upload new images"
+msgstr "Yeni fotoğraflar yükle"
+
+msgid "Logout"
+msgstr "Oturumu kapat"
+
+msgid "Select/unselect all photos"
+msgstr "Tüm fotoğrafları seç / seçimini kaldır"
+
+msgid ""
+"Here you can specify your business pages and images will load from those "
+"pages. You can set several pages, just separate ID of pages by \",\". To get "
+"the ID of your page you need to switch to the wanted page, then click on "
+"\"About\" link right below page cover, and at the bottom of \"About\" page "
+"you will find Facebook Page ID."
+msgstr ""
+
+msgid "Save"
+msgstr "Kaydet"
+
+msgid "Empty user data."
+msgstr "Boş kullanıcı verisi."
+
+msgid "Flickr authorization"
+msgstr "Flickr yetkilendirme"
+
+msgid "Upload your images from the Flickr Media Library"
+msgstr "Resimlerinizi Flickr Ortam Kitaplığı'ndan yükleyin"
+
+msgid "Upload from Flickr"
+msgstr "Flickr'dan yükleyin"
+
+msgid "Images not in albums"
+msgstr "Resimler albümlerde değil"
+
+msgid "Albums"
+msgstr "Albümler"
+
+msgid "Fullscreen"
+msgstr "Tam Ekran"
+
+msgid "Load More Button"
+msgstr "Daha Fazla Yükle Düğmesi"
+
+msgid "Enable"
+msgstr "Etkinleştir"
+
+msgid "Disable"
+msgstr "Devre dışı bırak"
+
+msgid "Load with scroll"
+msgstr "Kayarken yükle"
+
+msgid "No"
+msgstr "Hayır"
+
+msgid "Yes"
+msgstr "Evet"
+
+msgid "Load more button text"
+msgstr "Daha Fazla Yükle Düğmesi Yazısı"
+
+msgid "Images amount"
+msgstr "Fotoğraf sayısı"
+
+msgid "Load more amount"
+msgstr "Daha fazla yükleme miktarı"
+
+msgid "Custom Buttons"
+msgstr "Özel Düğmeler"
+
+msgid "Gallery Loader"
+msgstr ""
+
+msgid "Background color"
+msgstr "Arka plan rengi"
+
+msgid "Choose Icon"
+msgstr ""
+
+msgid "Disable right click"
+msgstr ""
+
+msgid "Video size"
+msgstr ""
+
+msgid "Autoplay video"
+msgstr ""
+
+msgid "When video ends"
+msgstr ""
+
+msgid "Do nothing"
+msgstr ""
+
+msgid "Open next slide"
+msgstr ""
+
+msgid "Close popup"
+msgstr ""
+
+msgid "Posts layout"
+msgstr "Yazı düzeni"
+
+msgid "Posts layout style"
+msgstr "Yazı düzen stili"
+
+msgid "Posts"
+msgstr "Yazılar"
+
+msgid "Pages"
+msgstr "Sayfalar"
+
+msgid "Show author"
+msgstr "Yazarı göster"
+
+msgid "Show date"
+msgstr "Tarihi göster"
+
+msgid "Show contents"
+msgstr "İçeriği göster"
+
+msgid "Show categories"
+msgstr "Kategorileri göster"
+
+msgid "Hide \"All\" category"
+msgstr "Tüm kategorileri gizle"
+
+msgid "Enable shuffling animation"
+msgstr "Karıştırma animasyonunu etkinleştir"
+
+msgid "Animation duration"
+msgstr "Animasyon süresi"
+
+msgid "Position"
+msgstr "Pozisyon"
+
+msgid "Over the gallery"
+msgstr "Galerinin üstünde"
+
+msgid "Under the gallery"
+msgstr "Galerinin altında"
+
+msgid "Align"
+msgstr "Hizala"
+
+msgid "Left"
+msgstr "Sol"
+
+msgid "Center"
+msgstr "Orta"
+
+msgid "Right"
+msgstr "Sağ"
+
+msgid "Presets"
+msgstr "Hızlı Ayarlar"
+
+msgid "Choose preset"
+msgstr "Hızlı ayarı seç"
+
+msgid "Preset Editor"
+msgstr "Hızlı Ayar Düzenleyicisi"
+
+msgid "Categories order"
+msgstr "Kategori sırası"
+
+msgid "All"
+msgstr "Hepsi"
+
+msgid "Enable pagination"
+msgstr "Sayfalandırmayı etkinleştir"
+
+msgid "Pagination"
+msgstr "Sayfalandırma"
+
+msgid "Images per page"
+msgstr "Sayfa başına fotoğraf sayısı"
+
+msgid "Buttons position"
+msgstr "Düğme pozisyonu"
+
+msgid "Top"
+msgstr "Üst"
+
+msgid "Bottom"
+msgstr "Alt"
+
+msgid "Container background"
+msgstr "Konteyner arka planı"
+
+msgid "Hide container background."
+msgstr "Konteyner arka planını gizle."
+
+msgid "Text background"
+msgstr "Metin arka planı"
+
+msgid "Hide text background."
+msgstr "Metin arka planını gizle."
+
+msgid "Text color"
+msgstr "Metin rengi"
+
+msgid "Use color, based on my theme."
+msgstr "Temama göre renk kullan."
+
+msgid "Vertical padding"
+msgstr "Dikey dolgu"
+
+msgid "Horizontal padding"
+msgstr "Yatay dolgu"
+
+msgid "Font weight"
+msgstr "Yazı kalınlığı"
+
+msgid "Font size"
+msgstr "Yazı boyutu"
+
+msgid "Border width"
+msgstr "Kenar kalınlığı"
+
+msgid "Border type"
+msgstr "Kenar tipi"
+
+msgid "Border color"
+msgstr "Kenar rengi"
+
+msgid "Border radius"
+msgstr "Kenar yarıçapı"
+
+msgid "Buttons preset editor for Paginations, Categories and Load More buttons"
+msgstr ""
+"Sayfalandırma, kategoriler ve daha fazla yükleme düğmeleri için düğme hızlı "
+"ayar düzenleyicisi"
+
+msgid "Custom class"
+msgstr "Özel sınıf"
+
+msgid "Font family"
+msgstr "Yazı tipi ailesi"
+
+msgid "Border style"
+msgstr "Kenarlık stili"
+
+msgid "Choose icon"
+msgstr ""
+
+msgid "Page "
+msgstr "Sayfa "
+
+msgid "Activate License"
+msgstr "Lisansı Etkinleştir"
+
+msgid "Renew License"
+msgstr "Lisansı yenile"
+
+msgid "Slider by Supsystic"
+msgstr "Supsystic'ten Slider"
+
+msgid ""
+"Congratulations! You have successfully installed and activated PRO version "
+"of ' ~ environment.getMenu().getMenuTitle() ~ ' plugin."
+msgstr ""
+"Tebrikler! ' ~ environment.getMenu().getMenuTitle() ~ ' eklentisinin PRO "
+"sürümünü başarılı şekilde kurdunuz."
+
+msgid "Your premium support is expired in ' ~ days ~ ' days"
+msgstr "Premium destek süreniz ' ~ gün ~ ' gün sonra sona erecek"
+
+msgid "You will not be able to update your pro version with expired license"
+msgstr ""
+"Süresi geçmiş lisans ile PRO sürümünüzü güncellemeniz mümkün olmayacaktır."
+
+msgid "Activate"
+msgstr "Etkinleştir"
+
+msgid "Authorization oauth_verifier is not specified."
+msgstr "Yetkilendirme oauth_verifier belirtilmemiş."
+
+msgid "Tumblr authorization"
+msgstr "Tumblr yetkilendirme"
+
+msgid "Upload your images from the Tumblr Media Library"
+msgstr "Resimlerinizi Tumblr Ortam Kitaplığı'ndan yükleyin"
+
+msgid "Upload from Tumblr"
+msgstr "Tumblr'dan yükleyin"
+
+msgid "FTP"
+msgstr ""
+
+msgid "Upload your images from the FTP Server"
+msgstr ""
+
+msgid "Enter images folder name, e.g. my-images"
+msgstr ""
+
+msgid "Parse"
+msgstr ""
+
+msgid "Note: images folder must be in wp-content/uploads/directory"
+msgstr ""
+
+msgid "Host"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Port"
+msgstr ""
+
+msgid "Enter the full path to images folder"
+msgstr ""
+
+msgid "Note: you need to specify the full path to images folder"
+msgstr ""
+
+msgid "Please fill all fields"
+msgstr ""
+
+msgid "Loading text"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Open by link in popup"
+msgstr ""
+
+msgid "Gallery link"
+msgstr ""
+
+msgid "Auto posts"
+msgstr ""
+
+msgid "Number of posts"
+msgstr ""
+
+msgid "Auto Posts Categories"
+msgstr ""
+
+msgid "Select categories"
+msgstr ""
+
+msgid "Google Drive authorization"
+msgstr ""
+
+msgid "Upload your images from Google Drive CDN"
+msgstr ""
+
+msgid "Upload from Google Drive"
+msgstr ""
+
+msgid "Google Drive"
+msgstr ""
+
+msgid "New gallery successfully created"
+msgstr "Yeni galeri başarıyla oluşturuldu"
+
+msgid "Title successfully updated"
+msgstr "Başlık başarıyla güncelleştirildi"
+
+msgid "Not enough data."
+msgstr "Yeterli veri yok."
+
+msgid "Preset successfully saved."
+msgstr "Hazır ayar başarıyla kaydedildi."
+
+msgid "The preset ID is not specified."
+msgstr "Hazır ayar kimliği belirtilmedi."
+
+msgid "Preset successfully removed."
+msgstr "Hazır ayar başarıyla kaldırıldı."
+
+msgid "Failed to find the preset."
+msgstr "Hazır ayar bulunamadı."
+
+msgid "Preset successfully applied to the gallery."
+msgstr "Hızlı ayar galeriye başarıyla uygulandı."
+
+msgid "Unnamed gallery"
+msgstr "Adsız galeri"
+
+msgid "The identifier of the gallery is invalid"
+msgstr "Galeri tanıtıcısı geçersiz"
+
+msgid "Title is empty"
+msgstr "Başlık boş"
+
+msgid "Failed to rename the gallery"
+msgstr "Galeri yeniden adlandırılamadı"
+
+msgid "Invalid gallery identifier specified"
+msgstr "Belirtilen galeri tanımlayıcısı geçersizdir"
+
+msgid "Failed to delete the gallery"
+msgstr "Galeri silinemedi"
+
+msgid "Resources are does not exists"
+msgstr "Kaynaklar mevcut değil"
+
+msgid "The identifier of the Gallery is not specified"
+msgstr "Galeri tanımlayıcısı belirtilmemiş"
+
+msgid "New gallery"
+msgstr "Yeni Galeri"
+
+msgid "Add Images"
+msgstr "Fotoğraf Ekle"
+
+msgid "Add selected items"
+msgstr "Seçili öğeleri ekle"
+
+msgid "Cancel"
+msgstr "İptal"
+
+msgid ""
+"You need to import images to your gallery before you can start using "
+"galleries"
+msgstr ""
+"Galerileri kullanmaya başlamadan önce fotoğrafları galerinizin içine "
+"aktarmanız gerekmektedir"
+
+msgid "Selected"
+msgstr "Seçili"
+
+msgid "Create new gallery"
+msgstr "Yeni galeri oluştur"
+
+msgid ""
+"Choose Gallery Template.You can change template and settings on the next "
+"step."
+msgstr ""
+"Galeri Şablonunu Seç. Şablon ve ve ayarları sonraki adımda "
+"değiştirebilirsiniz."
+
+msgid "Gallery Name:"
+msgstr "Galeri AdıÇ"
+
+msgid "Choose Gallery Template."
+msgstr "Galeri Şablonu Seç."
+
+msgid "Remove selected"
+msgstr "Seçili olanları kaldır"
+
+msgid "Select/unselect all posts"
+msgstr "Tüm yazıları seç / seçimi kaldır"
+
+msgid "Images list"
+msgstr "Fotoğraf listesi"
+
+msgid "Preview"
+msgstr "Önizleme"
+
+msgid "Total Images: "
+msgstr "Toplam fotoğraf sayısı: "
+
+msgid "There are %s photos in the gallery %s"
+msgstr "%s galerisinde toplam %s fotoğraf var"
+
+msgid "Are you sure you want to delete this gallery?"
+msgstr "Bu galeriyi silmek istediğinizden emin misiniz?"
+
+msgid "Delete gallery"
+msgstr "Galeriyi sil"
+
+msgid "Shortcode:"
+msgstr "Kısakod:"
+
+msgid "PHPCode:"
+msgstr "PHP Kodu:"
+
+msgid "You have no galleries"
+msgstr ""
+
+msgid "You don't have any galleries yet."
+msgstr "Henüz hiçbir galeriniz yok."
+
+msgid "Want to create one right now?"
+msgstr "Şu anda bir tane oluşturmak ister misiniz?"
+
+msgid "What is a gallery"
+msgstr "Galeri nedir"
+
+msgid ""
+"<strong>Gallery</strong> &mdash; the highest type of entity in the Gallery "
+"by Supsystic."
+msgstr ""
+"<strong>Galeri</strong> &mdash; Supsystic'ten Galeri eklentisindeki en üst "
+"seviyedir."
+
+msgid ""
+"You can have an unlimited number of galleries, to which you can attach the "
+"preloaded pictures."
+msgstr ""
+"Önceden yüklenmiş fotoğrafları ekleyebileceğiniz sınırsız sayıda galeriye "
+"sahip olabilirsiniz."
+
+msgid ""
+"Each gallery has a number of display settings and behaviors that you can "
+"save to presets and apply to other galleries."
+msgstr ""
+"Her galerinin kaydedip başka galerilere de uygulayabileceğiniz görüntüleme "
+"ve davranış ayarları bulunur."
+
+msgid "Gallery title can't be empty!"
+msgstr "Galeri başlığı boş olamaz!"
+
+msgid "Gallery title:"
+msgstr "Galeri başlığı:"
+
+msgid "Select source to import from"
+msgstr "İçeri aktarma için kaynak seçin"
+
+msgid "Back to the gallery"
+msgstr "Galeriye dön"
+
+msgid "Main"
+msgstr "Ana"
+
+msgid "Captions"
+msgstr "Fotoğraf alt yazıları"
+
+msgid "Categories"
+msgstr "Kategoriler"
+
+msgid "Add images"
+msgstr "Fotoğraf ekle"
+
+msgid "Import settings"
+msgstr "İçeri aktarma ayarları"
+
+msgid "Your changes not saved. You really want to leave without saving?"
+msgstr ""
+"Yaptığınız değişiklikler kaydedilmemiş. Kaydetmeden çıkmak istediğinizden "
+"gerçekten emin misiniz?"
+
+msgid "Gallery Type"
+msgstr "Galeri Türü"
+
+msgid "Number of Columns"
+msgstr "Sütun Sayısı"
+
+msgid "Responsive columns"
+msgstr "Esnek (responsive) sütunlar"
+
+msgid "Gallery Position"
+msgstr ""
+
+msgid "Images distance"
+msgstr "Fotoğraf aralığı"
+
+msgid "Gallery width"
+msgstr "Galeri genişliği"
+
+msgid "Full screen width"
+msgstr ""
+
+msgid "Gallery padding"
+msgstr "Galeri dolgusu"
+
+msgid "Gallery height"
+msgstr "Galeri yüksekliği"
+
+msgid "Image width"
+msgstr "Fotoğraf genişliği"
+
+msgid "Image height"
+msgstr "Fotoğraf yüksekliği"
+
+msgid "Image radius"
+msgstr "Fotoğraf yarıçapı"
+
+msgid "Image crop quality"
+msgstr ""
+
+msgid "Display only first image"
+msgstr ""
+
+msgid "Social Sharing"
+msgstr ""
+
+msgid "Social Buttons Project"
+msgstr ""
+
+msgid "Gallery Sharing"
+msgstr ""
+
+msgid "Image Sharing"
+msgstr ""
+
+msgid "Buttons align"
+msgstr ""
+
+msgid "Popup Image Sharing"
+msgstr ""
+
+msgid "You have no Social Sharing projects for now."
+msgstr ""
+
+msgid "Create your first project"
+msgstr ""
+
+msgid ""
+"then just reload page with your Gallery settings, and you will see list with "
+"available Social Projects for your Gallery."
+msgstr ""
+
+msgid ""
+"You need to install Social Share Buttons by Supsystic to use this feature."
+msgstr ""
+
+msgid "Install plugin"
+msgstr ""
+
+msgid "here."
+msgstr ""
+
+msgid "Horizontal Scroll"
+msgstr ""
+
+msgid "Scroll Bar Color"
+msgstr ""
+
+msgid "Scroll Bar Transparency"
+msgstr ""
+
+msgid "Border"
+msgstr "Kenarlık"
+
+msgid "Available"
+msgstr "Mevcut"
+
+msgid "Border Type"
+msgstr "Kenarlık Tipi"
+
+msgid "Shadow"
+msgstr "Gölge"
+
+msgid "Shadow preset"
+msgstr "Gölge hızlı ayarı"
+
+msgid "When mouse is over"
+msgstr "Fare üzerine geldiğinde"
+
+msgid "Off"
+msgstr "Kapalı"
+
+msgid "Show mouse on"
+msgstr "Fare imleci üzerindeyken göster"
+
+msgid "Hide mouse on"
+msgstr "Fare imleci üzerindeyken gizle"
+
+msgid "Overlay image with shadow"
+msgstr "Resmin üstüne gölge ile bindirme yap"
+
+msgid "Shadow color"
+msgstr "Gölge rengi"
+
+msgid "Shadow blur"
+msgstr "Gölge bulanıklığı"
+
+msgid "Shadow X"
+msgstr "Gölge X"
+
+msgid "Shadow Y"
+msgstr "Gölge Y"
+
+msgid "Pop-up Image"
+msgstr "Açılan Resim"
+
+msgid "Popup box theme"
+msgstr "Açılan pencere teması"
+
+msgid "Choose theme"
+msgstr "Tema seç"
+
+msgid "Disable on mobile"
+msgstr "Cep telefonunda devre dışı bırak"
+
+msgid "Popup Image Text"
+msgstr ""
+
+msgid "Caption"
+msgstr "Fotoğraf alt yazısı"
+
+msgid "Title"
+msgstr ""
+
+msgid "Alt text"
+msgstr ""
+
+msgid "Description"
+msgstr "Açıklama"
+
+msgid "Hide Popup Captions"
+msgstr "Popup Yazılarını Gizle"
+
+msgid "Transparency"
+msgstr "Şeffaflık"
+
+msgid "Slideshow"
+msgstr "Slayt gösterisi"
+
+msgid "Slideshow speed"
+msgstr "Slayt hızı"
+
+msgid "Slideshow pause on hover"
+msgstr ""
+
+msgid "Slideshow autostart"
+msgstr "Slayt otomatik başlasın"
+
+msgid "Popup Image size"
+msgstr ""
+
+msgid "Effect"
+msgstr "Efekt"
+
+msgid "Choose effect"
+msgstr "Efekt seç"
+
+msgid "Personal captions"
+msgstr "Kişisel yazılar"
+
+msgid "Polaroid Style"
+msgstr "Polaroid Stili"
+
+msgid "Polaroid Image Animation"
+msgstr "Polaroid Fotoğraf Animasyonu"
+
+msgid "Polaroid Image Scattering "
+msgstr "Polaroid Fotoğraf Dağılımı"
+
+msgid "Polaroid Frame Width"
+msgstr ""
+
+msgid "Text size"
+msgstr "Yazı boyutu"
+
+msgid "Text horizontal align"
+msgstr "Yazının yatay hizalaması"
+
+msgid "Text vertical align"
+msgstr "Yazının dikey hizalaması"
+
+msgid "Hide image title tooltip"
+msgstr "Fotoğraf başlığını gizleme ipucunu gizle"
+
+msgid "Mobile - show always caption"
+msgstr ""
+
+msgid "Show icons"
+msgstr "Simgeleri göster"
+
+msgid "Select effect"
+msgstr "Efekti seç"
+
+msgid "Animation"
+msgstr "Animasyon"
+
+msgid "Icons color"
+msgstr "Simge rengi"
+
+msgid "Icons hover color"
+msgstr "Simge vurgulama rengi"
+
+msgid "Background hover color"
+msgstr "Arka plan vurgulama rengi"
+
+msgid "Icons size"
+msgstr "Simge boyutu"
+
+msgid "Distance between icons"
+msgstr "Simgeler arasındaki mesafe"
+
+msgid "Show overlay"
+msgstr "Bindirme göster"
+
+msgid "Overlay color"
+msgstr "Bindirme rengi"
+
+msgid "Overlay transparency"
+msgstr "Bindirme şeffaflığı"
+
+msgid "Categorize images in the gallery"
+msgstr "Galerideki fotoğrafları kategorize et"
+
+msgid "Let user switch gallery pages"
+msgstr "Kullanıcı galeri sayfaları arasında geçiş yapabilsin"
+
+msgid "Save settings as preset"
+msgstr "Ayarları hızlı ayar olarak kaydet"
+
+msgid "Preset title:"
+msgstr "Hızlı ayar başlığı:"
+
+msgid "Delete preset"
+msgstr "Hızlı ayarı sil"
+
+msgid "Are you really want to delete preset \"%s\"?"
+msgstr "\"%s\" hızlı ayarını silmek istediğinizden eminiz misiniz?"
+
+msgid "Load settings from presets"
+msgstr "Ayarları hızlı ayarlardan al"
+
+msgid "Select preset:"
+msgstr "Hızlı ayar seç:"
+
+msgid "Failed to load the presets."
+msgstr "Hızlı ayar yüklenemedi."
+
+msgid "Currently you have no presets."
+msgstr "Mevcut hiçbir hızlı ayarınız bulunmamaktadır."
+
+msgid "Select \"Big image\" theme"
+msgstr "\"Big Image\" (Büyük Resim) temasını seç"
+
+msgid "Select a theme"
+msgstr "Bir tema seç"
+
+msgid "Select"
+msgstr "Seç"
+
+msgid "Select overlay effect"
+msgstr "Bindirme efekti seçin"
+
+msgid "This effect requires icons be enabled. Enable Icons?"
+msgstr "Bu efekt için simgelerin açık olması gerekir. Açılsın mı?"
+
+msgid "Select shadow preset"
+msgstr "Gölge hızlı ayarı seç"
+
+msgid "Select shadow"
+msgstr "Gölge seç"
+
+msgid "Import settings from gallery"
+msgstr "Ayarları galeriden içeri aktar"
+
+msgid ""
+"Here you can import settings from other galleries, but right now, you have "
+"only one gallery, create more - and see how it works"
+msgstr ""
+"Burada diğer galerilerden ayarları içeri aktarabilirsiniz, fakat şu anda "
+"sadece bir galeriniz var, daha fazla galeri oluşturun - ve nasıl çalıştığını "
+"görün."
+
+msgid "Improve free version"
+msgstr ""
+
+msgid "Select icons effects"
+msgstr "Simge efeklerini seç"
+
+msgid "Click on the icon to select effect"
+msgstr "Efekti seçmek için simgesini tıklatın"
+
+msgid "close"
+msgstr ""
+
+msgid "next"
+msgstr ""
+
+msgid "previous"
+msgstr ""
+
+msgid "start slideshow"
+msgstr ""
+
+msgid "stop slideshow"
+msgstr ""
+
+msgid "image"
+msgstr ""
+
+msgid "of"
+msgstr ""
+
+msgid "Choose source"
+msgstr "Kaynak seçin"
+
+msgid "Import from WordPress Media Library"
+msgstr "WordPress Ortam Kitaplığı'ndan içeri aktar"
+
+msgid "Import from social networks"
+msgstr "Sosyal ağlardan içeri aktar"
+
+msgid "Import from your Instagram account"
+msgstr "Instagram hesabınızdan içeri aktarın"
+
+msgid "Import from your Flickr account"
+msgstr "Flickr hesabınızdan içeri aktarın"
+
+msgid "Import from your Tumblr account"
+msgstr "Tumblr hesabınızdan içeri aktarın"
+
+msgid "Import from your Facebook account"
+msgstr "Facebook hesabınızdan içeri aktarın"
+
+msgid "Import from cloud services"
+msgstr ""
+
+msgid "Import from your FTP server"
+msgstr ""
+
+msgid "Import from your Google Drive account"
+msgstr ""
+
+msgid "Get Pro to enable import"
+msgstr "İçeri aktarmayı etkinleştirmek için PRO'yu edinin"
+
+msgid "Properties"
+msgstr "Özellikler"
+
+msgid "Delete Image"
+msgstr "Resmi Sil"
+
+msgid "Sort To: "
+msgstr ""
+
+msgid "Sort By: "
+msgstr ""
+
+msgid "Switch to the list view"
+msgstr "Liste görünümüne geç"
+
+msgid "Switch to the block view"
+msgstr "Blok görünümüne geç"
+
+msgid "Apply"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "The gallery is does not exists"
+msgstr "Galeri mevcut değil"
+
+msgid "Currently this gallery has no images"
+msgstr "Şu anda galeride hiçbir fotoğraf yok"
+
+msgid "Linked Images"
+msgstr ""
+
+msgid "Instagram authorization"
+msgstr "Instagram yetkilendirme"
+
+msgid "Upload your images from the Instagram Media Library"
+msgstr "Resimlerinizi Instagram Ortam Kitaplığı'ndan yükleyin"
+
+msgid "Upload from Instagram"
+msgstr "Instagram'dan yükleyin"
+
+msgid "Your message successfully send. We contact you soon."
+msgstr ""
+"Mesajınız başarılı bir şekilde iletilmiştir. En kısa zamanda size geri dönüş "
+"yapacağız."
+
+msgid "Step-by-step Tutorial"
+msgstr "Adım Adım Öğretici"
+
+msgid "Begin Step-by-step Tutorial"
+msgstr "Adım Adım Öğreticisini başlat"
+
+msgid "Name"
+msgstr "Adınız"
+
+msgid "Email"
+msgstr "E-posta"
+
+msgid "Website"
+msgstr "İnternet Sitesi"
+
+msgid "Subject"
+msgstr "Konu"
+
+msgid "Topic"
+msgstr "Başlık"
+
+msgid "Plugin options"
+msgstr "Eklenti ayarları"
+
+msgid "Report a bug"
+msgstr "Hata bildir"
+
+msgid "Require a new functionallity"
+msgstr "Yeni özellik talep et"
+
+msgid "Other"
+msgstr "Diğer"
+
+msgid "Message"
+msgstr "Mesajınız"
+
+msgid "Hello Supsystic Team!"
+msgstr "Merhaba Supsystic Takımı!"
+
+msgid ""
+"Some errors occurred while sending mail please send your message trough this "
+"contact form:"
+msgstr ""
+"Mailiniz gönderilirken hata oldu. Lütfen mesajınızı bu form ile iletin:"
+
+msgid "Unable to save chosen photo %s: %s"
+msgstr "Seçilen fotoğraf kaydedilemiyor %s: %s"
+
+msgid "New Folder"
+msgstr "Yeni Klasör"
+
+msgid "The title can't be empty"
+msgstr "Başlık boş olamaz"
+
+msgid "Failed to update position."
+msgstr "Pozisyon güncelleme başarısız"
+
+msgid "Position updated successfully!"
+msgstr "Pozisyon başarıyla güncellendi!"
+
+msgid "Rename folder"
+msgstr "Klasör adını değiştir"
+
+msgid "Folder name:"
+msgstr "Klasör adı:"
+
+msgid "Add images to the gallery"
+msgstr "Galeriye fotoğraf ekle"
+
+msgid "Please wait while the plugin to get the list of galleries..."
+msgstr "Galeri listesi için lütfen eklentiyi bekleyin..."
+
+msgid "Select the gallery:"
+msgstr "Galeriyi seç:"
+
+msgid "New folder"
+msgstr "Yeni klasör"
+
+msgid "Add images to the new gallery"
+msgstr "Yeni galeriye fotoğraf ekle"
+
+msgid "Create new folder"
+msgstr "Yeni klasör oluştur"
+
+msgid "Edit selected item"
+msgstr "Seçili öğeyi değiştir"
+
+msgid "Delete selected items"
+msgstr "Seçili öğeleri sil"
+
+msgid "Create new gallery from the selected items"
+msgstr "Seçili öğelerden yeni galeri oluştur"
+
+msgid "New gallery from selected"
+msgstr "Seçili olanlardan yeni galeri"
+
+msgid "Add the selected items to the existing gallery"
+msgstr "Seçili öğeleri varolan galeriye ekle"
+
+msgid "Add selected to the gallery"
+msgstr "Seçilenleri galeriye ekle"
+
+msgid "Upload your images from the WordPress Media Library"
+msgstr "Resimlerini Wordpress Ortam Kitaplığı'ndan yükleyin"
+
+msgid "All photos"
+msgstr "Tüm fotoğraflar"
+
+msgid "Drop photos here to move them from the folder"
+msgstr "Fotoğrafları klasörden çıkarmak için buraya bırakın"
+
+msgid "Next"
+msgstr "Sonraki"
+
+msgid "Close Tutorial"
+msgstr "Öğreticiyi kapat"
+
+msgid "Welcome to Photo Gallery plugin by Supsystic!"
+msgstr ""
+
+msgid ""
+"Thank you for choosing our Gallery plugin. Just click here to start using it "
+"- and we will show you it's possibilities and powerfull features."
+msgstr ""
+
+msgid "Hello! This is the Gallery by Supsystic Overview."
+msgstr ""
+
+msgid ""
+"Here you can get help: watch the video tutorial or read FAQ and "
+"Documentation, make use of contact form. Also here requirements for server - "
+"Server Settings."
+msgstr ""
+"Buradan yardım alabilirsiniz: öğretici videoyu izleyin veya SSS ve "
+"Dokümantasyon bölümünü okuyun, iletişim formundan faydalanın. Bunun için "
+"ayrıca Sunucu Bilgilerinize ihtiyacımız var."
+
+msgid "Create your first Gallery"
+msgstr ""
+
+msgid ""
+"To Create New Gallery select gallery template. You can change template and "
+"settings later. Now here are four different templates. With PRO version "
+"you’ll get more features like Categories, Load More button, Post Feed "
+"(Content) gallery, Polaroid gallery and more. Enter name of the gallery and "
+"click “Save”."
+msgstr ""
+
+msgid "Add images to your Gallery"
+msgstr ""
+
+msgid ""
+"Now you are in the edit menu of your gallery. And the first thing you need "
+"to do are add media to the gallery. Click \"Add Images\" button."
+msgstr ""
+"Şu anda galerinizin düzenleme menüsündesiniz. İlk yapmanız gereken "
+"galerinize fotoğraf yüklemek. \"Fotoğraf Ekle\" düğmesine tıklayın."
+
+msgid "Images Import Options"
+msgstr ""
+
+msgid ""
+"<p>Import images in several ways:</p><p>Import from Wordpress Media Library/"
+"Upload files from your computer</p><p>Import from social networks</"
+"p><p>Instagram (in the Free version)</p><p>With PRO-version also will be "
+"available import from Flickr, Tumblr and Facebook.</p><p>Besides with "
+"Gallery PRO version you can import images from such cloud services - FTP "
+"server, Google Drive.</p>"
+msgstr ""
+
+msgid "Image List"
+msgstr ""
+
+msgid ""
+"<p>Now you can see your image list. Here you can:</p><p>Change the order of "
+"images – simply by dragging them manually.</p><p>Delete images.</p><p>Add "
+"new images from different sources to the grid gallery – click “Add Images” "
+"button and select the source to import from.</p><p><b>Caption tab</b> – add "
+"caption to image – it will be displayed on the caption effect of the "
+"gallery. Also here included the support of html-elements inside caption "
+"effect</p><p><b>SEO tab</b> – manage image title and description</"
+"p><p><b>Link tab</b> – attach links to image – it will go to the link when "
+"you click the image.</p><p><b>Video tab</b> – attach video url – it will be "
+"displayed in a pop-up image when you click on the image.</p><p><b>Categories "
+"tab</b> – add tags for image categories.</p><p><b>Linked images tab</b> – "
+"add linked images to the chosen image.</p><p><b>Crop tab</b> – choose image "
+"crop position.</p><p><b>Replace image tab</b> – replace image without losing "
+"image settings.</p><p>Now follow to the gallery settings – сlick "
+"“Properties” button.</p>"
+msgstr ""
+
+msgid "Preview of Gallery settings"
+msgstr ""
+
+msgid ""
+"At the left side of the monitor you see a preview image in which will be "
+"seen changes made to the settings. This window for the settings of your "
+"gallery."
+msgstr ""
+
+msgid "Main Settings"
+msgstr ""
+
+msgid ""
+"<p>Here you can set main settings of gallery - choose Gallery Type, for more "
+"information check this <a href=\"//supsystic.com/gallery-order-types/\" "
+"target=\"_blank\">article</a>.</p><p>Social Sharing: add social share "
+"buttons to your gallery. Or showcase images in a Horizontal Scroll view.</"
+"p><p>Load More: adds \"load more\" button to your gallery. And with Custom "
+"Buttons: you can make your button better.</p><p>Add to images border and "
+"shadow with Border Type and Shadow settings.</p><p>In the Pop-up Image "
+"section customize lightbox of your gallery.</p>"
+msgstr ""
+
+msgid "Captions and Icons"
+msgstr ""
+
+msgid ""
+"<p>On Captions tab you can manage the Captions and Icons, and make them your "
+"style.</p>"
+msgstr ""
+
+msgid "Categories and Pagination"
+msgstr ""
+
+msgid ""
+"<p>Categories tab: here you can enable Categories and Pagination options.</"
+"p><p>To this tab become available you need to buy PRO version."
+msgstr ""
+
+msgid ""
+"<p>Posts tab: here you can add posts and pages to your gallery and also "
+"manage them. Posts of gallery included in the PRO version of Gallery by "
+"Supsystic.</p>"
+msgstr ""
+
+msgid "Well done!"
+msgstr ""
+
+msgid ""
+"<p><b>Upgrading</b></p><p>Once you have purchased Premium version of plugin "
+"- you’ll have to enter license key (you can find it in your personal account "
+"on our site). Go to the License tab and enter your email and license key. "
+"Once you have activated your PRO license - you can use all its advanced "
+"options.</p><p>That’s all. From this moment you can use your Gallery without "
+"any doubt. But if you still have some question - do not hesitate to contact "
+"us through our <a href=\"https://supsystic.com/contact-us/\">internal "
+"support</a> or on our <a href=\"http://supsystic.com/forum/photo-gallery-"
+"plugin/\">Supsystic Forum.</a> Besides you can always describe your "
+"questions on <a href=\"https://wordpress.org/support/plugin/gallery-by-"
+"supsystic\">WordPress Ultimate Forum.</a></p><p><b>Enjoy this plugin?</b></"
+"p><p>It will be nice if you`ll help us and boost plugin with <a href="
+"\"https://wordpress.org/support/view/plugin-reviews/gallery-by-supsystic?"
+"rate=5#postform/\">Five Stars rating on WordPress.org.</a></p><p>We hope "
+"that you like this plugin and wish you all the best! Good luck!</p>"
+msgstr ""
+
+msgid "Welcome to the"
+msgstr "Hoş Geldiniz"
+
+msgid ""
+"Photo Gallery plugin is created for people who would like to show their "
+"photos in a marvelous way. Perform your best ideas, making delightful "
+"presentations or galleries from videos and photos."
+msgstr ""
+"Fotoğraf Galerisi eklentisi fotoğraflarını harika bir sunumla göstermek "
+"isteyenler için geliştirilmiştir. En iyi fikirlerinizi uygulayın ve fotoğraf "
+"ile videolarınızdan hoş sunumlar oluşturun."
+
+msgid "Step-by-step tutorial"
+msgstr "Adım adım öğretici"
+
+msgid ""
+"There’re really many options of photo gallery plugin customization. So as "
+"soon as you close that page, I’ll show you step-by-step tutorial of how to "
+"use plugin. Hope it will be usefull for you :)"
+msgstr ""
+"Fotoğraf Galerisi eklentisinin özelleştirilmesi için çok fazla seçenek var. "
+"Bu sayfayı kapatır kapatmaz, eklentiyi nasıl kullanabileceğinize ilişkin "
+"Öğretici Video'yu göstereceğiz. Sizin için faydalı olacağını umarız :)"
+
+msgid "Support"
+msgstr "Destek"
+
+msgid ""
+"We love our plugin and do the best to improve all features you want and fix "
+"all issues. But sometimes some issues happened or you can’t find feature you "
+"want :) Don’t worry, just <a href=\"//supsystic.com/plugins/photo-gallery?"
+"utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact"
+"\" target=\"_blank\"> contact us </a> . We’ll answer in an hour and fix all "
+"issues."
+msgstr ""
+"We love our plugin and do the best to improve all features you want and fix "
+"all issues. But sometimes some issues happened or you can’t find feature you "
+"want :) Don’t worry, just <a href=\"//supsystic.com/plugins/photo-gallery?"
+"utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact"
+"\" target=\"_blank\"> contact us </a> . We’ll answer in an hour and fix all "
+"issues."
+
+msgid "Video Tutorial"
+msgstr "Öğretici Video"
+
+msgid "Frequently Asked Questions"
+msgstr "Sık Sorulan Sorular"
+
+msgid ""
+"Gallery doesn’t load on the front end. If the loading gallery icon just "
+"keeps playing but never loads the gallery."
+msgstr ""
+
+msgid "How to change the position of photos in gallery?"
+msgstr ""
+
+msgid "How to insert gallery into widget?"
+msgstr ""
+
+msgid "Go to Appearance -> Widgets."
+msgstr ""
+
+msgid ""
+"You’ll see Gallery by Supsystic Widget on the left. Drag it to the area, "
+"where you want it to appear."
+msgstr ""
+
+msgid "Then choose what gallery you want to display. And press save."
+msgstr ""
+
+msgid "Check all other FAQs"
+msgstr ""
+
+msgid "Roles"
+msgstr ""
+
+msgid "PRO option"
+msgstr ""
+
+msgid "Edit image"
+msgstr "Görüntüyü düzenle"
+
+msgid "SEO"
+msgstr "SEO"
+
+msgid "Alternative text"
+msgstr "Alternatif metin"
+
+msgid "External link"
+msgstr "Harici bağlantı"
+
+msgid "Available in PRO version."
+msgstr "PRO sürümde mevcut."
+
+msgid "Link"
+msgstr "Bağlantı"
+
+msgid "Open in new window"
+msgstr "Yeni pencerede aç"
+
+msgid "Embeded video"
+msgstr "Gömülü video"
+
+msgid "Video URL"
+msgstr "Video adresi (URL)"
+
+msgid ""
+"Supports Youtube and Vimeo. URL will be converted to embed automatically."
+msgstr ""
+"Youtube ve Vimeo desteklenmektedir. Gömülmeyi otomatikleştirmek için URL "
+"dönüştürülecektir."
+
+msgid "Image"
+msgstr "Görüntü"
+
+msgid "Date"
+msgstr "Tarih"
+
+msgid "Select %s"
+msgstr "%s seç"
+
+msgid "photo"
+msgstr "fotoğraf"
+
+msgid "photos"
+msgstr "fotoğraflar"
+
+msgid "Caption effect"
+msgstr "Yazı başlığı efekti"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Linked images"
+msgstr ""
+
+msgid "Crop"
+msgstr ""
+
+msgid "Replace image"
+msgstr ""
+
+msgid "http://example.com/"
+msgstr "http://ornek.com/"
+
+msgid "Add nofollow attribute"
+msgstr ""
+
+msgid "Choose images"
+msgstr ""
+
+#~ msgid "Select categories preset"
+#~ msgstr "Kategori hazır ayarını seç"
+
+#~ msgid "Categories preset editor"
+#~ msgstr "Kategori hızlı ayarı düzenleyicisi"
+
+#~ msgid "Preset name"
+#~ msgstr "Hızlı ayar adı"
+
+#~ msgid "Normal"
+#~ msgstr "Normal"
+
+#~ msgid "Bold"
+#~ msgstr "Kalın"
+
+#~ msgid "Select pagination preset"
+#~ msgstr "Sayfalandırma hızlı ayarını seç"
+
+#~ msgid "Pages preset editor"
+#~ msgstr "Sayfalar hızlı ayarı düzenleyicisi"
+
+#~ msgid "You have not any galleries"
+#~ msgstr "Herhangi bir galeriniz bulunmamaktadır."
+
+#~ msgid "Show caption"
+#~ msgstr "Fotoğraf alt yazısını göster"
+
+#~ msgid "Hello! These are the Gallery by Supsystic. "
+#~ msgstr "Merhaba! Bu Supsystic'ten bir Galeri'dir."
+
+#~ msgid "First Step"
+#~ msgstr "İlk Adım"
+
+#~ msgid ""
+#~ "To Create New Gallery select gallery template. You can change template "
+#~ "and settings later. Now here four different templates. With PRO version "
+#~ "you’ll get more features like Categories, Load More button, Categories, "
+#~ "Post Feed (Content) gallery, Polaroid gallery and more. Enter name of the "
+#~ "gallery and click “Save”."
+#~ msgstr ""
+#~ "Yeni bir galieri oluşturmak için bir galeri şablonu seçin. Şablonu ve "
+#~ "ayarları daha sonra değiştirebilirsiniz. Şu anda dört şablon "
+#~ "kullanabilirsiniz. PRO sürüm ile Kategoriler, \"Daha Fazla Yükle\" "
+#~ "düğmesi, Yazı Beslemesi galerisi, Polaroid galerisi ve daha da fazlasına "
+#~ "yeni özellikler elde edebilirsiniz. Galeri adını yazıp \"Kaydet\"e "
+#~ "tıklayın."
+
+#~ msgid "Second Step"
+#~ msgstr "İkinci Adım"
+
+#~ msgid "Second Step-2"
+#~ msgstr "İkinci Adım - 2"
+
+#~ msgid ""
+#~ "<p>Import images in several ways:</p><p>Import from Wordpress Media "
+#~ "Library/Upload files from your computer</p><p>Import from social "
+#~ "networks</p><p>Instagram (in the Free version)</p><p>With PRO-version "
+#~ "also will be available import from Flickr, Tumblr and Facebook.</p>"
+#~ msgstr ""
+#~ "<p>Resimleri farklı yollarla yükleyebilirsiniz:</p><p>Wordpress Ortam "
+#~ "Kitaplığı'ndan yükleyin/Bilgisayarınızdan yükleyin</p>Sosyal ağlardan "
+#~ "yükleyin<p></p><p>Instagram (Ücretsiz sürümde)</p><p>PRO sürümde ayrıca "
+#~ "Flickr, Tumblr ve Facebook'tan da yükleyebilirsiniz.</p>"
+
+#~ msgid "Third Step"
+#~ msgstr "Üçüncü Adım"
+
+#~ msgid ""
+#~ "<p>Now you can see your image list. Here you can:</p><p>Change the order "
+#~ "of images – simply by dragging them manually.</p><p>Delete images</"
+#~ "p><p>Add new images from different sources to the grid gallery – click "
+#~ "“Add Images” button and select the source to import from.</"
+#~ "p><p><b>Caption tab</b> – add caption to image – it will be displayed on "
+#~ "the caption effect of the gallery. Also here included the support of html-"
+#~ "elements inside caption effect</p><p><b>SEO tab</b> – manage image title "
+#~ "and description</p><p><b>Link tab</b> – attach links to image – it will "
+#~ "go to the link when you click the image.</p><p><b>Video tab</b> – attach "
+#~ "video url – it will be displayed in a pop-up image when you click on the "
+#~ "image.</p><p><b>Categories tab</b> – add tags for image categories.</"
+#~ "p><p>Now follow to the gallery settings – сlick “Properties” button.</p>"
+#~ msgstr ""
+#~ "Artık fotoğraf listenizi görebilirsiniz. Burada:</p><p>Fotoğrafların "
+#~ "sırasını değiştirebilirsiniz - sürükle-bırak ile kolayca.</"
+#~ "p><p>Fotoğrafları silebilir</p><p>Farklı kaynaklardan yeni fotoğrafları "
+#~ "grid galerisine ekleyin - \"Fotoğraf Ekle\" düğmesine tıklayın ve içeri "
+#~ "aktarım yapmak istediğiniz kaynağı seçin.</p><p><b>Fotoğraf Alt Yazı "
+#~ "sekmesi</b> - fotoğraflara alt yazı ekleyin - galerideki Alt Yazı "
+#~ "efektinde görünecektir. Fotoğraf Alt Yazılarında html öğeleri "
+#~ "desteklenmektedir.</p><p><b>SEO sekmesi</b> - Fotoğraf başlığı ve "
+#~ "açıklamasını yönetin</p><p><b>Bağlantı sekmesi</b> - fotoğraflara "
+#~ "bağlantılar ekleyebilirsiniz - fotoğrafa tıkladığınızda bu bağlantıya "
+#~ "gidecektir.</p><p><b>Video sekmesi</b - video bağlantısı (url) ekleyin - "
+#~ "fotoğrafa tıkladığınızda açılan pencerede gösterilecektir.</"
+#~ "p><p><b>Kategoriler sekmesi</b> - Fotoğraf kategorilerine etiketler "
+#~ "ekleyin.</p><p>Şimdi galeri ayarlarına geçebilirsiniz - \"Ayarlar\" "
+#~ "düğmesine tıklayın.</p>"
+
+#~ msgid "Fourth Step"
+#~ msgstr "Dördüncü Adım"
+
+#~ msgid ""
+#~ "Gallery Properties: At the left side of the monitor you see a preview "
+#~ "image in which will be seen changes made to the settings. This window for "
+#~ "the settings of your gallery."
+#~ msgstr ""
+#~ "Galeri Özellikleri: Monitörünüzün sol tarafında yaptığınız ayar "
+#~ "değişikliklerinin ön izlemesini yapabileceğiniz bir görüntü yer "
+#~ "almaktadır. Bu görüntü galerinizin ayarları içindir."
+
+#~ msgid "Fourth Step-1"
+#~ msgstr "Dördüncü Adım - 1"
+
+#~ msgid ""
+#~ "<p>Gallery Type: sets the look of your gallery for more information check "
+#~ "this article. If you were chosen fixed column you'll see new tab where "
+#~ "you can make a Number of Columns for your gallery.</p><p>Load More: adds "
+#~ "a button to the page. And with Custom Buttons: you can make your button "
+#~ "better.</p><p>Add to images border with Border Type and add shadow with "
+#~ "Shadow.</p><p>Big image appear settings set in the Pop-up Image section.</"
+#~ "p>"
+#~ msgstr ""
+#~ "<p>Galeri Türü: Galerinizin görünümünü belirler. Daha fazla bilgi için bu "
+#~ "yazıyı inceleyin. Sabit Sütunlar türünü seçerseniz, galerinizde kullanmak "
+#~ "istediğiniz sütun sayısını belirleyebileceğiniz yeni bir ayar alanı gelir."
+#~ "</p><p<Daha Fazla Yükle: Sayfaya yeni bir düğme ekler. Kişisel Düğmeler "
+#~ "ile de düğmelerin görünümünü daha iyi yapabilir, temasına uyumlu hale "
+#~ "getirebilirsiniz.</p><p>Kenarlık Türü ile fotoğraflarınıza kenarlık "
+#~ "ekleyebilir ve Gölge ayarı ile de gölge ekleyebilirsiniz.</p><p>Büyük "
+#~ "fotoğraf ayarları ise Açılır Pencere Fotoğraf bölümünde görülebilir.</p>"
+
+#~ msgid "Five Step"
+#~ msgstr "Beşinci Adım"
+
+#~ msgid ""
+#~ "<p>Captions: In this tab you can manage the captions and make them your "
+#~ "style.</p>"
+#~ msgstr ""
+#~ "Fotoğraf Alt Yazıları: Bu sekmede fotoğraf alt yazılarını düzenleyebilir "
+#~ "ve bunları stiliniz yapabilirsiniz."
+
+#~ msgid "Six Step"
+#~ msgstr "Altıncı Adım"
+
+#~ msgid ""
+#~ "<p>Categories: Сategories option includes such capabilities:</p><p>Hide "
+#~ "\"all\" category</p><p>Enable shuffling animation of images. (If you "
+#~ "enable posts layout on the Posts tab – this feature will not be "
+#~ "available).</p><p>Set the duration of animation.</p><p>Define the "
+#~ "position of categories – over or under the gallery.</p><p>Determine the "
+#~ "alignment of categories.</p><p>Set Categories order</p><p>To this tab "
+#~ "become available you need to buy pro-version."
+#~ msgstr ""
+#~ "<p>Kategoriler: Kategoriler seçeneği şu özellikleri içerir:</p><p>\"Tüm\" "
+#~ "kategorileri gizle</p><p>Resimlerde karıştırma animasyonunu "
+#~ "etkinleştirme. (Yazılar sekmesinde yer alan Yazı şablonunu devreye "
+#~ "alırsanız bu özellik kullanılamaz).</p><p>Animasyon süresini belirleyin.</"
+#~ "p><p>Kategorilerin pozisyonunu tanımlayın - galerinin üstünde mi altında "
+#~ "mı yer alsın.</p><p>Kategorilerin hizalamasını belirleyin.</"
+#~ "p><p>Kategorilerin sıralamasını ayarlayın</p><p>Bu sekmesinin aktif hale "
+#~ "gelmesi için PRO sürümü edinmeniz gerek.</p>"
+
+#~ msgid "Seven Step"
+#~ msgstr "Yedinci Adım"
+
+#~ msgid ""
+#~ "<p>Posts: Here you can add posts and pages to your gallery and also "
+#~ "manage them. Posts of gallery included in the PRO version of Gallery by "
+#~ "Supsystic.</p>"
+#~ msgstr ""
+#~ "Yazılar: Burada galerilerinize yazı ve sayfalar ekleyebilir ve bunları "
+#~ "yönetebilirsiniz. Galeri yazıları Supsystic'ten Galeri PRO sürümünde "
+#~ "mevcuttur."
+
+#~ msgid "How to use pagination and categories feature of gallery?"
+#~ msgstr "Galeride sayfalandırma ve kategoriler nasıl kullanılır?"
+
+#~ msgid ""
+#~ "Activate “Available” radio button opposite the “Pagination” or "
+#~ "“Categories” option on the Categories tab."
+#~ msgstr ""
+#~ "Kategoriler sekmesindeki \"Sayfalandırma\" veya \"Kategoriler\" "
+#~ "seçeneğinin karşısında yer alan \"Mevcut\" düğmesini aktif hale getirin."
+
+#~ msgid "Set the number of images per page."
+#~ msgstr "Sayfa başına fotoğraf sayısını ayarlayın."
+
+#~ msgid "Choose one of the default presets or create your own."
+#~ msgstr "Mevcut hazır ayarlardan birini kullanın veya yenisini oluşturun."
+
+#~ msgid "After configuring the settings click “Save” button."
+#~ msgstr "Ayarları değiştirdikten sonra \"Kaydet\" düğmesine tıklayın."
+
+#~ msgid ""
+#~ "For more information for <a href=\"//supsystic.com/pagination/\" target="
+#~ "\"_blank\">Pagination</a> and for <a href=\"//supsystic.com/categories-"
+#~ "gallery/\" target=\"_blank\">Categories</a>"
+#~ msgstr ""
+#~ "<a href=\"//supsystic.com/pagination/\" target=\"_blank\">Sayfalandırma</"
+#~ "a> ve <a href=\"//supsystic.com/categories-gallery/\" target=\"_blank"
+#~ "\">Kategoriler</a> hakkında daha fazla bilgi için üzerlerine tıklayın."
+
+#~ msgid "What is “Post Feed” Gallery"
+#~ msgstr "\"Yazı Beslemesi\" (Post Feed) Galerisi nedir?"
+
+#~ msgid "Go to Posts tab."
+#~ msgstr "Yazılar sekmesine git"
+
+#~ msgid ""
+#~ "Select “Enable” in Posts Layout dropdown list to activate the posts "
+#~ "option."
+#~ msgstr ""
+#~ "Yazılar seçeneğini aktif hale getirmek için Yazılar Şablonu aşağı açılan "
+#~ "listesinde Etkinleştir'i seçin."
+
+#~ msgid "Choose one of post layout styles."
+#~ msgstr "Yazı şablonlarından birini seç."
+
+#~ msgid "Add pages and posts."
+#~ msgstr "Sayfa ve yazılar ekle."
+
+#~ msgid "Choose what to show on posts layout in gallery."
+#~ msgstr "Galerideki yazılar şablonunda neler gösterileceğini seç."
+
+#~ msgid ""
+#~ "Learn more about how to do this <a href=\"//supsystic.com/plugins/photo-"
+#~ "gallery/#faq\" target=\"_blank\">here</a>."
+#~ msgstr ""
+#~ "Bunun nasıl yapılacağı hakkında daha fazla bilgi için <a href=\"//"
+#~ "supsystic.com/plugins/photo-gallery/#faq\" target=\"_blank\">buraya</a> "
+#~ "göz atın."
+
+#~ msgid "All other FAQs"
+#~ msgstr "Tüm diğer SSS"
+
+#~ msgid "Let's Start!"
+#~ msgstr "Hadi Başla!"
+
+#~ msgid "Lifetime for cached data"
+#~ msgstr "Önbelleğe alınan verinin süresi"
+
+#~ msgid "The field \"%s\" available only for numeric values"
+#~ msgstr "\"%s\" alanı sadece sayısal veriler için mevcut"
+
+#~ msgid "Settings successfully updated!"
+#~ msgstr "Ayarlar başarıyla kaydedildi!"
+
+#~ msgid "Please correct following errors:"
+#~ msgstr "Lütfen şu hataları düzeltin:"
+
+#~ msgid ""
+#~ "<strong>%s</strong> has its own caching system in order to significantly "
+#~ "reduce the load on the database."
+#~ msgstr ""
+#~ "Veritabanı üzerindeki yükü önemli derecede azaltmak için <strong>%s</"
+#~ "strong> kendi önbellekleme sistemine sahiptir."
+
+#~ msgid ""
+#~ "Use this option only if all your galleries are setting correctly and you "
+#~ "dont need to change settings soon"
+#~ msgstr ""
+#~ "Bu seçeneği sadece bütün galerileriniz düzgün bir şekilde ayarlandıysa ve "
+#~ "kısa zamanda tekrardan değişiklik yapmanız gerekmeyecekse kullanın."
+
+#~ msgid ""
+#~ "Caching is not available because your uploads directory is not writable."
+#~ msgstr ""
+#~ "Önbelleğe alma kullanılamıyor çünkü yükleme klasörünüz yazılabilir değil."
+
+#~ msgid ""
+#~ "The time in seconds after which the cache will be considered obsolete. "
+#~ "Default: 86400 (24 hours)."
+#~ msgstr ""
+#~ "Saniye cinsinden önbelleğin ne zaman eski kabul edileceğinin süresi. "
+#~ "Varsayılan: 86400 (24 saat)."
+
+#~ msgid "Clear cache"
+#~ msgstr "Önbelleği temizle"
+
+#~ msgid ""
+#~ "We don't collect statistics on you, we only collect the errors "
+#~ "encountered during use in order to improve our product."
+#~ msgstr ""
+#~ "Sizinle ilgili istatistikleri kaydetmiyoruz, sadece ürünlerimizi "
+#~ "geliştirmek için kullanımları sırasında oluşan hataları kaydediyoruz."
+
+#~ msgid "Open in new window."
+#~ msgstr "Yeni pencerede aç."

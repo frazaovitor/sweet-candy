@@ -1,0 +1,14 @@
+<a id="back" style="margin-left:15px;display:none;"
+   href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': gallery_id }) }}">
+    &larr; {{ translate('Back to the gallery') }}
+</a>
+
+<iframe id="grid-gallery-preview" data-post="{{ post_id }}" src="{{ base_url }}/?p={{ post_id }}&preview=true" frameborder="0" style="width:100%;margin: 10px 0 5px -10px;overflow-y:hidden;position: absolute;"></iframe>
+
+<script>
+jQuery(document).ready(function($) {
+	$iframe = $('#grid-gallery-preview');
+	$('#wpfooter').hide();
+	$iframe.height($('#wpwrap').height() - 20);
+});
+</script>

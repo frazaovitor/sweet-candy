@@ -1,0 +1,42 @@
+.supsystic-plugin .settings-list {
+    line-height: 0;
+}
+
+.supsystic-plugin .settings {
+	border-bottom: 1px solid gray;
+    line-height: 0;
+    padding: 2.2em 0;
+}
+
+.supsystic-plugin .setting {
+	margin: 2.2em 0;
+}
+
+.supsystic-plugin .supsystic-tooltip {
+	clear: both;
+	margin-left: 0.5em;
+}
+
+.supsystic-plugin .settings .setting-description a {
+	display: block;
+	margin-top: 1em;
+}
+
+.supsystic-plugin .settings .setting-description {
+	width: 30%;
+	display: inline-block;
+}
+
+.supsystic-plugin .settings .setting-description label {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.supsystic-plugin .settings .setting-control {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.supsystic-plugin .chosen-select {
+	min-width: 300px;
+}

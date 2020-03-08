@@ -1,0 +1,1295 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Mik013\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"X-Generator: Poedit 1.8.9\n"
+"X-Poedit-KeywordsList: &lt;br&gt;;odradkovani pomoci <br>\n"
+
+msgid "An error has occurred"
+msgstr "Vyskytla se chyba"
+
+msgid "Overview"
+msgstr "Přehled"
+
+msgid "New Gallery"
+msgstr "Nová galerie"
+
+msgid "Galleries"
+msgstr "Galerie"
+
+msgid "Settings"
+msgstr "Nastavení"
+
+msgid "License"
+msgstr "Licence"
+
+msgid "Images"
+msgstr "Obrázky"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Tumblr"
+msgstr "Tumblr"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Get PRO"
+msgstr "Získat Pro verzi"
+
+msgid "Loading"
+msgstr "Načítám…"
+
+msgid "Authorization code is not specified."
+msgstr "Není zadán kód autorizace."
+
+msgid "Gallery by Supsystic"
+msgstr "Galerie od Supsystic"
+
+msgid "Import images"
+msgstr "Importovat obrázky"
+
+msgid "Facebook authorization"
+msgstr "Facebook autorizace"
+
+msgid "Upload your images from the Facebook Media Library"
+msgstr "Nahrát své obrázky z mediální knihovny Facebooku"
+
+msgid "Login with Facebook"
+msgstr "Přihlásit se pomocí Facebooku"
+
+msgid "Return to the gallery"
+msgstr "Návrat do galerie"
+
+msgid "Upload new images"
+msgstr "Nahrát nové obrázky"
+
+msgid "Logout"
+msgstr "Odhlásit se"
+
+msgid "Select/unselect all photos"
+msgstr "Vybrat / odznačit všechny fotky"
+
+msgid "Here you can specify your business pages and images will load from those pages. You can set several pages, just separate ID of pages by \",\". To get the ID of your page you need to switch to the wanted page, then click on \"About\" link right below page cover, and at the bottom of \"About\" page you will find Facebook Page ID."
+msgstr "Zde je možné uvést vaše obchodní stránky a obrázky se budou načítat z těchto stránek. Můžete nastavit několik stránek, jen oddělte IDčka stránek pomocí \",\". Chcete-li získat identifikátor vaší stránky musíte přepnout na požadovanou stránku, poté klikněte na \"O\" odkaz přímo pod titulní stránku, a ve spodní části \"O stránce\" najdete Facebook Page ID."
+
+msgid "Save"
+msgstr "Uložit"
+
+msgid "Empty user data."
+msgstr "Nebyla zadána uživatelská data."
+
+msgid "Flickr authorization"
+msgstr "Autorizace Flickru"
+
+msgid "Upload your images from the Flickr Media Library"
+msgstr "Nahrát své obrázky z mediální knihovny Flickru"
+
+msgid "Upload from Flickr"
+msgstr "Nahrát z Flickru"
+
+msgid "Images not in albums"
+msgstr "V albu nejsou žádné obrázky"
+
+msgid "Albums"
+msgstr "Alba"
+
+msgid "Fullscreen"
+msgstr "Na celou obrazovku"
+
+msgid "Load More Button"
+msgstr "Načíst více tlačítek"
+
+msgid "Enable"
+msgstr "Povolit"
+
+msgid "Disable"
+msgstr "Zakázat"
+
+msgid "Load with scroll"
+msgstr "Načíst s posuvníkem"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Yes"
+msgstr "Ano"
+
+msgid "Load more button text"
+msgstr "Načíst více textu tlačítkaXxX"
+
+msgid "Images amount"
+msgstr "Počet obrázků"
+
+msgid "Load more amount"
+msgstr "Načíst více"
+
+msgid "Custom Buttons"
+msgstr "Vlastní tlačítka"
+
+msgid "Gallery Loader"
+msgstr "Načítání galerie"
+
+msgid "Background color"
+msgstr "Barva pozadí"
+
+msgid "Choose Icon"
+msgstr "Vybrat ikonu"
+
+msgid "Disable right click"
+msgstr "Zakázat kliknutí pravým tlačítkem"
+
+msgid "Video size"
+msgstr "Velikost videa"
+
+msgid "Autoplay video"
+msgstr "Přehrát video automaticky"
+
+msgid "When video ends"
+msgstr "Když video skončí"
+
+msgid "Do nothing"
+msgstr "Nedělat nic"
+
+msgid "Open next slide"
+msgstr "Otevřít následující slide"
+
+msgid "Close popup"
+msgstr "Zavřít popup"
+
+msgid "Posts layout"
+msgstr "Vzhled příspěvků"
+
+msgid "Posts layout style"
+msgstr "Styl vzhledu příspěvků"
+
+msgid "Posts"
+msgstr "Příspěvky"
+
+msgid "Pages"
+msgstr "Stránky"
+
+msgid "Show author"
+msgstr "Zobrazit autora"
+
+msgid "Show date"
+msgstr "Zobrazit datum"
+
+msgid "Show contents"
+msgstr "Zobrazit obsahy"
+
+msgid "Show categories"
+msgstr "Zobrazit rubriky"
+
+msgid "Hide \"All\" category"
+msgstr "Schovat \"Všechny\" kategorie"
+
+msgid "Enable shuffling animation"
+msgstr "Povolit náhodnou animaci"
+
+msgid "Animation duration"
+msgstr "Délka trvání animace"
+
+msgid "Position"
+msgstr "Umístění"
+
+msgid "Over the gallery"
+msgstr "Přes galerii"
+
+msgid "Under the gallery"
+msgstr "Pod galerií"
+
+msgid "Align"
+msgstr "Zarovnání"
+
+msgid "Left"
+msgstr "Vlevo"
+
+msgid "Center"
+msgstr "Na střed"
+
+msgid "Right"
+msgstr "Vpravo"
+
+msgid "Presets"
+msgstr "Nastavení"
+
+msgid "Choose preset"
+msgstr "Vybrat nastavení"
+
+msgid "Preset Editor"
+msgstr "Editor nastavení"
+
+msgid "Categories order"
+msgstr "Řazení rubrik"
+
+msgid "All"
+msgstr "Vše"
+
+msgid "Enable pagination"
+msgstr "Povolit stránkování"
+
+msgid "Pagination"
+msgstr "Stránkování"
+
+msgid "Images per page"
+msgstr "Obrázků na stránku"
+
+msgid "Buttons position"
+msgstr "Umístění tlačítek"
+
+msgid "Top"
+msgstr "Nahoře"
+
+msgid "Bottom"
+msgstr "Dole"
+
+msgid "Container background"
+msgstr "Pozadí kontejneru"
+
+msgid "Hide container background."
+msgstr "Schovat pozadí kontejneru"
+
+msgid "Text background"
+msgstr "Pozadí textu"
+
+msgid "Hide text background."
+msgstr "Schovat pozadí textu"
+
+msgid "Text color"
+msgstr "Barva textu"
+
+msgid "Use color, based on my theme."
+msgstr "Zvolit barvu podle mojí šablony"
+
+msgid "Vertical padding"
+msgstr "Vertikální odsazení"
+
+msgid "Horizontal padding"
+msgstr "Vodorovné odsazení"
+
+msgid "Font weight"
+msgstr "Tloušťka písma"
+
+msgid "Font size"
+msgstr "Velikost písma"
+
+msgid "Border width"
+msgstr "Šířka ohraničení"
+
+msgid "Border type"
+msgstr "Typ ohraničení"
+
+msgid "Border color"
+msgstr "Barva ohraničení"
+
+msgid "Border radius"
+msgstr "Kulaté ohraničení"
+
+msgid "Buttons preset editor for Paginations, Categories and Load More buttons"
+msgstr "Editor nastavení tlačítek pro Stránkování, Kategorie a Načtení více tlačítek"
+
+msgid "Custom class"
+msgstr "Vlastní třídy"
+
+msgid "Font family"
+msgstr "Styl písma"
+
+msgid "Border style"
+msgstr "Styl ohraničení"
+
+msgid "Choose icon"
+msgstr "Vybrat ikonu"
+
+msgid "Page "
+msgstr "Strana"
+
+msgid "Activate License"
+msgstr "Aktivovat licenci"
+
+msgid "Renew License"
+msgstr "Obnovit licenci"
+
+msgid "Slider by Supsystic"
+msgstr "Slider od Supsystic"
+
+msgid "Congratulations! You have successfully installed and activated PRO version of ' ~ environment.getMenu().getMenuTitle() ~ ' plugin."
+msgstr "Gratulujeme! Úspěšně jste nainstaloval a aktivoval PRO verzi ' ~ environment.getMenu().getMenuTitle() ~ ' pluginu."
+
+msgid "Your premium support is expired in ' ~ days ~ ' days"
+msgstr "Vaše prémiová podpora vyprší za ' ~ days ~ ' dní"
+
+msgid "You will not be able to update your pro version with expired license"
+msgstr "Aktualizace vaší pro verze nebude dostupná s vypršenou licencí"
+
+msgid "Activate"
+msgstr "Aktivovat"
+
+msgid "Authorization oauth_verifier is not specified."
+msgstr "Autorizační oauth_verifier není specifikován"
+
+msgid "Tumblr authorization"
+msgstr "Tumblr autorizace"
+
+msgid "Upload your images from the Tumblr Media Library"
+msgstr "Nahrát své obrázky z mediální knihovnyTumblr"
+
+msgid "Upload from Tumblr"
+msgstr "Nahrát z Tumblr"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "Upload your images from the FTP Server"
+msgstr "Nahrát vaše obrázky z FTP serveru"
+
+msgid "Enter images folder name, e.g. my-images"
+msgstr "Zadejte název složky pro obrázky, např. moje-fotky"
+
+msgid "Parse"
+msgstr "Rozebrat"
+
+msgid "Note: images folder must be in wp-content/uploads/directory"
+msgstr "Poznámka: složka s obrázky musí být v wp-content/uploads/directory"
+
+msgid "Host"
+msgstr "Server"
+
+msgid "Username"
+msgstr "Uživatelské jméno"
+
+msgid "Password"
+msgstr "Heslo"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Enter the full path to images folder"
+msgstr "Zadejte úplnou cestu ke složce s obrázky"
+
+msgid "Note: you need to specify the full path to images folder"
+msgstr "Poznámka: Je třeba zadat úplnou cestu ke složce s obrázky"
+
+msgid "Please fill all fields"
+msgstr "Prosím vyplňte všechna pole"
+
+msgid "Loading text"
+msgstr "Načítání textu"
+
+msgid "Loading..."
+msgstr "Načítání..."
+
+msgid "Open by link in popup"
+msgstr "Otevřít odkaz v novém okně"
+
+msgid "Gallery link"
+msgstr "URL adresa galerie"
+
+msgid "Auto posts"
+msgstr "Automatické příspěvky"
+
+msgid "Number of posts"
+msgstr "Počet příspěvků"
+
+msgid "Auto Posts Categories"
+msgstr "Rubriky automatických příspěvků"
+
+msgid "Select categories"
+msgstr "Vybrat rubriky"
+
+msgid "Google Drive authorization"
+msgstr "Autorizace Google Drive"
+
+msgid "Upload your images from Google Drive CDN"
+msgstr "Nahrajte vaše obrázky z Google Drive CDN"
+
+msgid "Upload from Google Drive"
+msgstr "Nahrát z Google Drive"
+
+msgid "Google Drive"
+msgstr "Google Drive"
+
+msgid "New gallery successfully created"
+msgstr "Nová galerie byla úspěšně vytvořena"
+
+msgid "Title successfully updated"
+msgstr "Titulek úspěšně aktualizován"
+
+msgid "Not enough data."
+msgstr "Žádná data."
+
+msgid "Preset successfully saved."
+msgstr "Nastavení úspěšně uloženo."
+
+msgid "The preset ID is not specified."
+msgstr "Nastavené ID není specifikováno."
+
+msgid "Preset successfully removed."
+msgstr "Nastavení úspěšně smazáno."
+
+msgid "Failed to find the preset."
+msgstr "Nastavení nenalezeno."
+
+msgid "Preset successfully applied to the gallery."
+msgstr "Nastavení úspěšně aplikováno na galerii."
+
+msgid "Unnamed gallery"
+msgstr "Nepojmenovaná galerie"
+
+msgid "The identifier of the gallery is invalid"
+msgstr "Identifikátor galerie je chybný"
+
+msgid "Title is empty"
+msgstr "Prázdný titulek"
+
+msgid "Failed to rename the gallery"
+msgstr "Přejmenování galerie selhalo"
+
+msgid "Invalid gallery identifier specified"
+msgstr "Byl nastaven chybný identifikátor galerie"
+
+msgid "Failed to delete the gallery"
+msgstr "Smazání galerie selhalo"
+
+msgid "Resources are does not exists"
+msgstr "Zdroj nenalezen"
+
+msgid "The identifier of the Gallery is not specified"
+msgstr "Identifikátor galerie nebyl nastaven"
+
+msgid "New gallery"
+msgstr "Nová galerie"
+
+msgid "Add Images"
+msgstr "Přidat obrázky"
+
+msgid "Add selected items"
+msgstr "Přidat vybrané položky"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "You need to import images to your gallery before you can start using galleries"
+msgstr "Před použitím galerie je potřeba nahrát obrázky"
+
+msgid "Selected"
+msgstr "Vybráno"
+
+msgid "Create new gallery"
+msgstr "Vytváření nové galerie"
+
+msgid "Choose Gallery Template.You can change template and settings on the next step."
+msgstr "Vyberte šablonu galerie. Šablonu a nastavení můžete změnit v dalším kroku."
+
+msgid "Gallery Name:"
+msgstr "Název galerie:"
+
+msgid "Choose Gallery Template."
+msgstr "Vyber šablonu galerie"
+
+msgid "Remove selected"
+msgstr "Smazat vybrané"
+
+msgid "Select/unselect all posts"
+msgstr "Vybrat/odznačit všechny příspěvky"
+
+msgid "Images list"
+msgstr "Seznam obrázků"
+
+msgid "Preview"
+msgstr "Náhled"
+
+msgid "Total Images: "
+msgstr "Počet obrázků"
+
+msgid "There are %s photos in the gallery %s"
+msgstr "Je %s fotografií v galerii %s"
+
+msgid "Are you sure you want to delete this gallery?"
+msgstr "Opravdu chcete smazat tuto galerii?"
+
+msgid "Delete gallery"
+msgstr "Smazat galerii"
+
+msgid "Shortcode:"
+msgstr "Zkrácený kód:"
+
+msgid "PHPCode:"
+msgstr "PHP kód:"
+
+msgid "You have no galleries"
+msgstr "Nemáte žádnou galerii"
+
+msgid "You don't have any galleries yet."
+msgstr "Dosud jste nevytvořil žádnou galerii"
+
+msgid "Want to create one right now?"
+msgstr "Chcete ji vytvořit právě teď?"
+
+msgid "What is a gallery"
+msgstr "Co je galerie?"
+
+msgid "<strong>Gallery</strong> &mdash; the highest type of entity in the Gallery by Supsystic."
+msgstr "<strong>Galerie</strong> &mdash; nejvyšší typ objektu v Gallery by Supsystic."
+
+msgid "You can have an unlimited number of galleries, to which you can attach the preloaded pictures."
+msgstr "Můžete mít neomezené množství galerií, do kterých vložíte své nahrané obrázky."
+
+msgid "Each gallery has a number of display settings and behaviors that you can save to presets and apply to other galleries."
+msgstr "Každá galerie má několik nastavení a funkcí zobrazení, které si můžete uložit do předvoleb a aplikovat je na ostatní galerie."
+
+msgid "Gallery title can't be empty!"
+msgstr "Titulek galerie nemůže být prázdný!"
+
+msgid "Gallery title:"
+msgstr "Titulek galerie:"
+
+msgid "Select source to import from"
+msgstr "Vybrat zdroj pro import"
+
+msgid "Back to the gallery"
+msgstr "Zpět do galerie"
+
+msgid "Main"
+msgstr "Hlavní"
+
+msgid "Captions"
+msgstr "Nápis"
+
+msgid "Categories"
+msgstr "Rubriky"
+
+msgid "Add images"
+msgstr "Přidat obrázky"
+
+msgid "Import settings"
+msgstr "Importovat nastavení"
+
+msgid "Your changes not saved. You really want to leave without saving?"
+msgstr "Vaše změny nebyly uloženy. Opravdu chcete odejít bez uložení?"
+
+msgid "Gallery Type"
+msgstr "Typ galerie"
+
+msgid "Number of Columns"
+msgstr "Počet sloupců"
+
+msgid "Responsive columns"
+msgstr "Responzivní sloupce"
+
+msgid "Gallery Position"
+msgstr "Umístění galerie"
+
+msgid "Images distance"
+msgstr "Mezera mezi obrázky"
+
+msgid "Gallery width"
+msgstr "Šířka galerie"
+
+msgid "Full screen width"
+msgstr "Šířka celé obrazovky"
+
+msgid "Gallery padding"
+msgstr "Odsazení galerie"
+
+msgid "Gallery height"
+msgstr "Výška galerie"
+
+msgid "Image width"
+msgstr "Šířka obrázku"
+
+msgid "Image height"
+msgstr "Výška obrázku"
+
+msgid "Image radius"
+msgstr "Zakulacení obrázku"
+
+msgid "Image crop quality"
+msgstr "Kvalita oříznutí obrázku"
+
+msgid "Display only first image"
+msgstr "Zobrazit pouze první obrázek"
+
+msgid "Social Sharing"
+msgstr "Sociální sdílení"
+
+msgid "Social Buttons Project"
+msgstr "Tlačítka projektu sociálních sítí"
+
+msgid "Gallery Sharing"
+msgstr "Sdílení galerie"
+
+msgid "Image Sharing"
+msgstr "Sdílení obrázku"
+
+msgid "Buttons align"
+msgstr "Zarovnání tlačítek"
+
+msgid "Popup Image Sharing"
+msgstr "Sdílení vyskakovacího obrázku"
+
+msgid "You have no Social Sharing projects for now."
+msgstr "Zatím nesdílíte žádné sociální projekty"
+
+msgid "Create your first project"
+msgstr "Vytvořte váš první projekt"
+
+msgid "then just reload page with your Gallery settings, and you will see list with available Social Projects for your Gallery."
+msgstr "poté stačí znovu načíst stránku s nastavením galerie, a uvidíte seznam dostupných sociálních projektů pro vaši galerie."
+
+msgid "You need to install Social Share Buttons by Supsystic to use this feature."
+msgstr "Pro používání této funkce je třeba nainstalovat Social Share Buttons od Supsystic "
+
+msgid "Install plugin"
+msgstr "Instalovat plugin"
+
+msgid "here."
+msgstr "zde."
+
+msgid "Horizontal Scroll"
+msgstr "Vodorovný posuvník"
+
+msgid "Scroll Bar Color"
+msgstr "Barva posuvníku"
+
+msgid "Scroll Bar Transparency"
+msgstr "Průhlednost posuvníku"
+
+msgid "Border"
+msgstr "Ohraničení"
+
+msgid "Available"
+msgstr "Dostupnost"
+
+msgid "Border Type"
+msgstr "Typ ohraničení"
+
+msgid "Shadow"
+msgstr "Stínování"
+
+msgid "Shadow preset"
+msgstr "Nastavení stínování"
+
+msgid "When mouse is over"
+msgstr "Při přejetí myší"
+
+msgid "Off"
+msgstr "Vypnuto"
+
+msgid "Show mouse on"
+msgstr "Zobrazit myš"
+
+msgid "Hide mouse on"
+msgstr "Skrýt myš"
+
+msgid "Overlay image with shadow"
+msgstr "Překrýt obrázek stínem"
+
+msgid "Shadow color"
+msgstr "Barva stínu"
+
+msgid "Shadow blur"
+msgstr "Rozmazání stínu"
+
+msgid "Shadow X"
+msgstr "Stín X"
+
+msgid "Shadow Y"
+msgstr "Stín Y"
+
+msgid "Pop-up Image"
+msgstr "Vyskakovací obrázek"
+
+msgid "Popup box theme"
+msgstr "Šablona vyskakovacího okna"
+
+msgid "Choose theme"
+msgstr "Vybrat šablonu"
+
+msgid "Disable on mobile"
+msgstr "Zakázat na mobilním zařízení"
+
+msgid "Popup Image Text"
+msgstr "Text vyskakovacího obrázku"
+
+msgid "Caption"
+msgstr "Nápis"
+
+msgid "Title"
+msgstr "Titulek"
+
+msgid "Alt text"
+msgstr "Alt text"
+
+msgid "Description"
+msgstr "Popis"
+
+msgid "Hide Popup Captions"
+msgstr "Skrýt vyskakovací nápisy"
+
+msgid "Transparency"
+msgstr "Průhlednost"
+
+msgid "Slideshow"
+msgstr "Prezentace"
+
+msgid "Slideshow speed"
+msgstr "Rychlost prezentace"
+
+msgid "Slideshow pause on hover"
+msgstr "Zastavit prezentaci při najetí myší"
+
+msgid "Slideshow autostart"
+msgstr "Automatické zapnutí prezentace"
+
+msgid "Popup Image size"
+msgstr "Velikost vyskakovacího obrázku"
+
+msgid "Effect"
+msgstr "Efekt"
+
+msgid "Choose effect"
+msgstr "Vybrat efekt"
+
+msgid "Personal captions"
+msgstr "Vlastní nápis"
+
+msgid "Polaroid Style"
+msgstr "Polaroidový styl"
+
+msgid "Polaroid Image Animation"
+msgstr "Animace polaroidového obrázku"
+
+msgid "Polaroid Image Scattering "
+msgstr "Rozptýlení polaroidového snímku"
+
+msgid "Polaroid Frame Width"
+msgstr "Šířka rámu Polaroid"
+
+msgid "Text size"
+msgstr "Velikost textu"
+
+msgid "Text horizontal align"
+msgstr "Vodorovné zarovnání textu"
+
+msgid "Text vertical align"
+msgstr "Vertikální zarovnání textu"
+
+msgid "Hide image title tooltip"
+msgstr "Schovat popisek obrázku"
+
+msgid "Mobile - show always caption"
+msgstr "Mobilní - zobrazit titulek vždy "
+
+msgid "Show icons"
+msgstr "Zobrazit ikony"
+
+msgid "Select effect"
+msgstr "Vybrat efekt"
+
+msgid "Animation"
+msgstr "Animace"
+
+msgid "Icons color"
+msgstr "Barva ikon"
+
+msgid "Icons hover color"
+msgstr "Barva ikon při najetí myší"
+
+msgid "Background hover color"
+msgstr "Barva pozadí při najetí myší"
+
+msgid "Icons size"
+msgstr "Velikost ikon"
+
+msgid "Distance between icons"
+msgstr "Vzdálenost mezi ikonami"
+
+msgid "Show overlay"
+msgstr "Zobrazit překrytí"
+
+msgid "Overlay color"
+msgstr "Barva překrytí"
+
+msgid "Overlay transparency"
+msgstr "Průhlednost překrytí"
+
+msgid "Categorize images in the gallery"
+msgstr "Kategorizovat obrázky v galerii"
+
+msgid "Let user switch gallery pages"
+msgstr "Povolit uživateli přepínat mezi stránkami galerie"
+
+msgid "Save settings as preset"
+msgstr "Uložit nastavení do předvoleb"
+
+msgid "Preset title:"
+msgstr "Název předvolby:"
+
+msgid "Delete preset"
+msgstr "Smazat předvolbu"
+
+msgid "Are you really want to delete preset \"%s\"?"
+msgstr "Opravdu chcete smazat předvolbu \"%s\"?"
+
+msgid "Load settings from presets"
+msgstr "Načíst nastavení z předvoleb"
+
+msgid "Select preset:"
+msgstr "Vybrat předvolbu:"
+
+msgid "Failed to load the presets."
+msgstr "Načtení předvolby se nepodařilo."
+
+msgid "Currently you have no presets."
+msgstr "Momentálně nemáte žádné předvolby."
+
+msgid "Select \"Big image\" theme"
+msgstr "Vybrat šablonu \"Velkého obrázku\""
+
+msgid "Select a theme"
+msgstr "Vybrat šablonu"
+
+msgid "Select"
+msgstr "Vybrat"
+
+msgid "Select overlay effect"
+msgstr "Vybrat efekt překrytí"
+
+msgid "This effect requires icons be enabled. Enable Icons?"
+msgstr "Tento efekt vyžaduje povolení ikon. Povolit ikony?"
+
+msgid "Select shadow preset"
+msgstr "Vybrat předvolbu stínování"
+
+msgid "Select shadow"
+msgstr "Vybrat stínování"
+
+msgid "Import settings from gallery"
+msgstr "Importovat nastavení z galerie"
+
+msgid "Here you can import settings from other galleries, but right now, you have only one gallery, create more - and see how it works"
+msgstr "Tady můžete importovat nastavení z jiných galerií, ale momentálně máte jen jednu galerii, vytvořte jich více a vyzkoušejte, jak to funguje "
+
+msgid "Improve free version"
+msgstr "Zlepšit bezplatnou verzi"
+
+msgid "Select icons effects"
+msgstr "Zvolit efekty ikon"
+
+msgid "Click on the icon to select effect"
+msgstr "Pro výběr efektu klikněte na ikonu"
+
+msgid "close"
+msgstr "zavřít"
+
+msgid "next"
+msgstr "další"
+
+msgid "previous"
+msgstr "předchozí"
+
+msgid "start slideshow"
+msgstr "spustit prezentaci"
+
+msgid "stop slideshow"
+msgstr "zastavit prezentaci"
+
+msgid "image"
+msgstr "obrázek"
+
+msgid "of"
+msgstr "z"
+
+msgid "Choose source"
+msgstr "Vybrat zdroj"
+
+msgid "Import from WordPress Media Library"
+msgstr "Importovat z Knihovny médií WordPressu"
+
+msgid "Import from social networks"
+msgstr "Importovat ze sociálních sítí"
+
+msgid "Import from your Instagram account"
+msgstr "Importovat z Instagramu"
+
+msgid "Import from your Flickr account"
+msgstr "Importovat z Flickru"
+
+msgid "Import from your Tumblr account"
+msgstr "Importovat z Tumblr"
+
+msgid "Import from your Facebook account"
+msgstr "Importovat z Facebooku"
+
+msgid "Import from cloud services"
+msgstr "Importovat z cloud služeb"
+
+msgid "Import from your FTP server"
+msgstr "Importovat z vašeho FTP serveru"
+
+msgid "Import from your Google Drive account"
+msgstr "Importovat z vašeho Google Drive účtu"
+
+msgid "Get Pro to enable import"
+msgstr "Získat Pro verzi ke zpřístupnění importu"
+
+msgid "Properties"
+msgstr "Vlastnosti"
+
+msgid "Delete Image"
+msgstr "Smazat obrázek"
+
+msgid "Sort To: "
+msgstr "Třídění:"
+
+msgid "Sort By: "
+msgstr "Seřazeno podle:"
+
+msgid "Switch to the list view"
+msgstr "Přepnout do seznamového zobrazení"
+
+msgid "Switch to the block view"
+msgstr "Přepnout do blokového zobrazení"
+
+msgid "Apply"
+msgstr "Použít"
+
+msgid "Search"
+msgstr "Hledat"
+
+msgid "The gallery is does not exists"
+msgstr "Galerie neexistuje"
+
+msgid "Currently this gallery has no images"
+msgstr "Tato galerie aktuálně neobsahuje obrázky"
+
+msgid "Linked Images"
+msgstr "Odkazované obrázky"
+
+msgid "Instagram authorization"
+msgstr "Autorizovat Instagram"
+
+msgid "Upload your images from the Instagram Media Library"
+msgstr "Nahrát obrázky z knihovny médií Instagramu"
+
+msgid "Upload from Instagram"
+msgstr "Nahrát z Instagramu"
+
+msgid "Your message successfully send. We contact you soon."
+msgstr "Vaše zpráva byla úspěšně odeslána. Brzy se vám ozveme."
+
+msgid "Step-by-step Tutorial"
+msgstr "Návod krok za krokem"
+
+msgid "Begin Step-by-step Tutorial"
+msgstr "Spustit návod Krok za krokem"
+
+msgid "Name"
+msgstr "Jméno"
+
+msgid "Email"
+msgstr "E-mail:"
+
+msgid "Website"
+msgstr "WWW stránka"
+
+msgid "Subject"
+msgstr "Předmět"
+
+msgid "Topic"
+msgstr "Téma"
+
+msgid "Plugin options"
+msgstr "Možnosti voleb pluginu"
+
+msgid "Report a bug"
+msgstr "Nahlásit chybu"
+
+msgid "Require a new functionallity"
+msgstr "Požadavek na novou funkci"
+
+msgid "Other"
+msgstr "Ostatní"
+
+msgid "Message"
+msgstr "Zpráva"
+
+msgid "Hello Supsystic Team!"
+msgstr "Hello Supsystic Team! Zpráva v anglickém jazyce."
+
+msgid "Some errors occurred while sending mail please send your message trough this contact form:"
+msgstr "Vyskytly se nějaké chyby, prosím zašlete vaši zprávu pomocí tohoto kontaktního formuláře:"
+
+msgid "Unable to save chosen photo %s: %s"
+msgstr "Nepodařilo se uložit zvolenou fotku %s: %s"
+
+msgid "New Folder"
+msgstr "Nový adresář"
+
+msgid "The title can't be empty"
+msgstr "Titulek nemůže být prázdný"
+
+msgid "Failed to update position."
+msgstr "Nepodařilo se aktualizovat umístění."
+
+msgid "Position updated successfully!"
+msgstr "Umístění úspěšně aktualizováno!"
+
+msgid "Rename folder"
+msgstr "Přejmenovat adresář"
+
+msgid "Folder name:"
+msgstr "Název adresáře:"
+
+msgid "Add images to the gallery"
+msgstr "Přidat obrázek do galerie"
+
+msgid "Please wait while the plugin to get the list of galleries..."
+msgstr "Prosím vydržte než plugin načte seznam galerií..."
+
+msgid "Select the gallery:"
+msgstr "Vybrat galerii:"
+
+msgid "New folder"
+msgstr "Nový adresář"
+
+msgid "Add images to the new gallery"
+msgstr "Přidat obrázky do nové galerie"
+
+msgid "Create new folder"
+msgstr "Vytvořit nový adresář"
+
+msgid "Edit selected item"
+msgstr "Upravit zvolenou položku"
+
+msgid "Delete selected items"
+msgstr "Smazat zvolené položky"
+
+msgid "Create new gallery from the selected items"
+msgstr "Vytvořit novou galerii ze zvolených položek"
+
+msgid "New gallery from selected"
+msgstr "Nová galerie z vybraných"
+
+msgid "Add the selected items to the existing gallery"
+msgstr "Přidat zvolené položky k existující galerii"
+
+msgid "Add selected to the gallery"
+msgstr "Přidat vybrané do galerie"
+
+msgid "Upload your images from the WordPress Media Library"
+msgstr "Nahrát obrázky z Knihovny médií Wordpressu"
+
+msgid "All photos"
+msgstr "Všechny fotky"
+
+msgid "Drop photos here to move them from the folder"
+msgstr "Pro přesunutí fotek z adresáře je zde upusťte. "
+
+msgid "Next"
+msgstr "Další"
+
+msgid "Close Tutorial"
+msgstr "Ukončit návod"
+
+msgid "Welcome to Photo Gallery plugin by Supsystic!"
+msgstr "Vítejte ve Photo Gallery od Supsystic!"
+
+msgid "Thank you for choosing our Gallery plugin. Just click here to start using it - and we will show you it's possibilities and powerfull features."
+msgstr "Děkujeme, že jste si vybrali náš Gallery plugin. Kliknete zde aby jste ho mohli začít používat - a my vám předvedeme jeho možnosti a silné stránky."
+
+msgid "Hello! This is the Gallery by Supsystic Overview."
+msgstr "Dobrý den! Tohle je Gallery by Supsystic."
+
+msgid "Here you can get help: watch the video tutorial or read FAQ and Documentation, make use of contact form. Also here requirements for server - Server Settings."
+msgstr "Tady můžete získat nápovědu: shlédněte video návod, nebo si přečtěte FAQ a dokumentaci. Případně použijte kontaktní formulář. Také zde naleznete požadavky na server - Nastavení serveru."
+
+msgid "Create your first Gallery"
+msgstr "Vytvořte vaši první galerii"
+
+msgid "To Create New Gallery select gallery template. You can change template and settings later. Now here are four different templates. With PRO version youâll get more features like Categories, Load More button, Post Feed (Content) gallery, Polaroid gallery and more. Enter name of the gallery and click âSaveâ."
+msgstr "Pro vytvoření nové galerie nejprve zvolte její šablonu. Šablonu a další nastavení můžete změnit i později. Momentálně jsou dostupné pouze 4 různé šablony. V PRO verzi získáte více funkcí, jako třeba kategorie, načtení více tlačítek, Post feed (Obsahová) galerie, polaroidová galerie a další. Vložte jméno galerie a klikněte na Uložit. "
+
+msgid "Add images to your Gallery"
+msgstr "Přidejte obrázky do vaší galerie"
+
+msgid "Now you are in the edit menu of your gallery. And the first thing you need to do are add media to the gallery. Click \"Add Images\" button."
+msgstr "Nyní jste v menu úprav galerie. První věc, kterou musíte udělat, je přidání obrázků do galerie. Klikněte na \"Přidat obrázky\"."
+
+msgid "Images Import Options"
+msgstr "Možnosti importu obrázků"
+
+msgid "<p>Import images in several ways:</p><p>Import from Wordpress Media Library/Upload files from your computer</p><p>Import from social networks</p><p>Instagram (in the Free version)</p><p>With PRO-version also will be available import from Flickr, Tumblr and Facebook.</p><p>Besides with Gallery PRO version you can import images from such cloud services - FTP server, Google Drive.</p>"
+msgstr "<p>Import obrázků v několika způsoby:</p><p>Import z knihovny médií Wordpress/Nahrávání souborů z vašeho počítače</p><p>Import ze sociálních sítí</p><p>Instagram (ve verzi zdarma)</p><p>S PRO-verzí bude import dostupný také z Flickru, Tumblr a Facebooku.</p><p>Navíc s Gallery PRO verzí můžete importovat obrázky z těchto cloudových služeb - FTP server, Google Drive.</p>"
+
+msgid "Image List"
+msgstr "Seznam obrázků"
+
+msgid "<p>Now you can see your image list. Here you can:</p><p>Change the order of images â simply by dragging them manually.</p><p>Delete images.</p><p>Add new images from different sources to the grid gallery â click âAdd Imagesâ button and select the source to import from.</p><p><b>Caption tab</b> â add caption to image â it will be displayed on the caption effect of the gallery. Also here included the support of html-elements inside caption effect</p><p><b>SEO tab</b> â manage image title and description</p><p><b>Link tab</b> â attach links to image â it will go to the link when you click the image.</p><p><b>Video tab</b> â attach video url â it will be displayed in a pop-up image when you click on the image.</p><p><b>Categories tab</b> â add tags for image categories.</p><p><b>Linked images tab</b> â add linked images to the chosen image.</p><p><b>Crop tab</b> â choose image crop position.</p><p><b>Replace image tab</b> â replace image without losing image settings.</p><p>Now follow to the gallery settings â Ñlick âPropertiesâ button.</p>"
+msgstr "<p>Nyní vidíte seznam obrázků. Zde můžete:</p><p>Změnit pořadí obrázků pouhým jejich přetažením.</p><p>Smazat obrázky.</p><p>Přidat do galerie nové obrázky z různých zdrojů. Klepněte na tlačítko Přidat obrázky a vyberte zdroj ze kterého chcete importovat.</p><p><b>Záložka Nápisy</b>přidat nápis k obrázku, který bude zobrazen při zapnutí efektu galerie nápisy. Je zde také zahrnuta podpora HTML prvků uvnitř nápisů</p><p><b>SEO záložka</b> spravovat název obrazu a popis</p><p><b>záložka odkazůb</b> přidat odkaz k obrázku na který návštěvník přejde při kliknutí na obrázek.</p><p><b>Video záložka</b> Připojit url videa, které bude zobrazeno v pop-up, po kliknutí na obrázek.</p><p><b>Záložka rubriky</b> přidat štítky pro rubriky obrázků.</p><p><b>záložka Odkazovaných obrázků</b> přidat související obrázky k vybranému obrázku.</p><p><b>záložka oříznutí</b> zvolit pozici ořezávaného obrázku.</p><p><b>záložka nahradit obrázek</b> vyměnit obrázek bez ztráty nastavení obrázku.</p><p>Nyní sledovat nastavení galerie klik na tlačítko vlastnosti.</p>"
+
+msgid "Preview of Gallery settings"
+msgstr "Ukázka nastavení galerie"
+
+msgid "At the left side of the monitor you see a preview image in which will be seen changes made to the settings. This window for the settings of your gallery."
+msgstr "Na levé straně monitoru vidíte náhled obrázku, ve kterém budou vidět změny provedené v nastavení. Toto okno je pro nastavení vaší galerie."
+
+msgid "Main Settings"
+msgstr "Hlavní nastavení"
+
+msgid "<p>Here you can set main settings of gallery - choose Gallery Type, for more information check this <a href=\"//supsystic.com/gallery-order-types/\" target=\"_blank\">article</a>.</p><p>Social Sharing: add social share buttons to your gallery. Or showcase images in a Horizontal Scroll view.</p><p>Load More: adds \"load more\" button to your gallery. And with Custom Buttons: you can make your button better.</p><p>Add to images border and shadow with Border Type and Shadow settings.</p><p>In the Pop-up Image section customize lightbox of your gallery.</p>"
+msgstr "<p>Zde můžete upravit hlavní nastavení galerie - vyberte typ galerie, více informací najdete v tomto <a href=\"//supsystic.com/gallery-order-types/\" target=\"_blank\">článku</a>.</p><p>Sociální sdílení: přidejte do vaší galerie tlačítka sociálního sdílení. Nebo předveďte snímky v horizontálním zobrazení.</p><p>Načíst další: přidá do vaší galerie tlačítko \"Načíst další\". A s vlastními tlačítky můžete vytvořit své tlačítko ještě lépe.</p><p>Přidejte ohraničení k obrázku pomocí typu ohraničení a stínování pomocí Stínování.</p><p>Nastavení zobrazení zvětšeného obrázku se nachází v sekci Vyskakovací obrázek.</p>\""
+
+msgid "Captions and Icons"
+msgstr "Nápisy a ikony"
+
+msgid "<p>On Captions tab you can manage the Captions and Icons, and make them your style.</p>"
+msgstr "<p>Na záložce Nápisy můžete spravovat nápisy a ikony, a vytvořit je vaším stylem.</p>"
+
+msgid "Categories and Pagination"
+msgstr "Rubriky a stránkování"
+
+msgid "<p>Categories tab: here you can enable Categories and Pagination options.</p><p>To this tab become available you need to buy PRO version."
+msgstr "<p>Záložka rubriky: zde můžete povolit kategorie a možnosti stránkování.</p><p>Tato záložka je k dispozici po zakoupení PRO verze."
+
+msgid "<p>Posts tab: here you can add posts and pages to your gallery and also manage them. Posts of gallery included in the PRO version of Gallery by Supsystic.</p>"
+msgstr "<p>Záložka příspěvků: Zde můžete přidat příspěvky a stránky do galerie a také je spravovat. Příspěvky z galerie součástí PRO verze Galerie od Supsystic.</p>"
+
+msgid "Well done!"
+msgstr "Výborně!"
+
+msgid "<p><b>Upgrading</b></p><p>Once you have purchased Premium version of plugin - youâll have to enter license key (you can find it in your personal account on our site). Go to the License tab and enter your email and license key. Once you have activated your PRO license - you can use all its advanced options.</p><p>Thatâs all. From this moment you can use your Gallery without any doubt. But if you still have some question - do not hesitate to contact us through our <a href=\"https://supsystic.com/contact-us/\">internal support</a> or on our <a href=\"http://supsystic.com/forum/photo-gallery-plugin/\">Supsystic Forum.</a> Besides you can always describe your questions on <a href=\"https://wordpress.org/support/plugin/gallery-by-supsystic\">WordPress Ultimate Forum.</a></p><p><b>Enjoy this plugin?</b></p><p>It will be nice if you`ll help us and boost plugin with <a href=\"https://wordpress.org/support/view/plugin-reviews/gallery-by-supsystic?rate=5#postform/\">Five Stars rating on WordPress.org.</a></p><p>We hope that you like this plugin and wish you all the best! Good luck!</p>"
+msgstr "<p><b>Aktualizace</b></p><p>Po zakoupení PRO verze pluginu budete muset zadat licenční klíč (najdete jej ve svém osobním účtu na našich stránkách). Přejděte na záložku Licence a zadejte svůj e-mail a licenční klíč. Po aktivaci PRO licence - můžete používat všechny jeho pokročilé možnosti.</p><p>To je vše. Od té chvíle můžete použít vaši galerii bez jakýchkoli pochybností. Ale pokud máte stále nějaký dotaz - neváhejte nás kontaktovat prostřednictvím naší <a href=\"https://supsystic.com/contact-us/\">interní podpory</a> nebo na nšem <a href=\"http://supsystic.com/forum/photo-gallery-plugin/\">Supsystic fóru.</a> Kromě toho můžete vždy popsat vaše otázky na <a href=\"https://wordpress.org/support/plugin/gallery-by-supsystic\">WordPress Ultimate Fóru.</a></p><p><b>Vzužíváte tento plugin?</b></p><p>Bude hezké, když nám pomůžete plugin podpořit <a href=\"https://wordpress.org/support/view/plugin-reviews/gallery-by-supsystic?rate=5#postform/\">pětihvězdičkovým hodnocením na WordPress.org.</a></p><p>Doufáme, že se vám tento plugin líbí a přejeme Vám hodně štěstí! Hodně štěstí!</p>"
+
+msgid "Welcome to the"
+msgstr "Vítejte ve"
+
+msgid "Photo Gallery plugin is created for people who would like to show their photos in a marvelous way. Perform your best ideas, making delightful presentations or galleries from videos and photos."
+msgstr "Photo Gallery plugin byl vytvořen pro lidi, kteří chtějí své fotografie ukázat v úžasných podobách. Naplňte své nejlepší nápady, vytvořte nádherné prezentace nebo galerie z videí a fotografií."
+
+msgid "Step-by-step tutorial"
+msgstr "Návod krok za krokem"
+
+msgid "Thereâre really many options of photo gallery plugin customization. So as soon as you close that page, Iâll show you step-by-step tutorial of how to use plugin. Hope it will be usefull for you :)"
+msgstr "Plugin obsahuje spoustu různých možností nastavení. Tak dříve než zavřete tuhle stránku, ukážeme vám návod krok za krokem, jak používat tento plugin. Snad vám to pomůže :)"
+
+msgid "Support"
+msgstr "Podpora"
+
+msgid "We love our plugin and do the best to improve all features you want and fix all issues. But sometimes some issues happened or you canât find feature you want :) Donât worry, just <a href=\"//supsystic.com/plugins/photo-gallery?utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact\" target=\"_blank\"> contact us </a> . Weâll answer in an hour and fix all issues."
+msgstr "Milujeme náš plugin a snažíme se vylepšovat všechny vlastnosti, které máte rádi a opravujeme chyby. Ale semtam se něco přihodí, nebo nemůžete najít funkci, kterou byste chtěli. Neostýchejte se a prostě nás <a href=\"//supsystic.com/plugins/photo-gallery?utm_source=plugin&utm_medium=welcomepage&utm_campaign=photo-gallery#contact\" target=\"_blank\"> kontaktujte </a>. Odpovíme do hodiny a chybu opravíme. "
+
+msgid "Video Tutorial"
+msgstr "Video návod"
+
+msgid "Frequently Asked Questions"
+msgstr "Často kladené otázky (FAQ)"
+
+msgid "Gallery doesnât load on the front end. If the loading gallery icon just keeps playing but never loads the gallery."
+msgstr "Galerie se na front endu nenačítá. V případě, že ikona načítání galerie neustále signalizuje načítání, ale nikdy ji nenačte."
+
+msgid "How to change the position of photos in gallery?"
+msgstr "Jak změnit umístění fotografií v galerii?"
+
+msgid "How to insert gallery into widget?"
+msgstr "Jak vložit galerii do widgetu?"
+
+msgid "Go to Appearance -> Widgets."
+msgstr "Přejděte na: Vzhled -> Widgety."
+
+msgid "Youâll see Gallery by Supsystic Widget on the left. Drag it to the area, where you want it to appear."
+msgstr "Widget Galerie od Supsystic najdete vlevo. Přetáhněte jej do místa, kde chcete, aby se zobrazil."
+
+msgid "Then choose what gallery you want to display. And press save."
+msgstr "Poté vyberte kterou galerii chcete zobrazit. A stiskněte tlačítko uložit."
+
+msgid "Check all other FAQs"
+msgstr "Zkontrolujte všechny ostatní FAQ (nejčastější dotazy)"
+
+msgid "Roles"
+msgstr "Role"
+
+msgid "PRO option"
+msgstr "Nastavení ve verzi PRO"
+
+msgid "Edit image"
+msgstr "Upravit obrázek"
+
+msgid "SEO"
+msgstr "SEO"
+
+msgid "Alternative text"
+msgstr "Alternativní text"
+
+msgid "External link"
+msgstr "Externí odkaz"
+
+msgid "Available in PRO version."
+msgstr "Dostupné pouze v PRO verzi"
+
+msgid "Link"
+msgstr "Odkaz"
+
+msgid "Open in new window"
+msgstr "Otevřít v novém okně"
+
+msgid "Embeded video"
+msgstr "Vložené video"
+
+msgid "Video URL"
+msgstr "URL adresa videa"
+
+msgid "Supports Youtube and Vimeo. URL will be converted to embed automatically."
+msgstr "Podporuje Youtube a Vimeo. URL bude automaticky převedena do embed verze."
+
+msgid "Image"
+msgstr "Obrázek"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Select %s"
+msgstr "Vybrat %s"
+
+msgid "photo"
+msgstr "fotografie"
+
+msgid "photos"
+msgstr "fotografií"
+
+msgid "Caption effect"
+msgstr "Efekt nápisu"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Linked images"
+msgstr "Odkazované obrázky"
+
+msgid "Crop"
+msgstr "Oříznout"
+
+msgid "Replace image"
+msgstr "Nahradit obrázek"
+
+msgid "http://example.com/"
+msgstr "http://example.com/"
+
+msgid "Add nofollow attribute"
+msgstr "Přidat atribut nofollow"
+
+msgid "Choose images"
+msgstr "Vybrat obrázky"

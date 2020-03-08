@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery by Supsystic - Uninstall</title>
+    <style>
+        form {
+            width: 500px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 40px auto;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, .25);
+        }
+
+        h1 {
+            font-size: 1.3em;
+            border-bottom: 1px solid #ccc;
+            margin-top: 0;
+        }
+
+        p.buttons {
+            text-align: center;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+<form method="{{ request.server.REQUEST_METHOD }}" action="{{ request.server.REQUEST_URI }}">
+    <h1>Gallery by Supsystic - Uninstall</h1>
+
+    <p>Do you want to remove all plugin photos, folders and galleries?</p>
+
+    <p>
+        <strong>Note:</strong>
+        This action can't be undone.
+    </p>
+
+    <p class="buttons">
+        <input type="submit" name="drop" value="Yes"/>
+        <input type="submit" name="drop" value="No"/>
+    </p>
+
+    {% for key, value in request.query.all %}
+        <input name="{{ key }}" value="{{ value }}" type="hidden"/>
+    {% endfor %}
+</form>
+
+</body>
+</html>

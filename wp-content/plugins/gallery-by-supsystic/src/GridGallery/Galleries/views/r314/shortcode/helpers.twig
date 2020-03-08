@@ -1,0 +1,242 @@
+{% macro image(photo, settings) %}
+
+    {% set figureStyle %}
+        {% if settings.thumbnail.border.type != 'none' %}
+            border: {{ settings.thumbnail.border.width }}px {{ settings.thumbnail.border.type }} {{ settings.thumbnail.border.color }};
+        {% endif %}
+        border-radius: {{ settings.thumbnail.border.radius ~ settings.thumbnail.border.radius_unit|replace(['px', '%']) }};
+        {% if settings.use_shadow == 1 %}
+            box-shadow: {{ settings.thumbnail.shadow.x }}px {{ settings.thumbnail.shadow.y }}px {{ settings.thumbnail.shadow.blur }}px {{ settings.thumbnail.shadow.color }};
+        {% endif %};
+        margin: {{ settings.area.distance }}px;
+        {#-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);#}
+        {% if settings.area.grid == '2' or settings.area.grid == '0' or settings.area.grid == '3' %}
+            height:{{ settings.area.photo_height ~ settings.area.photo_height_unit|replace(['px', '%']) }};
+        {% endif %}
+        {% if settings.area.grid == '2' %}
+            width:auto;
+        {% else %}
+            width:{{ settings.area.photo_width ~ settings.area.photo_width_unit|replace(['px', '%']) }};
+        {% endif %}
+    {% endset %}
+
+    {% set youtube = {
+        'www.'    : '',
+        'http:'   : '',
+        'https:'  : '',
+        'youtu.be': 'youtube.com/embed',
+        'watch?v=': 'embed/'
+    } %}
+
+    {% set vimeoPattern = ['{channels\/(.*)\/}', '{(http|https):\/\/vimeo\.com\/}'] %}
+    {% set vimeoReplace = ['', '//player.vimeo.com/video/'] %}
+
+    {% set aClass %}
+        {% if (photo.attachment.external_link is not defined or photo.attachment.external_link|trim is empty) and (photo.attachment.video is not defined or photo.attachment.video|trim is empty) and settings.box.type == '0' %}
+            gg-colorbox
+        {% endif %}
+
+        {% if photo.attachment.video is defined and photo.attachment.video|trim is not empty and settings.box.type == '0' %}
+            gg-video
+        {% endif %}
+    {% endset %}
+
+    {% set aHref %}
+        {% if photo.attachment.video is defined and photo.attachment.video is not empty %}
+            {% if 'youtu' in photo.attachment.video %}
+                {{ photo.attachment.video|replace(youtube) }}
+            {% elseif 'vimeo.com' in photo.attachment.video %}
+                {{ photo.attachment.video|preg_replace(vimeoPattern, vimeoReplace) }}
+            {% else %}
+                {{ photo.attachment.video|trim }}
+            {% endif %}
+            {% set link = true %}
+        {% elseif photo.attachment.external_link is defined and photo.attachment.external_link is not empty %}
+            {{ photo.attachment.external_link|force_http }}
+            {% set link = true %}
+        {% else %}
+            {{ photo.attachment.sizes.full.url }}
+        {% endif %}
+    {% endset %}
+
+    {% set aTitle %}
+        {% if photo.attachment.description is defined and photo.attachment.description is not empty %}
+            {{ photo.attachment.description }}
+        {% else %}
+            {{ photo.attachment.title }}
+        {% endif %}
+    {% endset %}
+
+    {% set tags %}
+        {% if settings.categories is defined and settings.categories.enabled == 'true' %}
+            {{ photo.tags|join('|')|raw }}
+        {% endif %}
+    {% endset %}
+
+    {% if environment.isPro() == false or settings.icons is not defined or settings.icons.enabled == 'false' %}
+        <a
+            class="gg-link {{ aClass|trim }}{% if settings.box.type == '2' and link is not defined %} pbox{% endif %}
+             {% if settings.displayFirstPhoto == 'on' and index > 0 %} hidden-item {% endif %}"
+            href="{{ aHref|trim }}"
+            target="{{ photo.attachment.target|default('_self') }}"
+            title="{{ aTitle|trim }}"
+            {% if settings.box.type == '1' and link is not defined %}
+                rel="prettyPhoto[pp_gal]"
+            {% endif %}
+            style="border-radius: {{ settings.thumbnail.border.radius ~ settings.thumbnail.border.radius_unit|replace(['px', '%']) }};"
+        >
+    {% endif %}
+        <figure 
+            class="grid-gallery-caption
+            {% if settings.displayFirstPhoto == 'on' and index > 0 %} hidden-item {% endif %}
+            {% if settings.mouse_shadow == '1' and settings.use_shadow == '1' %} shadow-show{% endif %}{% if settings.mouse_shadow == '2' and settings.use_shadow == '1' %} shadow-hide{% endif %}"
+            data-tags="{{ tags|trim|replace(' ', '_') }}"
+            data-grid-gallery-type="{% if environment.isPro() and settings.icons.enabled == 'true' %}{% if 'icons' in settings.thumbnail.overlay.effect %}{{ settings.thumbnail.overlay.effect }}{% else %}icons{% endif %}{% elseif settings.thumbnail.overlay.enabled == 'false' %}none{% else %}{{ settings.thumbnail.overlay.effect }}{% endif %}"
+            style="display:none;{{ figureStyle|trim }}">
+            
+            <div class="crop{% if settings.thumbnail.shadow.overlay == '1' and settings.use_shadow == '1' %} image-overlay{% endif %}" style="{% if settings.area.grid == '0' or settings.area.grid == '3' %}width:{{ settings.area.photo_width ~ settings.area.photo_width_unit|replace(['px', '%']) }};
+                {% if settings.pagination.enabled == 'true' %}
+                    height: 100% !important;
+                    {% else %}
+                        height:{{ settings.area.photo_height ~ settings.area.photo_height_unit|replace(['px', '%']) }};
+                {% endif %}
+                overflow:hidden;{% endif %}">
+
+                {% set width, height, crop = 0, 0, 0 %}
+
+                {% if settings.area.photo_width_unit == 0 %}
+                    {% set width = settings.area.photo_width %}
+                {% endif %}
+
+                {% if settings.area.photo_height_unit == 0 %}
+                    {% set height = settings.area.photo_height %}
+                {% endif %}
+
+                {% if settings.area.grid == 0 or settings.area.grid == '2' or settings.area.grid == '3' %}
+                    {% set crop = 1 %}
+                {% else %}
+                    {% set height = null %}
+                {% endif %}
+
+                {% if settings.thumbnail.cropQuality is defined %}
+                    {% set cropQuality = settings.thumbnail.cropQuality %}
+                {% else %}
+                    {% set cropQuality = null %}
+                {% endif %}
+
+                <img
+                    src="{{ get_attachment(photo.attachment.id, width, height, crop, cropQuality) }}"
+                    alt="{% if photo.attachment.alt is not empty %}{{ photo.attachment.alt }}{% else %}{{ photo.attachment.title }}{% endif %}"
+                    title="{% if photo.attachment.description is not empty %}{{ photo.attachment.description }}{% else %}{{ photo.attachment.title }}{% endif %}"
+                    data-caption="{% if photo.attachment.caption is not empty %}{{ photo.attachment.caption }}{% else %}{{ photo.attachment.title }}{% endif %}"
+                    style="border-radius: {{ settings.thumbnail.border.radius ~ settings.thumbnail.border.radius_unit|replace(['px', '%']) }};"
+                />
+            </div>
+
+            {% set figcaptionStyle %}
+                border-radius: {{ settings.thumbnail.border.radius ~ settings.thumbnail.border.radius_unit|replace(['px', '%']) }};
+                {% if environment.isPro() and settings.icons is defined and settings.icons.enabled == 'true' %}
+                    {% if settings.icons.overlay_enabled == 'true' %}
+                        background-color:{{ settings.icons.overlay_color|default('#3498db') }};
+                        height : 100%;
+                        {#z-index: 999;#}
+                    {% else %}
+                        height : 100%;
+                        background-color: transparent;
+                    {% endif %}
+                {% else %}
+                    color:{{ settings.thumbnail.overlay.foreground }};
+                    background-color:{{ settings.thumbnail.overlay.background }};
+                    font-size:{{ settings.thumbnail.overlay.text_size }}{{ settings.thumbnail.overlay.text_size_unit|replace(['px', '%', 'em']) }};
+                    text-align:{{ settings.thumbnail.overlay.text_align }};
+                    font-family:{{ settings.thumbnail.overlay.font_family }};
+                    {% if settings.thumbnail.overlay.effect == 'none' or settings.thumbnail.overlay.enabled == 'false' %}
+                        opacity:1;
+                        bottom:0;
+                    {% endif %}
+                {% endif %}
+            {% endset %}
+
+            {% set figcaptionAlpha %}
+                {% if environment.isPro() and settings.icons is defined and settings.icons.enabled == 'true' %}
+                    {{ settings.icons.overlay_transparency|default(5) }}
+                {% else %}
+                    {{ settings.thumbnail.overlay.transparency }}
+                {% endif %}
+            {% endset %}
+
+            <figcaption data-alpha="{{ figcaptionAlpha|trim }}" style="{{ figcaptionStyle|trim }}" >
+                <div class="grid-gallery-figcaption-wrap" style="{% if environment.isPro() == false or settings.icons is not defined or settings.icons.enabled == 'false' %}vertical-align:{{ settings.thumbnail.overlay.position }};{% endif %}">
+                    {% if environment.isPro() and settings.icons is defined and settings.icons.enabled == 'true' %}
+                        <div class="hi-icon-wrap {{ settings.icons.effect[0:length-1] }} {{ settings.icons.effect }}" data-margin="{{ settings.icons.margin|default(5) }}">
+                            {% if photo.attachment.video is defined and photo.attachment.video is not empty %}
+                                {% set videoUrl %}
+                                    {% if 'youtu' in photo.attachment.video %}
+                                        {{ photo.attachment.video|replace(youtube) }}
+                                    {% elseif 'vimeo.com' in photo.attachment.video %}
+                                        {{ photo.attachment.video|preg_replace(vimeoPattern, vimeoReplace) }}
+                                    {% else %}
+                                        {{ photo.attachment.video|trim }}
+                                    {% endif %}
+                                {% endset %}
+
+                                {% set videoIcon = 'youtu' in photo.attachment.video ? 'icon-youtube' : 'icon-vimeo' %}
+
+                                {% set iconStyle %}
+									margin-left:{{ settings.icons.margin|default(5) ~ 'px' }};
+									margin-right:{{ settings.icons.margin|default(5) ~ 'px' }};
+                                {% endset %}
+
+                                <a href="{{ videoUrl|trim }}" class="hi-icon gg-video {{ videoIcon }}" style="{{ iconStyle|trim }}">
+                                    {#Watch the video {{ photo.attachment.caption }}#}
+                                </a>
+                            {% endif %}
+
+                            {% if photo.attachment.external_link is defined and photo.attachment.external_link is not empty %}
+                                <a href="{{ photo.attachment.external_link }}" target="{{ photo.attachment.target|default('_self') }}" class="hi-icon icon-link" style="{{ iconStyle|trim }}">_</a>
+                            {% endif %}
+
+                            {% if videoUrl is not defined and (photo.attachment.external_link is not defined or photo.attachment.external_link is empty) %}
+                                <a href="{{ photo.attachment.sizes.full.url }}" class="hi-icon icon-fullscreen gg-colorbox{% if settings.box.type == '2' and link is not defined %} pbox{% endif %}" style="{{ iconStyle|trim }}">Open in pop-up window</a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    {% if environment.isPro() == false or settings.icons is not defined or settings.icons.enabled == 'false' %}
+                        {% if settings.thumbnail.overlay.enabled == 'true' %}
+                            {% if photo.attachment.caption is not empty %}
+                                <span style="font-size:{{ settings.thumbnail.overlay.text_size }}{{ settings.thumbnail.overlay.text_size_unit|replace(['px', '%', 'em']) }};">{{ photo.attachment.caption|raw }}</span>
+                            {% else %}
+                                <span style="font-size:{{ settings.thumbnail.overlay.text_size }}{{ settings.thumbnail.overlay.text_size_unit|replace(['px', '%', 'em']) }};">{{ photo.attachment.title|raw }}</span>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </figcaption>
+
+            {% if environment.isPro() and settings.icons is defined and settings.icons.enabled == 'true' and settings.thumbnail.overlay.enabled == 'true' %}
+                {% set captionStyle %}
+                    color:{{ settings.thumbnail.overlay.foreground }};
+                    background-color:{{ settings.thumbnail.overlay.background }};
+                    font-size:{{ settings.thumbnail.overlay.text_size }}{{ settings.thumbnail.overlay.text_size_unit|replace(['px', '%', 'em']) }};
+                    {% if settings.thumbnail.overlay.text_align != 3 %}
+                        text-align:{{ settings.thumbnail.overlay.text_align|replace(['left', 'right', 'center']) }};
+                    {% endif %}
+                    {% if settings.thumbnail.overlay.effect == 'none' or settings.thumbnail.overlay.enabled == 'false' %}
+                        opacity:1;
+                        bottom:0;
+                    {% endif %}
+                {% endset %}
+
+                <div class="caption-with-{% if 'icons' in settings.thumbnail.overlay.effect %}{{ settings.thumbnail.overlay.effect }}{% else %}icons{% endif %}" style="{{ captionStyle }}" data-alpha="{{ settings.thumbnail.overlay.transparency|trim }}">
+                    {% if photo.attachment.caption is not empty %}
+                        <span style="font-size:{{ settings.thumbnail.overlay.text_size }}{{ settings.thumbnail.overlay.text_size_unit|replace(['px', '%', 'em']) }}; font-weight: 800;">{{ photo.attachment.caption|raw }}</span>
+                    {% else %}
+                        <span style="font-size:{{ settings.thumbnail.overlay.text_size }}{{ settings.thumbnail.overlay.text_size_unit|replace(['px', '%', 'em']) }};">{{ photo.attachment.title }}</span>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </figure>
+    {% if environment.isPro() == false or settings.icons is not defined or settings.icons.enabled == 'false' %}
+        </a>
+    {% endif %}
+{% endmacro %}

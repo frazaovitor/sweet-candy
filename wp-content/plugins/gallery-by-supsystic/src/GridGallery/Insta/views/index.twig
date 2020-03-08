@@ -1,0 +1,140 @@
+{% extends 'grid-gallery.twig' %}
+
+{% block header %}
+
+    <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs">
+        {#<a href="{{ environment.generateUrl('galleries') }}">{{ translate('Gallery by Supsystic') }}</a>#}
+        {#<i class="fa fa-angle-right"></i>#}
+        <a href="{{ environment.generateUrl('galleries') }}">{{ translate('Galleries') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': id }) }}">{{ galleryName|capitalize }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': id }) }}">{{ translate('Import images') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('insta', 'index', { 'id': id }) }}">{{ translate('Instagram') }}</a>
+    </nav>
+
+    {% include '@insta/includes/toolbar.twig' %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% if images is iterable and images|length > 0 %}
+
+        <ul class="sg-photos" data-sortable data-container="block">
+            {% for image in images %}
+                <li class="gg-list-item" data-entity data-entity-type="photo"
+                    data-entity-info="{{ image|json_encode|e }}">
+                    <div class="gg-check" style="position: absolute; top: 14px; left: 14px;">
+                        <input type="checkbox" value="{{ image }}" class="gg-checkbox" data-observable>
+                    </div>
+                    {% set sizes = { 'width': 60, 'height': 80 } %}
+                    <img src="{{ image }}" width="150"
+                         style="min-height:150px;max-height:150px;"/>
+                </li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+
+        <p>Sorry, but you have no images on your instagram account</p>
+
+    {% endif %}
+
+    <script>
+        /*global jQuery*/
+        (function ($) {
+            jQuery(document).ready(function () {
+
+                jQuery('#add_images').click(function () {
+                    getResourcesList("{{ id }}");
+                });
+
+                $('.gg-list-item').on('click', function() {
+                    $(this).find('input:checkbox').iCheck('toggle');
+                });
+
+                var button_select = jQuery('#button-select').click(function () {
+
+                    jQuery('input:checkbox').each(function () {
+                        if (button_select.data('value') == 'select') {
+                            $(this).attr('checked', 'checked').iCheck('update');
+                        } else {
+                            $(this).removeAttr('checked').iCheck('update');
+                        }
+                    });
+                    if ($(this).data('value') == 'select') {
+                        $(this).data('value', 'remove');
+                    } else {
+                        $(this).data('value', 'select');
+                    }
+                });
+
+            });
+
+            function getResourcesList(galleryId) {
+                var url = [],
+                        elements = jQuery('.gg-checkbox:checked').each(function () {
+                            url.push(jQuery(this).val());
+                        }),
+                        resources = [],
+                        limit = 10,
+                        offset = 0;
+
+                function savePhotos(){
+                    if(offset < url.length){
+                        var url_to_save = [];
+                        for(var i = 0; i < limit; i++){
+                            url_to_save.push(url[i+offset]);
+                        }
+                        offset = offset + limit;
+
+                        var request = SupsysticGallery.Ajax.Post({
+                            module: 'galleries',
+                            action: 'sideloadSave'
+                        });
+
+                        request.add('urls', url_to_save);
+
+                        request.send(function (response) {
+
+                            for (var i = 0; i < response.ids.length; ++i) {
+                                resources.push({type: 'photo', id: response.ids[i]});
+                            }
+
+                            savePhotos();
+
+                        });
+                    }else{
+                        $.jGrowl('Done');
+                        attachPhotos();
+                    }
+                }
+
+                function attachPhotos(){
+                    if (resources.length) {
+                        $.post(wp.ajax.settings.url, {
+                            action: 'grid-gallery',
+                            _wpnonce: SupsysticGallery.nonce,
+                            route: {module: 'galleries', action: 'attach'},
+                            gallery_id: galleryId,
+                            resources: resources
+                        }, function (response) {
+                            $.jGrowl(response.message);
+                            window.location = response.redirectUrl.replace(/\\"/g, '"');
+                        });
+                    }
+                }
+
+                if (elements.length) {
+                    SupsysticGallery.Loader.show('Please, wait until images will be imported.');
+                    savePhotos();
+                } else {
+                    $.jGrowl('Please select images for import');
+                }
+            }
+
+        })(jQuery)
+    </script>
+{% endblock %}

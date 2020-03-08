@@ -1,0 +1,204 @@
+{% extends 'grid-gallery.twig' %}
+
+{% block header %}
+
+    <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs">
+        {#<a href="{{ environment.generateUrl('galleries') }}">{{ translate('Gallery by Supsystic') }}</a>#}
+        {#<i class="fa fa-angle-right"></i>#}
+        <a href="{{ environment.generateUrl('galleries') }}">{{ translate('Galleries') }}</a>
+    </nav>
+
+{% endblock %}
+
+{% block content %}
+
+    <section id="gg-galleries">
+
+        <div class="row">
+            <div class="col-xs-12">
+
+                {% set columns = [
+                    'ID',
+                    environment.translate('Title'),
+                    environment.translate('Thumbnail'),
+                    environment.translate('Shortcode'),
+                    environment.translate('PHP'),
+                    environment.translate('Actions')]
+                %}
+
+                <table id="galleries" class="wp-list-galleries" style="min-width: 100%;">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <input type="checkbox" id="check_all" name="check_all">
+                            </th>
+                            {% for column in columns %}
+                                <th scope="col">{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for gallery in galleries %}
+                        <tr id="gallery-{{ gallery.id }}" data-gallery-id="{{ gallery.id }}">
+                            <td>
+                                <input type="checkbox" class="tableCheckbox" id="check_{{ gallery.id }}" data-gallery-id="{{ gallery.id }}" name="check_{{ gallery.id }}">
+                            </td>
+                            <td>
+                                {{ gallery.id }}
+                            </td>
+                            <td>
+                                <a href="{{ environment.generateUrl('galleries', 'settings', { 'gallery_id': gallery.id }) }}" data-toggle="tooltip" title="{{ environment.translate('Edit gallery "%s"') | format(gallery.title) }}">
+                                    {{ gallery.title|title|raw }}
+                                </a>
+                                <i class="fa fa-fw fa-pencil"></i>
+                            </td>
+                            <td>
+                                {% if gallery.attachment_id == 0 and gallery.link_default|length > 1 %}
+                                    {% set cover = gallery.link_default %}
+                                {% else %}
+                                    {% set cover = get_attachment(gallery.attachment_id, '155', '100', 'true') %}
+                                {% endif %}
+
+                                {% if cover|length < 1 %}
+                                    {% if gallery.settings.posts.postCover|length > 1 %}
+                                        {% set cover = gallery.settings.posts.postCover %}
+                                    {% endif %}
+                                {% endif %}
+                                <div style="width:155px;height:100px;overflow:hidden;">
+                                    <img src="{{ cover|default('holder.js/350x220?theme=gray&text=' ~ gallery.title|raw) }}" alt="{{ gallery.title|raw }}" width="155px" height="100px" style="height:auto"/>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" id="shortcode-{{ gallery.id }}" class="ggCopyTextCode shortcode" value="[supsystic-gallery id='{{ gallery.id }}']">
+                            </td>
+                            <td>
+                                <input type="text" id="phpcode-{{ gallery.id }}" class="ggCopyTextCode phpcode"
+                                       value="{{ '<?php echo do_shortcode(\'[supsystic-gallery id=' ~ gallery.id ~ ']\') ?>' }}">
+                            </td>
+                            <td>
+                                <a href="{{ environment.generateUrl('galleries', 'settings', { 'gallery_id': gallery.id }) }}"
+                                   class="button background sggActionButtons">
+                                    <i class="fa fa-cogs"></i>
+                                    {{ translate('Settings') }}
+                                </a>
+                                <a href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': gallery.id }) }}"
+                                   class="button background sggActionButtons">
+                                    <i class="fa fa-bars"></i>
+                                    {{ translate('Images list') }}
+                                </a>
+                                <a href="{{ environment.generateUrl('galleries', 'preview', { 'gallery_id': gallery.id }) }}"
+                                   class="button background sggActionButtons">
+                                    <i class="fa fa-eye"></i>
+                                    {{ translate('Preview') }}
+                                </a>
+                                <br>
+                                <button class="button button-primary gallery import-to-gallery sggActionButtons" data-folder-id="0"
+                                        data-gallery-id="{{ gallery.id }}" {# data-upload #}>
+                                    <i class="fa fa-fw fa-camera"></i>
+                                    {{ translate('Add Images') }}
+                                </button>
+                                <a id="delete-gallery" data-confirm="{{ translate('Are you sure you want to delete this gallery?') }}" class="button button-primary sggActionButtons" title="Delete this gallery"
+                                   href="{{ environment.generateUrl('galleries', 'delete', { 'gallery_id': gallery.id, '_wpnonce': _wpnonce }) }}">
+                                    <i class="fa fa-trash-o"></i>
+                                    {{ translate('Delete gallery') }}
+                                </a>
+                                {#<li title="{{ translate('Images Optimization') }}">#}
+                                {#<button class="button button-primary gallery btn-mages-optimization" id="" data-gallery-id="{{ gallery.id }}">#}
+                                {#<i class="fa fa-compress"></i>#}
+                                {#{{ translate('Images Optimization') }}#}
+                                {#</button>#}
+                                {#</li>#}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-xs-12">
+                <button class="button group_button" id="delete-group" disabled>
+                    <i class="fa fa-fw fa-trash-o"></i>{{ environment.translate('Delete selected') }}
+                </button>
+            </div>
+        </div>
+    </section>
+
+    {% macro putPreset(data) %}
+        <div class="preset {% if environment.isPro() == false and data.pro %}disabled{% endif %}"
+             data-preset="{{ data.value }}">
+            <p>{{ data.title|title }}</p>
+            <img src="{{ environment.getModule('galleries').getLocationUrl() }}/assets/img/{{ data.image }}" alt=""/>
+            {% if data.pro and environment.isPro() == false %}
+                <a class="button button-primary inPro"
+                    {% if data.title == 'Categories' %}
+                        href="http://supsystic.com/plugins/photo-gallery/" target="_blank">
+                    {% endif %}
+                    {% if data.title == 'Icons' %}
+                        href="http://supsystic.com/plugins/photo-gallery/" target="_blank">
+                    {% endif %}
+                    {% if data.title == 'Pagination' %}
+                        href="http://supsystic.com/plugins/photo-gallery/" target="_blank">
+                    {% endif %}
+                    Available in PRO
+                </a>
+            {% endif %}
+        </div>
+    {% endmacro %}
+
+
+
+    {% import '@galleries/shortcode/import.twig' as importTypes %}
+    <div id="importDialog" title="{{ translate('Select source to import from') }}" style="display: none;">
+        {{ importTypes.show(400) }}
+    </div>
+
+	{% import '@core/form.twig' as form %}
+	<div id="videoUrlAddDialog" title="{{ 'Add video url' }}" style="display:none;" data-gallery-id="{{ gallery.id }}">
+		<div class="sggVideoUrlAddWr">
+			<div class="sggTableRow">
+				<div class="sggTableColumn6">
+					<div class="sggDlgVideoTypeH3">{{ translate('Video type:') }}</div>
+				</div>
+				<div class="sggTableColumn6">
+					{{(
+						form.radio(
+							'sggDlgVideoType',
+							'youtube',
+							{'id':'sggDlgYoutubeVideoType', 'class':'sggDlgVideoTypeRadio', 'checked':'checked'}
+						) ~
+						form.label(
+							translate('Youtube url'),
+							'sggDlgYoutubeVideoType'
+						) ~ '<br/>' ~
+						form.radio(
+							'sggDlgVideoType',
+							'vimeo',
+							{'id':'sggDlgVimeoVideoType', 'class':'sggDlgVideoTypeRadio',}
+						) ~
+						form.label(
+							translate('Vimeo url'),
+							'sggDlgVimeoVideoType'
+						)
+					) |raw }}
+				</div>
+			</div>
+			<div class="sggTableRow">
+				<div class="sggTableColumn6">
+					<div class="sggDlgVideoTypeH3">{{ translate('Video url:') }}</div>
+				</div>
+				<div class="sggTableColumn6">
+					{{
+						form.input(
+							'text',
+							'sggDlgUrlVideoValue',
+							'',
+							{'id': 'sggDlgUrlVideoInp', 'class': '', }
+						)
+					}}
+				</div>
+			</div>
+			<div class="sggTableRow sggAduHiden" id="sggAduErrorText"></div>
+		</div>
+	</div>
+
+{% endblock %}

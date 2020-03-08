@@ -1,0 +1,52 @@
+{# 'Rename Folder' dialog #}
+
+<div id="renameFolderDialog" title="{{ translate('Rename folder') }}">
+    <form id="renameFolderForm" accept-charset="utf-8" data-prevent-submit>
+        <fieldset>
+            <label for="folderName">{{ translate('Folder name:') }}</label>
+            <input type="text" id="folderName" value="" name="folder_name" style="width: 100%;" required />
+        </fieldset>
+    </form>
+</div>
+
+{# Choose Gallery dialog #}
+
+<div id="selectGalleryDialog" title="{{ translate('Add images to the gallery') }}">
+    <div id="galleryLoading">
+        <p>{{ translate('Please wait while the plugin to get the list of galleries...') }}</p>
+        <p class="gg-centered">
+            <div class="gg-inline-loader gg-centered">&nbsp;</div>
+        </p>
+    </div>
+
+    <form id="galleryForm" accept-charset="UTF-8" style="display: none;" data-prevent-submit>
+        <fieldset>
+            <label for="galleryList">
+                {{ translate('Select the gallery:') }}
+            </label><br/>
+            <select name="gallery_list" id="galleryList" style="width: 100%;"></select>
+        </fieldset>
+    </form>
+</div>
+
+{# Create folder dialog #}
+
+<div id="newFolderDialog" title="{{ translate('New folder') }}">
+    <form id="createFolderForm" accept-charset="utf-8" data-prevent-submit>
+        <fieldset>
+            <label for="folder-name">{{ translate('Folder name:') }}</label>
+            <input type="text" id="folder-name" value="" name="folder_name" style="width: 100%;"/>
+        </fieldset>
+    </form>
+</div>
+
+{#New gallery#}
+
+<div id="newGalleryDialog" title="{{ translate('Add images to the new gallery') }}">
+    <form id="newGalleryForm" accept-charset="utf-8" data-prevent-submit>
+        <fieldset>
+            <label for="galleryTitle">{{ translate('Gallery title:') }}</label>
+            <input style="width:100%" type="text" name="gallery_title" id="galleryTitle"/>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+{% extends 'grid-gallery.twig' %}
+
+{% block header %}
+    <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs">
+        <a href="{{ environment.generateUrl('galleries') }}">{{ translate('Galleries') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('optimization') }}">{{ translate('Image Optimization') }}</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="sgg-error-list-page">
+        <h2>{{ translate('Your host does not support the minimum requirements:') }}</h2>
+        {% for elem1 in info %}
+            <h3>{{ elem1 }}</h3>
+        {% endfor %}
+    </div>
+{% endblock %}

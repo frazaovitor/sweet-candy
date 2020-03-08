@@ -1,0 +1,2558 @@
+{% extends 'grid-gallery.twig' %}
+{% macro label(label, for) %}
+    <label for="{{ for }}">{{ label }}</label>
+{% endmacro %}
+ {% set borderTypes = {
+     'solid': 'Solid',
+     'dotted': 'Dotted',
+     'dashed': 'Dashed',
+     'double': 'Double',
+     'groove': 'Groove',
+     'ridge': 'Ridge',
+     'inset': 'Inset',
+     'outset': 'Outset',
+     'none': 'None'
+ } %}
+
+{% block header %}
+    {#{{ dump(settings) }}#}
+    <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs" style="float: left; padding-top: 20px;">
+        {#
+            <ul class="supsystic-bar-controls">
+                <li>
+                    <a class="button button-primary" target="_blank"
+                       href="{{ environment.generateUrl('galleries', 'preview', { 'gallery_id': gallery.id }) }}">
+                        <i class="fa fa-fw fa-eye"></i>
+                        {{ environment.translate('Preview') }}
+                    </a>
+                </li>
+
+                <li>
+                    <button class="button button-primary" id="btnSave">
+                        <i class="fa fa-fw fa-check"></i>
+                        {{ environment.translate('Save') }}
+                    </button>
+                </li>
+            </ul>
+        #}
+        {#<a href="{{ environment.generateUrl('galleries') }}">{{ translate('Gallery by Supsystic') }}</a>#}
+        {#<i class="fa fa-angle-right"></i>#}
+        <a href="{{ environment.generateUrl('galleries') }}">{{ translate('Galleries') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': gallery.id }) }}">{{ gallery.title|raw }}</a>
+    </nav>
+
+    <h2 class="form-tabs">
+        <a class="nav-tab change-tab" href="area">
+            <i class="fa fa-home"></i>
+			<span class="nav-tab-item-span">{{ translate('Main') }}</span>
+        </a>
+
+        <a class="nav-tab change-tab" href="overlay">
+            <i class="fa fa-info"></i>
+			<span class="nav-tab-item-span">{{ translate('Captions and icons') }}</span>
+        </a>
+
+        <a class="nav-tab change-tab" href="cats">
+            <i class="fa fa-bookmark-o"></i>
+			<span class="nav-tab-item-span">{{ translate('Categories and Pagination') }}</span>
+        </a>
+
+        <a class="nav-tab change-tab" href="post">
+            <i class="fa fa-columns"></i>
+			<span class="nav-tab-item-span">{{ translate('Posts') }}</span>
+        </a>
+
+        <a class="nav-tab change-tab" href="water-m-tab">
+            <i class="fa fa-fw fa-certificate"></i>
+			<span class="nav-tab-item-span">{{ translate('Watermark') }}</span>
+        </a>
+        {% block tabs %}{% endblock %}
+    </h2>
+{% endblock %}
+
+{% block preview %}
+    {% if settings.watermark is defined %}
+        {% set settingsWatermark = settings.watermark|merge({'galleryId': gallery.id}) %}
+        {{ set_attachment_settings('watermark', settingsWatermark) }}
+    {% endif %}
+    {% import '@galleries/shortcode/style.twig' as style %}
+    {% import '@galleries/helpers/attachment.twig' as attachment %}
+	{% import '@core/form.twig' as form %}
+
+	{% set var_figcaption_after %}
+		{% block figcaption_after %}
+		{% endblock %}
+	{% endset %}
+	{# sggCbEntrySpan #}
+	{% set simpleIconsEntryVal %}
+		<div class="sggFigCaptionIconsEntry ggSettingsDisplNone
+
+			hi-icon-wrap {{ settings.icons.effect[0:length-1] }} {{ settings.icons.effect }}">
+
+			{% set videoIcon = 'youtu' in gallery.photos[0].attachment.video ? 'fa-youtube-play' : 'fa-vimeo' %}
+			{% set iconStyle %}
+				{% if settings.icons.margin is not empty %}
+					margin-left:{{ settings.icons.margin }}px;
+					margin-right:{{ settings.icons.margin }}px;
+				{% endif %}
+			{% endset %}
+			<a href="#" class="hi-icon gg-icon-video fa {{ videoIcon }}" style="{{ iconStyle|trim }}"></a>
+			<a href="#" class="hi-icon gg-icon-link fa fa-link" style="{{ iconStyle|trim }}"></a>
+			<a href="#" class="hi-icon gg-icon-popup fa fa-expand" style="{{ iconStyle|trim }}"></a>
+            <a href="#" class="hi-icon gg-icon-download fa fa-download" style="{{ iconStyle|trim }}"></a>
+		</div>
+	{% endset %}
+
+    <div id="preview" class="gallery-preview">
+        <section class="supsystic-bar-preview" id="single-gallery-toolbar">
+            <ul class="supsystic-bar-controls">
+                {#<li>
+                    <a class="button button-primary"
+                       href="{{ environment.generateUrl('galleries', 'addImages', { 'gallery_id': gallery.id }) }}">
+                        <i class="fa fa-upload fa-fw"></i>
+                        {{ environment.translate('Add images') }}
+                    </a>
+                </li>#}
+
+                <li title="{{ translate('Upload new images') }}">
+                    <button class="button button-primary gallery import-to-gallery" data-gallery-id="{{ gallery.id }}">
+                        <i class="fa fa-fw fa-camera"></i>
+                        {{ translate('Add Images') }}
+                    </button>
+                </li>
+
+                <li>
+                    <a class="button"
+                       href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': gallery.id }) }}">
+                        <i class="fa fa-list fa-fw"></i>
+                        {{ translate('Images list') }}
+                    </a>
+                </li>
+
+                <li>
+                    <button class="button button-primary" id="btnSave">
+                        <i class="fa fa-fw fa-check"></i>
+                        {{ translate('Save') }}
+                    </button>
+                </li>
+            </ul>
+        </section>
+        {% if gallery.photos is not empty %}
+            <div style="
+            {% if gallery.settings.area.photo_width_unit == 0 and gallery.settings.area.photo_width is not empty %}
+                width:{{ gallery.settings.area.photo_width+40 }}px;
+            {% endif %}
+            margin: 10px auto;
+            max-width: 330px;
+            clear:both;
+            ">
+                <figure
+					{% block gallery_preview_figure_attributes %}
+						class="grid-gallery-caption" data-grid-gallery-type="center" style="float: none !important;"
+						{% if settings.thumbnail.overlay.personal == 'true' %}
+							data-thumb-overlay-personal="1"
+						{% endif %}
+					{% endblock %}
+					>
+					{% set width, height, crop = 0, 0, 0 %}
+
+                    {% if settings.area.photo_width_unit == 0 %}
+                        {% set width = settings.area.photo_width %}
+                    {% endif %}
+
+                    {% if settings.area.photo_height_unit == 0 %}
+                        {% set height = settings.area.photo_height %}
+                    {% endif %}
+
+                    {% if settings.area.grid == 0 or settings.area.grid == '2' or settings.area.grid == '3' %}
+                        {% set crop = 1 %}
+                    {% else %}
+                        {% set height = 0 %}
+                    {% endif %}
+
+                    {% if settings.thumbnail.cropQuality is defined %}
+                        {% set cropQuality = settings.thumbnail.cropQuality %}
+                    {% else %}
+                        {% set cropQuality = null %}
+                    {% endif %}
+                    <img
+						{% block gallery_preview_image_attributes %}
+                            {% if gallery.photos[0].attachment.isRemoteImage is defined and gallery.photos[0].attachment.isRemoteImage == 1 %}
+							   src="{{ gallery.photos[0].attachment.thumbUrl }}"
+                            {% else %}
+                                src="{{ get_attachment(gallery.photos[0].attachment.id, width, height, crop, cropQuality) }}"
+                            {% endif %}
+                            data-src="{{ 'holder.js/350x250?theme=simple&text=' ~ gallery.title|raw }}" alt="{{ gallery.title|raw }}"
+							style="
+								max-width: 290px; max-height: 290px;
+								{% if settings.area.photo_width_unit == 0 and settings.area.photo_width is not empty %}
+									width:{{ settings.area.photo_width }}px;
+								{% else %}
+									width: auto;
+								{% endif %}
+								{% if settings.area.photo_height_unit == 0 and settings.area.photo_height is not empty %}
+									height: {{ settings.area.photo_height }}px;
+								{% else %}
+									height: auto;
+								{% endif %}
+								"
+						{% endblock %}
+						/>
+					{% set figcaptionBlockFree %}
+						<figcaption style="{{ figcaptionStyle|trim }}">
+							<div style="display: table; height: 100%; width: 100%;" class="sggFigcaptionCaptionWrapper">
+								<div class="grid-gallery-figcaption-wrap" style="display: table-cell;">
+									<span {% if settings.rtl == true %}dir="rtl" class="ggRtlClass"{% endif %}>Gallery by Supsystic</span>
+								</div>
+							</div>
+							{{ simpleIconsEntryVal }}
+						</figcaption>
+						{{ var_figcaption_after }}
+					{% endset %}
+
+					{% block settginsFigCaption %}
+						{{ figcaptionBlockFree }}
+					{% endblock %}
+                </figure>
+            </div>
+        {% else %}
+            <div style="clear: both;"></div>
+            <h2 style="text-align: center;">
+                {{ translate("There're no images in the gallery.") }}<br>
+                <a class="import-to-gallery" href="#">Add Images</a>
+            </h2>
+        {% endif %}
+
+        <div style="clear: both;"></div>
+
+        <div class="shortcode-wrap" style="margin-top: 20px">
+			<div class="shortcode">{{ translate('Shortcode:') }}
+				<input type="text" id="shortcode" class="gallery-shortcode" value="[{{ environment.config.get('shortcode_name') }} id={{ gallery.id }}]" onclick="this.select();" size="42" style="font-size: 12px;" readonly>
+				{{ form.show_tooltip('sgg-shortcode') }}
+			</div>
+			<div class="shortcode">{{ translate('PHPCode:') }}
+				<input type="text" id="shortcode" class="gallery-shortcode" value="{{ '<?php echo do_shortcode(\'[supsystic-gallery id=' ~ gallery.id ~ ']\') ?>' }}" onclick="this.select();" size="42" style="font-size: 12px;" readonly>
+				{{ form.show_tooltip('sgg-php-code') }}
+			</div>
+        </div>
+
+        <small style="left:25px;position:absolute;top:10px;display:none;">Oops! Transparency doesn't work in live preview. </small>
+        <div class="separator"></div>
+
+        <div style="margin: 20px 0" class="gg-preview-bottom-bar">
+			<a class="button button-primary" target="_blank"
+			   href="{{ environment.generateUrl('galleries', 'preview', { 'gallery_id': gallery.id }) }}">
+				<i class="fa fa-fw fa-eye"></i>
+				{{ translate('Preview') }}
+			</a>
+
+            <a class="button" id="openSettingsImportDialog" href=""><i class="fa fa-copy"></i> {{ translate('Import settings') }}</a>
+			<a class="button" id="ggCreateClone" href="#" target="_blank" data-url="{{ environment.generateUrl('galleries', 'settings', {'_wpnonce': _wpnonce}) }}">
+				<i class="fa fa-clone"></i>
+				{{ translate('Clone') }}
+			</a>
+        </div>
+		<div class="gg-sett-preview-other-plugin">
+			<label for="enableForMembership" class="gg-sett-plugin-member-lbl">{{ translate('Enable for Membership:') }}</label>
+			{% if pageOptions.isMembershipPluginActive == 'true' %}
+				<select id="enableForMembership" style="width: auto;" name="plugins[membership][enable]" {{ disableMembershipOpt }} >
+					<option value="0" {% if settings.plugins.membership.enable == '0' %}selected="selected"{% endif %}>
+						{{ translate('No') }}
+					</option>
+					<option value="1" {% if settings.plugins.membership.enable == '1' %}selected="selected"{% endif %}>
+						{{ translate('Yes') }}
+					</option>
+				</select>
+			{% else %}
+                <select id="enableForMembershipFake" style="width: auto;" name="membership_feick" >
+                    <option value="0" selected="selected">
+                        {{ translate('No') }}
+                    </option>
+                    <option value="1">
+                        {{ translate('Yes') }}
+                    </option>
+                </select>
+				<div class="gg-membership-plug-info" style="display: none;">
+					{{ translate('You need to install Membership by Supsystic to use this feature. ') }}
+					<a target="_blank" href="{{ pageOptions.membershipInstallUrl }}">Install</a>
+					{{ translate(' plugin from your admin area, or visit it\'s official page on Wordpress.org ') }}
+					<a target="_blank" href="{{ pageOptions.membershipInstallWpUrl }}">here</a>
+				</div>
+			{% endif %}
+		</div>
+    </div>
+	<input type="hidden" id="ggMsgCloningGallery" value="{{ translate('Cloning gallery...') }}"/>
+	<input type="hidden" id="ggMsgServerInternalError" value="{{ translate('Server internal error') }}"/>
+	<input type="hidden" id="ggMsgImgOptimizationErrorOcured" value="{{ translate('Gallery image optimization error ocured.') }}"/>
+	<input type="hidden" id="ggIoParams" value="{{ ioServiceParams }}"/>
+	<input type="hidden" id="ggCdnParams" value="{{ cdnServiceParams }}"/>
+	<input type="hidden" id="ggMsgOptimized" value="{{ translate("Optimized") }}"/>
+	<input type="hidden" id="ggMsgTransfer" value="{{ translate("Transfered") }}"/>
+	<input type="hidden" id="ggMsgOf" value="{{ translate("of") }}"/>
+	<input type="hidden" id="ggMsgImages" value="{{ translate("images") }}"/>
+	<input type="hidden" id="ggMsgGalleryImageOptimizing" value="{{ translate("Gallery Image optimizing...") }}"/>
+	<input type="hidden" id="ggMsgGalleryTransferToCnd" value="{{ translate('Tranfer images to CDN') }}"/>
+
+	<div id="ggCloneModalWndId" style="display: none;">
+		<label for="ggCloneTypeSelector">{{ translate('Select clone type:') }}</label>
+		{{ form.select(
+			'CloneTypeSelector', {
+				'0': translate('Select clone type'),
+				'1': translate('Clone with images'),
+				'2': translate('Clone without images'),
+			},
+			0,
+			{ 'style': 'width: auto;', 'id': 'ggCloneTypeSelector' })
+		}}
+	</div>
+
+{% endblock %}
+
+{% block content %}
+    {% import '@core/form.twig' as form %}
+    {% import _self as f %}
+
+	<div class="gg-wraper-anchor-nav-links" style="display: none;">
+		<a href="#gg-anl-main" class="gg-anchor-nav-links">{{ translate('Type')}}</a>
+		<a href="#gg-mosaic-image-count-text-wrapper" class="gg-anchor-nav-links ggSettingsDisplNone" id="gg-anl-mosaic-settings-link">{{ translate('Image Count Settings')}}</a>
+		<a href="#gg-anl-soc-share" class="gg-anchor-nav-links">{{ translate('Social')}}</a>
+		<a href="#gg-anl-load-more" class="gg-anchor-nav-links" id="gg-anl-load-more-link">{{ translate('Load More')}}</a>
+		<a href="#gg-anl-cust-button" class="gg-anchor-nav-links">{{ translate('Buttons')}}</a>
+        <a href="#gg-anl-horiz-scroll" class="gg-anchor-nav-links">{{ translate('Scroll')}}</a>
+		<a href="#gg-anl-border-type" class="gg-anchor-nav-links">{{ translate('Border')}}</a>
+		<a href="#gg-anl-shadow" class="gg-anchor-nav-links">{{ translate('Shadow')}}</a>
+		<a href="#gg-anl-popup" class="gg-anchor-nav-links">{{ translate('Lightbox')}}</a>
+		<a href="#gg-anl-lazyload" class="gg-anchor-nav-links">{{ translate('LazyLoad')}}</a>
+		<a href="#gg-anl-preloader" class="gg-anchor-nav-links">{{ translate('Loader')}}</a>
+		<a href="#gg-anl-attributes" class="gg-anchor-nav-links">{{ translate('Attributes')}}</a>
+		<a href="#gg-anl-caption-add-sett" class="gg-anchor-nav-links">{{ translate('Caption Transformations')}}</a>
+	</div>
+    <div class="settings-wrap" data-leave-confirm="{{ translate('Your changes not saved. You really want to leave without saving?') }}">
+        {{ form.open('post', environment.generateUrl('galleries', 'saveSettings', { 'gallery_id': gallery.id, '_wpnonce': _wpnonce }), { 'id': 'form-settings', 'class': 'form-gall-settings' }) }}
+        <input id="currentPresetTitle" name="title" type="hidden" value="{{ settings.title|default('') }}"/>
+        <input name="previewImage" type="hidden" value="{{ gallery.settings.previewImage }}"/>
+        <input name="sort[sortto]" type="hidden" value="{{ settings.sort.sortto }}"/>
+        <input name="sort[sortby]" type="hidden" value="{{ settings.sort.sortby }}"/>
+		{{ form.hidden('plugins[membership][enable]', settings.plugins.membership.enable, {'id':'hiddenInpMembershipEnableVal'}) }}
+		{% block proHiddenSettings %}{% endblock %}
+
+        <div data-tab="area">
+            {% block area %}
+                <table class="form-table" name="area" id="gg-anl-main">
+                    <thead>
+						{% block galleryTypeSelectorItems %}
+							{% set galleryTypeObj = [
+								{'value':'0', 'title':'Fixed'},
+								{'value':'1', 'title':'Vertical'},
+								{'value':'2', 'title':'Horizontal'},
+								{'value':'3', 'title':'Fixed Columns'},
+								{'value':'4', 'title':'Mosaic(' ~ translate('Available in Pro') ~ ')', 'disabled':1},
+							] %}
+
+							{{ form.row(translate('Gallery Type'),
+								form.selectWithElem(
+									'area[grid]',
+									galleryTypeObj,
+									settings.area.grid,
+									{ 'style': 'width: auto;' }
+								),
+								'grid-type', 'gallery-types', 'columns'
+							)}}
+						{% endblock %}
+
+                        <tr id="generalColumnsRow" hidden>
+                            <th scope="row">
+                                <label style="margin: 0 !important;">
+                                    {{ translate('Number of Columns') }}
+        							{{ form.show_tooltip('columns') }}
+        							<br />
+        							<label><a href="http://supsystic.com/fixed-columns-gallery-example/" style="color: #0074a2; font-size: 10px; text-decoration: none;">More Info</a> </label>
+                                </label>
+                            </th>
+                            <td>
+                                <input type="number" name="general[columns][number]" value="{{ settings.general.columns.number|default(3) }}">
+                            </td>
+                        </tr>
+
+                        {{ form.row(translate('Responsive columns'),
+                        form.input('number', 'general[responsiveColumns][desktop][width]',settings.general.responsiveColumns.desktop.width|default(1200), { 'style': { 'width': '60px;' } }) ~ form.span('', 'px') ~
+                        form.input('number', 'general[responsiveColumns][desktop][columns]', settings.general.responsiveColumns.desktop.columns|default(settings.general.columns.number|default(3)), { 'style': { 'width': '40px;' } }) ~ form.span('', 'columns') ~
+                        '<br>' ~
+                        form.input('number', 'general[responsiveColumns][tablet][width]', settings.general.responsiveColumns.tablet.width|default(768), { 'style': { 'width': '60px;' } }) ~ form.span('', 'px') ~
+                        form.input('number', 'general[responsiveColumns][tablet][columns]', settings.general.responsiveColumns.tablet.columns|default(settings.general.columns.number|default(3)), { 'style': { 'width': '40px;' } }) ~ form.span('', 'columns') ~
+                        '<br>' ~
+                        form.input('number', 'general[responsiveColumns][mobile][width]',
+                        settings.general.responsiveColumns.mobile.width|default(320), { 'style': { 'width': '60px;' } }) ~ form.span('', 'px') ~
+                        form.input('number', 'general[responsiveColumns][mobile][columns]', settings.general.responsiveColumns.mobile.columns|default(settings.general.columns.number|default(3)), { 'style': { 'width': '40px;' } }) ~ form.span('', 'columns'), 'responsive-columns') }}
+
+                        {#{{ form.row(environment.translate('Position'),
+                        form.select('area[position]', ['Center', 'Left', 'Right'], settings.area.position, { 'style': 'width: 300px;' }), 'grid-type') }}#}
+
+    					{{ form.row(translate('Gallery Name:'),
+                        form.input('text', 'title', gallery.title|raw, { 'style': { 'width': '232px;' } })
+                        , 'title') }}
+
+						{{ form.row(environment.translate('Gallery alignment'),
+							form.select('area[position]', ['Left', 'Center', 'Right'], settings.area.position|default(1), { 'style': 'width: 100px;' }), 'gallery-align') }}
+
+
+						{{ form.row(translate('Distance between images'),
+                        form.input('number', 'area[distance]', settings.area.distance, { 'style': { 'width': '140px;' } })
+                        ~ form.span('', 'pixels'), 'distance') }}
+
+                        {{ form.row(translate('Gallery width'),
+                        form.input('number', 'area[width]', settings.area.width, { 'style': { 'width': '140px' } })
+                        ~ form.select('area[width_unit]', ['pixels', 'percents'], settings.area.width_unit, { 'style': 'margin-top: -2px; height: 27px;' }), 'area-width') }}
+
+                        {# Setting gallery to full width of window  #}
+                        {{ form.row(translate('Full screen width'),
+                            form.checkbox(
+                            'fullscreen',
+                            '1',
+                            settings.fullscreen ? {'checked':'checked'} : {}
+                            ),
+                            'full-screen-width')
+                        }}
+
+                        {{ form.row(translate('Gallery padding'),
+                        form.input('number', 'area[padding]', settings.area.padding|default(0), { 'style': { 'width': '140px' } }) ~ form.span('', 'pixels'), 'area-padding') }}
+
+                        {#
+                            {{ form.row(environment.translate('Gallery height'),
+                            form.input('number', 'area[height]', settings.area.height, { 'style': { 'width': '205px'} })
+                            ~ form.select('', ['pixels', 'percents'], null, { 'disabled': 'disabled', 'style': 'margin-top: -2px; height: 27px' }), 'area-height') }}
+                        #}
+
+                        {{ form.row(translate('Image width'),
+                        form.input('number', 'area[photo_width]', settings.area.photo_width, { 'style': { 'width': '140px'} })
+                        ~ form.select('area[photo_width_unit]', ['pixels', 'percents'], settings.area.photo_width_unit, { 'style': 'margin-top: -2px; height: 27px; width: 85px;' }), 'photo-width') }}
+
+
+                        {{ form.row(translate('Image height'),
+                        form.input('number', 'area[photo_height]', settings.area.photo_height, { 'style': { 'width': '140px'} })
+                        ~ form.select('area[photo_height_unit]', ['pixels'], settings.area.photo_height_unit, { 'style': 'margin-top: -2px; height: 27px; width: 85px;' }), 'photo-height') }}
+
+                        {{ form.row(translate('Image radius'),
+                        form.input('number', 'thumbnail[border][radius]', settings.thumbnail.border.radius, { 'style': { 'width': '140px'} })
+                        ~ form.select('thumbnail[border][radius_unit]', ['pixels', 'percents'], settings.thumbnail.border.radius_unit, { 'style': 'margin-top: -2px; height: 27px; width: 85px;' }), 'border-radius') }}
+
+                        {# set crop quality #}
+                        {% set qualityList = {
+                            "100":"100%",
+                            "90":"90%",
+                            "80":"80%",
+                            "70":"70%",
+                            "60":"60%",
+                            "50":"50%",
+                            "40":"40%",
+                            "30":"30%",
+                            "20":"20%",
+                            "10":"10%"
+                        }%}
+                        {{ form.row(translate('Image crop quality'),
+                            form.select(
+                                'thumbnail[cropQuality]',
+                                qualityList,
+                                settings.thumbnail.cropQuality|default('100')
+                            ),
+                            'cropQuality')
+                        }}
+
+                        {{ form.row(translate('Display only first image'),
+							form.checkbox(
+								'displayFirstPhoto',
+								'on',
+								settings.displayFirstPhoto == 'on' ? {'checked':'checked'} : {}
+							),
+							'display-first-photo',
+							null,
+							'display-first-photo-row'
+						) }}
+
+                        {% block openByLink %}
+                            {{ form.rowpro(translate('Open by link in popup'),
+                            'utm_source=plugin&utm_medium=open-by-link&utm_campaign=gallery',
+                            'open-by-link',
+                            form.checkbox(
+                            'openByLink', 'on',{'disabled':'disabled'}))
+                            }}
+                        {% endblock %}
+
+						{% block browserUrlTooltipHide %}
+							{{ form.rowpro(translate('Hide browser url tooltip on image hover'),
+								'utm_source=plugin&utm_medium=browser-url-tooltip-hide&utm_campaign=gallery',
+								'browserUrlTooltipHideFree',
+								form.checkbox(
+									'browserUrlTooltipHideFree', 'on',{'disabled':'disabled'})
+							)}}
+
+						{% endblock %}
+
+						{{ form.row(translate('Disable image title'),
+							form.checkbox(
+								'disableImageTitle',
+								1,
+								settings.disableImageTitle == 1 ? {'checked':'checked'} : {}
+							),
+							null, null, null
+						) }}
+
+                        {% block disableRightClick %}
+                        {% endblock %}
+
+						{{ form.row(translate('Use these settings by default'),
+                        form.checkbox(
+                        'defaultsettings',
+                        '1',
+                        settings.defaultsettings ? {'checked':'checked'} : {}
+                        ),
+                        'default-settings')
+                        }}
+
+
+
+                    </thead>
+                </table>
+                <div class="separator"></div>
+            {% endblock %}
+
+            {% block mosaicImagesCount %}
+            {% endblock %}
+
+			{% block mosaicGalleryImageCountText %}
+			{% endblock %}
+
+            {% block socialSharing %}
+                <table class="form-table" id="gg-anl-soc-share">
+                    <thead>
+                    {{ form.row(translate('Social Sharing'),
+                    form.radio('socialSharing[enabled]', true, {'id':'social-sharing-enable'}|merge(settings.socialSharing.enabled ? {'checked':'checked'} : {})) ~
+                    f.label(translate('Enable'), 'social-sharing-enable') ~
+                    form.radio('socialSharing[enabled]', false, {'id':'social-sharing-disable'}|merge(settings.socialSharing.enabled ? {} : {'checked':'checked'})) ~
+                    f.label(translate('Disable'), 'social-sharing-disable'), 'social-sharing', true) }}
+                    </thead>
+                    <tbody style="display: none;">
+                    {% if settings.socialSharing.pluginInstalled %}
+                        {% if settings.socialSharing.projectsList|length %}
+
+
+                            {{ form.row(translate('Social Buttons Project'),
+                            form.select('socialSharing[projectId]',
+                            settings.socialSharing.projectsList,
+                            settings.socialSharing.projectId,
+                            {'style': 'width: 200px'}),
+                            'social-buttons-project') }}
+
+                            {#Social setup pup-up window#}
+                            {{ form.row(translate('Social setup'),
+                                form.button('button-social-setup', 'Show social setup', {'class': 'button button-primary'}), 'social-setup-dialog', false)
+                            }}
+
+
+                            {{ form.row(translate('Gallery Sharing'),
+								form.checkbox(
+									'socialSharing[gallerySharing][enabled]',
+									true,
+									settings.socialSharing.gallerySharing.enabled ? {'checked':'checked'} : {}
+								),
+								'gallery-social-sharing',
+								'h4'
+							) }}
+
+                            {{ form.row(translate('Buttons position'),
+                            form.select('socialSharing[gallerySharing][buttonsPosition]',
+                            {
+                                'top': 'top',
+                                'bottom': 'bottom',
+                                'all': 'top and bottom',
+                            },
+                            settings.socialSharing.gallerySharing.buttonsPosition,
+                            {'style': 'width: 200px'}),
+                            'gallery-sharing-buttons-position') }}
+
+                            {{ form.row('',
+                            form.checkbox('socialSharing[imageSharing][enabled]','0', {'checked':'checked'}),'image-sharing-hidden') }}
+
+                            {% set enabled = settings.socialSharing.imageSharing.enabled %}
+                            {{ form.row(translate('Image Sharing'),
+								form.checkbox(
+									'socialSharing[imageSharing][enabled]',
+									true,
+									enabled != '0' ? {'checked':'checked'} : {}
+								),
+								'image-social-sharing',
+								'h4'
+							) }}
+
+                            {{ form.row(translate('Buttons position'),
+                            form.select('socialSharing[imageSharing][buttonsPosition]',
+                            {
+                                'top': 'top',
+                                'bottom': 'bottom',
+                                'left': 'left',
+                                'right ': 'right ',
+                            },
+                            settings.socialSharing.imageSharing.buttonsPosition,
+                            {'style': 'width: 200px'}),
+                            'image-sharing-buttons-position') }}
+
+                            {{ form.row(translate('Buttons align'),
+                            form.select('socialSharing[imageSharing][buttonsAlignHorizontal]',
+                            {
+                                'left': 'left',
+                                'center': 'center',
+                                'right': 'right',
+                            },
+                            settings.socialSharing.imageSharing.buttonsAlignHorizontal,
+                            {'style': 'width: 200px'}),
+                            'image-sharing-buttons-align-horizontal') }}
+
+                            {{ form.row(translate('Buttons align'),
+                            form.select('socialSharing[imageSharing][buttonsAlignVertical]',
+                            {
+                                'top': 'top',
+                                'middle': 'middle',
+                                'bottom': 'bottom',
+                            },
+                            settings.socialSharing.imageSharing.buttonsAlignVertical,
+                            {'style': 'width: 200px'}),
+                            'image-sharing-buttons-align-vertical') }}
+
+                            {{ form.row('',
+                            form.checkbox('socialSharing[popupImageSharing][enabled]','0', {'checked':'checked'}),'popup-sharing-hidden') }}
+
+                            {% set enabled = settings.socialSharing.popupImageSharing.enabled %}
+                            {{ form.row(translate('Popup Image Sharing'),
+								form.checkbox(
+									'socialSharing[popupImageSharing][enabled]',
+									true,
+									enabled != '0' ? {'checked':'checked'} : {}
+								),
+								'popup-social-sharing',
+								'h4'
+							) }}
+
+                            {{ form.row(translate('Buttons position'),
+                            form.select('socialSharing[popupImageSharing][buttonsPosition]',
+                            {
+                                'top': 'top',
+                                'bottom': 'bottom',
+                                'left': 'left',
+                                'right ': 'right ',
+                            },
+                            settings.socialSharing.popupImageSharing.buttonsPosition,
+                            {'style': 'width: 200px'}),
+                            'popup-sharing-buttons-position') }}
+
+                            {{ form.row(translate('Buttons align'),
+                            form.select('socialSharing[popupImageSharing][buttonsAlignHorizontal]',
+                            {
+                                'left': 'left',
+                                'center': 'center',
+                                'right': 'right',
+                            },
+                            settings.socialSharing.popupImageSharing.buttonsAlignHorizontal,
+                            {'style': 'width: 200px'}),
+                            'popup-sharing-buttons-align-horizontal') }}
+
+                            {{ form.row(translate('Buttons align'),
+                            form.select('socialSharing[popupImageSharing][buttonsAlignVertical]',
+                            {
+                                'top': 'top',
+                                'middle': 'middle',
+                                'bottom': 'bottom',
+                            },
+                            settings.socialSharing.popupImageSharing.buttonsAlignVertical,
+                            {'style': 'width: 200px'}),
+                            'popup-sharing-buttons-align-vertical') }}
+
+                        {% else %}
+                            <tr>
+                                <td colspan="2">
+                                    <span>{{ translate('You have no Social Sharing projects for now.')}} </span>
+                                    <a href="/wp-admin/admin.php?page=supsystic-social-sharing&module=projects&action=add"
+                                       target="_blank" rel="noopener noreferrer"
+                                    >{{ translate('Create your first project')}}</a>
+                                    <span> {{ translate('then just reload page with your Gallery settings, and you will see list with available Social Projects for your Gallery.')}}</span>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% else %}
+                        <tr>
+                            <td colspan="2">
+                                <span>{{ translate('You need to install Social Share Buttons by Supsystic to use this feature.')}} </span>
+                                <a target="_blank" rel="noopener noreferrer" href="/wp-admin/plugin-install.php?tab=search&type=term&s=Social+Share+Buttons+by+Supsystic"
+                                >{{ translate('Install plugin')}}</a>
+                                <span> {{ translate("from your admin area, or visit it's official page on Wordpress.org") }} </span>
+                                <a target="_blank" rel="noopener noreferrer" href="https://wordpress.org/plugins/social-share-buttons-by-supsystic/"> {{ translate('here.')}}</a>
+                            </td>
+
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+                <div class="separator"></div>
+            {% endblock %}
+
+            <div class="load-more-button-preview" id="gg-anl-load-more">
+                <h1 style="line-height: 1;">
+                    {{ translate("Load more gallery images with scroll or button") }}
+                    </br>
+                    <a class="button get-pro" href="{{ getProUrl('utm_source=plugin&utm_medium=show-more&utm_campaign=gallery') }}" target="_blank">{{ environment.translate('Get PRO') }}</a>
+                </h1>
+                <div>
+                    <a href="{{ getProUrl('utm_source=plugin&utm_medium=show-more&utm_campaign=gallery') }}" target="_blank">
+                        <img src="{{ environment.module('galleries').getLocationUrl() }}/assets/img/load_more_button_pro.jpg" />
+                    </a>
+                </div>
+                <div class="separator"></div>
+            </div>
+
+            <div class="custom-buttons-preview" id="gg-anl-cust-button">
+                <table class="form-table">
+                    <thead>
+                        {{ form.row(translate('Custom Buttons'),
+                            form.button('buttons-presets-editor-preview', 'Show preset Editor', {'class': 'button button-primary'}), 'custom-buttons-preview', true)}}
+                    </thead>
+                </table>
+                <div class="separator"></div>
+            </div>
+
+			{% block horizontalScroll %}
+				<table class="form-table" id="gg-anl-horiz-scroll">
+					<thead>
+					{% set horizontalScrollEnabled = settings.horizontalScroll.enabled|default('false') == 'true' %}
+					{{ form.row(translate('Horizontal Scroll'),
+					form.radio('horizontalScroll[enabled]', 'true', {'id':'horizontal-scroll-enable'}|merge(horizontalScrollEnabled ? {'checked':'checked'} : {})) ~
+					f.label(translate('Enable'), 'horizontal-scroll-enable') ~
+					form.radio('horizontalScroll[enabled]', 'false', {'id':'horizontal-scroll-disable'}|merge(horizontalScrollEnabled ? {} : {'checked':'checked'})) ~
+					f.label(translate('Disable'), 'horizontal-scroll-disable'), 'horizontal-scroll', true) }}
+					</thead>
+					<tbody>
+					{{ form.row(translate('Scroll Bar Color'),
+					form.text('horizontalScroll[color]', settings.horizontalScroll.color, {'class':'gg-color-picker'}), 'horizontal-scroll-color') }}
+
+					{{ form.row(translate('Scroll Bar Transparency'),
+					form.select('horizontalScroll[transparency]',
+					{
+						'0': '0%',
+						'10': '10%',
+						'20': '20%',
+						'30': '30%',
+						'40': '40%',
+						'50': '50%',
+						'60': '60%',
+						'70': '70%',
+						'80': '80%',
+						'90': '90%',
+						'100': '100%',
+					},
+					settings.horizontalScroll.transparency|default('60'), {'style': 'width: auto'}),
+					'horizontal-scroll-transparency') }}
+
+					{{ form.row(translate('Mouse Wheel Scroll Step'),
+						form.text(
+							'horizontalScroll[mouseWheelStep]',
+							settings.horizontalScroll.mouseWheelStep | default(20),
+							{}
+						),
+						'hscroll-mouse-wheel'
+					) }}
+
+					{{ form.row(translate('Touch Scroll Step'),
+						form.text(
+							'horizontalScroll[touchStep]',
+							settings.horizontalScroll.touchStep | default(200),
+							{}
+						),
+						'hscroll-touch-gest'
+					) }}
+
+					{{ form.row(translate('Responsive Mode'),
+						form.select('horizontalScroll[responsiveMode]',
+							{
+								'0': translate('None'),
+								'1': translate('One by One'),
+							},
+							settings.horizontalScroll.responsiveMode | default('0'),
+							{'style': 'width: auto'}
+						),
+						'hScrollResponsiveMode'
+					) }}
+
+					{% block horizontalScrollAfter %}
+					{% endblock %}
+					</tbody>
+				</table>
+				<div class="separator"></div>
+			{% endblock %}
+
+            {% block border %}
+                <table class="form-table" name="border" id="gg-anl-border-type">
+                    <thead>
+                        {#
+                            <tr id="useBorderRow">
+                                <th scope="row">
+                                    <h3 style="margin: 0 !important;">
+                                        {{ environment.translate('Border') }}
+                                    </h3>
+                                </th>
+                                <td>
+                                    <input type="radio" id="showBorder" name="thumbnail[border][use]" value="1" {% if settings.thumbnail.border.use == '1' %}checked{% endif %}>
+                                        {{ environment.translate('Available') }}
+                                    <input type="radio" id="hideBorder" name="thumbnail[border][use]" value="0" {% if settings.thumbnail.border.use != '1' %}checked{% endif %}>
+                                        {{ environment.translate('Disable') }}
+                                </td>
+                            </tr>
+                        #}
+
+                        {{ form.row(translate('Border Type'),
+                        form.select('thumbnail[border][type]', borderTypes, settings.thumbnail.border.type, { 'style': 'width: auto;' })
+                        ~ form.input('text', 'border-type', 'Example', { 'style': 'margin-top: -2px; height: 27px; width: 70px; border: 1px solid black; display:none;' }), 'border-type', 'gallery-borders') }}
+
+                        {{ form.row(translate('Border color'),
+                        form.input('text', 'thumbnail[border][color]', settings.thumbnail.border.color, { 'class': 'gg-color-picker' }), 'border-color') }}
+
+                        {{ form.row(translate('Border width'),
+                        form.input('number', 'thumbnail[border][width]', settings.thumbnail.border.width, { 'style': { 'width': '140px;'} })
+                        ~ form.span('', 'pixels'), 'border-width') }}
+                    </thead>
+                </table>
+                <div class="separator"></div>
+            {% endblock %}
+
+            {% block shadow %}
+                <table class="form-table" name="shadow" id="gg-anl-shadow">
+                    <thead>
+                        <tr id="useShadowRow">
+                            <th scope="row">
+                                <h3 style="margin: 0 !important;">
+                                    {{ translate('Shadow') }}
+									{{ form.show_tooltip('sgg-t-shadow') }}
+                                </h3>
+                            </th>
+                            <td>
+                                <input type="radio" id="showShadow" name="use_shadow" value="1" {% if settings.use_shadow == '1' %}checked{% endif %}>
+                                    {{ translate('Enable') }}
+                                <input type="radio" id="hideShadow" name="use_shadow" value="0" {% if settings.use_shadow != '1' %}checked{% endif %}>
+                                    {{ translate('Disable') }}
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                {{ translate('Shadow effect preset') }}
+								{{ form.show_tooltip('sgg-t-shadow-eff-preset') }}
+                            </th>
+                            <td>
+                                <button id="chooseShadowPreset" class="button bordered" type="button">
+                                    {{ translate('Choose preset') }}
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr id="useMouseShadowRow">
+                            <th scope="row">
+                                {{ translate('When mouse is over') }}
+                                {{ form.show_tooltip('when-mouse-is-over') }}
+                            </th>
+                            <td>
+                                <select id="useMouseOverShadow" style="width: auto;" name="mouse_shadow">
+                                    <option value="0" {% if settings.mouse_shadow == '0' %}selected="selected"{% endif %}>
+                                        {{ translate('Off') }}
+                                    </option>
+                                    <option value="1" {% if settings.mouse_shadow == '1' %}selected="selected"{% endif %}>
+                                        {{ translate('Show mouse on') }}
+                                    </option>
+                                    <option value="2" {% if settings.mouse_shadow == '2' %}selected="selected"{% endif %}>
+                                        {{ translate('Hide mouse on') }}
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        {{ form.row(translate('Overlay image with shadow'),
+                        form.select('thumbnail[shadow][overlay]', ['Off', 'On'], settings.thumbnail.shadow.overlay, { 'style': 'width: auto;' }), 'overlay-type') }}
+
+                        {{ form.row(translate('Shadow color'),
+                        form.text('thumbnail[shadow][color]', settings.thumbnail.shadow.color, { 'style': { 'width': '300px' }, 'class':'gg-color-picker' }), 'shadow-color') }}
+
+                        {{ form.row(translate('Shadow blur'),
+                        form.input('number', 'thumbnail[shadow][blur]', settings.thumbnail.shadow.blur, { 'style': { 'width': 'auto' } }), 'shadow-blur') }}
+
+                        {{ form.row(translate('Shadow X'),
+                        form.input('number', 'thumbnail[shadow][x]', settings.thumbnail.shadow.x, { 'style': { 'width': 'auto' } }), 'shadow-x') }}
+
+                        {{ form.row(translate('Shadow Y'),
+                        form.input('number', 'thumbnail[shadow][y]', settings.thumbnail.shadow.y, { 'style': { 'width': 'auto' } }), 'shadow-y') }}
+                    </tbody>
+                </table>
+                <div class="separator"></div>
+            {% endblock %}
+
+            {% block popup %}
+                <table class="form-table" id="gg-anl-popup">
+                    <thead>
+                        {# Enable/Disable popup #}
+                        {% set popUpEnabled = settings.box.enabled|default('true') == 'true' %}
+                        {{ form.row(translate('Pop-up Image'),
+                            form.radio(
+                                'box[enabled]',
+                                'true',
+                                {'id':'box-enable'}|merge(popUpEnabled ? {'checked':'checked'} : {})
+                            ) ~
+                            f.label(
+                                translate('Enable'),
+                                'box-enable'
+                            ) ~
+                            form.radio(
+                                'box[enabled]',
+                                'false',
+                                {'id':'box-disable'}|merge(popUpEnabled ? {} : {'checked':'checked'})
+                            ) ~
+                            f.label(
+                                translate('Disable'),
+                                'box-disable'
+                            ), 'box', true)
+                        }}
+                    </thead>
+                    <tbody>
+                        {# Select popup theme #}
+                        {{ form.row(translate('Popup box theme'),
+                            form.button(
+                                'chooseTheme',
+                                translate('Choose theme'),
+                                {'class': 'button bordered', 'id': 'chooseTheme'}
+                            ) ~
+                            form.hidden(
+                                'box[type]',
+                                settings.box.type
+                            ) ~
+                            form.hidden(
+                                'box[theme]',
+                                settings.box.theme,
+                                {'id':'bigImageTheme'}
+							), 'sgg-t-popup-theme')
+                        }}
+
+                        {# Enable/Disable popup border #}
+                        {{ form.row(translate('Enable popup border'),
+                            form.checkbox(
+                                'popup[border][enable]',
+                                'on',
+                                settings.popup.border.enable == 'on' ? {'checked':'checked'} : {}
+                            ),
+                            'popup-border-enable')
+                        }}
+
+                        {{ form.row(translate('Pop up border type'),
+                            form.select('popup[border][type]', borderTypes, settings.popup.border.type, { 'style': 'width: auto;' }) , 'border-type-popup')
+                        }}
+
+                        {{ form.row(translate('Pop up border color'),
+                            form.input('text', 'popup[border][color]', settings.popup.border.color, { 'class': 'gg-color-picker' }), 'border-color-popup') }}
+
+                        {{ form.row(translate('Pop up border width'),
+                            form.input('number', 'popup[border][width]', settings.popup.border.width, { 'style': { 'width': '140px;'} })
+                            ~ form.span('', 'pixels'), 'border-width-popup') }}
+
+                        {# Enable/Disable popup on mobile devices #}
+                        {{ form.row(translate('Disable on mobile'),
+                            form.checkbox(
+                                'box[mobile]',
+                                'on',
+                                settings.box.mobile == 'on' ? {'checked':'checked'} : {}
+                            ),
+                            'mobile')
+                        }}
+
+                        {# Chose popup text #}
+                        {{ form.row(translate('Popup Image Text'),
+                        form.select(
+                        'box[imageText]',
+                        {
+                            'data-caption': translate('Caption'),
+                            'data-title': translate('Title'),
+                            'alt': translate('Alt text'),
+                            'data-description': translate('Description'),
+                        },
+                        settings.box.imageText|default('data-description'),
+                        {'style': 'width: 150px'}
+                        ), 'popup-image-text')
+                        }}
+
+                        {# Popup Linked Image Text #}
+                        {% block popupLinkedImageText %}
+                            <tr>
+                                <th scope="row">
+                                    <label style="margin: 0 !important;">
+                                        {{ translate('Popup Linked Image Text') }}
+                                        {{ form.show_tooltip('popupLinkedImageTextPro') }}
+                                        <br />
+                                        <label><a href="{{ getProUrl('utm_source=plugin&utm_medium=linkedImageText&utm_campaign=gallery') }}" target="_blank" style="color: #0074a2; font-size: 10px; text-decoration: none;">PRO Option</a> </label>
+                                    </label>
+                                </th>
+                                <td>
+                                    {{ form.select(
+                                        'box[linkedImageTextFree]',
+                                        {
+                                            'data-title': translate('Title'),
+                                            'alt': translate('Alt text'),
+                                            'data-description': translate('Description'),
+                                        },
+                                        'data-title',
+                                        {'style': 'width: 150px', 'disabled':'', 'id' : 'ptsLinkTextChoose'}
+                                    )
+                                    }}
+                                </td>
+                            </tr>
+                        {% endblock %}
+
+						{# Disable source image for Linked Images  #}
+						{% block disableSourceImageForLi %}
+							<tr>
+								<th scope="row">
+									<label style="margin: 0 !important;">
+										{{ translate('Disable source image for Linked Images') }}
+                                        {{ form.show_tooltip('disableSourceImageForLiPro') }}
+										<br />
+										<label><a href="{{ getProUrl('utm_source=plugin&utm_medium=linkedImageText&utm_campaign=gallery') }}" target="_blank" style="color: #0074a2; font-size: 10px; text-decoration: none;">PRO Option</a> </label>
+									</label>
+								</th>
+								<td>
+									{{ form.checkbox(
+										'box[disableSourceImageForLiFree]',
+										'1',
+                                        {'disabled':'disabled'}
+									) }}
+								</td>
+								</tr>
+						{% endblock %}
+
+                        {# Enable Download Photos Button for Popup Images #}
+                        {% block enableDownloadPhotosButton %}
+                            <tr>
+                                <th scope="row">
+                                    <label style="margin: 0 !important;">
+                                        {{ translate('Enable Download Photos Button') }}
+                                        {{ form.show_tooltip('enableDownloadPhotosButtonPro') }}
+                                        <br />
+                                        <label><a href="{{ getProUrl('utm_source=plugin&utm_medium=linkedImageText&utm_campaign=gallery') }}" target="_blank" style="color: #0074a2; font-size: 10px; text-decoration: none;">PRO Option</a> </label>
+                                    </label>
+                                </th>
+                                <td>
+                                    {{ form.checkbox(
+                                        'box[enableDownloadPhotosButtonFree]',
+                                        '1',
+                                        {'disabled':'disabled'}
+                                    ) }}
+                                </td>
+                            </tr>
+                        {% endblock %}
+
+                        {# Hide popup captions #}
+                        {{ form.row(translate('Hide Popup Captions'),
+                            form.checkbox(
+                                'box[captions]',
+                                'on',
+                                settings.box.captions == 'on' ? {'checked':'checked'} : {}
+                            ),
+                            'captions')
+                        }}
+
+						{{ form.row(translate('Hide long captions'),
+                            form.checkbox(
+                                'hideLongTooltipTitles',
+                                'on',
+                                settings.hideLongTooltipTitles == 'on' ? {'checked':'checked'} : {}
+                            ), 'hide-long-tooltip-titles')
+                        }}
+
+                        {# Popup overlay bg-color #}
+                        {{ form.row(translate('Background color'),
+                            form.text(
+                                'box[background]',
+                                settings.box.background,
+                                {'class':'gg-color-picker'}
+                            ),
+                            'box-background')
+                        }}
+
+                        {# Popup overlay transparency #}
+						{{ form.row(translate('Background transparency'),
+                            form.select(
+                                'box[transparency]',
+                                {
+                                    '0': '0%',
+                                    '10': '10%',
+                                    '20': '20%',
+                                    '30': '30%',
+                                    '40': '40%',
+                                    '50': '50%',
+                                    '60': '60%',
+                                    '70': '70%',
+                                    '80': '80%',
+                                    '90': '90%',
+                                    '100': '100%',
+                                },
+                                settings.box.transparency|default(30), {'style': 'width: auto'}
+                            ),
+                            'box-transparency')
+                        }}
+
+                        {# Enable/Disable popup slideshow #}
+                        {{ form.row(translate('Slideshow'),
+                            form.select(
+                                'box[slideshow]',
+                                {'true': translate('Enable'), 'false': translate('Disable')},
+                                settings.box.slideshow|default('false'),
+                                {'style': 'width: auto'}
+                            ),
+							'slideshow',
+							'h4'
+						)}}
+
+                        {# Popup slideshow speed #}
+                        {{ form.row(translate('Slideshow speed'),
+                            form.input(
+                                'number',
+                                'box[slideshowSpeed]',
+                                settings.box.slideshowSpeed|default(2500),
+                                {'style': {'width': 'auto'}},
+                                'box-slideshowSpeed'
+							), 'sgg-t-popup-slide-show-speed')
+                        }}
+
+                        {# Popup slideshow mouse hover stop #}
+                        {{ form.row(translate('Slideshow pause on hover'),
+                            form.select(
+                                'box[popupHoverStop]',
+                                {'true': translate('Yes'), 'false':  translate('No')},
+                                settings.box.popupHoverStop|default('true'),
+                                {'style': 'width: auto'},
+                                'box-popupHoverStop'
+                            ),
+                            'popupHoverStop')
+                        }}
+
+                        {# Popup slideshow autostart #}
+                        {{ form.row(translate('Slideshow autostart'),
+                            form.select(
+                                'box[slideshowAuto]',
+                                {'true':  translate('Yes'),'false': translate('No')},
+                                settings.box.slideshowAuto|default('false'),
+                                {'style': 'width: auto'},
+                                'box-slideshowAuto'
+							), 'sgg-t-popup-slideshow-autostart')
+                        }}
+
+                        {# Popup image size #}
+                        {{ form.row(translate('Popup Image size'),
+                            form.input(
+                                'number',
+                                'box[popupwidth]',
+                                settings.box.popupwidth,
+                                {'style': { 'width': '60px' }}
+                            )
+                            ~ form.span('', 'x')
+                            ~ form.input(
+                                'number',
+                                'box[popupheight]',
+                                settings.box.popupheight,
+                                { 'style': { 'width': '60px' } }
+                            )
+                            ~ form.span('', 'pixels'),
+                            'box-popupsize')
+                        }}
+
+
+                        {# Disable popup history save #}
+                        {{ form.row(
+                            translate('Disable browser history'),
+                            form.checkbox(
+                                'box[disableHistory]',
+                                'true',
+                                settings.box.disableHistory == 'true' ? {'checked':'checked'} : {}
+                            ),
+                            'box-disableHistory'
+                        ) }}
+
+                        {# Disable popup changing url in browser #}
+                        {{ form.row(
+                            translate('Disable change url'),
+                            form.checkbox(
+                                'box[disableChangeUrl]',
+                                'true',
+                                settings.box.disableChangeUrl == 'true' ? {'checked':'checked'} : {}
+                            ),
+                            'box-disableChangeUrl'
+                        ) }}
+
+                        {# Popup pro-option present #}
+                        {% block popupAfter %}
+                            {# Popup video size #}
+                            {{ form.rowpro(translate('Video size'),
+                                'utm_source=plugin&utm_medium=video&utm_campaign=gallery',
+                                'video.size',
+                                form.text(
+                                    'popup[video][width]',
+                                    settings.popup.video.width|default('853'),
+                                    { 'style': { 'width': '40px'}, 'disabled':''}
+                                )
+                                ~ form.span('', 'x')
+                                ~ form.text(
+                                    'popup[video][height]',
+                                    settings.popup.video.height|default('480'),
+                                    { 'style': { 'width': '40px'}, 'disabled':''}
+                                )
+                                ~ form.span('', 'pixels'))
+                            }}
+
+                            {# Popup autoplay video #}
+                            {{ form.rowpro(translate('Autoplay video'),
+                                'utm_source=plugin&utm_medium=video&utm_campaign=gallery',
+                                'video.autoplay',
+                                form.select(
+                                    'popup[video][autoplay]',
+                                    {'false':translate('No'), 'true':translate('Yes')},
+                                    settings.popup.video.autoplay|default('false'),
+                                    {'disabled':''}
+                                ))
+                            }}
+
+                            {# Popup when video ends #}
+                            {{ form.rowpro(translate('When video ends'),
+                                'utm_source=plugin&utm_medium=video&utm_campaign=gallery',
+                                'video.onEnd',
+                                form.select(
+                                    'popup[video][onEnd]',
+                                    {
+                                        '0':translate('Do nothing'),
+                                        '1':translate('Open next slide'),
+                                        '2':translate('Close popup')
+                                    },
+                                    settings.popup.video.onEnd|default('0'),
+                                    {'disabled':''}
+                                ))
+                            }}
+
+							{{ form.rowpro(translate('Show rotate button'),
+								'utm_source=plugin&utm_medium=popup_show_rotate_btn&utm_campaign=gallery',
+								'box[freeSRB]',
+								form.checkbox(
+									'box[freeSRB]',
+									1,
+									{'disabled':''}
+								)
+							) }}
+
+							{{ form.rowpro(translate('Show details button'),
+								'utm_source=plugin&utm_medium=popup_show_details_button&utm_campaign=gallery',
+								'box[freeSLB]',
+								form.checkbox(
+									'box[freeSLB]',
+									1,
+									{'disabled':''}
+								)
+							) }}
+
+
+
+							{{ form.rowpro(translate('Show On hover thumbnail'),
+								'utm_source=plugin&utm_medium=popup_show_thumbnail_on_hover&utm_campaign=gallery',
+								'box[freeSTFOH]',
+								form.checkbox(
+									'box[freeSTFOH]',
+									1,
+									{'disabled':''}
+								)
+							) }}
+
+                        {% endblock %}
+                    </tbody>
+                </table>
+				{{ form.hidden(
+					'popup[placementType]',
+					settings.popup.placementType | default(0),
+					{'id': 'popupPlacementTypeHidden'}
+				) }}
+                <div class="separator"></div>
+            {% endblock %}
+
+			{% block lazyload %}
+				<table class="form-table" name="lazyload" id="gg-anl-lazyload">
+					<thead>
+					{# Enable/Disable LazyLoad #}
+					{{ form.row(translate('Lazy Load'),
+						form.radio('lazyload[enabled]', '1', {'id':'lazyLoadEnabled'}| merge(settings.lazyload.enabled == '1' ? {'checked':'checked'} : {})) ~
+						f.label(translate('Enable'), 'lazyLoadEnabled') ~
+						form.radio('lazyload[enabled]', '0', {'id':'lazyLoadDisabled'}|merge(settings.lazyload.enabled == '1' ? {} : {'checked':'checked'})) ~
+						f.label(translate('Disable'), 'lazyLoadDisabled'), 'sgg-t-lazyload-enable',	true, 'sggLazyLoadEnableRow')}}
+					</thead>
+					<tbody>
+						{{ form.row(
+                            translate('Hide loader'),
+                            form.checkbox(
+                                'lazyload[hideLoader]',
+                                'true',
+                                settings.lazyload.hideLoader == 'true' ? {'checked':'checked'} : {}
+                            ),
+                            'lazyload-hideLoader'
+                        ) }}
+                        {{ form.row(
+                        	translate('Animation effect'),
+                            form.select(
+                               'lazyload[animationEffect]',
+                                {
+                                    'show':translate('show'),
+                                    'fadeIn':translate('fade'),
+                                    'slideDown':translate('slide')
+                                },
+                                settings.lazyload.animationEffect|default('0')
+                            ))
+                        }}
+                        {{ form.row(
+                        	translate('Effect duration'),
+                            form.select(
+                               'lazyload[effectDuration]',
+                                {
+                                	'400':translate('default'),
+                                    '0':translate('none'),
+                                    '200':translate('fast'),
+                                    '600':translate('slow'),
+                                    '2000':translate('very slow'),
+                                },
+                                settings.lazyload.effectDuration|default('400')
+                            ))
+                        }}
+						<input type="hidden" value="{{ pluginUrl ~ '/assets/img/loading.gif' }}" name="lazyload[defaultImgUrl]"/>
+						<input type="hidden" value="{{ pluginUrl ~ '/assets/img/leer.png' }}" name="lazyload[leerImgUrl]"/>
+					</tbody>
+				</table>
+			{% endblock %}
+
+            {% block preload %}
+                <table class="form-table" name="preload" id="gg-anl-preloader">
+                    <thead>
+                        {% set preloadEnabled = settings.preload.enabled|default('true') == 'true' %}
+                        {{ form.row(translate('Gallery Loader'),
+                            form.radio('preload[enabled]', 'true', {'id':'preload-enable'}|merge(preloadEnabled ? {'checked':'checked'} : {})) ~
+                            f.label(translate('Enable'), 'preload-enable') ~
+                            form.radio('preload[enabled]', 'false', {'id':'preload-disable'}|merge(preloadEnabled ? {} : {'checked':'checked'})) ~
+                            f.label(translate('Disable'), 'preload-disable'), 'preload', true) }}
+                    </thead>
+                {% if not environment.isPro() %}
+                    <tbody>
+                        <tr id="preload-background">
+                            <th scope="row">
+                                <label style="margin: 0 !important;">
+                                    {{ translate('Background color') }}
+                                    <br />
+                                    <label><a href="{{ getProUrl('utm_source=plugin&utm_medium=loader&utm_campaign=gallery') }}" target="_blank" style="color: #0074a2; font-size: 10px; text-decoration: none;">PRO Option</a> </label>
+                                </label>
+                            </th>
+                            <td>
+                                {{ form.text('preload[background]', "#0073AA", {'class':'gg-color-picker', 'id': 'preloadColor-free'}) }}
+                            </td>
+                        </tr>
+                        {% set piconImg %}
+                            <div class="gallery-loading">
+                                <div class="blocks">
+                                    <div class="block"></div>
+                                    <div class="block"></div>
+                                    <div class="block"></div>
+                                    <div class="block"></div>
+                                </div>
+                            </div>
+                        {% endset %}
+
+                        <tr>
+                            <th scope="row">
+                                <label style="margin: 0 !important;">
+                                    {{ translate('Choose Icon') }}
+                                    {{ form.show_tooltip('chooseIconPro') }}
+                                    <br />
+                                    <label><a href="{{ getProUrl('utm_source=plugin&utm_medium=loader&utm_campaign=gallery') }}" target="_blank" style="color: #0074a2; font-size: 10px; text-decoration: none;">PRO Option</a> </label>
+                                </label>
+                            </th>
+                            <td>
+                                {{ form.button('buttons-preload-icon', 'Choose Icon', {'class': 'button button-primary', 'id': 'choosePreicon-free'}) }}
+                                {{ piconImg }}
+                            </td>
+                        </tr>
+                    </tbody>
+                {% endif %}
+                </table>
+            {% endblock %}
+
+            {% block attributes %}
+                <table class="form-table" name="attributes" id="gg-anl-attributes">
+                    <thead>
+                    	{{ form.rowpro(translate('Custom Attributes'),
+							'utm_source=plugin&utm_campaign=gallery',
+							'customAttributes',
+							form.radio('attributes[enabled]', 'true', {'id':'attributes-enable', 'disabled': 'disabled'}) ~
+							form.label(translate('Enable'),	'attributes-enable') ~
+							form.radio('attributes[enabled]', 'false', {'id':'attributes-disable', 'checked':'checked', 'disabled': 'disabled'}) ~
+							form.label(translate('Disable'), 'attributes-disable'),	true, 1
+						) }}
+                    </thead>
+                </table>
+            {% endblock %}
+
+			{% block additionalCaptionSettings %}
+				<table class="form-table" name="captionAdditSett" id="gg-anl-caption-add-sett">
+					<thead>
+						{{ form.rowpro(translate('Thumbnail transformations'),
+							'utm_source=plugin&utm_medium=additinalCaptionSettings&utm_campaign=gallery',
+							'additionalCaptionSettingInPro',
+							form.radio(
+								'captionEffectSettings[Enable]',
+								1,
+								{'id':'captEffSettEnable', 'class': 'captAdditEffectSettEnbl', 'disabled': 'disabled', }
+							) ~
+							form.label(
+								translate('Enable'),
+								'captEffSettEnable'
+							) ~
+							form.radio(
+								'captionEffectSettings[Enable]',
+								0,
+								{'id':'captEffDisable', 'class': 'captAdditEffectSettEnbl', 'checked':'checked', 'disabled': 'disabled',}
+							) ~
+							form.label(
+								translate('Disable'),
+								'captEffDisable'
+							),
+							true,
+							1
+						) }}
+					</thead>
+				</table>
+			{% endblock %}
+			{{ form.hidden(
+				'adminPage[slimScrollStartPos]',
+				settings.adminPage.slimScrollStartPos | default(0),
+				{'id': 'slimScrollStartPos'}
+			) }}
+        </div>
+
+        {% block post %}
+            <div data-tab="post">
+                <h1 style="line-height: 1;">
+                    {{ translate("Posts layout") }}
+                    {{ form.show_tooltip('postsLayoutPro') }}
+                    </br>
+                    <a class="button get-pro" target="_blank"
+                       href="{{ getProUrl('?utm_source=plugin&utm_medium=postfeed&utm_campaign=gallery') }}">Get
+                        PRO for 39$</a>
+                </h1>
+
+                <div>
+                    <a href="{{ getProUrl('?utm_source=plugin&utm_medium=postfeed&utm_campaign=gallery') }}" target="_blank">
+                        <img style="max-width:796px;" src="{{ environment.getModule('core').getCdnUrl() }}_assets/gallery/img/settings/posts_layout.gif" title="Available in PRO version" />
+                    </a>
+                </div>
+            </div>
+        {% endblock %}
+
+		<div data-tab="overlay">
+			{# Init effects variables #}
+			{% set effects = {
+				'none': 'None',
+				'center': 'Middle',
+				'quarter-appear': 'Appear',
+				'quarter-disappear': 'Disappear',
+				'quarter-slide-up': 'Quarter Slide Up',
+				'quarter-slide-side': 'Quarter Slide Side',
+				'quarter-fall-in': 'Quarter Fall in',
+				'quarter-two-step': 'Quarter Two-step',
+				'quarter-zoom': 'Quarter Caption Zoom',
+				'cover-fade': 'Cover Fade',
+				'cover-push-right': 'Cover Push Right',
+				'revolving-door-left': 'Revolving Door Left',
+				'revolving-door-right': 'Revolving Door Right',
+				'revolving-door-top': 'Revolving Door Top',
+				'revolving-door-bottom': 'Revolving Door Bottom',
+				'revolving-door-original-left': 'Revolving Door Original Left',
+				'revolving-door-original-right': 'Revolving Door Original Right',
+				'revolving-door-original-top': 'Revolving Door Original Top',
+				'revolving-door-original-bottom': 'Revolving Door Original Bottom',
+				'cover-slide-top': 'Cover Slide Top',
+				'offset': 'Caption Offset',
+				'guillotine-reverse': 'Guillotine Reverse',
+				'half-slide': 'Half Slide',
+				'sqkwoosh': 'Skwoosh',
+				'tunnel': 'Tunnel',
+				'direction-aware': 'Direction Aware',
+				'phophorus-rotate': 'Phosphorus Rotate',
+				'phophorus-offset': 'Phosphorus Offset',
+				'phophorus-scale': 'Phosphorus Scale',
+				'cube': 'Cube',
+				'polaroid': 'Polaroid',
+				'3d-cube' : '3D Cube',
+				'show-on-hover' : 'Show on Hover',
+				'swing': 'Swing',
+			}%}
+			{% set iconsWithCaptionsEffects = {
+				'icons': 'Default',
+				'icons-scale': 'Scale',
+				'icons-sodium-left': 'Sodium Left',
+				'icons-sodium-top': 'Sodium Top',
+				'icons-nitrogen-top': 'Nitrogen Top'
+			}%}
+			{% set enableCaptions = settings.thumbnail.overlay.enabled|default('true') == 'true' %}
+			{% set polaroidIsEnable = settings.thumbnail.overlay.effect == 'polaroid' ? 'true' : 'false' %}
+
+            {% block captionSettingsType %}
+				<table class="form-table captions-settings-type" name="captionSettingsType">
+					<tbody>
+						{{ form.rowpro(translate('Use Caption Builder'),
+							'utm_source=plugin&utm_medium=caption_settings_type&utm_campaign=gallery',
+							'caption-settings-type-pro',
+							form.radio(
+								'captionBuilder[enabled]',
+								1,
+								{'id':'ggsShowUserCaptionBuilder', 'class': 'ggUserCaptionBuilderCl', 'disabled':'disabled'}
+							) ~
+							f.label(
+								translate('Enable'),
+								'ggsShowUserCaptionBuilder'
+							) ~
+							form.radio(
+								'captionBuilder[enabled]',
+								0,
+								{'id':'ggsHideUserCaptionBuilder', 'class': 'ggUserCaptionBuilderCl', 'disabled':'disabled', 'checked':'checked'}
+							) ~
+							f.label(
+								translate('Disable'),
+								'ggsHideUserCaptionBuilder'
+							),
+							'useCaptionBuilder',
+							true
+						)}}
+					</tbody>
+				</table>
+			{% endblock %}
+			{{ form.hidden(
+				'thumbnail[overlay][effect]',
+				settings.thumbnail.overlay.effect|default('quarter-appear'),
+				{'id': 'overlayEffect'}
+			) }}
+			{{
+				form.hidden('icons[effect]', settings.icons.effect, {'id':'iconsEffectName'})
+			}}
+
+			<div class="ggCaptionBuilderWrap">
+				<div class="caption-type" data-gg-cb-type="captions-icons">
+					{% block overlaySettings %}
+						<table class="form-table" name="captions">
+							<thead>
+							{# Enable/Disable Caption Effects #}
+							{{ form.row(translate('Captions'),
+                                form.radio(
+                                    'thumbnail[overlay][enabled]',
+                                    'true',
+                                    {'id':'showCaptions'}|merge(enableCaptions ? {'checked':'checked'} : {})
+                                ) ~
+                                f.label(
+                                    translate('Enable'),
+                                    'showCaptions'
+                                ) ~
+                                form.radio(
+                                    'thumbnail[overlay][enabled]',
+                                    'false',
+                                    {'id':'hideCaptions'}|merge(enableCaptions ? {} : {'checked':'checked'})
+                                ) ~
+                                f.label(
+                                    translate('Disable'),
+                                    'hideCaptions'
+                                ),
+                                'sgg-ci-caption-enable', true, 'useCaptions')
+							}}
+
+							{# Choise effect #}
+							{{ form.row(translate('Effect'),
+                                form.button(
+                                    '',
+                                    translate('Choose effect'),
+                                    {'id': 'chooseEffect', 'class': 'button bordered'}
+                                ),
+                                'chooseEffect')
+							}}
+
+							{# Image on Hover Effect Background #}
+							{% block backgroundImageForHoverEffect %}
+								{{ form.rowpro(translate('Image on hover'),
+                                    'utm_source=plugin&utm_medium=hover_caption_image_bg&utm_campaign=gallery',
+                                    'overlay-effect-image-on-hover-enable',
+                                    form.select(
+                                        'thumbnail[overlay][imageOnHoverEnable]',
+                                        {
+                                            '0':translate('Disable'),
+                                            '1':translate('Enable'),
+                                        },
+                                        '0',
+                                        {'disabled':'disabled'}
+                                    )
+								)}}
+							{% endblock %}
+
+							{# Background color for "Show on hover" #}
+							{% block backgroundColorForShowOnHover %}
+								{{ form.rowpro(translate('Background color for "Show on hover"'),
+									'utm_source=plugin&utm_medium=caption-show-on-hover&utm_campaign=gallery',
+									'backgroundColorForShowOnHoverFree',
+									form.select(
+										'thumbnail[overlay][backgroundFoShowOnHover]', {
+											'0' : translate('Disable'),
+										},
+										0,
+										{'disabled':'disabled'}
+									)
+								) }}
+							{% endblock %}
+
+							{# Show personal caption #}
+							{{ form.row(translate('Personal captions'),
+                                form.select(
+                                    'thumbnail[overlay][personal]',
+                                    {'true': translate('Enable'), 'false': translate('Disable')},
+                                    settings.thumbnail.overlay.personal|default('false'),
+                                    { 'style': 'width: auto;' }
+                                ),
+                                'overlay-personal')
+							}}
+
+							{# Enable/Disable polaroid effect #}
+							{{ form.row(translate('Polaroid Style'),
+                                form.select(
+                                    '',
+                                    {'true': translate('Enable'), 'false': translate('Disable')},
+                                    polaroidIsEnable,
+                                    {'style': 'width: auto;', 'class' : 'polaroid-effect-class'}
+                                ),
+								'polaroid-effect',
+								'h4'
+							)}}
+
+							{# Enable/Disable polaroid animation #}
+							{{ form.row(translate('Polaroid Image Animation'),
+                                form.select(
+                                    'thumbnail[overlay][polaroidAnimation]',
+                                    {'true': translate('Enable'), 'false': translate('Disable')},
+                                    settings.thumbnail.overlay.polaroidAnimation | default('true'),
+                                    { 'style': 'width: auto;' }
+                                ),
+							    'polaroid-animation')
+							}}
+
+							{# Enable/Disable polaroid scattering #}
+							{{ form.row(translate('Polaroid Image Scattering '),
+                                form.select(
+                                    'thumbnail[overlay][polaroidScattering]',
+                                    {'true': translate('Enable'), 'false': translate('Disable')},
+                                    settings.thumbnail.overlay.polaroidScattering | default('true'),
+                                    { 'style': 'width: auto;' }
+                                ),
+                                'polaroid-scattering')
+							}}
+
+							{# Polaroid frame width #}
+							{{ form.row(translate('Polaroid Frame Width'),
+                                form.input(
+                                    'number',
+                                    'thumbnail[overlay][polaroidFrameWidth]',
+                                    settings.thumbnail.overlay.polaroidFrameWidth|default(20),
+                                    { 'style': { 'width': '140px'} }
+                                ),
+                                'polaroid-frame-width',
+                                null,
+                                'polaroid-fram-width-row'
+							)}}
+
+							{# Caption bg-color #}
+							{{ form.row(translate('Background color'),
+                                form.text(
+                                    'thumbnail[overlay][background]',
+                                    settings.thumbnail.overlay.background,
+                                    {'class':'gg-color-picker'}
+                                ),
+                                'overlay-background')
+							}}
+
+							{# Caption text color #}
+							{{ form.row(translate('Text color'),
+                                form.text(
+                                    'thumbnail[overlay][foreground]',
+                                    settings.thumbnail.overlay.foreground,
+                                    {'class':'gg-color-picker'}
+                                ),
+                                'overlay-foreground')
+							}}
+
+							{# Caption bg transparency #}
+							{{ form.row(translate('Transparency'),
+                                form.select(
+                                    'thumbnail[overlay][transparency]',
+                                    ['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'],
+                                    settings.thumbnail.overlay.transparency|default(9),
+                                    { 'style': 'width: auto;' }
+                                ),
+                                'overlay-transparency')
+							}}
+
+							{# Caption text size #}
+							{{ form.row(translate('Text size'),
+                                form.input(
+                                    'number',
+                                    'thumbnail[overlay][text_size]',
+                                    settings.thumbnail.overlay.text_size,
+                                    { 'style': { 'width': '140px'} }
+                                )
+                                ~ form.select(
+                                    'thumbnail[overlay][text_size_unit]',
+                                    ['pixels', 'percents', 'ems'],
+                                    settings.thumbnail.overlay.text_size_unit,
+                                    { 'style': 'margin-top: -2px; height: 27px' }
+                                ),
+                                'text-size')
+							}}
+
+							{# Caption text horizontal align #}
+							{{ form.row(translate('Text horizontal align'),
+                                form.select(
+                                    'thumbnail[overlay][text_align]',
+                                    {'left': 'Left', 'right': 'Right', 'center': 'Center', 'auto': 'Auto'},
+                                    settings.thumbnail.overlay.text_align,
+                                    { 'style': 'width: auto;' }
+                                ),
+                                'text-align')
+							}}
+
+							{# Caption text vertical align #}
+							{{ form.row(translate('Text vertical align'),
+                                form.select(
+                                    'thumbnail[overlay][position]',
+                                    {'top': 'Top', 'middle': 'Middle', 'bottom': 'Bottom'},
+                                    settings.thumbnail.overlay.position,
+                                    { 'style': 'width: auto;' }
+                                ),
+                                'overlay-position')
+							}}
+
+							{# Caption text font family #}
+							{{ form.row(translate('Font family'),
+                                form.selectv(
+                                    'thumbnail[overlay][font_family]',
+                                    fontList,
+                                    settings.thumbnail.overlay.font_family,
+                                    { 'style': 'width: auto;' }
+                                ),
+                                'font-family')
+							}}
+
+
+							{# Hide image tooltip(browser default tooltip) #}
+							{{ form.row(translate('Hide image title'),
+                                form.select(
+                                    'thumbnail[tooltip]',
+                                    {'false': translate('No'), 'true': translate('Yes')},
+                                    settings.thumbnail.tooltip,
+                                    { 'style': 'width: auto;' }
+                                ),
+                                'tooltip')
+							}}
+
+							{# Mobile - show always caption(show none effect in mobile devices) #}
+							{{ form.row(translate('Always show captions on mobile'),
+                                form.select(
+                                    'thumbnail[isMobile]',
+                                    {'false': translate('No'), 'true': translate('Yes')},
+                                    settings.thumbnail.isMobile|default('false')
+                                ),
+                                'ismobile')
+							}}
+
+							{# Check if you want to disable captions on mobile devices #}
+							{{ form.row(translate('Disable captions on mobile'),
+                                form.select(
+                                    'thumbnail[isDisableMobileCaption]',
+                                    {'false': translate('No'), 'true': translate('Yes')},
+                                    settings.thumbnail.isDisableMobileCaption|default('false')
+                                ),
+                                'isDisableMobileCaption')
+							}}
+							</thead>
+						</table>
+
+						<div class="separator"></div>
+					{% endblock %}
+
+					{% block icons %}
+						<table class="form-table" name="icons">
+							<thead>
+							{% set iconsEnabled = settings.icons.enabled|default('false') == 'true' %}
+							{{ form.row(translate('Icons'),
+                                form.radio('icons[enabled]', 'true', {'id':'icons-enable'}|merge(iconsEnabled ? {'checked':'checked'} : {})) ~
+                                form.label(translate('Enable'), 'icons-enable') ~
+                                form.radio('icons[enabled]', 'false', {'id':'icons-disable'}|merge(iconsEnabled ? {} : {'checked':'checked'})) ~
+                                form.label(translate('Disable'), 'icons-disable'), 'photo-icon', true)
+                            }}
+							</thead>
+							<tbody>
+							{{ form.row(translate('Animation effects'),
+								form.button(null, translate('Animation'), {'class': 'button bordered', 'id': 'selectIconsEffect'}),
+								'ci-icons-animation-effects'
+							) }}
+							<tr>
+								<th scope="row">
+									<label for="iconsColor">
+										{{ translate('Icons color') }}
+										{{ form.show_tooltip('ci-icons-color') }}
+									</label>
+								</th>
+								<td>
+									<input type="text" id="iconsColor" class="gg-color-picker" value="{{ settings.icons.color }}" name="icons[color]"/>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<label for="iconsHoverColor">
+										{{ translate('Icons hover color') }}
+										{{ form.show_tooltip('ci-icons-hover-color') }}
+									</label>
+								</th>
+								<td>
+									<input type="text" id="iconsHoverColor" class="gg-color-picker" value="{{ settings.icons.hover_color }}" name="icons[hover_color]"/>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<label for="iconsBackgroundColor">
+										{{ translate('Background color') }}
+										{{ form.show_tooltip('ci-icons-bg-color') }}
+									</label>
+								</th>
+								<td>
+									<input type="text" id="iconsBackgroundColor" class="gg-color-picker" value="{{ settings.icons.background }}" name="icons[background]"/>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<label for="iconsBackgroundHoverColor">
+										{{ translate('Background hover color') }}
+										{{ form.show_tooltip('ci-icons-hover-bg-color') }}
+									</label>
+								</th>
+								<td>
+									<input type="text" id="iconsBackgroundHoverColor" class="gg-color-picker" value="{{ settings.icons.background_hover }}" name="icons[background_hover]"/>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<label for="iconsSize">
+										{{ translate('Icons size') }}
+										{{ form.show_tooltip('ci-icons-hover-size') }}
+									</label>
+								</th>
+								<td>
+									<input type="number" pattern="[0-9]" id="iconsSize"  name="icons[size]" value="{{ settings.icons.size }}"/>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<label for="iconsMargin">
+										{{ translate('Distance between icons') }}
+										{{ form.show_tooltip('ci-icons-distance') }}
+									</label>
+								</th>
+								<td>
+									<input type="number" pattern="[0-9]" id="iconsMargin"  name="icons[margin]" value="{{ settings.icons.margin }}"/>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<label for="iconsOverlay">
+										{{ translate('Show overlay') }}
+										{{ form.show_tooltip('ci-icons-show-overlay') }}
+									</label>
+								</th>
+								<td>
+									<select id="iconsOverlay" name="icons[overlay_enabled]" style="width: auto;">
+										<option value="true" {{ form.selected(settings.icons.overlay_enabled, 'true') }}>
+											{{ translate('Yes') }}
+										</option>
+										<option value="false" {{ form.selected(settings.icons.overlay_enabled, 'false') }}>
+											{{ translate('No') }}
+										</option>
+									</select>
+								</td>
+							</tr>
+							<tr class="icons-overlay-toggle">
+								<th scope="row">
+									<label for="iconsOverlayColor">
+										{{ translate('Overlay color') }}
+										{{ form.show_tooltip('ci-icons-overlay-color') }}
+									</label>
+								</th>
+								<td>
+									<input type="text" id="iconsOverlayColor" class="gg-color-picker" value="{{ settings.icons.overlay_color }}" name="icons[overlay_color]"/>
+								</td>
+							</tr>
+							<tr class="icons-overlay-toggle">
+								<th scope="row">
+									<label for="iconsOverlayTransparency">
+										{{ translate('Overlay transparency') }}
+										{{ form.show_tooltip('ci-icons-overlay-transparency') }}
+									</label>
+								</th>
+								<td>
+									<select id="iconsOverlayTransparency" name="icons[overlay_transparency]" style="width: auto;">
+										<option value="0" {{ form.selected(settings.icons.overlay_transparency, 0) }}>0%</option>
+										<option value="1" {{ form.selected(settings.icons.overlay_transparency, 1) }}>10%</option>
+										<option value="2" {{ form.selected(settings.icons.overlay_transparency, 2) }}>20%</option>
+										<option value="3" {{ form.selected(settings.icons.overlay_transparency, 3) }}>30%</option>
+										<option value="4" {{ form.selected(settings.icons.overlay_transparency, 4) }}>40%</option>
+										<option value="5" {{ form.selected(settings.icons.overlay_transparency, 5) }}{% if settings.icons.overlay_transparency is not defined %}selected="selected"{% endif %}>50%</option>
+										<option value="6" {{ form.selected(settings.icons.overlay_transparency, 6) }}>60%</option>
+										<option value="7" {{ form.selected(settings.icons.overlay_transparency, 7) }}>70%</option>
+										<option value="8" {{ form.selected(settings.icons.overlay_transparency, 8) }}>80%</option>
+										<option value="9" {{ form.selected(settings.icons.overlay_transparency, 9) }}>90%</option>
+										<option value="10" {{ form.selected(settings.icons.overlay_transparency, 10) }}>100%</option>
+									</select>
+								</td>
+							</tr>
+							{{ _self.showFewIconsBy(settings, form, 0) }}
+							</tbody>
+						</table>
+						<div class="separator"></div>
+					{% endblock %}
+				</div>
+				<div class="caption-type" data-gg-cb-type="caption-builder">
+					{% block proCaptionAndIconSettings %}
+					{% endblock %}
+				</div>
+				<div class="exit-info">
+					{% block exifCaptionSettings %}
+					<table class="form-table" name="captions">
+						<tbody>
+							<tr>
+								<td>
+									<h1 style="line-height: 1;">
+										{{ translate("Show EXIF data") }}
+                                        {{ form.show_tooltip('showExifDataPro') }}</br>
+										<a class="button get-pro" href="{{ getProUrl('?utm_source=plugin&utm_medium=exif-data&utm_campaign=gallery') }}" target="_blank">
+											{{ translate('GetPRO for 39$') }}
+										</a>
+									</h1>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					{% endblock %}
+				</div>
+			</div>
+        </div>
+
+        {% block categories %}
+            <div data-tab="cats">
+                <h1 style="line-height: 1;">
+                    {{ translate('Categories') }}
+                    {{ form.show_tooltip('categoriesPro') }}</br>
+                    </br>
+                    <a class="button get-pro" target="_blank"
+                       href="{{ getProUrl('?utm_source=plugin&utm_medium=categories&utm_campaign=gallery') }}">Get PRO</a>
+                </h1>
+
+                <div>
+                    <a href="{{ getProUrl('?utm_source=plugin&utm_medium=categories&utm_campaign=gallery') }}" target="_blank">
+                        <img style="max-width:600px;" src="{{ environment.getModule('core').getCdnUrl() }}_assets/gallery/img/settings/categories.gif" title="Available in PRO version" />
+                    </a>
+                </div>
+                {% block pagination %}
+                    <h1 style="line-height: 1;">
+                        {{ translate('Pagination') }}
+                        {{ form.show_tooltip('paginationPro') }}</br>
+                        </br>
+                        <a class="button get-pro" target="_blank"
+                           href="{{ getProUrl('?utm_source=plugin&utm_medium=pages&utm_campaign=gallery') }}">Get PRO</a>
+                    </h1>
+                    <div name="pagination">
+                        <div>
+                            <a href="{{ getProUrl('?utm_source=plugin&utm_medium=pages&utm_campaign=gallery') }}" target="_blank">
+                                <img style="max-width:600px;" src="{{ environment.getModule('core').getCdnUrl() }}_assets/gallery/img/settings/pagination.gif" title="Available in PRO version" />
+                            </a>
+                        </div>
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+
+        {% block watermark %}
+            <div data-tab="water-m-tab">
+                <h1 style="line-height: 1em;">
+                    <a class="button get-pro" target="_blank"
+                       href="{{ getProUrl('?utm_source=plugin&utm_medium=watermarks&utm_campaign=gallery') }}">Get PRO for 39$</a>
+                </h1>
+                <div>
+                    <a href="{{ getProUrl('?utm_source=plugin&utm_medium=watermarks&utm_campaign=gallery') }}" target="_blank">
+                        <img src="{{ environment.module('galleries').getLocationUrl() }}/assets/img/water_m_pro-min.png" />
+                    </a>
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block form %}
+        {% endblock %}
+
+        {{ form.close() }}
+
+        <div id="saveDialog" title="{{ translate('Save settings as preset') }}">
+            <div>
+                <label for="presetTitle">
+                    {{ translate('Preset title:') }}
+                </label>
+            </div>
+            <div>
+                <input id="presetTitle" type="text" name="title" style="width:100%;" value="{{ preset.title }}"/>
+                <input id="settingsId" type="hidden" name="settings_id" value="{{ id }}"/>
+            </div>
+        </div>
+
+        <div id="deletePreset" title="{{ translate('Delete preset') }}">
+            <p>
+                {{ translate('Are you really want to delete preset "%s"?')|format(preset.title) }}
+            </p>
+            <input type="hidden" id="presetId" value="{{ preset.id }}">
+        </div>
+
+        <div id="loadPreset" title="{{ translate('Load settings from presets') }}">
+            <div>
+                <label for="presetList">{{ translate('Select preset:') }}</label>
+            </div>
+            <div>
+                <select id="presetList" name="presetList" style="width:100%"></select>
+            </div>
+            <div id="presetListError">
+                <p id="presetLoadingFailed" style="display:none">
+                    {{ translate('Failed to load the presets.') }}
+                </p>
+
+                <p id="presetEmpty" style="display:none">
+                    {{ translate('Currently you have no presets.') }}
+                </p>
+            </div>
+        </div>
+
+        <div id="themeDialog" title="{{ translate('Select "Big image" theme') }}">
+            <h1>
+                {{ translate('Select a theme') }}
+            </h1>
+			<div class="popupPlacementTypeWrapper">
+				{% set popupPlacementType = (settings.popup.placementType == null ? 0 : settings.popup.placementType) %}
+				<h4>{{ translate('How to fit image in lightbox') }}</h4>
+				{{(
+					form.radio(
+						'popup[placementType]',
+						'0',
+						{'id':'popupPlacementTypeFts', 'class':'popupPlacementTypeRadio'}|merge(popupPlacementType == 0 ? {'checked':'checked'} : {})
+					) ~
+					form.label(
+						translate('Fit To Screen'),
+						'popupPlacementTypeFts'
+					) ~ '<br/>' ~
+					form.radio(
+						'popup[placementType]',
+						'1',
+						{'id':'popupPlacementTypeFw', 'class':'popupPlacementTypeRadio'}|merge(popupPlacementType == 1 ? {'checked':'checked'} : {})
+					) ~
+					form.label(
+						translate('Fit Width'),
+						'popupPlacementTypeFw'
+					) ~ '<br/>' ~
+					form.radio(
+						'popup[placementType]',
+						'2',
+						{'id':'popupPlacementTypeSo', 'class':'popupPlacementTypeRadio'}|merge(popupPlacementType == 2 ? {'checked':'checked'} : {})
+					) ~
+					form.label(
+						translate('Show Original'),
+						'popupPlacementTypeSo'
+					)
+					~ '<br/>'
+				) | raw }}
+			</div>
+            <div>
+                {% set bigImageThemes = {
+                'theme_1': 'Theme 1',
+                'theme_2': 'Theme 2',
+                'theme_3': 'Theme 3',
+                'theme_4': 'Theme 4',
+                'theme_5': 'Theme 5',
+                'theme_6': 'Theme 6',
+                'theme_7': 'Theme 7',
+                } %}
+
+                {% if environment.isPro() %}
+                    {% set bigImageThemes = bigImageThemes|merge({'theme_1_pro': 'Fullscreen popup'}) %}
+                {% endif %}
+
+                {% for value, name in bigImageThemes %}
+                    <div class="grid-gallery-caption {% if value == settings.box.theme %}{{ 'gg-active' }}{% endif %}">
+                        <img data-name="{{ name }}" data-val="{{ value }}" class="theme dialog-image"
+                             src="{{ environment.getModule('colorbox').getThemeScreenshotUrl(value) }}" alt="{{ name }}"
+                             title="{{ name }}"/>
+                        <div class="select-element">
+                            <h3>{{ translate('Select') }}</h3>
+                        </div>
+						<div class="gg-selected-theme">
+							<div class="gg-selected-theme-txt">{{ translate('Selected ' ~ name) }}</div>
+						</div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div id="effectDialog" title="{{ translate('Select overlay effect') }}">
+            <div id="effectsPreview" style="margin-top: 10px;">
+                {% for type, name in effects %}
+                    {% if type == 'direction-aware' %}
+                        <figure class="grid-gallery-caption" data-grid-gallery-type="{{ type }}">
+                            <div class="box">
+                                <div class="box__right">Right → Left</div>
+                                <div class="box__left">Left → Right</div>
+                                <div class="box__top">Top → Bottom</div>
+                                <div class="box__bottom">Bottom → Top</div>
+                                <div class="box__center">
+                                </div>
+                                <img data-src="holder.js/150x150?theme=industrial&text={{ name }}" class="dialog-image">
+                            </div>
+                            <div class="select-element">
+                                {{ translate('Select') }}
+                            </div>
+                        </figure>
+					{% elseif type in ['show-on-hover', 'fade-in', 'grow', 'shrink', 'rotate-z', 'square-to-circle',] %}
+						{% block captionEffectInPro %}
+							<figure class="grid-gallery-caption available-in-pro" data-grid-gallery-type="{{ type }}">
+								<a target="_blank" href="{{ getProUrl('?utm_source=plugin&utm_medium=caption-show-on-hover&utm_campaign=gallery') }}" class="caption-available-in-pro-link">
+									<img data-src="holder.js/150x150?theme=industrial&text={{ name }}" class="dialog-image">
+									<figcaption style="{{ figcaptionStyle|trim }}">
+										<div class="grid-gallery-figcaption-wrap" style="width:100%;height:100%;top:0;">
+											<div style="display:table;width:100%;height:100%;">
+												<span {% if settings.rtl == true %}dir="rtl" class="ggRtlClass"{% endif %} style="display:table-cell;font-size:{{ settings.thumbnail.overlay.text_size }}{{ settings.thumbnail.overlay.text_size_unit|replace(['px', '%', 'em']) }};padding:10px;vertical-align:{{ settings.thumbnail.overlay.position }};">Caption</span>
+											</div>
+										</div>
+									</figcaption>
+									<div class="get-in-pro-element">
+										{{ translate('Pro Feature') }}
+									</div>
+								</a>
+							</figure>
+						{% endblock %}
+                    {% elseif type == '3d-cube' %}
+                        <figure class="grid-gallery-caption" data-grid-gallery-type="{{ type }}">
+                            <div class="box-3d-cube-scene" style="perspective: 300px;-webkit-perspective: 300px">
+                                <div class="box-3d-cube"
+                                     style="
+                                         transform-origin:50% 50% -75px;
+                                         -ms-transform-origin: 50% 50% -75px;
+                                         -webkit-transform-origin: 50% 50% -75px;
+                                         width:150px; height:150px
+                                     "
+                                >
+                                    <div class="face front" style="width:150px; height:150px">
+                                        <img data-src="holder.js/150x150?theme=industrial&text={{ name }}" class="dialog-image">
+                                    </div>
+                                    <div style="{{ figcaptionStyle|trim }}width:150px; height:150px" class="face back">
+                                        <div class="grid-gallery-figcaption-wrap">
+                                            <span {% if settings.rtl == true %}dir="rtl" class="ggRtlClass"{% endif %}>{{ name }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="select-element">
+                                {{ translate('Select') }}
+                            </div>
+                        </figure>
+                    {% else %}
+                        <figure class="grid-gallery-caption" data-grid-gallery-type="{{ type }}">
+                            <img data-src="holder.js/150x150?theme=industrial&text={{ name }}" class="dialog-image">
+                            <figcaption style="{{ figcaptionStyle|trim }}">
+                                <div class="grid-gallery-figcaption-wrap" style="width:100%;height:100%;top:0;">
+                                    <div style="display:table;width:100%;height:100%;">
+                                        <span {% if settings.rtl == true %}dir="rtl" class="ggRtlClass"{% endif %} style="display:table-cell;font-size:{{ settings.thumbnail.overlay.text_size }}{{ settings.thumbnail.overlay.text_size_unit|replace(['px', '%', 'em']) }};padding:10px;vertical-align:{{ settings.thumbnail.overlay.position }};">Caption</span>
+                                    </div>
+                                </div>
+                            </figcaption>
+                            <div class="select-element">
+                                {{ translate('Select') }}
+                            </div>
+                        </figure>
+                    {% endif %}
+                {% endfor %}
+                <div class="grid-gallery-clearfix" style="clear: both;"></div>
+				{% if settings.captionBuilder.enabled != '1' %}
+					<div class="captions-effect-with-icons" data-confirm="{{ translate('This effect requires icons be enabled. Enable Icons?') }}">
+						<h3>Captions effects with icons</h3>
+						{% block iconsEffects %}
+							{% for type, name in iconsWithCaptionsEffects %}
+								<figure class="grid-gallery-caption" data-type="icons" data-grid-gallery-type="{{ type }}">
+									<img data-src="holder.js/150x150?theme=industrial&text={{ name }}" class="dialog-image"/>
+									<figcaption style="{{ figcaptionStyle|trim }}">
+										<div class="hi-icon-wrap" style="width: 48px; height: 48px; margin-top: 30%; position:relative;">
+											<a href="#" class="hi-icon icon-link" style="border:1px solid #ccc; border-radius:50%;margin:auto;position:absolute;left:0;right:0;top: 0;bottom: 0;">
+											</a>
+										</div>
+									</figcaption>
+									<div class="caption-with-{{ type }}">
+										<div style="display: table; height:100%; width:100%;">
+											<span style="padding: 10px;display:table-cell;font-size:{{ settings.thumbnail.overlay.text_size }}
+											vertical-align:{{ settings.thumbnail.overlay.position }};">
+												Caption
+											</span>
+										</div>
+									</div>
+									<div class="select-element">
+										{{ translate('Select') }}
+									</div>
+								</figure>
+							{% endfor %}
+						{% endblock %}
+					</div>
+				{% endif %}
+            </div>
+        </div>
+
+        <div id="shadowDialog" title="{{ translate('Select shadow preset') }}">
+            <h1>
+                {{ translate('Select shadow') }}
+            </h1>
+            <div class="shadow-dialog-wrapper">
+                {% set shadowPresets = {
+                'effect_1': {
+                    'name': 'Effect 1',
+                    'offset_x': '8',
+                    'offset_y': '8',
+                    'blur': '6',
+                    'color': 'rgba(0, 0, 0, 0.58)'
+                },
+                'effect_2': {
+                    'name': 'Effect 2',
+                    'offset_x': '-8',
+                    'offset_y': '-8',
+                    'blur': '6',
+                    'color': 'rgba(0, 0, 0, 0.58)'
+                },
+                'effect_3': {
+                    'name': 'Effect 3',
+                    'offset_x': '-8',
+                    'offset_y': '8',
+                    'blur': '6',
+                    'color': 'rgba(0, 0, 0, 0.58)'
+                },
+                'effect_4': {
+                    'name': 'Effect 4',
+                    'offset_x': '8',
+                    'offset_y': '-8',
+                    'blur': '6',
+                    'color': 'rgba(0, 0, 0, 0.58)'
+                },
+                'effect_5': {
+                    'name': 'Effect 5',
+                    'offset_x': '8',
+                    'offset_y': '0',
+                    'blur': '6',
+                    'color': 'rgba(0, 0, 0, 0.58)'
+                },
+                'effect_6': {
+                    'name': 'Effect 6',
+                    'offset_x': '-8',
+                    'offset_y': '0',
+                    'blur': '6',
+                    'color': 'rgba(0, 0, 0, 0.58)'
+                },
+                'effect_7': {
+                    'name': 'Effect 7',
+                    'offset_x': '0',
+                    'offset_y': '-8',
+                    'blur': '6',
+                    'color': 'rgba(0, 0, 0, 0.58)'
+                },
+                'effect_8': {
+                    'name': 'Effect 8',
+                    'offset_x': '0',
+                    'offset_y': '8',
+                    'blur': '6',
+                    'color': 'rgba(0, 0, 0, 0.58)'
+                },
+                'effect_9': {
+                    'name': 'Effect 9',
+                    'offset_x': '0',
+                    'offset_y': '4',
+                    'blur': '10',
+                    'color': 'rgba(0, 0, 0, 1.0)'
+                },
+                'effect_10': {
+                    'name': 'Effect 10',
+                    'offset_x': '0',
+                    'offset_y': '-4',
+                    'blur': '8',
+                    'color': 'rgba(0, 0, 0, 1.0)'
+                }
+                } %}
+
+
+                {% for value, effect in shadowPresets %}
+                    <div class="grid-gallery-caption" style="float: left; margin-left: 15px; cursor: pointer;">
+                        <div class="shadow-preset" data-offset-x="{{ effect.offset_x }}" data-offset-y="{{ effect.offset_y }}" data-blur="{{ effect.blur }}" data-color="{{ effect.color }}"
+                             style="margin: 20px; box-shadow: {{ effect.offset_x }}px {{ effect.offset_y }}px {{ effect.blur }}px {{ effect.color }};">
+                            <img data-src="holder.js/150x150?theme=industrial&text={{ effect.name }}" class="dialog-image"/>
+                        </div>
+                        <div class="select-element">
+                            {{ translate('Select') }}
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div id="reviewNotice" title="Review" hidden>
+            <h3>Hey, I noticed you just use Gallery by Supsystic over a week – that’s awesome!</h3>
+            <p>Could you please do me a BIG favor and give it a 5-star rating on WordPress? Just to help us spread the word and boost our motivation.</p>
+
+            <ul style="list-style: circle; padding-left: 30px;">
+                <li>
+                    <button class="button button-primary"><a href="//wordpress.org/support/view/plugin-reviews/gallery-by-supsystic?rate=5#postform" target="_blank" class="bupSendStatistic" data-statistic-code="is_shown" style="color:#000000 !important;">Ok, you deserve it</a></button>
+                </li>
+                <li>
+                    <button class="button button-primary"><span class="toeLikeLink bupSendStatistic" data-statistic-code="is_shown">Nope, maybe later</span></button>
+                </li>
+                <li>
+                    <button class="button button-primary"><span class="toeLikeLink bupSendStatistic" data-statistic-code="is_shown">I already did</span></button>
+                </li>
+            </ul>
+        </div>
+
+        <div id="settingsImportDialog" title="Import" hidden>
+            <div class="import" style="display:none">
+                <p>{{ translate('Import settings from gallery') }}</p>
+                <select class="list"></select>
+            </div>
+            <div class="import-not-available" style="display:none">
+                <p>{{ translate('Here you can import settings from other galleries, but right now, you have only one gallery, create more - and see how it works') }}</p>
+            </div>
+            <div class="import-gallery-loading">
+                <p>{{ translate('Loading gallery list...') }}</p>
+            </div>
+        </div>
+
+		<div id="videoUrlAddDialog" title="{{ 'Add video url' }}" style="display:none;" data-gallery-id="{{ gallery.id }}">
+			<div class="sggVideoUrlAddWr">
+				<div class="sggTableRow">
+					<div class="sggTableColumn6">
+						<div class="sggDlgVideoTypeH3">{{ translate('Video type:') }}</div>
+					</div>
+					<div class="sggTableColumn6">
+						{{(
+							form.radio(
+								'sggDlgVideoType',
+								'youtube',
+								{'id':'sggDlgYoutubeVideoType', 'class':'sggDlgVideoTypeRadio', 'checked':'checked'}
+							) ~
+							form.label(
+								translate('Youtube url'),
+								'sggDlgYoutubeVideoType'
+							) ~ '<br/>' ~
+							form.radio(
+								'sggDlgVideoType',
+								'vimeo',
+								{'id':'sggDlgVimeoVideoType', 'class':'sggDlgVideoTypeRadio',}
+							) ~
+							form.label(
+								translate('Vimeo url'),
+								'sggDlgVimeoVideoType'
+							)
+						) |raw }}
+					</div>
+				</div>
+				<div class="sggTableRow">
+					<div class="sggTableColumn6">
+						<div class="sggDlgVideoTypeH3">{{ translate('Video url:') }}</div>
+					</div>
+					<div class="sggTableColumn6">
+						{{
+							form.input(
+								'text',
+								'sggDlgUrlVideoValue',
+								'',
+								{'id': 'sggDlgUrlVideoInp', 'class': '', }
+							)
+						}}
+					</div>
+				</div>
+				<div class="sggTableRow sggAduHiden" id="sggAduErrorText"></div>
+			</div>
+		</div>
+
+        {% import '@galleries/shortcode/import.twig' as importTypes %}
+        <div id="importDialog" title="{{ translate('Select source to import from') }}" style="display: none;">
+            {{ importTypes.show(400, gallery.id) }}
+        </div>
+
+        <div class="buttons-edit-preset-dialog-preview" title="{{ translate('Buttons preset editor for Paginations, Categories and Load More buttons') }}">
+            <a href="{{ getProUrl('utm_source=plugin&utm_medium=show-more&utm_campaign=gallery') }}" target="_blank">
+                <img src="{{ environment.module('galleries').getLocationUrl() }}/assets/img/custom_button_icon_pro.jpg" />
+            </a>
+        </div>
+
+        <div class="loader-dialog-preview" title="{{ translate('Improve free version') }}" style="line-height: 200%;">
+            Please be advised that this option is available only in <u>Pro version</u>. You can
+            <a  href="{{ getProUrl('utm_source=plugin&utm_medium=loader&utm_campaign=gallery') }}" target="_blank" class="button">
+                Get PRO
+            </a>
+            today and get this and other PRO options for Galleries!
+        </div>
+    </div>
+
+    {% block modals %}
+        <div id="iconsPreview" title="{{ translate('Select icons effects') }}">
+            {%
+                set iconsEffects = {
+                    'hi-icon-effect-1a': { 'padding': '0', 'bg': '41ab6b'},
+                    'hi-icon-effect-1b': { 'padding': '0', 'bg': '41ab6b'},
+                    'hi-icon-effect-2a': { 'padding': '0', 'bg': 'eea303'},
+                    'hi-icon-effect-2b': { 'padding': '0', 'bg': 'eea303'},
+                    'hi-icon-effect-3a': { 'padding': '0', 'bg': 'f06060'},
+                    'hi-icon-effect-3b': { 'padding': '0', 'bg': 'f06060'},
+                    'hi-icon-effect-5a': { 'padding': '0', 'bg': '702fa8'},
+                    'hi-icon-effect-5b': { 'padding': '0', 'bg': '702fa8'},
+                    'hi-icon-effect-5c': { 'padding': '0', 'bg': '702fa8'},
+                    'hi-icon-effect-5d': { 'padding': '0', 'bg': '702fa8'},
+                    'hi-icon-effect-7a': { 'padding': '0', 'bg': 'd54f30'},
+                    'hi-icon-effect-7b': { 'padding': '0', 'bg': 'd54f30'},
+                    'hi-icon-effect-9a': { 'padding': '0', 'bg': '96a94b'},
+                    'hi-icon-effect-9b': { 'padding': '0', 'bg': '96a94b'},
+                }
+            %}
+            {% set var_icon_wrap_item_class %}
+                {% block icon_wrap_item_class %}
+					icon-fullscreen
+                {% endblock %}
+            {% endset %}
+            {% for name, p in iconsEffects %}
+                <div class="hi-icon-wrap {{ name[0:length-1] }} {{ name }} holderjs" style="display: inline-block; padding: {{ p.padding }}; width: 150px; height: 150px; background-color: #434A52; background-repeat: no-repeat; overflow: hidden;">
+                    <a href="#" class="hi-icon {{ var_icon_wrap_item_class }}" data-effect="{{ name }}" data-effect-base="{{ name[0:length-1] }}" title="{{ translate('Click on the icon to select effect') ~ " " ~ name }}" style="">Select</a>
+                </div>
+            {% endfor %}
+        </div>
+		<style id="sggSettingsIconSizeStyle">
+			.hi-icon {
+				width: {{ settings.icons.size * 2 }}px !important;
+				height: {{ settings.icons.size * 2 }}px !important;
+			}
+		</style>
+		<style id="sggSettingsIconColorStyle">
+			.hi-icon {color: {{ hex_to_rgba(settings.icons.color, 1 - (settings.icons.overlay_transparency)/10) }} !important;}
+		</style>
+		<style id="sggSettingsIconBgColorStyle">
+			.hi-icon { background: {{ hex_to_rgba(settings.icons.background,  1 - (settings.icons.bgTransparency)/10) }} !important; }
+		</style>
+		<style id="sggSettingHiIconHoverColorStyle">
+			.hi-icon:hover { color: {{ hex_to_rgba(settings.icons.hover_color, 1 - (settings.icons.overlay_transparency)/10) }} !important; }
+		</style>
+		<style id="sggSettingHiIconHoverBgStyle">
+			.hi-icon:hover { background: {{ hex_to_rgba(settings.icons.background_hover, 1 - (settings.icons.bgTransparency)/10) }} !important; }
+		</style>
+		<style id="sggSettingHiIconBeforeFontSizeStyle">
+			.hi-icon:before {
+				font-size: {{ settings.icons.size|default(16) }}px !important;
+				line-height: {{ settings.icons.size * 2 }}px !important;
+			}
+		</style>
+    {% endblock %}
+
+	{% block settingsOtherPro %}
+	{% endblock %}
+{% endblock %}
+
+{% macro showFewIconsBy(settings, form, isCaptionBuilder) %}
+
+	{% set isShowRow = 0 %}
+	{% if(settings.captionBuilder.enabled == 1 and isCaptionBuilder == 1) %}
+		{% set isShowRow = 1 %}
+	{% elseif (settings.captionBuilder.enabled != 1 and isCaptionBuilder != 1) %}
+		{% set isShowRow = 1 %}
+	{% endif %}
+    {% set showDownIcon = '' %}
+    {% if (settings.captionBuilder.enabled != 1 and isCaptionBuilder != 1) %}
+        {% set showDownIcon = form.show_tooltip('downloadIconPro') %}
+    {% endif %}
+
+	{% if isShowRow == 1 %}
+		{{
+			form.row(
+				translate('Show few icons by'),
+				form.select(
+					'icons[showFewIcons]',
+					{
+						'default': translate('Default'),
+						'params': translate('By params')
+					},
+					settings.icons.showFewIcons | default('default'),
+					{ 'style': 'width: auto;', 'id' : 'showFewIconsSel'}
+				),
+				'capt-showt-few-icons-by',
+				'h4'
+			)
+		}}
+		{{
+			form.row(
+				'',
+				form.checkbox(
+					'icons[isVideoIcon]',
+					'1',
+					{'id': 'showVideoIconInp', 'class': 'sggCheckboxInOneRow' } | merge(settings.icons.isVideoIcon == 1 ? {'checked':'checked'} : {})
+				) ~ form.label(
+					translate('Show video icon, if exists'),
+					'showVideoIconInp',
+					{'class': 'sggCheckboxLabelInOneRow'}
+				) ~
+				form.checkbox(
+					'icons[isLinkIcon]',
+					'1',
+					{'id': 'showLinkIconInp', 'class': 'sggCheckboxInOneRow' } | merge(settings.icons.isLinkIcon == 1 ? {'checked':'checked'} : {})
+				) ~ form.label(
+					translate('Show link icon, if exists'),
+					'showLinkIconInp',
+					{'class': 'sggCheckboxLabelInOneRow'}
+				) ~
+				form.checkbox(
+					'icons[isPopupIcon]',
+					'1',
+					{'id': 'showPopupIconInp', 'class': 'sggCheckboxInOneRow' } | merge(settings.icons.isPopupIcon == 1 ? {'checked':'checked'} : {})
+				) ~ form.label(
+					translate('Show popup'),
+					'showPopupIconInp',
+					{'class': 'sggCheckboxLabelInOneRow'}
+				) ~
+                form.checkbox(
+                    'icons[isDownloadIcon]',
+                    '1',
+                    {'id': 'showDownloadIconInp', 'class': 'sggCheckboxInOneRow' } | merge(settings.icons.isDownloadIcon == 1 and settings.captionBuilder.enabled == 1 ? {'checked':'checked'} : {}) | merge(settings.captionBuilder.enabled != 1 and isCaptionBuilder != 1 ? {'data-disabled':'disabled'} : {})
+                ) ~ form.label(
+                    translate('Show download'),
+                    'showDownloadIconInp',
+                    {'class': 'sggCheckboxLabelInOneRow'}
+                ) ~ showDownIcon,
+				'capt-showv-few-icons-by',
+				null,
+				'sggFewIconsShowingRow'
+			)
+		}}
+	{% endif %}
+{% endmacro %}

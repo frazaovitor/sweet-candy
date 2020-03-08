@@ -1,0 +1,84 @@
+********************************************************************************
+DUPLICATOR-LITE PACKAGE-LOG: 8 de March de 2020 14:41
+NOTICE: Do NOT post to public sites or forums 
+********************************************************************************
+VERSION:	1.3.28
+WORDPRESS:	5.3.2
+PHP INFO:	7.4.3 | SAPI: apache2handler
+SERVER:		Apache/2.4.41 (Win64) OpenSSL/1.1.1c PHP/7.4.3 
+PHP TIME LIMIT: (0) no time limit imposed 
+PHP MAX MEMORY: 4294967296 (512M default) 
+MEMORY STACK: 4MB
+
+********************************************************************************
+DATABASE:
+********************************************************************************
+BUILD MODE:   MYSQLDUMP
+MYSQLTIMEOUT: 5000
+MYSQLDUMP:    Is Supported
+SQL CREATED: 20200308_sweetcandybrasil_271d30a4c91adc5c1408_20200308143936_database.sql
+SQL FILE SIZE: 2.3MB (2409855)
+SQL FILE TIME: 2020-03-08 14:41:33
+SQL RUNTIME: 33.03 sec.
+
+********************************************************************************
+ARCHIVE (ZIP):
+********************************************************************************
+ARCHIVE DIR:  C:/xampp/htdocs/tuxcar
+ARCHIVE FILE: 20200308_sweetcandybrasil_271d30a4c91adc5c1408_20200308143936_archive.zip
+FILTERS: *OFF*
+DIRS:
+	not set
+FILES:
+	not set
+EXTS:  not set
+----------------------------------------
+COMPRESSING
+SIZE:	119.88MB
+STATS:	Dirs 597 | Files 6,782
+SQL ADDED: 20200308_sweetcandybrasil_271d30a4c91adc5c1408_20200308143936_database.sql
+ZipArchive Object
+(
+    [status] => 0
+    [statusSys] => 0
+    [numFiles] => 7379
+    [filename] => C:\xampp\htdocs\tuxcar\wp-snapshots\tmp\20200308_sweetcandybrasil_271d30a4c91adc5c1408_20200308143936_archive.zip
+    [comment] => 
+)
+
+FILE ADDED TO ZIP: 7378
+COMPRESSION RESULT: '1'
+COMPRESSED SIZE: 75.17MB
+ARCHIVE RUNTIME: 123.97 sec.
+MEMORY STACK: 6MB
+building installer
+add_extra_files1
+add_extra_files2
+add_extra_files3
+add_extra_files4
+Doing archive file check
+add_extra_files5
+add_extra_files6
+add_extra_files8
+Successfully opened zip C:/xampp/htdocs/tuxcar/wp-snapshots/tmp/20200308_sweetcandybrasil_271d30a4c91adc5c1408_20200308143936_archive.zip
+Adding enhanced installer files to archive using ZipArchive
+Installer files added to archive
+Added to archive
+After ziparchive close when adding installer
+
+********************************************************************************
+INTEGRITY CHECKS:
+********************************************************************************
+SQL FILE: 2.3MB
+INSTALLER FILE: 60.53KB
+ARCHIVE FILE: 76.58MB 
+EXPECTED FILE/DIRECTORY COUNT: 7,379
+ACTUAL FILE/DIRECTORY COUNT: 7,378
+ARCHIVE CONSISTENCY TEST: Pass
+
+********************************************************************************
+RECORD ID:[2]
+TOTAL PROCESS RUNTIME: 164.31 sec.
+PEAK PHP MEMORY USED: 8MB
+DONE PROCESSING => 20200308_sweetcandybrasil 8 de March de 2020 14:43
+

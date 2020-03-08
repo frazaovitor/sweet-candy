@@ -1,0 +1,94 @@
+{% extends 'grid-gallery.twig' %}
+
+{% block header %}
+
+    <nav id="supsystic-breadcrumbs" class="supsystic-breadcrumbs">
+        {#<a href="{{ environment.generateUrl('galleries') }}">{{ translate('Gallery by Supsystic') }}</a>#}
+        {#<i class="fa fa-angle-right"></i>#}
+        <a href="{{ environment.generateUrl('galleries') }}">{{ translate('Galleries') }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': gallery.id }) }}">{{ gallery.title }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{{ environment.generateUrl('galleries', 'addImages', { 'gallery_id': gallery.ud }) }}">
+            {{ translate('Add Images') }}
+        </a>
+    </nav>
+
+    <section class="supsystic-bar" id="single-gallery-toolbar">
+        <ul class="supsystic-bar-controls">
+
+            <li>
+                <a class="button button-primary" data-button="add"
+                   href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': gallery.id, 'view': viewType }) }}"
+                   disabled>
+                    {{ translate('Add selected items') }}
+                </a>
+            </li>
+
+            <li>
+                <a id="btn-cancel"
+                   href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': gallery.id, 'view': viewType }) }}"
+                   class="button">
+                    {{ translate('Cancel') }}
+                </a>
+            </li>
+
+            <li class="separator">|</li>
+
+            <li>
+                <button id="gg-btn-select" class="button">
+                    <i class="fa fa-check-square-o fa-fw"></i>
+                </button>
+            </li>
+
+            {% if viewType == 'block' %}
+                <li style="float:right">
+                    <a class="button"
+                       href="{{ environment.generateUrl('galleries', 'addImages', { 'gallery_id': gallery.id, 'view': 'list' }) }}">
+                        <i class="fa fa-fw fa-list"></i>
+                    </a>
+                </li>
+            {% endif %}
+
+            {#{% if viewType == 'list' %}
+                <li style="float:right">
+                    <a class="button"
+                       href="{{ environment.generateUrl('galleries', 'addImages', { 'gallery_id': gallery.id, 'view': 'block' }) }}">
+                        <i class="fa fa-fw fa-th"></i>
+                    </a>
+                </li>
+            {% endif %}#}
+
+        </ul>
+    </section>
+
+{% endblock %}
+
+{% block content %}
+
+    {% import '@photos/macros/photos.twig' as list %}
+
+    {% if photos is empty and folders is empty %}
+
+        <h2 style="text-align: center; color: #bfbfbf; margin: 50px 0 25px 0;">
+            <span style="margin-bottom: 20px; display: block;">
+                {{ translate('You need to import images to your gallery before you can start using galleries') }}
+            </span>
+            <a class="button button-primary button-hero" href="{{ environment.generateUrl('galleries', 'view', { 'gallery_id': gallery.id }) }}">
+                {{ translate('Import images') }}
+            </a>
+        </h2>
+
+    {% else %}
+
+        {% import "@ui/type.twig" as view %}
+        {% set entity = { 'images': photos, 'folders': folders } %}
+
+        {% if viewType == 'block' %}
+            {{ view.block_view(entity) }}
+        {% else %}
+            {{ view.list_view(entity) }}
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

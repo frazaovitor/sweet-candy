@@ -1,0 +1,13 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <ul class="subsubsub">
+        <a href="{{ environment.generateUrl('developer', 'index') }}" class="button">Info</a>
+        <a href="{{ environment.generateUrl('developer', 'log') }}" class="button">Logs</a>
+    </ul>
+    <div style="width: 100%; margin-top: 10px;">
+        <textarea
+                style="width: 100%; min-height: 400px; font-family: 'Courier New', Courier, monospace">{{ log|default('Log is empty') }}</textarea>
+    </div>
+
+{% endblock %}
