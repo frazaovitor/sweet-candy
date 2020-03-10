@@ -37,3 +37,48 @@ COMPRESSING
 SIZE:	329.83MB
 STATS:	Dirs 1,132 | Files 9,980
 SQL ADDED: 20200308_sweetcandybrasil_546d0c8f4fc030105058_20200309230550_database.sql
+ZipArchive Object
+(
+    [status] => 0
+    [statusSys] => 0
+    [numFiles] => 11112
+    [filename] => C:\xampp\htdocs\tuxcar\wp-snapshots\tmp\20200308_sweetcandybrasil_546d0c8f4fc030105058_20200309230550_archive.zip
+    [comment] => 
+)
+
+FILE ADDED TO ZIP: 11111
+COMPRESSION RESULT: '1'
+COMPRESSED SIZE: 272.47MB
+ARCHIVE RUNTIME: 792.02 sec.
+MEMORY STACK: 10MB
+building installer
+add_extra_files1
+add_extra_files2
+add_extra_files3
+add_extra_files4
+Doing archive file check
+add_extra_files5
+add_extra_files6
+add_extra_files8
+Successfully opened zip C:/xampp/htdocs/tuxcar/wp-snapshots/tmp/20200308_sweetcandybrasil_546d0c8f4fc030105058_20200309230550_archive.zip
+Adding enhanced installer files to archive using ZipArchive
+Installer files added to archive
+Added to archive
+After ziparchive close when adding installer
+
+********************************************************************************
+INTEGRITY CHECKS:
+********************************************************************************
+SQL FILE: 3.18MB
+INSTALLER FILE: 60.54KB
+ARCHIVE FILE: 273.93MB 
+EXPECTED FILE/DIRECTORY COUNT: 11,112
+ACTUAL FILE/DIRECTORY COUNT: 11,111
+ARCHIVE CONSISTENCY TEST: Pass
+
+********************************************************************************
+RECORD ID:[3]
+TOTAL PROCESS RUNTIME: 850.03 sec.
+PEAK PHP MEMORY USED: 12MB
+DONE PROCESSING => 20200308_sweetcandybrasil 9 de March de 2020 23:21
+
