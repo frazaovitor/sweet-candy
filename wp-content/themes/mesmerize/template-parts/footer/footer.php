@@ -3,7 +3,9 @@
         <div class="gridContainer">
 	        <div class="row middle-xs footer-content-row">
 	            <div class="footer-content-col col-xs-12">
-	                    <?php echo mesmerize_get_footer_copyright(); ?>
+	                  <p style="color:#a63a50">
+						  Sweet Candy Brasil - Todos os direitos reservados
+					</p>
 	            </div>
 	        </div>
 	    </div>
